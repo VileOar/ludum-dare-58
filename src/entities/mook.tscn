@@ -1,24 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dik4hsetomi4v"]
+[gd_scene load_steps=5 format=3 uid="uid://dik4hsetomi4v"]
 
 [ext_resource type="Script" uid="uid://bvi62h2rmxdjb" path="res://src/entities/mook.gd" id="1_eu1mi"]
-[ext_resource type="Texture2D" uid="uid://wy4xse3xbaje" path="res://icon.svg" id="2_w1ghx"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eu1mi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_w1ghx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_w1ghx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_w1ghx")
-}],
-"loop": true,
-"name": &"idle1",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://cxebhbvprf5m6" path="res://assets/spriteframes/lozenge_frames.tres" id="2_eu1mi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woljm"]
 size = Vector2(48, 48)
@@ -32,9 +15,11 @@ script = ExtResource("1_eu1mi")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
-scale = Vector2(0.37499997, 0.37499997)
-sprite_frames = SubResource("SpriteFrames_eu1mi")
-animation = &"idle1"
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_eu1mi")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.8170023
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_woljm")

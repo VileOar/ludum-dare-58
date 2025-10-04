@@ -4,8 +4,8 @@ class_name Mook
 const WANDER_SPEED := Global.BLOCK * 0.5
 const PANIC_SPEED := Global.BLOCK * 2.0
 
-const IDLE_MIN_DUR := 3.0
-const IDLE_MAX_DUR := 10.0
+const IDLE_MIN_DUR := 2.0
+const IDLE_MAX_DUR := 5.0
 const WANDER_MIN_DUR := 0.5
 const WANDER_MAX_DUR := 3.0
 
@@ -34,11 +34,13 @@ var _state_updates: Dictionary[States, Callable] = {
 	States.IDLE: _state_idle,
 	States.WANDER: _state_wander,
 	States.PANIC: _state_panic,
-	States.ANIM: _state_none,
+	States.ANIM: _state_anim,
 }
 
 var _idle_anims: Array[String] = [
-	"idle1" # TODO: add more
+	"blink",
+	"turn",
+	"unique",
 ]
 
 var _stats: MookStats
@@ -53,6 +55,20 @@ var _dirty_state: bool = true
 
 # direction vector of movement
 var _mov_dir := Vector2.ZERO
+
+
+# TODO: remove
+func _ready() -> void:
+	var shape = randi() % 4
+	match shape:
+		0:
+			_sprite.sprite_frames = preload("uid://dntarescsau6g")
+		1:
+			_sprite.sprite_frames = preload("uid://2sswebanku4p")
+		2:
+			_sprite.sprite_frames = preload("uid://d0rf6l76dby5")
+		3:
+			_sprite.sprite_frames = preload("uid://cxebhbvprf5m6")
 
 
 func _physics_process(delta: float) -> void:
@@ -74,6 +90,11 @@ func is_panic() -> bool:
 	return _state == States.PANIC
 
 
+func do_the_wave():
+	_change_state(States.ANIM)
+	_sprite.play("wave")
+
+
 # whether this entity can get out of panic state and enters panic state with mouse
 func _is_panicable() -> bool:
 	return _stats != null and !_stats.is_common()
@@ -84,6 +105,8 @@ func _move_and_bounce(speed: float, delta: float):
 	
 	if collision:
 		_mov_dir = _mov_dir.bounce(collision.get_normal())
+	
+	_sprite.scale.x = -sign(_mov_dir.x) * abs(_sprite.scale.x)
 
 
 func _change_state(new_state: States):
@@ -100,16 +123,13 @@ func _get_first_neighbour() -> Node2D:
 
 # --- || State update methods || ---
 
-# empty state
-func _state_none(_delta: float):
-	pass
-
 
 func _state_idle(_delta: float):
 	if _dirty_state:
 		_state_change_timer.start(randf_range(IDLE_MIN_DUR, IDLE_MAX_DUR))
 		_mov_dir = Vector2.ZERO
 		_dirty_state = false
+		_sprite.play("idle")
 	
 	var neighbour = _get_first_neighbour()
 	if is_instance_valid(neighbour):
@@ -117,7 +137,7 @@ func _state_idle(_delta: float):
 		_change_state(States.WANDER)
 	
 	if _state_change_timer.is_stopped():
-		var next_state = States.WANDER if randf() > 0.5 else States.ANIM
+		var next_state = States.WANDER if randf() < 0.1 else States.ANIM
 		_change_state(next_state)
 
 
@@ -127,6 +147,7 @@ func _state_wander(delta: float):
 		if _mov_dir.length_squared() == 0:
 			_mov_dir = Vector2.from_angle(randf_range(0, 2*PI))
 		_dirty_state = false
+		_sprite.play("walk")
 	
 	_move_and_bounce(WANDER_SPEED, delta)
 	
@@ -140,6 +161,7 @@ func _state_panic(delta: float):
 		_state_change_timer.start(randf_range(PANIC_MIN_DUR, PANIC_MAX_DUR))
 		_mov_dir = Vector2.from_angle(randf_range(0, 2*PI))
 		_dirty_state = false
+		_sprite.play("run")
 	
 	_move_and_bounce(PANIC_SPEED, delta)
 	
@@ -152,11 +174,13 @@ func _state_anim(_delta: float):
 	if _dirty_state:
 		_mov_dir = Vector2.ZERO
 		_dirty_state = false
-		var anim = _idle_anims[randi() % _idle_anims.size()]
+		var anim = _sprite.animation
+		if anim != "wave":
+			anim = _idle_anims[randi() % _idle_anims.size()]
 		_sprite.pause()
 		_sprite.play(anim)
 
 
 func _on_sprite_animation_finished() -> void:
 	if _state == States.ANIM:
-		_state = States.IDLE
+		_change_state(States.IDLE)
