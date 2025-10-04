@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Utils="*res://src/autoload/Utils.gd"
 Signals="*res://src/autoload/Signals.gd"
 Global="*res://src/autoload/Global.gd"
+DexManager="*res://src/autoload/DexManager.gd"
 
 [display]
 
