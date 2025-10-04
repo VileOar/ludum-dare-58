@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cofyigip5wrss"]
+
+[node name="AudioManager" type="Node2D"]
+process_mode = 3
+
+[node name="UI" type="Node" parent="."]
+
+[node name="ButtonAccept" type="AudioStreamPlayer" parent="UI"]
+volume_db = -10.0
+max_polyphony = 10
+
+[node name="ButtonDecline" type="AudioStreamPlayer" parent="UI"]
+volume_db = -20.0
+max_polyphony = 10
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="UI"]
+volume_db = -10.0
+max_polyphony = 10
+
+[node name="FestivalMusic" type="Node" parent="."]
+
+[node name="MusicNumber1" type="AudioStreamPlayer" parent="FestivalMusic"]
+
+[node name="MusicNumber2" type="AudioStreamPlayer" parent="FestivalMusic"]
+
+[node name="MusicNumber3" type="AudioStreamPlayer" parent="FestivalMusic"]
+
+[node name="MusicNumber4" type="AudioStreamPlayer" parent="FestivalMusic"]
+
+[node name="MainMenuMusic" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="MainMenuMusic"]
+volume_db = -10.0
+
+[node name="Ambience" type="AudioStreamPlayer" parent="MainMenuMusic"]
+volume_db = -27.0
+
+[node name="Music" type="Node" parent="."]
+
+[node name="EndRound" type="AudioStreamPlayer" parent="Music"]
+volume_db = -20.0
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="Music"]
+volume_db = -20.0
+
+[node name="EndGame" type="AudioStreamPlayer" parent="Music"]
+volume_db = -13.5
+
+[node name="Arena" type="AudioStreamPlayer" parent="Music"]
+volume_db = -13.5
+
+[node name="Menu" type="AudioStreamPlayer" parent="Music"]
+volume_db = -20.0
+
+[node name="ShootAudioQueue" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ShootAudioQueue"]
