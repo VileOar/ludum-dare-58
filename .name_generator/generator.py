@@ -41,18 +41,23 @@ if __name__ == "__main__":
 
 
     # Populate dictionary
+    names_cache = [] # used to prevent duplicate entries by keeping track
+
     for shape in final_dict:
         for colour in final_dict[shape]:
             for rarity in final_dict[shape][colour]:
                 for x in range(amounts[rarity]):
                     new_name = random.choice(forenames_array) + " " + random.choice(surnames_array)
-                    final_dict[shape][colour][rarity].append(new_name)
+
+                    if new_name in names_cache:
+                        # Too lazy to do a timeout thingy. Generate again if warning comes up.
+                        print("WARNING: Reapeted name encountered!")
+                        pass
+                    else:
+                        final_dict[shape][colour][rarity].append(new_name)
+                        names_cache.append(new_name)
 
 
     # Output json file
     with open(path_output, 'w', encoding='utf-8') as f:
         json.dump(final_dict, f, ensure_ascii=False, indent=4)
-
-
-
-
