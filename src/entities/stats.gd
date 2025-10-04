@@ -1,36 +1,15 @@
 extends Resource
 class_name MookStats
 
-enum Shapes {
-	POINTY,
-	BLOCKY,
-	CHUBBY,
-	STUBBY
-}
 
-enum Colours {
-	RED,
-	GREEN,
-	BLUE,
-	CYAN,
-	MAGENTA,
-	YELLOW
-}
+var shape: Global.Shapes
 
-enum Rarity {
-	COMMON,
-	RARE1,
-	RARE2
-}
+var colour: Global.Colours
 
-var shape: Shapes
-
-var colour: Colours
-
-var rarity: Rarity
+var rarity: Global.Rarities
 
 var name: String
 
 
 func is_common() -> bool:
-	return rarity <= Rarity.COMMON
+	return rarity <= Global.Rarities.COMMON
