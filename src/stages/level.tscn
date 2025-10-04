@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctt72jhrk3frn"]
+
+[ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
+[ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqyx5"]
+size = Vector2(64, 952)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_264d3"]
+size = Vector2(64, 952)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vs6yo"]
+size = Vector2(1792, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hfpf"]
+size = Vector2(1792, 64)
+
+[node name="Level" type="Node"]
+script = ExtResource("1_vs6yo")
+_MOOK_PCK = ExtResource("1_nqyx5")
+_spawn_bounds = Rect2(128, 128, 1664, 832)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls"]
+position = Vector2(32, 540)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
+shape = SubResource("RectangleShape2D_nqyx5")
+
+[node name="WallRight" type="StaticBody2D" parent="Walls"]
+position = Vector2(1888, 540)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
+shape = SubResource("RectangleShape2D_264d3")
+
+[node name="WallTop" type="StaticBody2D" parent="Walls"]
+position = Vector2(960, 32)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop"]
+shape = SubResource("RectangleShape2D_vs6yo")
+
+[node name="WallTop2" type="StaticBody2D" parent="Walls"]
+position = Vector2(960, 1048)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop2"]
+shape = SubResource("RectangleShape2D_7hfpf")
+
+[node name="Entities" type="Node2D" parent="."]
