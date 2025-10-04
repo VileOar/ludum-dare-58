@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://iorpodfv3lm7"]
+
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
+[ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/ui/main_menu.gd" id="2_806vh"]
+[ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_vna5b"]
+[ext_resource type="PackedScene" uid="uid://ctt72jhrk3frn" path="res://src/stages/level.tscn" id="3_tlms7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s8g4t")
+script = ExtResource("2_806vh")
+_game_scene = ExtResource("3_tlms7")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2.743707, 2.743707)
+texture = ExtResource("2_vna5b")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 1036.0
+offset_bottom = 344.0
+theme_override_font_sizes/font_size = 144
+text = "Untitled Game"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 257.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 72
+text = "Play"
+
+[node name="CollectionButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 510.0
+offset_right = 432.0
+offset_bottom = 590.0
+theme_override_font_sizes/font_size = 72
+text = "Collection"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 620.0
+offset_right = 347.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 72
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 730.0
+offset_right = 270.0
+offset_bottom = 810.0
+theme_override_font_sizes/font_size = 72
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 840.0
+offset_right = 270.0
+offset_bottom = 920.0
+theme_override_font_sizes/font_size = 72
+text = "Quit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CollectionButton" to="." method="_on_collection_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
