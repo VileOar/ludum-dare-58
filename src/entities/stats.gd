@@ -5,7 +5,7 @@ var shape: Global.Shapes
 
 var colour: Global.Colours
 
-var rarity: Global.Rarity
+var rarity: Global.Rarities
 
 var name: String
 
@@ -17,4 +17,4 @@ static func build_random_stats() -> MookStats:
 
 
 func is_common() -> bool:
-	return rarity <= Global.Rarity.COMMON
+	return rarity <= Global.Rarities.COMMON

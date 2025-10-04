@@ -13,15 +13,15 @@ enum Shapes {
 
 enum Colours {
 	RED,
-	GREEN,
-	BLUE,
-	CYAN,
-	MAGENTA,
-	YELLOW
+	ORANGE,
+	YELLOW,
+	GREEN, 
+	BLUE, 
+	PURPLE 
 }
 
-enum Rarity {
+enum Rarities {
 	COMMON,
-	RARE1,
-	RARE2
+	RARE,
+	LEGENDARY
 }
