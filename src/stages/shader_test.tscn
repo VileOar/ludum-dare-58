@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cuck3xhfpuxhj"]
 
-[ext_resource type="Script" uid="uid://m3rrt3cughcu" path="res://src/scripts/inline_shader_uniforms.gd" id="1_hs0b1"]
+[ext_resource type="Script" uid="uid://m3rrt3cughcu" path="res://src/scripts/mouse_circle_uniforms.gd" id="1_hs0b1"]
 [ext_resource type="Material" uid="uid://55itr7iy2vd7" path="res://assets/shaders/red_material.tres" id="2_d7p3d"]
 [ext_resource type="Texture2D" uid="uid://bph7nei57g2yd" path="res://assets/gfx/triangle.png" id="4_d7p3d"]
 [ext_resource type="Material" uid="uid://cmbapm0r0q0qh" path="res://assets/shaders/green_material.tres" id="4_l5rcx"]
@@ -816,7 +816,7 @@ texture = ExtResource("4_d7p3d")
 
 [node name="Triangle134" type="Sprite2D" parent="."]
 material = ExtResource("2_d7p3d")
-position = Vector2(32.250244, 387.25)
+position = Vector2(54, 396.80002)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("4_d7p3d")
 
