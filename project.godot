@@ -18,9 +18,19 @@ config/icon="res://icon.svg"
 
 Utils="*res://src/autoload/Utils.gd"
 Signals="*res://src/autoload/Signals.gd"
+Global="*res://src/autoload/Global.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="mook"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
