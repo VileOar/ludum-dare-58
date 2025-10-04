@@ -6,8 +6,8 @@ const PANIC_SPEED := Global.BLOCK * 2.0
 
 const IDLE_MIN_DUR := 3.0
 const IDLE_MAX_DUR := 10.0
-const WANDER_MIN_DUR := 1.0
-const WANDER_MAX_DUR := 5.0
+const WANDER_MIN_DUR := 0.5
+const WANDER_MAX_DUR := 3.0
 
 const PANIC_MIN_DUR := 3.0
 const PANIC_MAX_DUR := 7.0
@@ -25,6 +25,7 @@ enum States {
 	PANIC
 }
 
+@onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _proximity_detector: Area2D = $ProximityDetector
 @onready var _state_change_timer: Timer = $StateChangeTimer
 
@@ -35,6 +36,10 @@ var _state_updates: Dictionary[States, Callable] = {
 	States.PANIC: _state_panic,
 	States.ANIM: _state_none,
 }
+
+var _idle_anims: Array[String] = [
+	"idle1" # TODO: add more
+]
 
 var _stats: MookStats
 
@@ -71,7 +76,7 @@ func is_panic() -> bool:
 
 # whether this entity can get out of panic state and enters panic state with mouse
 func _is_panicable() -> bool:
-	return !_stats.is_common()
+	return _stats != null and !_stats.is_common()
 
 
 func _move_and_bounce(speed: float, delta: float):
@@ -86,8 +91,11 @@ func _change_state(new_state: States):
 	_dirty_state = true
 
 
-func _is_crowded() -> bool:
-	return !_proximity_detector.get_overlapping_bodies().is_empty()
+func _get_first_neighbour() -> Node2D:
+	for n in _proximity_detector.get_overlapping_bodies():
+		if n != self:
+			return n
+	return null
 
 
 # --- || State update methods || ---
@@ -103,23 +111,27 @@ func _state_idle(_delta: float):
 		_mov_dir = Vector2.ZERO
 		_dirty_state = false
 	
+	var neighbour = _get_first_neighbour()
+	if is_instance_valid(neighbour):
+		_mov_dir = neighbour.position.direction_to(position)
+		_change_state(States.WANDER)
+	
 	if _state_change_timer.is_stopped():
-		var wander_or_anim = randf() > 0.5
-		if _is_crowded() or wander_or_anim:
-			_change_state(States.WANDER)
-		else:
-			_change_state(States.ANIM)
+		var next_state = States.WANDER if randf() > 0.5 else States.ANIM
+		_change_state(next_state)
 
 
 func _state_wander(delta: float):
 	if _dirty_state:
 		_state_change_timer.start(randf_range(WANDER_MIN_DUR, WANDER_MAX_DUR))
-		_mov_dir = Vector2.from_angle(randf_range(0, 2*PI))
+		if _mov_dir.length_squared() == 0:
+			_mov_dir = Vector2.from_angle(randf_range(0, 2*PI))
 		_dirty_state = false
 	
 	_move_and_bounce(WANDER_SPEED, delta)
 	
 	if _state_change_timer.is_stopped():
+		_mov_dir = Vector2.ZERO
 		_change_state(States.IDLE)
 
 
@@ -134,3 +146,17 @@ func _state_panic(delta: float):
 	# will only get out of panic state if it is not panicable (became panicked by infection)
 	if _state_change_timer.is_stopped() and !_is_panicable():
 		_change_state(States.IDLE)
+
+
+func _state_anim(_delta: float):
+	if _dirty_state:
+		_mov_dir = Vector2.ZERO
+		_dirty_state = false
+		var anim = _idle_anims[randi() % _idle_anims.size()]
+		_sprite.pause()
+		_sprite.play(anim)
+
+
+func _on_sprite_animation_finished() -> void:
+	if _state == States.ANIM:
+		_state = States.IDLE

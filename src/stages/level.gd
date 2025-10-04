@@ -13,6 +13,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
 		if (event as InputEventKey).keycode == KEY_SPACE:
 			_spawn_crowd(100)
+			$Label.hide()
 
 
 func _spawn_crowd(amount: int):
@@ -25,8 +26,7 @@ func _spawn_crowd(amount: int):
 
 
 func _spawn_mook(pos: Vector2):
-	var mook = _MOOK_PCK.instantiate()
+	var mook = _MOOK_PCK.instantiate() as Mook
 	mook.position = pos
-	# TODO: generate random stats
-	
+	mook.set_stats(MookStats.build_random_stats())
 	_entities.add_child(mook)
