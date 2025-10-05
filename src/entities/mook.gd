@@ -83,9 +83,12 @@ func _physics_process(delta: float) -> void:
 
 func set_stats(new_stats: MookStats):
 	_stats = new_stats
+	$Sprite.material = Global.Materials[_stats.colour]
+
 
 func get_stats() -> MookStats:
 	return _stats
+
 
 # whether this entity is in panic state
 func is_panic() -> bool:

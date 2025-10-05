@@ -13,6 +13,7 @@ var name: String
 static func build_random_stats() -> MookStats:
 	var stats = MookStats.new()
 	# TODO: give random values according to probabilities
+	stats.colour = Global.Colours.values()[randi() % Global.Colours.size()]
 	return stats
 
 

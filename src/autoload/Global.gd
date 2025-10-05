@@ -28,6 +28,7 @@ enum Shapes {
 	STUBBY
 }
 
+# if changed then also change material list
 enum Colours {
 	RED,
 	ORANGE,
@@ -36,6 +37,15 @@ enum Colours {
 	BLUE, 
 	PURPLE 
 }
+
+var Materials = [
+	preload("res://assets/shaders/red_material.tres"),		# RED = 0
+	preload("res://assets/shaders/orange_material.tres"),	# ORANGE = 1
+	preload("res://assets/shaders/yellow_material.tres"),	# YELLOW = 2
+	preload("res://assets/shaders/green_material.tres"),	# GREEN = 3
+	preload("res://assets/shaders/blue_material.tres"),		# BLUE = 4
+	preload("res://assets/shaders/purple_material.tres")	# PURPLE = 5
+]
 
 enum Rarities {
 	COMMON,

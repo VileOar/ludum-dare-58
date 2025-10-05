@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=9 format=3 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
+[ext_resource type="Script" uid="uid://m3rrt3cughcu" path="res://src/scripts/mouse_circle_uniforms.gd" id="3_264d3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqyx5"]
 size = Vector2(64, 952)
@@ -81,5 +82,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Press Space to test spawn"
+
+[node name="MouseCircleUniforms" type="Node2D" parent="."]
+script = ExtResource("3_264d3")
 
 [connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
