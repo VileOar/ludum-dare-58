@@ -42,10 +42,11 @@ size = Vector2(500, 460)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8p13"]
 size = Vector2(32, 1080)
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" node_paths=PackedStringArray("_center_blocked")]
 script = ExtResource("1_vs6yo")
 _MOOK_PCK = ExtResource("1_nqyx5")
 _spawn_bounds = Rect2(80, 280, 2870, 1280)
+_center_blocked = NodePath("Walls/CenterBlock")
 metadata/_edit_horizontal_guides_ = [866.0]
 metadata/_edit_vertical_guides_ = [1519.0, -507.0]
 
