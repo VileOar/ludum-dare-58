@@ -10,6 +10,7 @@ var roaming_souls := 0
 func _ready():
 	var item_dict = load_name_data()
 
+	var counter = 0
 	# Create dex_entries
 	for shape in item_dict.keys():
 		dex_entries.set(Global.Shapes[shape], {})
