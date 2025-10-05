@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://ct0dj0herf2a6"]
+[gd_scene load_steps=3 format=3 uid="uid://ct0dj0herf2a6"]
 
-[node name="DexMenu" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" uid="uid://unb67m12x8bk" path="res://src/ui/menus/dex/dex_menu.gd" id="1_k4tns"]
+[ext_resource type="PackedScene" uid="uid://c7w84b7bmhi4v" path="res://src/ui/menus/dex/DexEntry.tscn" id="2_lt30j"]
+
+[node name="DexMenu" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_k4tns")
+entry_scene = ExtResource("2_lt30j")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="List" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

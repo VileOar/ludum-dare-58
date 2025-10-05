@@ -1,7 +1,7 @@
 {
-    "Pointy": {
-        "Red": {
-            "Common": [
+    "POINTY": {
+        "RED": {
+            "COMMON": [
                 "Dmytro Kritikos",
                 "Habib Guzmán",
                 "Charlotte Williams",
@@ -15,7 +15,7 @@
                 "Elizaveta Parisi",
                 "Si-woo Gjoni"
             ],
-            "Rare": [
+            "RARE": [
                 "Juliana Edry",
                 "Theo Muñoz",
                 "Sophie Sano",
@@ -23,15 +23,15 @@
                 "Samuel Schroeder",
                 "Yoana Jones"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Emma Raj",
                 "Viktoriya Yang",
                 "Fatima Antunes",
                 "Lana Fernández"
             ]
         },
-        "Orange": {
-            "Common": [
+        "ORANGE": {
+            "COMMON": [
                 "Lwandle Järvinen",
                 "Matthildur Hossain",
                 "Youssef Jayasinghe",
@@ -45,7 +45,7 @@
                 "Haru Bolat",
                 "Heikapu Castillo"
             ],
-            "Rare": [
+            "RARE": [
                 "María Choy",
                 "Ali Van Dijk",
                 "Prakash Johansson",
@@ -53,15 +53,15 @@
                 "Elija Delgado",
                 "Logan Salas"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Noah Mladenovski",
                 "Isabella Moreno",
                 "Ian Zaytsev",
                 "Harun Ueta"
             ]
         },
-        "Yellow": {
-            "Common": [
+        "YELLOW": {
+            "COMMON": [
                 "Mia Ferreira",
                 "Samyar Sørensen",
                 "Amelia Fernández",
@@ -75,7 +75,7 @@
                 "Ximena Liepiņš",
                 "Omar Wojciechowski"
             ],
-            "Rare": [
+            "RARE": [
                 "Lucas Koak",
                 "Yasmin Grabowski",
                 "Willow Thomas",
@@ -83,15 +83,15 @@
                 "Luca Čengić",
                 "Emiliya Castañeda"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Gabriel Ghim",
                 "Rafael Edry",
                 "Rose-Merline Bizjak",
                 "Sebastian Yosef"
             ]
         },
-        "Green": {
-            "Common": [
+        "GREEN": {
+            "COMMON": [
                 "Jelena Gang",
                 "Adam Mitchell",
                 "Julia Fujihara",
@@ -105,7 +105,7 @@
                 "Ji-an Chhim",
                 "Titaina Rajapaksha"
             ],
-            "Rare": [
+            "RARE": [
                 "Gabriel Ross",
                 "Sebastián Jovanović",
                 "Liam González",
@@ -113,15 +113,15 @@
                 "Abd Torres",
                 "Alice Phan"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Kai Sousa",
                 "Archie Serrano",
                 "Kári Ilić",
                 "Merjem Van Leeuwen"
             ]
         },
-        "Blue": {
-            "Common": [
+        "BLUE": {
+            "COMMON": [
                 "Manua Rizzo",
                 "Noor Öztürk",
                 "Miguel Gunasekara",
@@ -135,7 +135,7 @@
                 "Džan Chim",
                 "Filip Castillo"
             ],
-            "Rare": [
+            "RARE": [
                 "Leo Vera",
                 "Anastasiya Heikkinen",
                 "Angela Shengelia",
@@ -143,15 +143,15 @@
                 "Viktoría Tavares",
                 "Oliver Petrović"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Hasan Larsen",
                 "Rosmery Soto",
                 "James Babić",
                 "Konstantina Peralta"
             ]
         },
-        "Purple": {
-            "Common": [
+        "PURPLE": {
+            "COMMON": [
                 "Safiya Nguyen",
                 "Elnur Sasaki",
                 "Armen Young",
@@ -165,7 +165,7 @@
                 "Olivia García",
                 "Marie Pavlović"
             ],
-            "Rare": [
+            "RARE": [
                 "Mia Ruíz",
                 "Sarah Basile",
                 "Sara Chong",
@@ -173,7 +173,7 @@
                 "Yūna Carter",
                 "Matteo Lei"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Shaikha Trajanoski",
                 "Jakub Chang",
                 "Asiya Khúc",
@@ -181,9 +181,9 @@
             ]
         }
     },
-    "Blocky": {
-        "Red": {
-            "Common": [
+    "BLOCKY": {
+        "RED": {
+            "COMMON": [
                 "Amelia Azevedo",
                 "Laura Ochion",
                 "Sandra Castro",
@@ -197,7 +197,7 @@
                 "Melisa Messina",
                 "Isla Fuchs"
             ],
-            "Rare": [
+            "RARE": [
                 "Inuk Hernández",
                 "Isla Zuu",
                 "Dimitrios Stanković",
@@ -205,15 +205,15 @@
                 "Ava Bairamov",
                 "Bruno Chong"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Naya Manukyan",
                 "Sophie Semyonov",
                 "Óliver Mytaras",
                 "Amayra Sin"
             ]
         },
-        "Orange": {
-            "Common": [
+        "ORANGE": {
+            "COMMON": [
                 "Luca Diederich",
                 "Julieta Marković",
                 "Theo Silva",
@@ -227,7 +227,7 @@
                 "Matías Navarrete",
                 "Theo Olofsson"
             ],
-            "Rare": [
+            "RARE": [
                 "Mateo Smith",
                 "Manish Rojas",
                 "Gabriel Stoyanova",
@@ -235,15 +235,15 @@
                 "Elshan Jayaweera",
                 "Shahd Ghazaryan"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Ahmed Huáng",
                 "Charlotte Kovács",
                 "Aitana Brunner",
                 "Zümra Madrigal"
             ]
         },
-        "Yellow": {
-            "Common": [
+        "YELLOW": {
+            "COMMON": [
                 "Elene Urbonas",
                 "Ane Dubois",
                 "Ivaana Salvador",
@@ -257,7 +257,7 @@
                 "Nazanin-Zahra Santoro",
                 "Daria Seo"
             ],
-            "Rare": [
+            "RARE": [
                 "Elyas Petrovski",
                 "Charlie Vásquez",
                 "Mohammed Fonseca",
@@ -265,15 +265,15 @@
                 "Latifa Alves",
                 "Mia Kılıç"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Elias Valdez",
                 "Theo Tsoi",
                 "Sekou Karlsen",
                 "Isabella Camilleri"
             ]
         },
-        "Green": {
-            "Common": [
+        "GREEN": {
+            "COMMON": [
                 "Ava Watanabe",
                 "Jack Munteanu",
                 "Ion Solovyov",
@@ -287,7 +287,7 @@
                 "Freya Nomura",
                 "Laura Sargsyan"
             ],
-            "Rare": [
+            "RARE": [
                 "Leon Fuentes",
                 "Vesna Andrejev",
                 "Angelo Johnson",
@@ -295,15 +295,15 @@
                 "Vladyslav Sahakyan",
                 "Ema Ramirez"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Olivia Boyko",
                 "Krishna Meng",
                 "Odval Şimşek",
                 "Liz Espinoza"
             ]
         },
-        "Blue": {
-            "Common": [
+        "BLUE": {
+            "COMMON": [
                 "Victoria Roh",
                 "Hanna Santos",
                 "Ioannis Huang",
@@ -317,7 +317,7 @@
                 "Stanisław Chiba",
                 "Hana Lorenzo"
             ],
-            "Rare": [
+            "RARE": [
                 "Zina Abuladze",
                 "Siphosethu Varela",
                 "Artem Miyamoto",
@@ -325,15 +325,15 @@
                 "Antônio Sonn",
                 "Chun-chieh Jiménez"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Charlotte Schroeder",
                 "Liam Chhet",
                 "Santiago Takaki",
                 "Olivia Valdez"
             ]
         },
-        "Purple": {
-            "Common": [
+        "PURPLE": {
+            "COMMON": [
                 "Hussein Joensen",
                 "Ioane Torres",
                 "Youssef Álvarez",
@@ -347,7 +347,7 @@
                 "Aylin Stanković",
                 "Regina Tapia"
             ],
-            "Rare": [
+            "RARE": [
                 "Emma Diallo",
                 "Arman Takada",
                 "Aylin Fernández",
@@ -355,7 +355,7 @@
                 "Yasmine Hasanović",
                 "Laia Mercier"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Sofija Sen",
                 "Victoria Aoki",
                 "Tamar Tapia",
@@ -363,9 +363,9 @@
             ]
         }
     },
-    "Chubby": {
-        "Red": {
-            "Common": [
+    "CHUBBY": {
+        "RED": {
+            "COMMON": [
                 "Charlotte Bravo",
                 "David Ivanoŭ",
                 "Dalila Munteanu",
@@ -379,7 +379,7 @@
                 "Abdoulaye Arben",
                 "Luna Chand"
             ],
-            "Rare": [
+            "RARE": [
                 "Martim Martinez",
                 "Anzu Lambert",
                 "Theodore Auer",
@@ -387,15 +387,15 @@
                 "Himari Navarrete",
                 "William Cortez"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Hina Mora",
                 "Harry Simon",
                 "Lethabo Koak",
                 "Lewis Marino"
             ]
         },
-        "Orange": {
-            "Common": [
+        "ORANGE": {
+            "COMMON": [
                 "Ian Cárdenas",
                 "Rabina Fuentes",
                 "Jack García",
@@ -409,7 +409,7 @@
                 "Mia Tang",
                 "Angeline Powell"
             ],
-            "Rare": [
+            "RARE": [
                 "Fiadh Bytyqi",
                 "Agustina Ramos",
                 "Katerina Kaur",
@@ -417,15 +417,15 @@
                 "Patrícia Rebane",
                 "Tommaso Mamedovi"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Abubakr Khatun",
                 "Anastasia Malcah",
                 "Maryam Hah",
                 "Joseph Navarrete"
             ]
         },
-        "Yellow": {
-            "Common": [
+        "YELLOW": {
+            "COMMON": [
                 "David Di Stefano",
                 "Marios Rodríguez",
                 "Emily Kinnunen",
@@ -439,7 +439,7 @@
                 "Juan Andrés Kazloŭski",
                 "Nil Morgan"
             ],
-            "Rare": [
+            "RARE": [
                 "Joe Kostov",
                 "Fūma Hasani",
                 "Haruma Caputo",
@@ -447,15 +447,15 @@
                 "Carolina Thomas",
                 "Kazi Kučerová"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Victoria Roh",
                 "Ethan Bah",
                 "Paula Thomsen",
                 "Hiro Shkreli"
             ]
         },
-        "Green": {
-            "Common": [
+        "GREEN": {
+            "COMMON": [
                 "Jacob Rim",
                 "Teodora Takata",
                 "Mikołaj Grassi",
@@ -469,7 +469,7 @@
                 "Amir Nhek",
                 "Matei Tuominen"
             ],
-            "Rare": [
+            "RARE": [
                 "Ivan Krajnc",
                 "Jana Rossi",
                 "Rosie Colombo",
@@ -477,15 +477,15 @@
                 "Lev Serrano",
                 "Aïcha Neméth"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Amar Ruíz",
                 "Alexandru Kavalioŭ",
                 "Gogo Schmid",
                 "Huseyn Jayasuriya"
             ]
         },
-        "Blue": {
-            "Common": [
+        "BLUE": {
+            "COMMON": [
                 "Anna de la Cruz",
                 "Yuna Guō",
                 "Markel Navarrete",
@@ -499,7 +499,7 @@
                 "Robert Wilson",
                 "Noah Mejía"
             ],
-            "Rare": [
+            "RARE": [
                 "Pari Martin",
                 "Viraj Van Dyk",
                 "Toivo Doğan",
@@ -507,15 +507,15 @@
                 "Pau Díaz",
                 "Louis Smagulov"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "David Simić",
                 "Shahd Beridze",
                 "Ava Fujiwara",
                 "Wen-Hsiung Rossi"
             ]
         },
-        "Purple": {
-            "Common": [
+        "PURPLE": {
+            "COMMON": [
                 "Gael Braun",
                 "Gabriel Trajanovski",
                 "Sophia Ramirez",
@@ -529,7 +529,7 @@
                 "Tomás Sanhueza",
                 "Angeline Yamashita"
             ],
-            "Rare": [
+            "RARE": [
                 "Rashad Leroy",
                 "Murad Ryu",
                 "Olivia Gatti",
@@ -537,7 +537,7 @@
                 "Hana Gustafsson",
                 "Alessandro Keo"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Lilja Cárdenas",
                 "Kairo Karjalainen",
                 "Olivia Rosario",
@@ -545,9 +545,9 @@
             ]
         }
     },
-    "Stubby": {
-        "Red": {
-            "Common": [
+    "STUBBY": {
+        "RED": {
+            "COMMON": [
                 "Noah Moreno",
                 "Ljiljana Pinto",
                 "Noor Welter",
@@ -561,7 +561,7 @@
                 "Emilia Singh",
                 "Yamato Ông"
             ],
-            "Rare": [
+            "RARE": [
                 "Aria Silva",
                 "Victoria Núñez",
                 "Leni Tân",
@@ -569,15 +569,15 @@
                 "Ayim Brown",
                 "Lilien Lee"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Oliver Серик",
                 "Theodor Rai",
                 "Elnur Yun",
                 "Sarah Jenkins"
             ]
         },
-        "Orange": {
-            "Common": [
+        "ORANGE": {
+            "COMMON": [
                 "Ji-an Kozlov",
                 "Kiara Pinas",
                 "Danylo Palmieri",
@@ -591,7 +591,7 @@
                 "Ioannis Nguyen",
                 "Nina Koval"
             ],
-            "Rare": [
+            "RARE": [
                 "Adrian Katz",
                 "Alikhan Quinn",
                 "Damjan White",
@@ -599,15 +599,15 @@
                 "Emil Nomura",
                 "Franciszek Bailey"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Marija Itō",
                 "Nurislam Nilsen",
                 "Minik Yos",
                 "Amelia Edry"
             ]
         },
-        "Yellow": {
-            "Common": [
+        "YELLOW": {
+            "COMMON": [
                 "Leo Suh",
                 "Noah Miranda",
                 "Sarah Gonçalves",
@@ -621,7 +621,7 @@
                 "Mía Martini",
                 "Jacob Romero"
             ],
-            "Rare": [
+            "RARE": [
                 "Gael Teo",
                 "Ahmed Marković",
                 "Mahamadou Méndez",
@@ -629,15 +629,15 @@
                 "Ella Balázs",
                 "Omar Rodríguez"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Princess Jones",
                 "Yusuf Mejía",
                 "Arjun Tiu",
                 "Emma Maldonado"
             ]
         },
-        "Green": {
-            "Common": [
+        "GREEN": {
+            "COMMON": [
                 "Muhammad Lim",
                 "Matías Lombardo",
                 "Jan Hui",
@@ -651,7 +651,7 @@
                 "Berrdo Hernández",
                 "Nathan Volkov"
             ],
-            "Rare": [
+            "RARE": [
                 "Maximiliano Piotrowski",
                 "Catalina Ozoliņš",
                 "Tom Krličević",
@@ -659,15 +659,15 @@
                 "Sophie Saarinen",
                 "Olivia Hettiarachchi"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Maria Ferreira",
                 "Darija Díaz",
                 "Nia Mägi",
                 "Frida Nieminen"
             ]
         },
-        "Blue": {
-            "Common": [
+        "BLUE": {
+            "COMMON": [
                 "Nora Perez",
                 "Tess Petrović",
                 "Evelina Sanjeewa",
@@ -681,7 +681,7 @@
                 "Doha Castañeda",
                 "Lucas Baumgartner"
             ],
-            "Rare": [
+            "RARE": [
                 "Gaspar Hwang",
                 "Abbas Marchenko",
                 "Markus Jones",
@@ -689,15 +689,15 @@
                 "Mia Ferrari",
                 "Areni Hall"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Leah Pavlović",
                 "Mateo Johnson",
                 "Amelia Morozov",
                 "Adriana Toro"
             ]
         },
-        "Purple": {
-            "Common": [
+        "PURPLE": {
+            "COMMON": [
                 "Sophia Jakobsson",
                 "Anna Ivanova",
                 "Milica Tomić",
@@ -711,7 +711,7 @@
                 "Ava Toro",
                 "Oliver Khlot"
             ],
-            "Rare": [
+            "RARE": [
                 "Amelia Krasniqi",
                 "Matteo Takeda",
                 "Joshua Boyko",
@@ -719,7 +719,7 @@
                 "Nóa Steffen",
                 "Felix Yakovenko"
             ],
-            "Legendary": [
+            "LEGENDARY": [
                 "Charlie Rozman",
                 "Amir Haas",
                 "Michail Fischer",

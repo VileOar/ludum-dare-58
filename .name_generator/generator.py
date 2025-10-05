@@ -6,10 +6,10 @@ import random
 if __name__ == "__main__":
 
     final_dict = {}
-    shapes = ["Pointy", "Blocky", "Chubby", "Stubby"]
-    colours = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"]
-    rarities = ["Common", "Rare", "Legendary"]
-    amounts = {"Common" : 12, "Rare" : 6, "Legendary": 4}
+    shapes = ["POINTY", "BLOCKY", "CHUBBY", "STUBBY"]
+    colours = ["RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE"]
+    rarities = ["COMMON", "RARE", "LEGENDARY"]
+    amounts = {"COMMON" : 12, "RARE" : 6, "LEGENDARY": 4}
 
     path_output = "../assets/data/names_data.json"
 

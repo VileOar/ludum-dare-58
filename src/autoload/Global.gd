@@ -66,6 +66,19 @@ var colour_values = {
 	Colours.PURPLE: Color("ff77a8"),
 }
 
+var shape_tiles = {
+	Shapes.POINTY: preload("uid://bjgvaehjx2h3k"),
+	Shapes.BLOCKY: preload("uid://dj7t4je2haurw"),
+	Shapes.CHUBBY: preload("uid://bem0nxku82aiv"),
+	Shapes.STUBBY: preload("uid://4q8q3wrsvo5x")
+}
+
+var rarity_icons = {
+	Rarities.COMMON: preload("uid://dy6d5usgyxd5a"),
+	Rarities.RARE: preload("uid://dsq5ari0w0eeo"),
+	Rarities.LEGENDARY: preload("uid://bikykts0p4a6x")
+}
+
 func _ready() -> void:
 	for col in Colours.values():
 		var mat = ShaderMaterial.new()
