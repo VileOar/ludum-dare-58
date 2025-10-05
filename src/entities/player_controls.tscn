@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5sj4ygeee2n7"]
 
-[ext_resource type="Script" path="res://src/entities/player_controls.gd" id="1_tc6uf"]
+[ext_resource type="Script" uid="uid://c5uschcqf1kn4" path="res://src/entities/player_controls.gd" id="1_tc6uf"]
 [ext_resource type="PackedScene" uid="uid://curh1fe4l1yja" path="res://src/entities/trail.tscn" id="2_sw6ql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7hfpf"]
@@ -25,3 +25,4 @@ joint_mode = 2
 TRAIL_MAX_LENGTH = 15
 
 [connection signal="body_entered" from="SlashArea" to="." method="_on_slash_area_body_entered"]
+[connection signal="body_exited" from="SlashArea" to="." method="_on_slash_area_body_exited"]
