@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnij3jwk3tqwh"]
+
+[ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="1_vnh7m"]
+[ext_resource type="Script" uid="uid://csrsrdxpb5aa5" path="res://assets/ui/boombox.gd" id="2_dmb4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmb4f"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaj65"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpgk4"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miru0"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnh7m"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6hfj"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42518"]
+atlas = ExtResource("1_vnh7m")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6hfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmb4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaj65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpgk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miru0")
+}],
+"loop": false,
+"name": &"boomin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnh7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6hfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42518")
+}],
+"loop": false,
+"name": &"press",
+"speed": 10.0
+}]
+
+[node name="BoomBox" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_s6hfj")
+animation = &"boomin"
+script = ExtResource("2_dmb4f")
+
+[node name="BoomTimer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]
