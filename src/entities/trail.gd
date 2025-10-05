@@ -7,6 +7,7 @@ var trail_queue: Array
 var is_active: bool
 
 
+# trail logic in physics process so that duration is consistent regardless of fps
 func _physics_process(_delta):
 	var mouse_position = get_viewport().get_mouse_position()
 	
