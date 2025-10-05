@@ -21,7 +21,7 @@ var _wave_active = false
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
 		if (event as InputEventKey).keycode == KEY_SPACE:
-			_spawn_crowd(150)
+			_spawn_crowd(Global.NUM_SPAWNED_MOOKS)
 			$Label.hide()
 		elif (event as InputEventKey).keycode == KEY_E:
 			_start_wave()

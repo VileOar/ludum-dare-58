@@ -3,6 +3,9 @@ extends Node
 # basic unit of measure
 const BLOCK := 64.0
 
+# number of spawned entities on start
+const NUM_SPAWNED_MOOKS := 300
+
 # base value of a collected soul
 const BASE_SCORE : int = 10
 
@@ -44,18 +47,40 @@ enum Rarities {
 	LEGENDARY
 }
 
-var sprite_frames = {
+var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
 	Shapes.POINTY: preload("uid://dntarescsau6g"),
 	Shapes.BLOCKY: preload("uid://2sswebanku4p"),
 	Shapes.CHUBBY: preload("uid://d0rf6l76dby5"),
 	Shapes.STUBBY: preload("uid://cxebhbvprf5m6"),
 }
 
-var Materials = [
-	preload("res://assets/shaders/red_material.tres"),		# RED = 0
-	preload("res://assets/shaders/orange_material.tres"),	# ORANGE = 1
-	preload("res://assets/shaders/yellow_material.tres"),	# YELLOW = 2
-	preload("res://assets/shaders/green_material.tres"),	# GREEN = 3
-	preload("res://assets/shaders/blue_material.tres"),		# BLUE = 4
-	preload("res://assets/shaders/purple_material.tres")	# PURPLE = 5
-]
+# filled with created materials in runtime (see ready())
+var _materials: Dictionary[Colours, ShaderMaterial] = {}
+
+var colour_values = {
+	Colours.RED: Color("ff004d"),
+	Colours.ORANGE: Color("ffa300"),
+	Colours.YELLOW: Color("ffec27"),
+	Colours.GREEN: Color("00e436"),
+	Colours.BLUE: Color("29adff"),
+	Colours.PURPLE: Color("ff77a8"),
+}
+
+func _ready() -> void:
+	for col in Colours.values():
+		var mat = ShaderMaterial.new()
+		mat.shader = preload("uid://h0ncu5q1xcr2")
+		mat.set("shader_parameter/color", colour_values[col])
+		_materials[col] = mat
+
+
+func get_spriteframes_from_shape(shape: Shapes) -> SpriteFrames:
+	return _sprite_frames[shape]
+
+
+func get_material_from_colour(colour: Colours) -> ShaderMaterial:
+	return _materials[colour]
+
+
+func get_all_materials() -> Array[ShaderMaterial]:
+	return _materials.values()
