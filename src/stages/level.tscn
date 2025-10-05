@@ -127,7 +127,7 @@ grow_vertical = 2
 text = "Press Space to test spawn"
 
 [node name="BoomBox" parent="." instance=ExtResource("5_j8obf")]
-position = Vector2(1519, 864)
+position = Vector2(1520, 864)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("_tilemap") instance=ExtResource("5_bxh7n")]
 _tilemap = NodePath("../FestivalTileMap")
