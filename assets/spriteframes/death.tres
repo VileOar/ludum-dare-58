@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bp1p7w5a6c2eh"]
+
+[ext_resource type="Texture2D" uid="uid://cges710rooc6i" path="res://assets/gfx/entities/death.png" id="1_l7eyg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8giu"]
+atlas = ExtResource("1_l7eyg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n7ba"]
+atlas = ExtResource("1_l7eyg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpk2s"]
+atlas = ExtResource("1_l7eyg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7heod"]
+atlas = ExtResource("1_l7eyg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kolwr"]
+atlas = ExtResource("1_l7eyg")
+region = Rect2(256, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8giu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n7ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpk2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7heod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kolwr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
