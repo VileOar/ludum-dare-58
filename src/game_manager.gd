@@ -20,6 +20,7 @@ func remove_bag_slot() -> void:
 
 func collect_mook(mook: Mook) -> void:
 	_score_manager_ref.on_collect(mook.get_stats())
+	_hud_ref.update_bag_slot_icons(_score_manager_ref._last_collected_mooks)
 	remove_bag_slot()
 
 func _end_game() -> void:
