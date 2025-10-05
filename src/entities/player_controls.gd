@@ -5,15 +5,16 @@ var is_clicked: bool = false
 var has_entered: Dictionary[Node2D, bool]
 
 
+func _process(_delta):
+	$SlashArea.position = get_global_mouse_position()
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		is_clicked = !is_clicked
 		$SlashTrail.is_active = is_clicked
 		if not is_clicked:
 			has_entered.clear()
-	
-	if event is InputEventMouseMotion:
-		$SlashArea.position = event.position
 
 
 func _on_slash_area_body_entered(body: Node2D) -> void:
