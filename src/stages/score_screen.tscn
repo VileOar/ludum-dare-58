@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc588cokwg882"]
+
+[ext_resource type="Script" uid="uid://bg3rji7k7w5y0" path="res://src/ui/score_screen.gd" id="1_kij6a"]
+[ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_bll3o"]
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="3_3kpix"]
+
+[node name="ScoreScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kij6a")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2.743707, 2.743707)
+texture = ExtResource("2_bll3o")
+centered = false
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 973.0
+offset_bottom = 244.0
+theme = ExtResource("3_3kpix")
+theme_override_font_sizes/font_size = 144
+text = "Souls Reaped"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 832.0
+offset_right = 451.0
+offset_bottom = 976.0
+theme = ExtResource("3_3kpix")
+theme_override_font_sizes/font_size = 144
+text = "Score"
