@@ -64,5 +64,3 @@ func _on_boom_box_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 	if event.is_action_pressed("left_mouse_click"):
 		if not _is_changing_music:
 			change_boombox_music()
-		else:
-			print("Is still changing music")

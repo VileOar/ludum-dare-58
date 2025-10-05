@@ -75,9 +75,8 @@ func fade_out_music(audio_name):
 func fade_in_music(audio_name):
 	var audio_node = _sound_player_by_name.get(audio_name)
 	var _default_volume = audio_node.volume_db
-	print("$AudioStreamPlayer.volume_db = ", _default_volume)
+	#print("$AudioStreamPlayer.volume_db = ", _default_volume)
 	var tween : Tween = get_tree().create_tween()
-	#tween.finished.connect(_on_Tween_tween_completed.bind(audio_node))
 	# Start at -80dB (or lower), end at default audio dB
 	tween.tween_property(audio_node, "volume_db", _default_volume, fade_timeout)
 	audio_node.play() # Ensure music is playing before starting the fade in
