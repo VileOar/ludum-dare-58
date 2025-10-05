@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bem0nxku82aiv"
-path="res://.godot/imported/circle_tile.png-86a47f0c621067bd507bd6e0ac5b624d.ctex"
+uid="uid://bvdjwvlprjemr"
+path="res://.godot/imported/triangle_icon.png-27542d82cfcbeecfcbdeac9b9eba1313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/name_dex/circle_tile.png"
-dest_files=["res://.godot/imported/circle_tile.png-86a47f0c621067bd507bd6e0ac5b624d.ctex"]
+source_file="res://assets/gfx/name_dex/triangle_icon.png"
+dest_files=["res://.godot/imported/triangle_icon.png-27542d82cfcbeecfcbdeac9b9eba1313.ctex"]
 
 [params]
 
