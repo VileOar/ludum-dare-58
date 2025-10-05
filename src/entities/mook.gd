@@ -95,7 +95,7 @@ func do_the_wave():
 	_sprite.play("wave")
 
 
-# whether this entity can get out of panic state and enters panic state with mouse
+# whether this entity gets locked to panic state and enters panic state with mouse
 func _is_panicable() -> bool:
 	return _stats != null and !_stats.is_common()
 
@@ -181,6 +181,13 @@ func _state_anim(_delta: float):
 		_sprite.play(anim)
 
 
+# --- || Callbacks || ---
+
 func _on_sprite_animation_finished() -> void:
 	if _state == States.ANIM:
 		_change_state(States.IDLE)
+
+
+func _on_proximity_detector_body_entered(body: Node2D) -> void:
+	if body is Mook and (body as Mook).is_panic():
+		_change_state(States.PANIC)
