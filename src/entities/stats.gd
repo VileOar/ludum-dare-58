@@ -12,8 +12,11 @@ var name: String
 
 static func build_random_stats() -> MookStats:
 	var stats = MookStats.new()
-	# TODO: give random values according to probabilities
+	stats.shape = Global.Shapes.values()[randi() % Global.Shapes.size()]
 	stats.colour = Global.Colours.values()[randi() % Global.Colours.size()]
+	# TODO: choose rarity according to actual probabilities
+	stats.rarity = Global.Rarities.COMMON if randf() < 0.9 else Global.Rarities.RARE
+	# TODO: choose name according to rarity
 	return stats
 
 

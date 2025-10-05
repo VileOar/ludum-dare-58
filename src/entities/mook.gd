@@ -10,13 +10,13 @@ const WANDER_MIN_DUR := 0.5
 const WANDER_MAX_DUR := 3.0
 
 const PANIC_MIN_DUR := 3.0
-const PANIC_MAX_DUR := 7.0
+const PANIC_MAX_DUR := 5.0
 
 # if mouse position is closer than this value (squared) and entity is panicable, enters panic state
 const MOUSE_DIST_PANIC_THRESHOLD := pow(Global.BLOCK * 2.0, 2)
 
 # chance for becoming panicked when another panicked entity enters vicinity
-const PANIC_INFECTION_CHANCE := 0.1
+const PANIC_INFECTION_CHANCE := 0.05
 
 enum States {
 	IDLE,
@@ -57,20 +57,6 @@ var _dirty_state: bool = true
 var _mov_dir := Vector2.ZERO
 
 
-# TODO: remove
-func _ready() -> void:
-	var shape = randi() % 4
-	match shape:
-		0:
-			_sprite.sprite_frames = preload("uid://dntarescsau6g")
-		1:
-			_sprite.sprite_frames = preload("uid://2sswebanku4p")
-		2:
-			_sprite.sprite_frames = preload("uid://d0rf6l76dby5")
-		3:
-			_sprite.sprite_frames = preload("uid://cxebhbvprf5m6")
-
-
 func _physics_process(delta: float) -> void:
 	if _is_panicable() and !is_panic():
 		var mouse_dist = get_global_mouse_position().distance_squared_to(global_position)
@@ -82,8 +68,11 @@ func _physics_process(delta: float) -> void:
 
 
 func set_stats(new_stats: MookStats):
+	while !is_node_ready():
+		await ready
 	_stats = new_stats
-	$Sprite.material = Global.Materials[_stats.colour]
+	_sprite.material = Global.Materials[_stats.colour]
+	_sprite.sprite_frames = Global.sprite_frames[_stats.shape]
 
 
 func get_stats() -> MookStats:
@@ -96,8 +85,9 @@ func is_panic() -> bool:
 
 
 func do_the_wave():
-	_change_state(States.ANIM)
-	_sprite.play("wave")
+	if !(is_panic() and _is_panicable()):
+		_change_state(States.ANIM)
+		_sprite.play("wave")
 
 
 # whether this entity gets locked to panic state and enters panic state with mouse
@@ -195,4 +185,5 @@ func _on_sprite_animation_finished() -> void:
 
 func _on_proximity_detector_body_entered(body: Node2D) -> void:
 	if body is Mook and (body as Mook).is_panic():
-		_change_state(States.PANIC)
+		if randf() < PANIC_INFECTION_CHANCE:
+			_change_state(States.PANIC)
