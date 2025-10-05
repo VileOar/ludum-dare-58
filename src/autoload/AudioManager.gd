@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var fade_timeout := 2.0
+
 # Reference to the itself, ensuring only one exists
 var instance : Node
 @onready var _festival_music: Node = $FestivalMusic
@@ -63,25 +65,28 @@ func play_audio_queue(audio_name):
 func fade_out_music(audio_name):
 	var audio_node = _sound_player_by_name.get(audio_name)
 	var tween_out : Tween = get_tree().create_tween()
-	tween_out.finished.connect(_on_Tween_tween_completed.bind(audio_node))
+	var _default_volume = audio_node.volume_db
+	tween_out.finished.connect(_on_Tween_tween_completed.bind(audio_node, _default_volume))
 	# Start at current volume, end at -80dB (silence)
-	tween_out.tween_property(audio_node, "volume_db", -80, 2.0) # 2 seconds duration
+	tween_out.tween_property(audio_node, "volume_db", -80, fade_timeout) 
 	tween_out.play()
 
 
 func fade_in_music(audio_name):
 	var audio_node = _sound_player_by_name.get(audio_name)
+	var _default_volume = audio_node.volume_db
+	print("$AudioStreamPlayer.volume_db = ", _default_volume)
 	var tween : Tween = get_tree().create_tween()
 	#tween.finished.connect(_on_Tween_tween_completed.bind(audio_node))
-	# Start at -80dB (or lower), end at 0dB
-	tween.tween_property(audio_node, "volume_db", 0, 2.0) # 2 seconds duration
+	# Start at -80dB (or lower), end at default audio dB
+	tween.tween_property(audio_node, "volume_db", _default_volume, fade_timeout)
 	audio_node.play() # Ensure music is playing before starting the fade in
 	tween.play()
 
 
-func _on_Tween_tween_completed(audio_node):
+func _on_Tween_tween_completed(audio_node, _default_volume):
 	audio_node.stop()
-	audio_node.volume_db = 0 # Reset for next fade in
+	audio_node.volume_db = _default_volume # Reset for next fade in
 
 
 func get_number_of_children_in_festival_music() -> int:

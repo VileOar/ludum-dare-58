@@ -2,6 +2,7 @@ extends Sprite2D
 
 var previous_music : String
 var current_music : String
+var _is_changing_music := false
 var _festival_music_dictionary_with_bpm : Dictionary = {}
 
 
@@ -32,7 +33,10 @@ func change_boombox_music():
 	var new_music_id = _get_different_music()
 	if current_music != null:
 		AudioManager.instance.fade_out_music(current_music)
-		await get_tree().create_timer(0.5).timeout
+		_is_changing_music = true
+		var half_fade_timeout = AudioManager.fade_timeout / 2
+		await get_tree().create_timer(half_fade_timeout).timeout
+		_is_changing_music = false
 	AudioManager.instance.fade_in_music(new_music_id)
 	current_music = new_music_id
 	print("[Festival] New Music is:", current_music)
@@ -58,4 +62,7 @@ func _set_previous_music():
 
 func _on_boom_box_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("left_mouse_click"):
-		change_boombox_music()
+		if not _is_changing_music:
+			change_boombox_music()
+		else:
+			print("Is still changing music")
