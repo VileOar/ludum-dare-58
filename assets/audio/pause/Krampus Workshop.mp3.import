@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgbupucci4etp"
+path="res://.godot/imported/Krampus Workshop.mp3-c23d68d1f8cef546df4f1ff98063e588.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/pause/Krampus Workshop.mp3"
+dest_files=["res://.godot/imported/Krampus Workshop.mp3-c23d68d1f8cef546df4f1ff98063e588.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

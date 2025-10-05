@@ -12,6 +12,7 @@ const WAVE_MAX_INTERVAL := 15.0
 
 
 @export var _spawn_bounds: Rect2
+@export var _center_blocked: StaticBody2D
 
 # whether a wave is currently running
 var _wave_active = false
@@ -37,10 +38,11 @@ func _physics_process(delta: float) -> void:
 
 func _spawn_crowd(amount: int):
 	for _i in amount:
-		var pos = Vector2(
-			randf_range(_spawn_bounds.position.x, _spawn_bounds.end.x),
-			randf_range(_spawn_bounds.position.y, _spawn_bounds.end.y)
-		)
+		var pos = _get_random_spawn_pos()
+		
+		while _is_spawning_inside_center_space(pos):
+			pos = _get_random_spawn_pos()
+		
 		_spawn_mook(pos)
 
 
@@ -57,6 +59,28 @@ func _start_wave():
 	_wave_area.position = Vector2(
 			_spawn_bounds.position.x,
 			_spawn_bounds.position.y + _spawn_bounds.size.y / 2
+	)
+	
+func _get_random_spawn_pos() -> Vector2:
+	return Vector2(
+			randf_range(_spawn_bounds.position.x, _spawn_bounds.end.x),
+			randf_range(_spawn_bounds.position.y, _spawn_bounds.end.y)
+		)
+	
+	
+func _is_spawning_inside_center_space(pos : Vector2) -> bool:
+	var shape : Shape2D = _center_blocked.get_node("CollisionShape2D").shape
+	if shape == null:
+		return false
+	
+	var shape_center_pos = _center_blocked.global_position
+	var half_size = shape.extents
+	
+	return (
+		pos.x > shape_center_pos.x - half_size.x and
+		pos.x < shape_center_pos.x + half_size.x and
+		pos.y > shape_center_pos.y - half_size.y and
+		pos.y < shape_center_pos.y + half_size.y
 	)
 
 
