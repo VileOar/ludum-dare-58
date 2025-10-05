@@ -71,8 +71,8 @@ func set_stats(new_stats: MookStats):
 	while !is_node_ready():
 		await ready
 	_stats = new_stats
-	_sprite.material = Global.Materials[_stats.colour]
-	_sprite.sprite_frames = Global.sprite_frames[_stats.shape]
+	_sprite.material = Global.get_material_from_colour(_stats.colour)
+	_sprite.sprite_frames = Global.get_spriteframes_from_shape(_stats.shape)
 
 
 func get_stats() -> MookStats:
