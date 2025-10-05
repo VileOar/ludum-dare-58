@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6bq3wta1rqr3"]
+
+[ext_resource type="Script" uid="uid://cnkod6lun50st" path="res://src/entities/boom_box.gd" id="1_ewqo6"]
+[ext_resource type="Texture2D" uid="uid://c3bodr150c131" path="res://assets/tmp/boombox.png" id="2_rvdp8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iagxl"]
+size = Vector2(600, 400)
+
+[node name="BoomBox" type="Sprite2D"]
+texture = ExtResource("2_rvdp8")
+script = ExtResource("1_ewqo6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iagxl")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_boom_box_input_event"]

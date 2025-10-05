@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdbtmmgp6ueh7"
+path="res://.godot/imported/Wave After Wave.mp3-2ccf09ea36261abd3dbb7f367650046b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/festival_music/Wave After Wave.mp3"
+dest_files=["res://.godot/imported/Wave After Wave.mp3-2ccf09ea36261abd3dbb7f367650046b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,6 +2,8 @@ extends Node2D
 
 # Reference to the itself, ensuring only one exists
 var instance : Node
+@onready var _festival_music: Node = $FestivalMusic
+var festival_music_name = "FestivalMusic"
 
 # Dictionary to store each SoundPlayer nodes by its name
 var _sound_player_by_name : Dictionary = {}
@@ -24,10 +26,15 @@ func _ready():
 	add_to_sound_player_dictionary("Ambience", $MainMenuMusic/Ambience)
 	
 	# Festival Music
-	add_to_sound_player_dictionary("MusicNumber1", $FestivalMusic/MusicNumber1)
-	add_to_sound_player_dictionary("MusicNumber2", $FestivalMusic/MusicNumber2)
-	add_to_sound_player_dictionary("MusicNumber3", $FestivalMusic/MusicNumber3)
-	add_to_sound_player_dictionary("MusicNumber4", $FestivalMusic/MusicNumber4)
+	add_to_sound_player_dictionary("Aerosol", $FestivalMusic/Aerosol)
+	add_to_sound_player_dictionary("Arroz", $FestivalMusic/Arroz)
+	add_to_sound_player_dictionary("Boogie", $FestivalMusic/Boogie)
+	add_to_sound_player_dictionary("Neon", $FestivalMusic/Neon)
+	add_to_sound_player_dictionary("Newer", $FestivalMusic/Newer)
+	add_to_sound_player_dictionary("Energy", $FestivalMusic/Energy)
+	add_to_sound_player_dictionary("EnergyFaster", $FestivalMusic/EnergyFaster)
+	add_to_sound_player_dictionary("Voxel", $FestivalMusic/Voxel)
+	add_to_sound_player_dictionary("Wave", $FestivalMusic/Wave)
 	
 	
 	# Music
@@ -50,7 +57,39 @@ func play_audio(audio_name):
 func play_audio_queue(audio_name):
 	var audio_queue : AudioQueue = queues_by_name.get(audio_name)	
 	if audio_queue != null:
-			audio_queue.play_sound()
+		audio_queue.play_sound()
+
+
+func fade_out_music(audio_name):
+	var audio_node = _sound_player_by_name.get(audio_name)
+	var tween_out : Tween = get_tree().create_tween()
+	tween_out.finished.connect(_on_Tween_tween_completed.bind(audio_node))
+	# Start at current volume, end at -80dB (silence)
+	tween_out.tween_property(audio_node, "volume_db", -80, 2.0) # 2 seconds duration
+	tween_out.play()
+
+
+func fade_in_music(audio_name):
+	var audio_node = _sound_player_by_name.get(audio_name)
+	var tween : Tween = get_tree().create_tween()
+	#tween.finished.connect(_on_Tween_tween_completed.bind(audio_node))
+	# Start at -80dB (or lower), end at 0dB
+	tween.tween_property(audio_node, "volume_db", 0, 2.0) # 2 seconds duration
+	audio_node.play() # Ensure music is playing before starting the fade in
+	tween.play()
+
+
+func _on_Tween_tween_completed(audio_node):
+	audio_node.stop()
+	audio_node.volume_db = 0 # Reset for next fade in
+
+
+func get_number_of_children_in_festival_music() -> int:
+	return _festival_music.get_child_count()
+
+
+func get_random_festival_music_id() -> String:
+	return festival_music_name + str(Utils.rng.randi_range(1, get_number_of_children_in_festival_music()))
 
 
 #func play_shoot_delay(delay:float):

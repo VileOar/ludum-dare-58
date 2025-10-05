@@ -1,7 +1,20 @@
-[gd_scene format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=12 format=3 uid="uid://cofyigip5wrss"]
+
+[ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
+[ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
+[ext_resource type="AudioStream" uid="uid://c4wouut2hnl5r" path="res://assets/audio/festival_music/Arroz Con Pollo.mp3" id="3_pbdaj"]
+[ext_resource type="AudioStream" uid="uid://fig2h0psp7xe" path="res://assets/audio/festival_music/Boogie Party.mp3" id="4_cmdha"]
+[ext_resource type="AudioStream" uid="uid://dvmegprx3c70y" path="res://assets/audio/festival_music/Neon Laser Horizon.mp3" id="5_bjq5x"]
+[ext_resource type="AudioStream" uid="uid://ufbm177pjwf8" path="res://assets/audio/festival_music/Newer Wave.mp3" id="6_tguw2"]
+[ext_resource type="AudioStream" uid="uid://dqoi5a8h5slr7" path="res://assets/audio/festival_music/Raving Energy.mp3" id="7_4wg5e"]
+[ext_resource type="AudioStream" uid="uid://5inmoqlot1l8" path="res://assets/audio/festival_music/Raving Energy (faster).mp3" id="8_roxop"]
+[ext_resource type="AudioStream" uid="uid://8saj6176hf4c" path="res://assets/audio/festival_music/Voxel Revolution.mp3" id="9_xy50i"]
+[ext_resource type="AudioStream" uid="uid://bdbtmmgp6ueh7" path="res://assets/audio/festival_music/Wave After Wave.mp3" id="10_yc8ju"]
+[ext_resource type="AudioStream" uid="uid://7kjl03bo8rfl" path="res://assets/audio/main menu/Vibing Over Venus.mp3" id="11_bjq5x"]
 
 [node name="AudioManager" type="Node2D"]
 process_mode = 3
+script = ExtResource("1_c5aou")
 
 [node name="UI" type="Node" parent="."]
 
@@ -19,18 +32,57 @@ max_polyphony = 10
 
 [node name="FestivalMusic" type="Node" parent="."]
 
-[node name="MusicNumber1" type="AudioStreamPlayer" parent="FestivalMusic"]
+[node name="Aerosol" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("2_pbdaj")
+volume_db = -10.0
+bus = &"Music"
 
-[node name="MusicNumber2" type="AudioStreamPlayer" parent="FestivalMusic"]
+[node name="Arroz" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("3_pbdaj")
+volume_db = -10.0
+bus = &"Music"
 
-[node name="MusicNumber3" type="AudioStreamPlayer" parent="FestivalMusic"]
+[node name="Boogie" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("4_cmdha")
+volume_db = -14.0
+bus = &"Music"
 
-[node name="MusicNumber4" type="AudioStreamPlayer" parent="FestivalMusic"]
+[node name="Neon" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("5_bjq5x")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="Newer" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("6_tguw2")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="Energy" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("7_4wg5e")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="EnergyFaster" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("8_roxop")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="Voxel" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("9_xy50i")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="Wave" type="AudioStreamPlayer" parent="FestivalMusic"]
+stream = ExtResource("10_yc8ju")
+volume_db = -14.0
+bus = &"Music"
 
 [node name="MainMenuMusic" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="MainMenuMusic"]
+stream = ExtResource("11_bjq5x")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="MainMenuMusic"]
 volume_db = -27.0
