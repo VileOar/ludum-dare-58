@@ -7,7 +7,7 @@ const BLOCK := 64.0
 const NUM_SPAWNED_MOOKS := 300
 
 # base value of a collected soul
-const BASE_SCORE : int = 10
+const BASE_SCORE: int = 10
 
 # multipliers awarded on soul rarity
 const RARE_MULTIPLIER: int = 2
@@ -38,9 +38,9 @@ enum Colours {
 	RED,
 	ORANGE,
 	YELLOW,
-	GREEN, 
-	BLUE, 
-	PURPLE 
+	GREEN,
+	BLUE,
+	PURPLE
 }
 
 enum Rarities {
@@ -68,11 +68,11 @@ var colour_values = {
 	Colours.PURPLE: Color("ff77a8"),
 }
 
-var shape_tiles = {
-	Shapes.POINTY: preload("uid://bjgvaehjx2h3k"),
-	Shapes.BLOCKY: preload("uid://dj7t4je2haurw"),
-	Shapes.CHUBBY: preload("uid://bem0nxku82aiv"),
-	Shapes.STUBBY: preload("uid://4q8q3wrsvo5x")
+var shape_icons = {
+	Shapes.POINTY: preload("uid://bvdjwvlprjemr"),
+	Shapes.BLOCKY: preload("uid://2nxfpkfatuoc"),
+	Shapes.CHUBBY: preload("uid://cbqpmwtvv6i2l"),
+	Shapes.STUBBY: preload("uid://btmruwtfctd0n")
 }
 
 var rarity_icons = {

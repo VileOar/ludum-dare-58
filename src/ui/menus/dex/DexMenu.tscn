@@ -1,17 +1,121 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct0dj0herf2a6"]
+[gd_scene load_steps=4 format=3 uid="uid://ct0dj0herf2a6"]
 
 [ext_resource type="Script" uid="uid://unb67m12x8bk" path="res://src/ui/menus/dex/dex_menu.gd" id="1_k4tns"]
+[ext_resource type="Theme" uid="uid://wuavbajw8yip" path="res://assets/ui/dex_theme.tres" id="1_v60me"]
 [ext_resource type="PackedScene" uid="uid://c7w84b7bmhi4v" path="res://src/ui/menus/dex/DexEntry.tscn" id="2_lt30j"]
 
-[node name="DexMenu" type="ScrollContainer"]
+[node name="DexMenu" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_v60me")
 script = ExtResource("1_k4tns")
 entry_scene = ExtResource("2_lt30j")
 
-[node name="List" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Header" type="Label" parent="VBoxContainer/HeaderContainer/HBoxContainer"]
+layout_mode = 2
+text = "Soul Dex"
+
+[node name="InfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/InfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SortLabel" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Sort:"
+
+[node name="SortButton" type="OptionButton" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Shape"
+popup/item_0/id = 0
+popup/item_1/text = "Colour"
+popup/item_1/id = 1
+popup/item_2/text = "Rarity"
+popup/item_2/id = 2
+popup/item_3/text = "Acquired"
+popup/item_3/id = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ShowLabel" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Show:"
+
+[node name="ShowButton" type="MenuButton" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "All >"
+flat = false
+item_count = 2
+popup/item_0/text = "Heloo 1"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "adf"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/InfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Acquired: "
+
+[node name="AcquiredNumber" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label2" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Roaming: "
+
+[node name="RoamingNumber" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+
+[node name="DexContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="VBoxContainer/DexContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="item_selected" from="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer/SortButton" to="." method="_on_sort_button_item_selected"]

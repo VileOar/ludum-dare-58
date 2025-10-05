@@ -18,6 +18,9 @@ const MOUSE_DIST_PANIC_THRESHOLD := pow(Global.BLOCK * 2.0, 2)
 # chance for becoming panicked when another panicked entity enters vicinity
 const PANIC_INFECTION_CHANCE := 0.05
 
+const RARE_PARTICLES_COLOUR = Color("f3ef7d")
+const LEGENDARY_PARTICLES_COLOUR = Color("e155ed")
+
 enum States {
 	IDLE,
 	WANDER,
@@ -28,6 +31,8 @@ enum States {
 @onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _proximity_detector: Area2D = $ProximityDetector
 @onready var _state_change_timer: Timer = $StateChangeTimer
+@onready var _particles: GPUParticles2D = $GPUParticles2D
+
 
 # dict of states and update methods
 var _state_updates: Dictionary[States, Callable] = {
@@ -62,6 +67,9 @@ func _physics_process(delta: float) -> void:
 		var mouse_dist = get_global_mouse_position().distance_squared_to(global_position)
 		if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD:
 			_change_state(States.PANIC)
+			var col = RARE_PARTICLES_COLOUR if _stats.rarity == Global.Rarities.RARE else LEGENDARY_PARTICLES_COLOUR
+			(_particles.process_material as ParticleProcessMaterial).color = col
+			_particles.emitting = true
 	
 	if _state_updates.has(_state):
 		_state_updates[_state].call(delta)

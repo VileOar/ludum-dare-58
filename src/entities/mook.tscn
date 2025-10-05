@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dik4hsetomi4v"]
+[gd_scene load_steps=6 format=3 uid="uid://dik4hsetomi4v"]
 
 [ext_resource type="Script" uid="uid://bvi62h2rmxdjb" path="res://src/entities/mook.gd" id="1_eu1mi"]
 [ext_resource type="SpriteFrames" uid="uid://cxebhbvprf5m6" path="res://assets/spriteframes/lozenge_frames.tres" id="2_eu1mi"]
@@ -8,6 +8,21 @@ size = Vector2(36, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ry6v"]
 radius = 16.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eu1mi"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 256.0
+initial_velocity_max = 320.0
+gravity = Vector3(0, 512, 0)
+scale_min = 5.0
+scale_max = 5.0
+color = Color(0.8803999, 0.3348, 0.93, 1)
+hue_variation_min = -0.04000002
+hue_variation_max = 0.039999977
 
 [node name="Mook" type="CharacterBody2D"]
 collision_layer = 2
@@ -35,6 +50,14 @@ shape = SubResource("CircleShape2D_4ry6v")
 
 [node name="StateChangeTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 1.2
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_eu1mi")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="body_entered" from="ProximityDetector" to="." method="_on_proximity_detector_body_entered"]
