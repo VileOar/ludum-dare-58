@@ -1,0 +1,1115 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuck3xhfpuxhj"]
+
+[ext_resource type="Script" uid="uid://m3rrt3cughcu" path="res://src/scripts/mouse_circle_uniforms.gd" id="1_hs0b1"]
+[ext_resource type="Material" uid="uid://55itr7iy2vd7" path="res://assets/shaders/red_material.tres" id="2_d7p3d"]
+[ext_resource type="Texture2D" uid="uid://bph7nei57g2yd" path="res://assets/gfx/triangle.png" id="4_d7p3d"]
+[ext_resource type="Material" uid="uid://cmbapm0r0q0qh" path="res://assets/shaders/green_material.tres" id="4_l5rcx"]
+[ext_resource type="Material" uid="uid://c2m6ka5nxb2wf" path="res://assets/shaders/blue_material.tres" id="5_04lcd"]
+[ext_resource type="Material" uid="uid://bsvwvesyuebmd" path="res://assets/shaders/orange_material.tres" id="5_6ru0q"]
+[ext_resource type="Material" uid="uid://b5lquajxlbgdu" path="res://assets/shaders/purple_material.tres" id="6_afnup"]
+[ext_resource type="Material" uid="uid://c4g8nfcfyjsmh" path="res://assets/shaders/yellow_material.tres" id="8_yan73"]
+
+[node name="Test" type="Node2D"]
+scale = Vector2(2.5, 2.5)
+
+[node name="MousePositionUniform" type="Node2D" parent="."]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_hs0b1")
+
+[node name="Triangle" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(177.75024, 191)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle2" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(485.00012, 434.00003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle3" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(100.75018, 415)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle4" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(754.0001, 401.00003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle5" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(656.00006, 184)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle6" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(679.1499, 16.800049)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle7" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(596.0001, 347.00003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle8" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(163.75012, 308.00003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle9" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(512, 248.00009)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle10" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(111.000244, 180.75002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle11" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(770.24994, 309.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle12" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(778.39984, 125.05005)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle13" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(329.00012, 386.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle14" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(687.7999, 120.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle15" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(303.55, 101.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle16" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(212.00002, 102)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle17" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(32.00006, 379.24997)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle18" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(150.79993, 131.3501)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle19" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(771.39996, 97.04999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle20" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(339.14987, 58.05002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle21" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(557.60004, 106.400055)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle22" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(179.00018, 376.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle23" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(155.39987, 42.299988)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle24" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(166.79987, 239.8501)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle25" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(763.25006, 420.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle26" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(331.79993, 137.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle27" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(737.79987, 135.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle28" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(600.7999, 104.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle29" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(466.24994, 413.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle30" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(501.7998, 165.6001)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle31" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(415.39993, 114.04999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle32" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(748.00006, 35.60001)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle33" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(359.2, 368.8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle34" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(613.25006, 410.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle35" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(589.6498, 76.29999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle36" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(601.04974, 273.8501)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle37" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(574.2501, 73.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle38" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(91.25009, 299.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle39" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(497.25003, 297.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle40" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(360.2501, 266.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle41" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(277.24997, 66.250046)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle42" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(261.24997, 327.2501)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle43" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(202.25009, 212.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle44" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(560.25, 190.25009)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle45" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(118.24997, 113.25012)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle46" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(424.2501, 63.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle47" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(376.4999, 174.50006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle48" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(360.4999, 435.5001)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle49" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(459.60004, 267.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle50" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(618.7501, 324)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle51" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(534.75, 225.00005)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle52" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(354.55, 114.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle53" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(596.15, 145.04999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle54" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(488.99988, 390.24997)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle55" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(524.54974, 142.6001)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle56" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(438.15, 91.04999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle57" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(329.99988, 437.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle58" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(612.3998, 53.299957)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle59" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(609.6, 236.80002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle60" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(597.0001, 50.250015)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle61" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(520, 274.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle62" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(383.00012, 243.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle63" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(300, 43.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle64" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(284, 304.25006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle65" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(225.00012, 189.25002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle66" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(583, 167.25005)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle67" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(447.00012, 40.250015)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle68" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(399.24988, 151.50002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle69" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(383.24988, 412.50006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle70" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(231.75018, 48)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle71" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(724.99994, 58.000015)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle72" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(81.75018, 38)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle73" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(34, 149.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle74" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(269.3, 243.34998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle75" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(279, 46.250015)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle76" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(383.8001, 364.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle77" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(86.799995, 357.59998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle78" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(393.94986, 36.400024)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle79" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(233.80011, 354.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle80" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(210.1998, 20.650024)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle81" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(740.79987, 398.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle82" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(728.4, 268)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle83" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(660, 76.400024)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle84" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(589.05, 416.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle85" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(506.04987, 216.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle86" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(514.19977, 32.650024)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle87" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(431.05, 362.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle88" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(789.04987, 340.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle89" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(653.05, 213.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle90" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(605.29974, 325.10004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle91" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(437.80005, 221.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle92" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(140.79993, 214.59998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle93" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(287.80005, 211.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle94" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(240.04987, 322.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle95" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(485.04987, 219.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle96" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(217.50024, 416.74997)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle97" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(244.50012, 230.75002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle98" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(741.2, 194)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle99" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(305.90012, 150.79999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle100" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(198.75, 395.99994)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle101" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(234.29987, 148.3501)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle102" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(147.90012, 96.79999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle103" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(634.39996, 140.4)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle104" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(498.55002, 132.44998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle105" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(333.54987, 256.6001)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle106" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(229.75012, 280)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle107" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(92.750244, 248.99998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle108" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(716.75, 66.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle109" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(700.75, 327.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle110" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(649.2001, 245.19998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle111" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(515.2, 55.59999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle112" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(156.75024, 46.000004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle113" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(109, 157.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle114" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(93, 418.25003)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle115" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(238.54999, 199.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle116" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(532.39996, 391.99997)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle117" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(170.30011, 204.35004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle118" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(712.4, 199.19998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle119" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(679.54987, 322.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle120" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(311.59998, 333.2)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle121" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(233.30011, 448.35004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle122" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(419.6, 202)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle123" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(197.54999, 291.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle124" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(566.05, 372.35004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle125" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(646.39996, 396)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle126" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(414.3001, 390.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle127" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(331.3, 190.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle128" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(262.40002, 396.8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle129" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(256.3001, 336.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle130" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(614.3, 314.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle131" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(478.3001, 187.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle132" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(430.54987, 298.85004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle133" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(105.55012, 152.35004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle134" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(54, 396.80002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle135" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(42.399998, 59.05005)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle136" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(391.19998, 101.2)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle137" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(453.59998, 155.6)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle138" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(259.15012, 158.04999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle139" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(152.00012, 403.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle140" type="Sprite2D" parent="."]
+material = ExtResource("8_yan73")
+position = Vector2(187.54999, 155.60004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle141" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(101.150116, 104.04999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle142" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(459.15, 82.05005)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle143" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(299.00024, 400.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle144" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(275.39987, 66.29999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle145" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(143.54987, 321.35004)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle146" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(686.80005, 403.99997)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle147" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(204.29987, 425.34998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle148" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(425.90002, 330.75)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle149" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(694.9, 297.75)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle150" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(604.14984, 340.00006)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle151" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(704.14996, 317)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle152" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(407.14984, 309.99994)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle153" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(554.14996, 307)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle154" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(448.65002, 307.74994)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle155" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(429.89978, 286.99994)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle156" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(665.60004, 286)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle157" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(666.94977, 344.59998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle158" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(529.9499, 313.59998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle159" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(371.9499, 259.59998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle160" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(687.6498, 357)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle161" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(427.69992, 341.44995)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle162" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(506.9499, 269.09998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle163" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(492.1999, 318.34998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle164" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(355.2, 287.34998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle165" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(732.44977, 323.3499)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle166" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(85.50006, 277.55)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle167" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(354.50006, 244.54999)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle168" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(125.20003, 366.80002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle169" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(363.75, 263.8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle170" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(66.74988, 256.79996)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle171" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(73.20001, 118)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle172" type="Sprite2D" parent="."]
+material = ExtResource("4_l5rcx")
+position = Vector2(108.25006, 254.54996)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle173" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(89.49982, 233.79993)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle174" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(341.2998, 242.15)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle175" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(326.5498, 291.4)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle176" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(14.000015, 303.59998)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle177" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(31.549927, 206.4)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle178" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(347.24982, 303.8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle179" type="Sprite2D" parent="."]
+material = ExtResource("5_04lcd")
+position = Vector2(87.29996, 288.24994)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle180" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(64.8, 192.4)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle181" type="Sprite2D" parent="."]
+material = ExtResource("5_6ru0q")
+position = Vector2(151.79993, 265.15)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle182" type="Sprite2D" parent="."]
+material = ExtResource("6_afnup")
+position = Vector2(14.800049, 234.15)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")
+
+[node name="Triangle183" type="Sprite2D" parent="."]
+material = ExtResource("2_d7p3d")
+position = Vector2(392.0498, 270.14993)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_d7p3d")

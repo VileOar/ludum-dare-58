@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://55itr7iy2vd7"]
+
+[ext_resource type="Shader" uid="uid://h0ncu5q1xcr2" path="res://assets/shaders/mouse_view.gdshader" id="1_w3guh"]
+
+[resource]
+shader = ExtResource("1_w3guh")
+shader_parameter/color = Color(1, 0, 0.3019608, 1)
+shader_parameter/circle_radius = 150.0
+shader_parameter/circle_smooth_width = 50.000002375
+shader_parameter/mouse_position = Vector2(0, 0)
+shader_parameter/screen_resolution = Vector2(0, 0)
