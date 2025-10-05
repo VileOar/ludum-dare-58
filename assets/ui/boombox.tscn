@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dnij3jwk3tqwh"]
 
 [ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="1_vnh7m"]
-[ext_resource type="Script" path="res://assets/ui/boombox.gd" id="2_dmb4f"]
+[ext_resource type="Script" uid="uid://csrsrdxpb5aa5" path="res://assets/ui/boombox.gd" id="2_dmb4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmb4f"]
 atlas = ExtResource("1_vnh7m")

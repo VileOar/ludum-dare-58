@@ -34,7 +34,6 @@ func _setup_festival_music_dictionary():
 	
 func start_boombox():
 	current_music = get_random_festival_music_id()
-	#set_beat_freq(_get_freq_from_music(current_music))
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
 	AudioManager.instance.play_audio(current_music)
 	print("[Festival] Starting music is:", current_music)
@@ -46,16 +45,7 @@ func press():
 	play("press")
 	_is_boombox_stopped = true
 
-		
-func set_beat_freq(freq: float):
-	boom_timer.stop()
-	_is_boombox_stopped = false
-	if freq > 0.0:
-		_interval = 1.0/freq
-		boom_timer.start(_interval)
-	else:
-		_interval = 0.0
-		
+			
 func set_beat_freq_with_timer(freq: float, time_to_wait :float):
 	boom_timer.stop()
 	_is_boombox_stopped = false
@@ -80,12 +70,9 @@ func change_boombox_music():
 	if current_music != null:
 		AudioManager.instance.fade_out_music(current_music)
 		_is_changing_music = true
-		#await get_tree().create_timer(half_of_fade_timeout).timeout
 		_is_changing_music = false
 	AudioManager.instance.fade_in_music(new_music_id)
 	current_music = new_music_id
-	#await get_tree().create_timer(AudioManager.fade_timeout).timeout
-	#set_beat_freq(_get_freq_from_music(current_music))
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
 	print("[Festival] New Music is:", current_music)
 	
@@ -114,12 +101,10 @@ func _get_beat_freq(BPM : int) -> float:
 	
 	
 func _get_freq_from_music(_current_music : String) -> float:
-	print(_current_music, " freq= ", _get_beat_freq(_festival_music_dictionary_with_bpm.get(_current_music).get("bpm")))
 	return _get_beat_freq(_festival_music_dictionary_with_bpm.get(_current_music).get("bpm"))
 	
 	
 func _get_time_to_wait_from_music(_current_music : String) -> float:
-	print(_current_music, " time to wait= ", _get_beat_freq(_festival_music_dictionary_with_bpm.get(_current_music).get("time_to_wait")))
 	return _get_beat_freq(_festival_music_dictionary_with_bpm.get(_current_music).get("time_to_wait"))
 
 
@@ -134,7 +119,6 @@ func _on_boom_timer_timeout() -> void:
 	if _is_boombox_stopped:
 		return
 		
-	print("_on_boom_timer_timeout")
 	_beat()
 	if _interval > 0.0:
 		boom_timer.start(_interval)
