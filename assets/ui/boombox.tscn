@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnij3jwk3tqwh"]
+[gd_scene load_steps=12 format=3 uid="uid://dnij3jwk3tqwh"]
 
 [ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="1_vnh7m"]
 [ext_resource type="Script" uid="uid://csrsrdxpb5aa5" path="res://assets/ui/boombox.gd" id="2_dmb4f"]
@@ -65,13 +65,26 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmb4f"]
+size = Vector2(65, 50)
+
 [node name="BoomBox" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_s6hfj")
 animation = &"boomin"
+frame = 3
+frame_progress = 1.0
 script = ExtResource("2_dmb4f")
 
 [node name="BoomTimer" type="Timer" parent="."]
 wait_time = 0.001
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_dmb4f")
+
 [connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]
+[connection signal="input_event" from="Area2D" to="." method="_on_boom_box_input_event"]

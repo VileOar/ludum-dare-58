@@ -35,54 +35,44 @@ max_polyphony = 10
 [node name="Aerosol" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("2_pbdaj")
 volume_db = -12.0
-bus = &"Music"
 
 [node name="Arroz" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("3_pbdaj")
 volume_db = -16.0
-bus = &"Music"
 
 [node name="Boogie" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("4_cmdha")
 volume_db = -16.0
-bus = &"Music"
 
 [node name="Neon" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("5_bjq5x")
 volume_db = -16.0
-bus = &"Music"
 
 [node name="Newer" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("6_tguw2")
 volume_db = -16.0
-bus = &"Music"
 
 [node name="Energy" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("7_4wg5e")
 volume_db = -17.0
-bus = &"Music"
 
 [node name="EnergyFaster" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("8_roxop")
 volume_db = -17.0
-bus = &"Music"
 
 [node name="Voxel" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("9_xy50i")
 volume_db = -14.0
-bus = &"Music"
 
 [node name="Wave" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("10_yc8ju")
 volume_db = -16.0
-bus = &"Music"
 
 [node name="MainMenuMusic" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="MainMenuMusic"]
 stream = ExtResource("11_bjq5x")
 volume_db = -10.0
-bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="MainMenuMusic"]
 volume_db = -27.0
