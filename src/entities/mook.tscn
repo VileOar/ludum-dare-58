@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cxebhbvprf5m6" path="res://assets/spriteframes/lozenge_frames.tres" id="2_eu1mi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woljm"]
-size = Vector2(48, 48)
+size = Vector2(36, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ry6v"]
 radius = 16.0
@@ -14,14 +14,16 @@ collision_layer = 2
 script = ExtResource("1_eu1mi")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.9073486e-06, -1.9073486e-06)
+position = Vector2(0, -5)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_eu1mi")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.8170023
+frame = 3
+frame_progress = 0.47253767
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_woljm")
 
 [node name="ProximityDetector" type="Area2D" parent="."]
