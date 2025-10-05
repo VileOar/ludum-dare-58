@@ -1,36 +1,24 @@
 extends Resource
 class_name MookStats
 
-enum Shapes {
-	POINTY,
-	BLOCKY,
-	CHUBBY,
-	STUBBY
-}
+var shape: Global.Shapes
 
-enum Colours {
-	RED,
-	GREEN,
-	BLUE,
-	CYAN,
-	MAGENTA,
-	YELLOW
-}
+var colour: Global.Colours
 
-enum Rarity {
-	COMMON,
-	RARE1,
-	RARE2
-}
-
-var shape: Shapes
-
-var colour: Colours
-
-var rarity: Rarity
+var rarity: Global.Rarities
 
 var name: String
 
 
+static func build_random_stats() -> MookStats:
+	var stats = MookStats.new()
+	stats.shape = Global.Shapes.values()[randi() % Global.Shapes.size()]
+	stats.colour = Global.Colours.values()[randi() % Global.Colours.size()]
+	# TODO: choose rarity according to actual probabilities
+	stats.rarity = Global.Rarities.COMMON if randf() < 0.9 else Global.Rarities.RARE
+	# TODO: choose name according to rarity
+	return stats
+
+
 func is_common() -> bool:
-	return rarity <= Rarity.COMMON
+	return rarity <= Global.Rarities.COMMON

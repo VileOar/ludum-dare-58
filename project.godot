@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ludum-dare-58"
-run/main_scene="uid://fg82ej4e65uw"
+run/main_scene="uid://ctt72jhrk3frn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,11 +21,13 @@ Utils="*res://src/autoload/Utils.gd"
 Signals="*res://src/autoload/Signals.gd"
 Global="*res://src/autoload/Global.gd"
 AudioManager="*res://src/autoload/audio_manager.tscn"
+DexManager="*res://src/autoload/DexManager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]
