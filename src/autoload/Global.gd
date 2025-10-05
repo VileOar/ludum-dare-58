@@ -12,6 +12,8 @@ const BASE_SCORE : int = 10
 # multipliers awarded on soul rarity
 const RARE_MULTIPLIER: int = 2
 const LEGENDARY_MULTIPLIER: int = 3
+const RARE_SCORE: int = BASE_SCORE * RARE_MULTIPLIER
+const LEGENDARY_SCORE: int = BASE_SCORE * LEGENDARY_MULTIPLIER
 
 # bonus awarded on getting 3 shapes of the same colour in a row
 const THREE_SHAPES_OF_COLOUR_BONUS: int = BASE_SCORE

@@ -5,6 +5,11 @@ var _same_colour_streak: int = 1
 var _same_shape_streak: int = 1
 var _unique_shape_same_colour_streak: int = 1
 var _same_shape_unique_colour_streak: int = 1
+# count how many mooks were collected (+by rarity)
+var _collected_mooks_total: int = 0
+var _collected_commons_counter: int = 0
+var _collected_rares_counter: int = 0
+var _collected_legendaries_counter: int = 0
 # count how many times each combo was made
 var _3_shapes_of_colour_counter: int = 0
 var _all_shapes_of_colour_counter: int = 0
@@ -17,6 +22,14 @@ var _unique_colours_remaining: Array
 # store the stats of the last and second to last collected mook
 var _last_collected_mook: MookStats
 var _second_to_last_collected_mook: MookStats
+# array that stores the last few collected mooks
+var _last_collected_mooks: Array[MookStats] = []
+# max amont of the last collected mooks that are kept stored
+var _max_last_collected_mooks: int = 6
+# stores the total score of all combos done
+var _combo_score_total: int = 0
+# stores the total score of mooks collected outside of combos
+var _no_combo_score_total: int = 0
 
 func _ready() -> void:
 	# initialize unique shapes arrays
@@ -35,7 +48,24 @@ func _reset_unique_colours_remaining() -> void:
 func _on_collect(collected_mook : Mook) -> void:
 	_second_to_last_collected_mook = _last_collected_mook
 	_last_collected_mook = collected_mook.get_stats()
-	# only check for combos if more than 1 mook has been collected
+	# add collected mook to array
+	_update_last_collected_mooks(_last_collected_mook)
+	
+	# count collected mook
+	_collected_mooks_total += 1
+	# add score based on rarity
+	match _last_collected_mook.rarity:
+		Global.Rarities.COMMON:
+			_collected_commons_counter += 1
+			_no_combo_score_total += Global.BASE_SCORE
+		Global.Rarities.RARE:
+			_collected_rares_counter += 1
+			_no_combo_score_total += Global.RARE_SCORE
+		Global.Rarities.LEGENDARY:
+			_collected_legendaries_counter += 1
+			_no_combo_score_total += Global.LEGENDARY_SCORE
+	
+	# check for combos if more than 1 mook has been collected
 	if !_second_to_last_collected_mook:
 		return
 	# first update the streak variables
@@ -45,6 +75,12 @@ func _on_collect(collected_mook : Mook) -> void:
 	_3_shapes_of_colour_check()
 	_all_shapes_of_colours_check()
 	_all_colours_of_shape_check()
+
+# adds given mook to the collected mooks array and deletes the oldest if it is full
+func _update_last_collected_mooks(collected_mook: MookStats):
+	_last_collected_mooks.push_back(collected_mook)
+	if _last_collected_mooks.size() > _max_last_collected_mooks:
+		_last_collected_mooks.pop_front()
 
 func _update_same_colour_streaks() -> void:
 	if _last_collected_mook.colour == _second_to_last_collected_mook.colour:
@@ -109,14 +145,48 @@ func _reset_same_shape_unique_colour_streak() -> void:
 func _3_shapes_of_colour_check() -> void:
 	if _unique_shape_same_colour_streak == 3:
 		_3_shapes_of_colour_counter += 1
+		_combo_score_total += Global.THREE_SHAPES_OF_COLOUR_BONUS
 
 # checks if last 4 collected mooks are of the same colour and different shapes
 func _all_shapes_of_colours_check() -> void:
 	if _unique_shape_same_colour_streak == _unique_shapes.size():
 		_all_shapes_of_colour_counter += 1
+		# revert the 3 shapes of color combo
 		_3_shapes_of_colour_counter -= 1
+		_combo_score_total -= Global.THREE_SHAPES_OF_COLOUR_BONUS
+		# calculate the combo score and add it to the total
+		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_shapes.size())
+		_combo_score_total += mook_score_total * Global.ALL_SHAPES_OF_COLOUR_MULTIPLIER
 
 # checks if last 6 collected mooks are of the same shape and different colours
 func _all_colours_of_shape_check() -> void:
 	if _same_shape_unique_colour_streak == _unique_colours.size():
 		_all_colours_of_shape_counter += 1
+		# calculate the combo score and add it to the total
+		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_colours.size())
+		_combo_score_total += mook_score_total * Global.ALL_COLOURS_OF_SHAPE_MULTIPLIER
+
+# calculates the sum of the score values of each mook in the combo
+func _calculate_mook_score_in_combo(combo_size: int) -> int:
+	var mooks_in_array: int = _last_collected_mooks.size()
+	var mook_score_total: int = 0
+	if mooks_in_array >= combo_size:
+		for i in combo_size:
+			var mook: MookStats = _last_collected_mooks[mooks_in_array - 1 - i]
+			match mook.rarity:
+				Global.Rarities.COMMON:
+					mook_score_total += Global.BASE_SCORE
+					_no_combo_score_total -= Global.BASE_SCORE
+				Global.Rarities.RARE:
+					mook_score_total += Global.RARE_SCORE
+					_no_combo_score_total -= Global.RARE_SCORE
+				Global.Rarities.LEGENDARY:
+					mook_score_total += Global.LEGENDARY_SCORE
+					_no_combo_score_total -= Global.LEGENDARY_SCORE
+		return mook_score_total
+	else:
+		print("ERROR: Combo size is larger than last collected mooks array")
+		return 0
+
+func _calculate_final_score() -> int:
+	return _combo_score_total + _no_combo_score_total
