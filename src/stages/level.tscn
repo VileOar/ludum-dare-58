@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=11 format=3 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
 [ext_resource type="Script" uid="uid://m3rrt3cughcu" path="res://src/scripts/mouse_circle_uniforms.gd" id="3_264d3"]
 [ext_resource type="PackedScene" uid="uid://dnij3jwk3tqwh" path="res://assets/ui/boombox.tscn" id="4_7hfpf"]
+[ext_resource type="PackedScene" uid="uid://fwh5wn850iav" path="res://src/entities/player_controls.tscn" id="5_s8p13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqyx5"]
 size = Vector2(64, 952)
@@ -93,6 +94,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Press Space to test spawn"
+
+[node name="PlayerControls" parent="." instance=ExtResource("5_s8p13")]
 
 [connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

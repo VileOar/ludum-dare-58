@@ -67,6 +67,11 @@ left_mouse_click={
 2d_physics/layer_1="wall"
 2d_physics/layer_2="mook"
 
+[physics]
+
+2d/run_on_separate_thread=true
+common/physics_ticks_per_second=120
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://fwh5wn850iav"]
+
+[ext_resource type="Script" uid="uid://c5uschcqf1kn4" path="res://src/entities/player_controls.gd" id="1_tc6uf"]
+[ext_resource type="PackedScene" uid="uid://curh1fe4l1yja" path="res://src/entities/trail.tscn" id="2_sw6ql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7hfpf"]
+radius = 3.0
+
+[sub_resource type="Curve" id="Curve_tc6uf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.8913044, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="PlayerControls" type="Node2D"]
+script = ExtResource("1_tc6uf")
+
+[node name="SlashArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CircleShape2D" type="CollisionShape2D" parent="SlashArea"]
+shape = SubResource("CircleShape2D_7hfpf")
+
+[node name="SlashTrail" parent="." instance=ExtResource("2_sw6ql")]
+width_curve = SubResource("Curve_tc6uf")
+joint_mode = 2
+TRAIL_MAX_LENGTH = 15
+
+[connection signal="body_entered" from="SlashArea" to="." method="_on_slash_area_body_entered"]
