@@ -1,13 +1,15 @@
-extends Node2D
+extends AnimatedSprite2D
 class_name BoomBox
 
-signal pressed
-signal new_beat(freq: float, time_to_wait :float)
+@onready var boom_timer: Timer = $BoomTimer
+
+var _interval = 0.0
 
 # Music Control
 var previous_music : String
 var current_music : String
 var _is_changing_music := false
+var _is_boombox_stopped := false
 var _festival_music_dictionary_with_bpm : Dictionary = {}
 var half_of_fade_timeout :float
 
@@ -17,7 +19,7 @@ func _ready() -> void:
 	half_of_fade_timeout = AudioManager.fade_timeout / 2
 	start_boombox()
 	
-
+	
 func _setup_festival_music_dictionary():
 	_festival_music_dictionary_with_bpm["Aerosol"] = {"bpm": 100,"time_to_wait": 0.0 }
 	_festival_music_dictionary_with_bpm["Arroz"] = {"bpm": 100,"time_to_wait": 0.0 }
@@ -30,30 +32,61 @@ func _setup_festival_music_dictionary():
 	_festival_music_dictionary_with_bpm["Wave"] = {"bpm": 132,"time_to_wait": 1.2 }
 	
 	
-func start_music(_new_music : String):
-	AudioManager.instance.play_audio(_new_music)
-	
-	
 func start_boombox():
 	current_music = get_random_festival_music_id()
-	set_beat_freq(_get_freq_from_music(current_music))
-	#set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
+	#set_beat_freq(_get_freq_from_music(current_music))
+	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
 	AudioManager.instance.play_audio(current_music)
 	print("[Festival] Starting music is:", current_music)
-	
+
+
+#region UI control
+func press():
+	pause()
+	play("press")
+	_is_boombox_stopped = true
+
+		
+func set_beat_freq(freq: float):
+	boom_timer.stop()
+	_is_boombox_stopped = false
+	if freq > 0.0:
+		_interval = 1.0/freq
+		boom_timer.start(_interval)
+	else:
+		_interval = 0.0
+		
+func set_beat_freq_with_timer(freq: float, time_to_wait :float):
+	boom_timer.stop()
+	_is_boombox_stopped = false
+	if freq > 0.0:
+		_interval = 1.0/freq
+		await get_tree().create_timer(time_to_wait).timeout
+		boom_timer.start(_interval)
+	else:
+		_interval = 0.0
+
+
+func _beat():
+	boom_timer.stop()
+	pause()
+	play("boomin")
+
+#endregion
+
 
 func change_boombox_music():
 	var new_music_id = _get_different_music()
 	if current_music != null:
 		AudioManager.instance.fade_out_music(current_music)
 		_is_changing_music = true
-		await get_tree().create_timer(half_of_fade_timeout).timeout
+		#await get_tree().create_timer(half_of_fade_timeout).timeout
 		_is_changing_music = false
 	AudioManager.instance.fade_in_music(new_music_id)
 	current_music = new_music_id
-	await get_tree().create_timer(AudioManager.fade_timeout).timeout
-	set_beat_freq(_get_freq_from_music(current_music))
-	#set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
+	#await get_tree().create_timer(AudioManager.fade_timeout).timeout
+	#set_beat_freq(_get_freq_from_music(current_music))
+	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
 	print("[Festival] New Music is:", current_music)
 	
 	
@@ -76,12 +109,6 @@ func _set_previous_music():
 	previous_music = current_music
 
 
-func set_beat_freq(_freq : float) -> void:
-	#print("set_beat_freq")
-	var _time_to_wait = 0.0
-	emit_signal("new_beat", _freq, _time_to_wait)
-
-
 func _get_beat_freq(BPM : int) -> float:
 	return	BPM / 60.0;
 	
@@ -99,5 +126,15 @@ func _get_time_to_wait_from_music(_current_music : String) -> float:
 func _on_boom_box_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("left_mouse_click"):
 		if not _is_changing_music:
-			emit_signal("pressed")
+			press()
 			change_boombox_music()
+
+
+func _on_boom_timer_timeout() -> void:
+	if _is_boombox_stopped:
+		return
+		
+	print("_on_boom_timer_timeout")
+	_beat()
+	if _interval > 0.0:
+		boom_timer.start(_interval)
