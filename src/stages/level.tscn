@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=10 format=3 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
 [ext_resource type="Script" uid="uid://m3rrt3cughcu" path="res://src/scripts/mouse_circle_uniforms.gd" id="3_264d3"]
+[ext_resource type="PackedScene" uid="uid://dnij3jwk3tqwh" path="res://assets/ui/boombox.tscn" id="4_7hfpf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqyx5"]
 size = Vector2(64, 952)
@@ -75,6 +76,9 @@ script = ExtResource("3_264d3")
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="BoomBox" parent="." instance=ExtResource("4_7hfpf")]
+position = Vector2(1814, 105)
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

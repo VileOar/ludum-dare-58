@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/ui/main_menu.gd" id="2_806vh"]
 [ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_vna5b"]
-[ext_resource type="PackedScene" uid="uid://fg82ej4e65uw" path="res://src/stage_tmp/stage_tmp.tscn" id="3_tlms7"]
+[ext_resource type="PackedScene" uid="uid://ctt72jhrk3frn" path="res://src/stages/level.tscn" id="3_tlms7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
