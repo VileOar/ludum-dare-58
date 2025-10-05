@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjgvaehjx2h3k"
-path="res://.godot/imported/triangle_tile.png-53be49739688e5a0df0b61ae8c6de70e.ctex"
+uid="uid://dj7t4je2haurw"
+path="res://.godot/imported/square_tile.png-186308bad882138c94d963303de272e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/triangle_tile.png"
-dest_files=["res://.godot/imported/triangle_tile.png-53be49739688e5a0df0b61ae8c6de70e.ctex"]
+source_file="res://assets/gfx/name_dex/square_tile.png"
+dest_files=["res://.godot/imported/square_tile.png-186308bad882138c94d963303de272e4.ctex"]
 
 [params]
 
