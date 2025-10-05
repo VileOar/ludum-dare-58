@@ -3,9 +3,13 @@ extends Node
 @export var _MOOK_PCK: PackedScene
 
 const WAVE_SPEED := Global.BLOCK * 6
+const WAVE_MIN_INTERVAL := 10.0
+const WAVE_MAX_INTERVAL := 15.0
 
 @onready var _entities: Node2D = $Entities
 @onready var _wave_area: Area2D = $WaveArea
+@onready var _wave_timer: Timer = $WaveTimer
+
 
 @export var _spawn_bounds: Rect2
 
@@ -58,3 +62,8 @@ func _start_wave():
 
 func _on_wave_area_body_entered(body: Node2D) -> void:
 	(body as Mook).do_the_wave()
+
+
+func _on_wave_timer_timeout() -> void:
+	_start_wave()
+	_wave_timer.start(randf_range(WAVE_MIN_INTERVAL, WAVE_MAX_INTERVAL))

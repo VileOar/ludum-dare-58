@@ -69,6 +69,13 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaveArea"]
 shape = SubResource("RectangleShape2D_s8p13")
 
+[node name="MouseCircleUniforms" type="Node2D" parent="."]
+script = ExtResource("3_264d3")
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,7 +90,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Press Space to test spawn"
 
-[node name="MouseCircleUniforms" type="Node2D" parent="."]
-script = ExtResource("3_264d3")
-
 [connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

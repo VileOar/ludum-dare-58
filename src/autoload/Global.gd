@@ -38,6 +38,19 @@ enum Colours {
 	PURPLE 
 }
 
+enum Rarities {
+	COMMON,
+	RARE,
+	LEGENDARY
+}
+
+var sprite_frames = {
+	Shapes.POINTY: preload("uid://dntarescsau6g"),
+	Shapes.BLOCKY: preload("uid://2sswebanku4p"),
+	Shapes.CHUBBY: preload("uid://d0rf6l76dby5"),
+	Shapes.STUBBY: preload("uid://cxebhbvprf5m6"),
+}
+
 var Materials = [
 	preload("res://assets/shaders/red_material.tres"),		# RED = 0
 	preload("res://assets/shaders/orange_material.tres"),	# ORANGE = 1
@@ -46,9 +59,3 @@ var Materials = [
 	preload("res://assets/shaders/blue_material.tres"),		# BLUE = 4
 	preload("res://assets/shaders/purple_material.tres")	# PURPLE = 5
 ]
-
-enum Rarities {
-	COMMON,
-	RARE,
-	LEGENDARY
-}
