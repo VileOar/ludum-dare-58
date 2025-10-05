@@ -38,21 +38,12 @@ func _physics_process(delta: float) -> void:
 
 func _spawn_crowd(amount: int):
 	for _i in amount:
-		var pos = Vector2(
-			randf_range(_spawn_bounds.position.x, _spawn_bounds.end.x),
-			randf_range(_spawn_bounds.position.y, _spawn_bounds.end.y)
-		)
-		_spawn_mook(pos)
+		var pos = _get_random_spawn_pos()
 		
-		#if !_is_spawning_inside_center_space(pos):
-			#_spawn_mook(pos)
-		#else:
-			#while (_is_spawning_inside_center_space(pos)):
-				#pos = Vector2(
-					#randf_range(_spawn_bounds.position.x, _spawn_bounds.end.x),
-					#randf_range(_spawn_bounds.position.y, _spawn_bounds.end.y)
-				#)
-				#_spawn_mook(pos)
+		while _is_spawning_inside_center_space(pos):
+			pos = _get_random_spawn_pos()
+		
+		_spawn_mook(pos)
 
 
 func _spawn_mook(pos: Vector2):
@@ -69,6 +60,13 @@ func _start_wave():
 			_spawn_bounds.position.x,
 			_spawn_bounds.position.y + _spawn_bounds.size.y / 2
 	)
+	
+func _get_random_spawn_pos() -> Vector2:
+	return Vector2(
+			randf_range(_spawn_bounds.position.x, _spawn_bounds.end.x),
+			randf_range(_spawn_bounds.position.y, _spawn_bounds.end.y)
+		)
+	
 	
 func _is_spawning_inside_center_space(pos : Vector2) -> bool:
 	var shape : Shape2D = _center_blocked.get_node("CollisionShape2D").shape
