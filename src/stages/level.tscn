@@ -178,7 +178,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_736lg"]
@@ -305,16 +305,15 @@ game_manager = NodePath("../GameManager")
 libraries = {
 &"": SubResource("AnimationLibrary_736lg")
 }
-autoplay = "ClickMe"
 
 [node name="ClickMe" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.6392157, 0, 1)
 position = Vector2(1607, 1111)
 rotation = -3.1415927
 scale = Vector2(-1, 1)
 sprite_frames = ExtResource("8_0hdsd")
 animation = &"ClickMe"
-frame_progress = 0.49018422
 flip_h = true
 
 [node name="ClickMeLb" type="Label" parent="ClickMe"]

@@ -87,6 +87,12 @@ func _ready():
 	# End Game
 	add_to_sound_player_dictionary("EndGameMusic", $EndGame/EndGameMusic)
 	
+	
+	# Score Game
+	add_to_sound_player_dictionary("MookScore1", $ScoreScreen/MookScore1)
+	add_to_sound_player_dictionary("MookScore2", $ScoreScreen/MookScore2)
+	add_to_sound_player_dictionary("MookScore3", $ScoreScreen/MookScore3)
+	add_to_sound_player_dictionary("ComboScore", $ScoreScreen/ComboScore)
 
 	queues_by_name["shoot"] = $ShootAudioQueue
 	
