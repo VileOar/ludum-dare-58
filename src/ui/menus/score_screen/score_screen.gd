@@ -20,7 +20,7 @@ func _ready() -> void:
 	$Title.text = Global.get_end_message()
 	_play_end_game_audio()
 	
-	ScoreManager._reset_all()
+	ScoreManager.reset_all()
 	ScoreManager.scored_a_combo.connect(_on_scored_a_combo)
 	
 	spawn_mook_icons()

@@ -203,7 +203,7 @@ func _calculate_mook_score_in_combo(combo_size: int) -> int:
 func _calculate_final_score() -> int:
 	return _combo_score_total + _no_combo_score_total
 
-func _reset_all() -> void:
+func reset_all() -> void:
 	_same_colour_streak = 1
 	_same_shape_streak = 1
 	_unique_shape_same_colour_streak = 1
