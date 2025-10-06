@@ -1,11 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://iorpodfv3lm7"]
+[gd_scene load_steps=21 format=3 uid="uid://iorpodfv3lm7"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
+[ext_resource type="Texture2D" uid="uid://dhldjf6ten6bf" path="res://assets/ui/how_to_play/three_combo.png" id="5_xwlnd"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
-[ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
+[ext_resource type="PackedScene" uid="uid://wg26fathbma7" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
+[ext_resource type="Texture2D" uid="uid://d18nh43rgr6j" path="res://assets/ui/how_to_play/four_combo.png" id="6_vtifm"]
+[ext_resource type="Texture2D" uid="uid://dco0fxdevogyl" path="res://assets/ui/how_to_play/6_combo.png" id="7_bech7"]
+[ext_resource type="Texture2D" uid="uid://bmdl0rikfovr6" path="res://assets/ui/keyboard_mouse/keyboard_arrow_down_outline.png" id="8_5867a"]
+[ext_resource type="Texture2D" uid="uid://byyq3q2aeypwf" path="res://assets/ui/keyboard_mouse/keyboard_arrow_left_outline.png" id="9_5ec7j"]
+[ext_resource type="Texture2D" uid="uid://ddi67ltr51plv" path="res://assets/ui/keyboard_mouse/keyboard_arrow_right_outline.png" id="10_xe83y"]
+[ext_resource type="Texture2D" uid="uid://bmknbv3jeduny" path="res://assets/ui/keyboard_mouse/keyboard_arrow_up_outline.png" id="11_cbumv"]
+[ext_resource type="Texture2D" uid="uid://dxs5urp4ysas5" path="res://assets/ui/keyboard_mouse/keyboard_a_outline.png" id="12_wiq5b"]
+[ext_resource type="Texture2D" uid="uid://cn7xm5t6sbf8f" path="res://assets/ui/keyboard_mouse/keyboard_d_outline.png" id="13_xu5al"]
+[ext_resource type="Texture2D" uid="uid://ercdv0p7e1wd" path="res://assets/ui/keyboard_mouse/keyboard_escape_outline.png" id="14_hvpaj"]
+[ext_resource type="Texture2D" uid="uid://b1ba5dbujguwa" path="res://assets/ui/keyboard_mouse/keyboard_s_outline.png" id="15_u58oq"]
+[ext_resource type="Texture2D" uid="uid://owe48uv6buf3" path="res://assets/ui/keyboard_mouse/keyboard_w_outline.png" id="16_85lw3"]
+[ext_resource type="Texture2D" uid="uid://bkjjhgwkmj130" path="res://assets/ui/keyboard_mouse/mouse_left.png" id="17_riakk"]
+[ext_resource type="Texture2D" uid="uid://c8wcabee3wpob" path="res://assets/ui/keyboard_mouse/mouse_move.png" id="18_1e5n8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,6 +30,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s8g4t")
 script = ExtResource("2_806vh")
+metadata/_edit_horizontal_guides_ = [796.0, 844.0, 710.0]
+metadata/_edit_vertical_guides_ = [251.0, 500.0, 121.0, 1114.0]
 
 [node name="SolidBackground" type="ColorRect" parent="."]
 layout_mode = 1
@@ -176,17 +192,137 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_left = 672.0
-offset_top = -65.48004
-offset_right = 1248.0
-offset_bottom = 65.51996
+offset_left = 124.0
+offset_top = 169.51996
+offset_right = 772.0
+offset_bottom = 300.51996
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("6_jscuh")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "Move the [color=#1d2b53]Mouse[/color] to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color] to slash [br] Use [color=#1d2b53]WASD[/color] to move the camera"
+text = "Move the [color=#1d2b53]Mouse[/color]     to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color]    to slash [br] Press [color=#1d2b53]Escape[/color]    to pause the game [br]"
 fit_content = true
 autowrap_mode = 0
+
+[node name="WASDLabel" type="RichTextLabel" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 1113.0
+offset_top = 170.51996
+offset_right = 1761.0
+offset_bottom = 395.51996
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("6_jscuh")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Use [color=#1d2b53]WASD[/color] to move the camera [br] "
+fit_content = true
+autowrap_mode = 0
+
+[node name="ObjectiveLb" type="RichTextLabel" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 119.0
+offset_top = -228.48004
+offset_right = 965.0
+offset_bottom = 266.51996
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("6_jscuh")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "The objective is to fill up the [color=#1d2b53]bag[/color] with [color=#1d2b53]souls[/color].
+Some are [color=purple]rare[/color] and others [color=yellow]legendary[/color].
+They will run from you! [br]
+Form [color=#1d2b53]combos[/color] to gain a better score. [br]
+Try to beat the [color=#1d2b53]max score[/color] and make [color=#1d2b53]Death[/color] happy! [br]
+[br]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CombosLb" type="RichTextLabel" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 1113.0
+offset_top = -220.48004
+offset_right = 1851.0
+offset_bottom = 22.519958
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("6_jscuh")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+
+4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]180 points[/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ThreeCombo" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1252, 399)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xwlnd")
+
+[node name="FourCombo" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1288, 526)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_vtifm")
+
+[node name="6Combo" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1358, 645)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_bech7")
+
+[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1482, 825)
+texture = ExtResource("8_5867a")
+
+[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1434, 825)
+texture = ExtResource("9_5ec7j")
+
+[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1530, 825)
+texture = ExtResource("10_xe83y")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1482, 778)
+texture = ExtResource("11_cbumv")
+
+[node name="KeyboardAOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1185, 823)
+texture = ExtResource("12_wiq5b")
+
+[node name="KeyboardDOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1281, 823)
+texture = ExtResource("13_xu5al")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1233, 823)
+texture = ExtResource("15_u58oq")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(1233, 776)
+texture = ExtResource("16_85lw3")
+
+[node name="KeyboardEscapeOutline" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(391, 802)
+texture = ExtResource("14_hvpaj")
+
+[node name="MouseLeft" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(571, 755)
+texture = ExtResource("17_riakk")
+
+[node name="MouseMove" type="Sprite2D" parent="HowToPlay"]
+position = Vector2(437.00003, 706)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_1e5n8")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
