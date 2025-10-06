@@ -1,7 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dik4hsetomi4v"]
+[gd_scene load_steps=11 format=3 uid="uid://dik4hsetomi4v"]
 
 [ext_resource type="Script" uid="uid://bvi62h2rmxdjb" path="res://src/entities/mook.gd" id="1_eu1mi"]
 [ext_resource type="SpriteFrames" uid="uid://cxebhbvprf5m6" path="res://assets/spriteframes/lozenge_frames.tres" id="2_eu1mi"]
+[ext_resource type="Shader" uid="uid://52oqfdc7rt6o" path="res://assets/shaders/aura.gdshader" id="2_woljm"]
+[ext_resource type="Texture2D" uid="uid://4fh3yucmvq34" path="res://assets/shaders/textures/circle_fade.jpg" id="3_woljm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_woljm"]
+noise_type = 5
+frequency = 0.0295
+offset = Vector3(167.93, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4ry6v"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_woljm")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7fjv"]
+shader = ExtResource("2_woljm")
+shader_parameter/n = SubResource("NoiseTexture2D_4ry6v")
+shader_parameter/intensity = 2.825
+shader_parameter/speed = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woljm"]
 size = Vector2(36, 36)
@@ -28,6 +47,11 @@ hue_variation_max = 0.039999977
 collision_layer = 2
 script = ExtResource("1_eu1mi")
 
+[node name="Aura" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_q7fjv")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_woljm")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 scale = Vector2(2, 2)
@@ -38,14 +62,17 @@ frame = 3
 frame_progress = 0.47253767
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_woljm")
 
 [node name="ProximityDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityDetector"]
+visible = false
 shape = SubResource("CircleShape2D_4ry6v")
 
 [node name="StateChangeTimer" type="Timer" parent="."]
