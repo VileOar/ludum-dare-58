@@ -1,9 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc588cokwg882"]
+[gd_scene load_steps=8 format=3 uid="uid://cc588cokwg882"]
 
 [ext_resource type="Script" uid="uid://bg3rji7k7w5y0" path="res://src/ui/menus/score_screen/score_screen.gd" id="1_kij6a"]
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="3_3kpix"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_cekjg"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="6_2gbsl"]
+
+[sub_resource type="Animation" id="Animation_wl1l2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_cekjg"]
+resource_name = "jump"
+length = 0.15
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.033333335, 0.22641551, 1.2, -0.011111112, 0, 0.01388889, 0, 1, -0.033, 0.228, 0.075, 0),
+"times": PackedFloat32Array(0, 0.075, 0.15)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.033333335, 0.2281009, 1.2, -0.011111112, 0, 0.011, 0, 1, -0.033, 0.228, 0.075, 0),
+"times": PackedFloat32Array(0, 0.075, 0.15)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wl1l2"]
+_data = {
+&"RESET": SubResource("Animation_wl1l2"),
+&"jump": SubResource("Animation_cekjg")
+}
 
 [node name="ScoreScreen" type="Control"]
 layout_mode = 3
@@ -51,7 +108,27 @@ offset_bottom = 71.75995
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 144
-text = "Score 00000"
+text = "Score"
+
+[node name="ScoreValue" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.72800004
+anchor_bottom = 0.72800004
+offset_left = 396.0
+offset_top = -104.83201
+offset_right = 801.0
+offset_bottom = 39.16799
+pivot_offset = Vector2(202.5, 113.095)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 144
+text = "00000"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Score/ScoreValue"]
+libraries = {
+&"": SubResource("AnimationLibrary_wl1l2")
+}
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -65,9 +142,9 @@ columns = 15
 position = Vector2(1550, 540)
 scale = Vector2(10, 10)
 sprite_frames = ExtResource("6_2gbsl")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.38982445
+animation = &"counting"
+autoplay = "counting"
+frame_progress = 0.09198392
 flip_h = true
 
 [node name="PlayAgain" type="Button" parent="."]
@@ -116,6 +193,117 @@ alignment = 0
 visible = false
 z_index = 2
 layout_mode = 1
+
+[node name="ThreeComboPositions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -262.0
+offset_right = 40.000057
+offset_bottom = -222.0
+grow_vertical = 2
+
+[node name="Position1" type="Control" parent="ThreeComboPositions"]
+anchors_preset = 0
+offset_left = 90.18
+offset_right = 130.17989
+offset_bottom = 40.0
+
+[node name="Position2" type="Control" parent="ThreeComboPositions"]
+anchors_preset = 0
+offset_left = 429.0
+offset_right = 469.0
+offset_bottom = 40.0
+
+[node name="Position3" type="Control" parent="ThreeComboPositions"]
+anchors_preset = 0
+offset_left = 787.42
+offset_right = 827.42
+offset_bottom = 40.0
+
+[node name="FourComboPositions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -262.0
+offset_right = 40.000057
+offset_bottom = -222.0
+grow_vertical = 2
+
+[node name="Position1" type="Control" parent="FourComboPositions"]
+anchors_preset = 0
+offset_left = 90.18
+offset_right = 130.17989
+offset_bottom = 40.0
+
+[node name="Position2" type="Control" parent="FourComboPositions"]
+anchors_preset = 0
+offset_left = 320.0
+offset_right = 360.0
+offset_bottom = 40.0
+
+[node name="Position3" type="Control" parent="FourComboPositions"]
+anchors_preset = 0
+offset_left = 545.115
+offset_right = 585.11487
+offset_bottom = 40.0
+
+[node name="Position4" type="Control" parent="FourComboPositions"]
+anchors_preset = 0
+offset_left = 787.42
+offset_right = 827.42
+offset_bottom = 40.0
+
+[node name="SixComboPositions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -262.0
+offset_right = 40.000057
+offset_bottom = -222.0
+grow_vertical = 2
+
+[node name="Position1" type="Control" parent="SixComboPositions"]
+anchors_preset = 0
+offset_left = 90.18
+offset_right = 130.17989
+offset_bottom = 40.0
+
+[node name="Position2" type="Control" parent="SixComboPositions"]
+anchors_preset = 0
+offset_left = 257.0
+offset_top = 2.0
+offset_right = 296.99988
+offset_bottom = 42.0
+
+[node name="Position3" type="Control" parent="SixComboPositions"]
+anchors_preset = 0
+offset_left = 429.0
+offset_right = 469.0
+offset_bottom = 40.0
+
+[node name="Position4" type="Control" parent="SixComboPositions"]
+anchors_preset = 0
+offset_left = 595.82
+offset_top = 2.0
+offset_right = 635.82
+offset_bottom = 42.0
+
+[node name="Position5" type="Control" parent="SixComboPositions"]
+anchors_preset = 0
+offset_left = 787.42
+offset_right = 827.42
+offset_bottom = 40.0
+
+[node name="Position6" type="Control" parent="SixComboPositions"]
+anchors_preset = 0
+offset_left = 954.24
+offset_top = 2.0
+offset_right = 994.24
+offset_bottom = 42.0
 
 [connection signal="mouse_entered" from="PlayAgain" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
