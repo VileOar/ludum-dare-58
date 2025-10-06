@@ -11,8 +11,8 @@ const TIME_LIMIT: int = 60
 # number of spawned entities on start
 const NUM_SPAWNED_MOOKS := 300
 
-const RARE_MOOK_CHANCE : float = 0.05
-const LEGENDARY_MOOK_CHANCE : float = 0.01
+const RARE_MOOK_CHANCE: float = 0.05
+const LEGENDARY_MOOK_CHANCE: float = 0.01
 
 # base value of a collected soul
 const BASE_SCORE: int = 10
@@ -88,6 +88,9 @@ var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
 # filled with created materials in runtime (see ready())
 var _materials: Dictionary[Colours, ShaderMaterial] = {}
 
+# filled with created materials in runtime (see ready())
+var _aura_materials: Dictionary[Rarities, ShaderMaterial] = {}
+
 var colour_values = {
 	Colours.RED: Color("ff004d"),
 	Colours.ORANGE: Color("ffa300"),
@@ -95,6 +98,11 @@ var colour_values = {
 	Colours.GREEN: Color("00e436"),
 	Colours.BLUE: Color("29adff"),
 	Colours.PURPLE: Color("ff77a8"),
+}
+
+var rarity_colour_values = {
+	Rarities.RARE: Color("e155ed"),
+	Rarities.LEGENDARY: Color("f3ef7d")
 }
 
 var shape_icons = {
@@ -110,6 +118,7 @@ var rarity_icons = {
 	Rarities.LEGENDARY: preload("uid://bikykts0p4a6x")
 }
 
+
 func _ready() -> void:
 	for col in Colours.values():
 		var mat = ShaderMaterial.new()
@@ -117,11 +126,25 @@ func _ready() -> void:
 		mat.set("shader_parameter/color", colour_values[col])
 		_materials[col] = mat
 
-func set_final_score(new_score) -> void:
+	for rarity in rarity_colour_values.keys():
+		var mat = ShaderMaterial.new()
+		mat.shader = preload("uid://52oqfdc7rt6o")
+		mat.set("shader_parameter/color", rarity_colour_values[rarity])
+
+		mat.set("shader_parameter/n", preload("uid://chtyvf3fdmgx2"))
+		mat.set("shader_parameter/intensity", 7)
+		mat.set("shader_parameter/speed", 2.0)
+
+		_aura_materials[rarity] = mat
+
+
+func set_final_score(new_score) ->  void:
 	_final_score = new_score
+
 
 func get_final_score() -> int:
 	return _final_score
+
 
 func get_spriteframes_from_shape(shape: Shapes) -> SpriteFrames:
 	return _sprite_frames[shape]
@@ -133,6 +156,10 @@ func get_material_from_colour(colour: Colours) -> ShaderMaterial:
 
 func get_all_materials() -> Array[ShaderMaterial]:
 	return _materials.values()
+
+
+func get_all_aura_materials() -> Array[ShaderMaterial]:
+	return _aura_materials.values()
 
 func set_is_paused(new_value: bool) -> void:
 	_is_paused = new_value
