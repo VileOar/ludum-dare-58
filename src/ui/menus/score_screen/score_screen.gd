@@ -124,9 +124,7 @@ func _play_end_game_audio() -> void:
 	
 	
 func _play_special_sfx() -> void:
-	#AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
-	
-	var _final_score = Global.get_final_score()
+	var _final_score = ScoreManager._calculate_final_score()
 	
 	if _final_score < 299:
 		AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
