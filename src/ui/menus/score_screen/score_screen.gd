@@ -45,6 +45,7 @@ func spawn_mook_icons():
 		if _has_scored_a_combo:
 			_has_scored_a_combo = false
 			_display_combo()
+			_play_combo_special_sfx()
 			
 			await get_tree().create_timer(10.0).timeout
 		
@@ -105,18 +106,18 @@ func _play_end_game_audio() -> void:
 	
 	
 func _play_special_sfx() -> void:
-	AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
+	#AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
 	
-	#var _final_score = ScoreManager._calculate_final_score()
+	var _final_score = ScoreManager._calculate_final_score()
 	
-	#if _final_score < 300:
-		#AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
-		#
-	#if _final_score > 300 && _final_score < 600:
-		#AudioManager.instance.play_audio_random_pitch("MookScore2", 1.2, 1.5)
-	#
-	#if _final_score > 600:
-		#AudioManager.instance.play_audio_random_pitch("MookScore3", 1.2, 1.5)
+	if _final_score < 299:
+		AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
+		
+	if _final_score > 299 && _final_score < 599:
+		AudioManager.instance.play_audio_random_pitch("MookScore2", 1.5, 1.7)
+	
+	if _final_score > 600:
+		AudioManager.instance.play_audio_random_pitch("MookScore3", 1.7, 1.9)
 	
 func _play_combo_special_sfx() -> void:
 	AudioManager.instance.play_audio_random_pitch("ComboScore", 1.5, 1.5)

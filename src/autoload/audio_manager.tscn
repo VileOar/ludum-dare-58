@@ -301,7 +301,7 @@ bus = &"SFX"
 
 [node name="MookScore2" type="AudioStreamPlayer" parent="ScoreScreen"]
 stream = ExtResource("41_trt4d")
-volume_db = -5.0
+volume_db = -8.0
 pitch_scale = 1.5
 bus = &"SFX"
 
