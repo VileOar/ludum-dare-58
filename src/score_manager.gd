@@ -1,6 +1,8 @@
 class_name ScoreManager
 extends Node2D
 
+@export var _hud_ref: Hud
+
 # store streak counts
 var _same_colour_streak: int = 1
 var _same_shape_streak: int = 1
@@ -146,19 +148,21 @@ func _reset_same_shape_unique_colour_streak() -> void:
 func _3_shapes_of_colour_check() -> void:
 	if _unique_shape_same_colour_streak == 3:
 		_3_shapes_of_colour_counter += 1
-		_combo_score_total += Global.THREE_SHAPES_OF_COLOUR_BONUS
+		# calculate the combo score and add it to the total
+		var combo_score = Global.THREE_SHAPES_OF_COLOUR_BONUS
+		_combo_score_total += combo_score
+		_hud_ref.display_combo_pop_up(combo_score)
 		print(">>> 3 shapes of colours combo")
 
 # checks if last 4 collected mooks are of the same colour and different shapes
 func _all_shapes_of_colours_check() -> void:
 	if _unique_shape_same_colour_streak == _unique_shapes.size():
 		_all_shapes_of_colour_counter += 1
-		# revert the 3 shapes of color combo
-		_3_shapes_of_colour_counter -= 1
-		_combo_score_total -= Global.THREE_SHAPES_OF_COLOUR_BONUS
 		# calculate the combo score and add it to the total
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_shapes.size())
-		_combo_score_total += mook_score_total * Global.ALL_SHAPES_OF_COLOUR_MULTIPLIER
+		var combo_score = mook_score_total * Global.ALL_SHAPES_OF_COLOUR_MULTIPLIER
+		_combo_score_total += combo_score
+		_hud_ref.display_combo_pop_up(combo_score)
 		print(">>> all shapes of colours combo")
 
 # checks if last 6 collected mooks are of the same shape and different colours
@@ -167,7 +171,9 @@ func _all_colours_of_shape_check() -> void:
 		_all_colours_of_shape_counter += 1
 		# calculate the combo score and add it to the total
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_colours.size())
-		_combo_score_total += mook_score_total * Global.ALL_COLOURS_OF_SHAPE_MULTIPLIER
+		var combo_score = mook_score_total * Global.ALL_COLOURS_OF_SHAPE_MULTIPLIER
+		_combo_score_total += combo_score
+		_hud_ref.display_combo_pop_up(combo_score)
 		print(">>> all colours of shapes combo")
 
 # calculates the sum of the score values of each mook in the combo

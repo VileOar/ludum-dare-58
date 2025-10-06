@@ -193,13 +193,19 @@ _game_manager_ref = NodePath("../GameManager")
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("3_g47tv")]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref", "_score_manager_ref") instance=ExtResource("9_0g1bc")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref", "_score_manager_ref", "_time_limit_timer") instance=ExtResource("9_0g1bc")]
 script = ExtResource("10_w8kg7")
 _score_screen = ExtResource("10_le4al")
 _hud_ref = NodePath("../CanvasLayer/Hud")
 _score_manager_ref = NodePath("../ScoreManager")
+_time_limit_timer = NodePath("../TimeLimitTimer")
 
-[node name="ScoreManager" parent="." instance=ExtResource("8_67lxk")]
+[node name="TimeLimitTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="ScoreManager" parent="." node_paths=PackedStringArray("_hud_ref") instance=ExtResource("8_67lxk")]
+_hud_ref = NodePath("../CanvasLayer/Hud")
 
 [connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

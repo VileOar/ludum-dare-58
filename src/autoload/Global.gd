@@ -3,6 +3,11 @@ extends Node
 # basic unit of measure
 const BLOCK := 64.0
 
+# maximum mooks that can be collected before the game ends
+const MAX_BAG_SLOTS : int = 50
+# time limit before the game ends (in seconds)
+const TIME_LIMIT: int = 60
+
 # number of spawned entities on start
 const NUM_SPAWNED_MOOKS := 300
 

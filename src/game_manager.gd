@@ -4,12 +4,24 @@ extends Node2D
 @export var _score_screen: PackedScene
 @export var _hud_ref: Hud
 @export var _score_manager_ref: ScoreManager
+@export var _time_limit_timer: Timer
 
-var _bag_slots_remaining: int = 50
+var _bag_slots_remaining: int = Global.MAX_BAG_SLOTS
+# time remaining before the game ends (seconds)
+var _time_left: float = Global.TIME_LIMIT
 
 func _ready() -> void:
 	# initialize hud
 	_hud_ref.update_bag_slots_display(_bag_slots_remaining)
+	_time_limit_timer.start(_time_left)
+
+func _process(_delta: float) -> void:
+	_time_left = _time_limit_timer.time_left
+	if _time_left > 0:
+		_hud_ref.update_timer(_time_left)
+	else:
+		_hud_ref.update_timer(0)
+		_end_game()
 
 func remove_bag_slot() -> void:
 	if _bag_slots_remaining > 0:
