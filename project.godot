@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="ludum-dare-58"
+config/name="Let it Reap"
+config/description="Slash and tear through the crowd to collect soul combos."
 run/main_scene="uid://ctt72jhrk3frn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cv0448swvrch2"
 
 [autoload]
 
