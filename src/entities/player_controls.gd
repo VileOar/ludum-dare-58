@@ -55,4 +55,5 @@ func _on_slash_area_body_exited(body: Node2D) -> void:
 		var mook: Mook = body as Mook
 		_game_manager_ref.collect_mook(mook)
 		_on_mook_death(mook)
+		mook.die()
 		mook.queue_free()

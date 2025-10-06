@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Mook
 
+@export var dead_PCK: PackedScene
+
 const WANDER_SPEED := Global.BLOCK * 0.5
 const PANIC_SPEED := Global.BLOCK * 2.0
 
@@ -97,6 +99,13 @@ func do_the_wave():
 	if !(is_panic() and _is_panicable()):
 		_change_state(States.ANIM)
 		_sprite.play("wave")
+
+
+func die():
+	var dead = dead_PCK.instantiate() as DeadMook
+	dead.setup_dead(_stats.shape, _stats.colour, _sprite.scale)
+	dead.position = position
+	get_parent().add_child(dead)
 
 
 # whether this entity gets locked to panic state and enters panic state with mouse
