@@ -1,3 +1,4 @@
+class_name ScoreManager
 extends Node2D
 
 # store streak counts
@@ -45,9 +46,9 @@ func _reset_unique_shapes_remaining() -> void:
 func _reset_unique_colours_remaining() -> void:
 	_unique_colours_remaining = Global.Colours.values()
 
-func _on_collect(collected_mook : Mook) -> void:
+func on_collect(collected_mook : MookStats) -> void:
 	_second_to_last_collected_mook = _last_collected_mook
-	_last_collected_mook = collected_mook.get_stats()
+	_last_collected_mook = collected_mook
 	# add collected mook to array
 	_update_last_collected_mooks(_last_collected_mook)
 	
@@ -146,6 +147,7 @@ func _3_shapes_of_colour_check() -> void:
 	if _unique_shape_same_colour_streak == 3:
 		_3_shapes_of_colour_counter += 1
 		_combo_score_total += Global.THREE_SHAPES_OF_COLOUR_BONUS
+		print(">>> 3 shapes of colours combo")
 
 # checks if last 4 collected mooks are of the same colour and different shapes
 func _all_shapes_of_colours_check() -> void:
@@ -157,6 +159,7 @@ func _all_shapes_of_colours_check() -> void:
 		# calculate the combo score and add it to the total
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_shapes.size())
 		_combo_score_total += mook_score_total * Global.ALL_SHAPES_OF_COLOUR_MULTIPLIER
+		print(">>> all shapes of colours combo")
 
 # checks if last 6 collected mooks are of the same shape and different colours
 func _all_colours_of_shape_check() -> void:
@@ -165,6 +168,7 @@ func _all_colours_of_shape_check() -> void:
 		# calculate the combo score and add it to the total
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_colours.size())
 		_combo_score_total += mook_score_total * Global.ALL_COLOURS_OF_SHAPE_MULTIPLIER
+		print(">>> all colours of shapes combo")
 
 # calculates the sum of the score values of each mook in the combo
 func _calculate_mook_score_in_combo(combo_size: int) -> int:

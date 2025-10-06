@@ -6,8 +6,11 @@ const BLOCK := 64.0
 # number of spawned entities on start
 const NUM_SPAWNED_MOOKS := 300
 
+const RARE_MOOK_CHANCE : float = 0.05
+const LEGENDARY_MOOK_CHANCE : float = 0.01
+
 # base value of a collected soul
-const BASE_SCORE : int = 10
+const BASE_SCORE: int = 10
 
 # multipliers awarded on soul rarity
 const RARE_MULTIPLIER: int = 2
@@ -38,9 +41,9 @@ enum Colours {
 	RED,
 	ORANGE,
 	YELLOW,
-	GREEN, 
-	BLUE, 
-	PURPLE 
+	GREEN,
+	BLUE,
+	PURPLE
 }
 
 enum Rarities {
@@ -48,6 +51,8 @@ enum Rarities {
 	RARE,
 	LEGENDARY
 }
+
+var _final_score: int = 0
 
 var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
 	Shapes.POINTY: preload("uid://dntarescsau6g"),
@@ -68,11 +73,11 @@ var colour_values = {
 	Colours.PURPLE: Color("ff77a8"),
 }
 
-var shape_tiles = {
-	Shapes.POINTY: preload("uid://bjgvaehjx2h3k"),
-	Shapes.BLOCKY: preload("uid://dj7t4je2haurw"),
-	Shapes.CHUBBY: preload("uid://bem0nxku82aiv"),
-	Shapes.STUBBY: preload("uid://4q8q3wrsvo5x")
+var shape_icons = {
+	Shapes.POINTY: preload("uid://bvdjwvlprjemr"),
+	Shapes.BLOCKY: preload("uid://2nxfpkfatuoc"),
+	Shapes.CHUBBY: preload("uid://cbqpmwtvv6i2l"),
+	Shapes.STUBBY: preload("uid://btmruwtfctd0n")
 }
 
 var rarity_icons = {
@@ -88,6 +93,11 @@ func _ready() -> void:
 		mat.set("shader_parameter/color", colour_values[col])
 		_materials[col] = mat
 
+func set_final_score(new_score) ->void:
+	_final_score = new_score
+
+func get_final_score() -> int:
+	return _final_score
 
 func get_spriteframes_from_shape(shape: Shapes) -> SpriteFrames:
 	return _sprite_frames[shape]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4q8q3wrsvo5x"
-path="res://.godot/imported/rhombus_tile.png-76caf038d2dfc7d22fe2f01305bed68a.ctex"
+uid="uid://btmruwtfctd0n"
+path="res://.godot/imported/lozenge_icon.png-d74d144aa4c8030fc98c169869c2240f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/name_dex/rhombus_tile.png"
-dest_files=["res://.godot/imported/rhombus_tile.png-76caf038d2dfc7d22fe2f01305bed68a.ctex"]
+source_file="res://assets/gfx/name_dex/lozenge_icon.png"
+dest_files=["res://.godot/imported/lozenge_icon.png-d74d144aa4c8030fc98c169869c2240f.ctex"]
 
 [params]
 
