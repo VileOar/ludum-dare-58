@@ -31,6 +31,11 @@ func _ready():
 	add_to_sound_player_dictionary("MainMenuMusic", $MainMenuMusic/Music)
 	add_to_sound_player_dictionary("Ambience", $MainMenuMusic/Ambience)
 	
+	# Festival Audio
+	add_to_sound_player_dictionary("Scratch", $FestivalSFX/Scratch)
+	add_to_sound_player_dictionary("ButtonClick", $FestivalSFX/ButtonClick)
+	
+	
 	# Festival Music
 	add_to_sound_player_dictionary("Aerosol", $FestivalMusic/Aerosol)
 	add_to_sound_player_dictionary("Arroz", $FestivalMusic/Arroz)

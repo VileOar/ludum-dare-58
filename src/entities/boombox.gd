@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 class_name BoomBox
 
 @onready var boom_timer: Timer = $BoomTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var _interval = 0.0
 
@@ -41,7 +42,9 @@ func start_boombox():
 func press():
 	pause()
 	play("press")
+	_play_next_music()
 	_is_boombox_stopped = true
+	animation_player.play("shake")
 
 			
 func set_beat_freq_with_timer(freq: float, time_to_wait :float):
@@ -59,6 +62,20 @@ func _beat():
 	boom_timer.stop()
 	pause()
 	play("boomin")
+
+#endregion
+
+#region Audio
+func _play_next_music()-> void:
+	_play_button_click_sfx()
+	await get_tree().create_timer(0.1).timeout
+	_play_scratch_sfx()
+
+func _play_scratch_sfx():
+	AudioManager.play_audio("Scratch")
+	
+func _play_button_click_sfx():
+	AudioManager.play_audio("ButtonClick")
 
 #endregion
 

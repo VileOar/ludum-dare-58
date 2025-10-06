@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=19 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -7,7 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://con8wcjdjv4fv" path="res://assets/audio/sfx/maybe/ui/pepSound2.mp3" id="3_roxop"]
 [ext_resource type="AudioStream" uid="uid://fig2h0psp7xe" path="res://assets/audio/festival_music/Boogie Party.mp3" id="4_cmdha"]
 [ext_resource type="AudioStream" uid="uid://du6x8lsntfd63" path="res://assets/audio/sfx/maybe/ui/Scroll Shuffle High Single.wav" id="4_xy50i"]
+[ext_resource type="AudioStream" uid="uid://cocfstsu8qssj" path="res://assets/audio/sfx/maybe/festival/scratch_hit.wav" id="5_5wjwd"]
 [ext_resource type="AudioStream" uid="uid://dvmegprx3c70y" path="res://assets/audio/festival_music/Neon Laser Horizon.mp3" id="5_bjq5x"]
+[ext_resource type="AudioStream" uid="uid://dcschd4eljeyf" path="res://assets/audio/sfx/maybe/festival/Old PC Key A.wav" id="6_mk4vl"]
 [ext_resource type="AudioStream" uid="uid://ufbm177pjwf8" path="res://assets/audio/festival_music/Newer Wave.mp3" id="6_tguw2"]
 [ext_resource type="AudioStream" uid="uid://dqoi5a8h5slr7" path="res://assets/audio/festival_music/Raving Energy.mp3" id="7_4wg5e"]
 [ext_resource type="AudioStream" uid="uid://5inmoqlot1l8" path="res://assets/audio/festival_music/Raving Energy (faster).mp3" id="8_roxop"]
@@ -41,6 +43,19 @@ stream = ExtResource("4_xy50i")
 volume_db = -10.0
 pitch_scale = 1.2
 max_polyphony = 10
+bus = &"SFX"
+
+[node name="FestivalSFX" type="Node" parent="."]
+
+[node name="Scratch" type="AudioStreamPlayer" parent="FestivalSFX"]
+stream = ExtResource("5_5wjwd")
+volume_db = -16.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="FestivalSFX"]
+stream = ExtResource("6_mk4vl")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="FestivalMusic" type="Node" parent="."]
