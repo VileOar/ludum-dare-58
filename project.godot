@@ -13,7 +13,7 @@ config_version=5
 config/name="ludum-dare-58"
 run/main_scene="uid://ctt72jhrk3frn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://ddmsqu6e7yksu"
 
 [autoload]
 

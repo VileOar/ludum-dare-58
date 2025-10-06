@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0i7xetuqln7w"
+path="res://.godot/imported/Button Plastic B.wav-e5ef324c40451f29ccd35656dfb2a833.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/festival/Button Plastic B.wav"
+dest_files=["res://.godot/imported/Button Plastic B.wav-e5ef324c40451f29ccd35656dfb2a833.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
