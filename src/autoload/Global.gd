@@ -17,6 +17,8 @@ const LEGENDARY_MOOK_CHANCE: float = 0.01
 # base value of a collected soul
 const BASE_SCORE: int = 10
 
+const GOOD_SCORE_THRESHOLD: int = 650
+
 # multipliers awarded on soul rarity
 const RARE_MULTIPLIER: int = 2
 const LEGENDARY_MULTIPLIER: int = 3

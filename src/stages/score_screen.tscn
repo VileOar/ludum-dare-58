@@ -144,7 +144,7 @@ scale = Vector2(10, 10)
 sprite_frames = ExtResource("6_2gbsl")
 animation = &"counting"
 autoplay = "counting"
-frame_progress = 0.09198392
+frame_progress = 0.8148218
 flip_h = true
 
 [node name="PlayAgain" type="Button" parent="."]
