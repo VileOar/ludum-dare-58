@@ -9,7 +9,7 @@ if __name__ == "__main__":
     shapes = ["POINTY", "BLOCKY", "CHUBBY", "STUBBY"]
     colours = ["RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE"]
     rarities = ["COMMON", "RARE", "LEGENDARY"]
-    amounts = {"COMMON" : 12, "RARE" : 6, "LEGENDARY": 4}
+    amounts = {"COMMON" : 12, "RARE" : 6, "LEGENDARY": 3}
 
     path_output = "../assets/data/names_data.json"
 

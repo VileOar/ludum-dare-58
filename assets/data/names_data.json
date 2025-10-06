@@ -2,728 +2,704 @@
     "POINTY": {
         "RED": {
             "COMMON": [
-                "Dmytro Kritikos",
-                "Habib Guzmán",
-                "Charlotte Williams",
-                "David Villalba",
-                "Alessia Öztürk",
-                "Ahmed Pathirana",
-                "Zehra Takada",
-                "Izaro Correa",
-                "Džan Chai",
-                "Latifa Say",
-                "Elizaveta Parisi",
-                "Si-woo Gjoni"
+                "Ella Noh",
+                "Martina Adrei",
+                "Maximiliano Johansen",
+                "Jad Pérez",
+                "Sebastian Kieffer",
+                "Charles Papoutsis",
+                "Noah Harutyunyan",
+                "Amelia Velásquez",
+                "Mateo Shibata",
+                "Hana Chiba",
+                "Rei Angelova",
+                "Emmanuel Khat"
             ],
             "RARE": [
-                "Juliana Edry",
-                "Theo Muñoz",
-                "Sophie Sano",
-                "Gabriela Prifti",
-                "Samuel Schroeder",
-                "Yoana Jones"
+                "Evie Ferri",
+                "Sofia Takács",
+                "Alysha Radu",
+                "Rose Vargas",
+                "Luna Silva",
+                "Katla Cruz"
             ],
             "LEGENDARY": [
-                "Emma Raj",
-                "Viktoriya Yang",
-                "Fatima Antunes",
-                "Lana Fernández"
+                "Miguel Jefferson",
+                "Gabija De Rosa",
+                "Reanu keeves"
             ]
         },
         "ORANGE": {
             "COMMON": [
-                "Lwandle Järvinen",
-                "Matthildur Hossain",
-                "Youssef Jayasinghe",
-                "Sakeena Nakayama",
-                "Daniel Giménez",
-                "Thiago Lehtonen",
-                "Hussein Thái",
-                "Theodore Trịnh",
-                "Banele Solís",
-                "Angela Romano",
-                "Haru Bolat",
-                "Heikapu Castillo"
+                "Amir Steiner",
+                "Mohammad Bolkvadze",
+                "Ha-rin Cattaneo",
+                "Anahit Díaz",
+                "Leo Andersson",
+                "Luka Chow",
+                "Aleksander Ishikawa",
+                "Mohammad-Reza Doherty",
+                "Giulia Penov",
+                "Somporn Navarro",
+                "William Sanjeewa",
+                "Chloé Morozov"
             ],
             "RARE": [
-                "María Choy",
-                "Ali Van Dijk",
-                "Prakash Johansson",
-                "Gabriel Joe",
-                "Elija Delgado",
-                "Logan Salas"
+                "Marina Yamazaki",
+                "Dániel Jayaweera",
+                "Zala Benali",
+                "Konstantina Maldonado",
+                "William Sánchez",
+                "Benas Araújo"
             ],
             "LEGENDARY": [
-                "Noah Mladenovski",
-                "Isabella Moreno",
-                "Ian Zaytsev",
-                "Harun Ueta"
+                "Donald Trumpet",
+                "Cristiano Reinaldo",
+                "Sarah Silva"
             ]
         },
         "YELLOW": {
             "COMMON": [
-                "Mia Ferreira",
-                "Samyar Sørensen",
-                "Amelia Fernández",
-                "Milica Ilić",
-                "Ángel Borg",
-                "Dejan Campos",
-                "Daniel Alejandro Ortega",
-                "Bogdan Martins",
-                "Matilde Moser",
-                "Boris Romero",
-                "Ximena Liepiņš",
-                "Omar Wojciechowski"
+                "Ane Vargas",
+                "Haruna Torres",
+                "Oleksandra Petersen",
+                "Tamatoa Ortiz",
+                "Jordi Fuentes",
+                "Ava Simonsen",
+                "Liam Jiménez",
+                "Georgia Stoyanov",
+                "Mariam Mendes",
+                "Petar Hadžić",
+                "Hana Rivero",
+                "Marcell Smagulov"
             ],
             "RARE": [
-                "Lucas Koak",
-                "Yasmin Grabowski",
-                "Willow Thomas",
-                "Gita Vos",
-                "Luca Čengić",
-                "Emiliya Castañeda"
+                "than Radić",
+                "Artyom Parra",
+                "Aitana Velasco",
+                "Norsaq Nan",
+                "Ayala O'Kelly",
+                "Ivalu Lim"
             ],
             "LEGENDARY": [
-                "Gabriel Ghim",
-                "Rafael Edry",
-                "Rose-Merline Bizjak",
-                "Sebastian Yosef"
+                "Fuertes Dolores",
+                "Anzu Krasniqi",
+                "Muhamad Shim"
             ]
         },
         "GREEN": {
             "COMMON": [
-                "Jelena Gang",
-                "Adam Mitchell",
-                "Julia Fujihara",
-                "Leordo Ivanoŭ",
-                "Liam Scheving",
-                "Gunay Johansen",
-                "Lur Iliev",
-                "Mattia Sasaki",
-                "Gabriel Brown",
-                "Lina Sorrentino",
-                "Ji-an Chhim",
-                "Titaina Rajapaksha"
+                "Alisa Meas",
+                "Melina Torres",
+                "Emma Velásquez",
+                "Yǔzé Marković",
+                "Jónas Díaz",
+                "Zahra Droplets",
+                "Leonor Peña",
+                "Ha-eun Rodriguez",
+                "Alicja Kinoshita",
+                "Ava Conte",
+                "Ivana Mendes",
+                "Elchin Singh"
             ],
             "RARE": [
-                "Gabriel Ross",
-                "Sebastián Jovanović",
-                "Liam González",
-                "Ramazan Yun",
-                "Abd Torres",
-                "Alice Phan"
+                "Yīnuò Chang",
+                "Lillie Cardozo",
+                "Mariami Giorgadze",
+                "Usman Alvarado",
+                "Gabriela Rosas",
+                "Anastasiya Sanz"
             ],
             "LEGENDARY": [
-                "Kai Sousa",
-                "Archie Serrano",
-                "Kári Ilić",
-                "Merjem Van Leeuwen"
+                "Mike Oxmall",
+                "Maria Lahtinen",
+                "Jordi Thill"
             ]
         },
         "BLUE": {
             "COMMON": [
-                "Manua Rizzo",
-                "Noor Öztürk",
-                "Miguel Gunasekara",
-                "Guðrún Babić",
-                "Levi Gô͘",
-                "Malak Quiroga",
-                "Minik Torres",
-                "Maya Andō",
-                "Charlie Almeida",
-                "Jameson Nieminen",
-                "Džan Chim",
-                "Filip Castillo"
+                "Salma Castro",
+                "Kadiatou Martino",
+                "Layla Nozadze",
+                "Kári Wong",
+                "Louise Molina",
+                "Ali Morris",
+                "Nikola Chun",
+                "Alisa Domínguez",
+                "Ma'soumeh Morina",
+                "Lia Janev",
+                "Sumayah Kozlov",
+                "Sophie Suárez"
             ],
             "RARE": [
-                "Leo Vera",
-                "Anastasiya Heikkinen",
-                "Angela Shengelia",
-                "Léa Chun",
-                "Viktoría Tavares",
-                "Oliver Petrović"
+                "Maël Mayr",
+                "Lara Seong",
+                "Vesna Ochion",
+                "Sophia ﻿Grigoryan",
+                "João Aguilar",
+                "Emma Kara"
             ],
             "LEGENDARY": [
-                "Hasan Larsen",
-                "Rosmery Soto",
-                "James Babić",
-                "Konstantina Peralta"
+                "Rose Kostov",
+                "Aditi Sargsyan",
+                "Mike Oxlong"
             ]
         },
         "PURPLE": {
             "COMMON": [
-                "Safiya Nguyen",
-                "Elnur Sasaki",
-                "Armen Young",
-                "Jakub François",
-                "Hasan Rodriguez",
-                "Artyom Scott",
-                "Maria Tsay",
-                "Lía Vega",
-                "Bilal Trajanovski",
-                "Ofentse Ben-David",
-                "Olivia García",
-                "Marie Pavlović"
+                "Emely Long",
+                "Camila Hernández",
+                "Daniel Bertrand",
+                "Amelia Szymański",
+                "Abdelkader Balogh",
+                "Eitan Danielsen",
+                "Ahmed Allen",
+                "Marta Alvarado",
+                "Ema Dekker",
+                "Martina Klein",
+                "Gabriel Wilson",
+                "Tróndur Schroeder"
             ],
             "RARE": [
-                "Mia Ruíz",
-                "Sarah Basile",
-                "Sara Chong",
-                "Ofentse Kavaliauskas",
-                "Yūna Carter",
-                "Matteo Lei"
+                "Althea Vītols",
+                "Džan Sharma",
+                "Youssef Medina",
+                "Rían Estrada",
+                "Aisultan Sánchez",
+                "Emilia Yakovenko"
             ],
             "LEGENDARY": [
-                "Shaikha Trajanoski",
-                "Jakub Chang",
-                "Asiya Khúc",
-                "Ana Maria Giuliani"
+                "Alice Chang",
+                "I-chun Gashi",
+                "Dixie Normous"
             ]
         }
     },
     "BLOCKY": {
         "RED": {
             "COMMON": [
-                "Amelia Azevedo",
-                "Laura Ochion",
-                "Sandra Castro",
-                "Theodor Pak",
-                "Kyra Sanchez",
-                "Mateo Romero",
-                "Artyom Chaudhary",
-                "Maximilian Zieliński",
-                "Zahra Williams",
-                "Mari Hasani",
-                "Melisa Messina",
-                "Isla Fuchs"
+                "Uta Hadad",
+                "Theodore Williams",
+                "Ioannis Aguilar",
+                "Amira Nakagawa",
+                "Juliana Potočnik",
+                "Hiro Binder",
+                "Thiago Gil",
+                "Eisha Hansen",
+                "Victoria Saavedra",
+                "Ali Young",
+                "Benedita Mendoza",
+                "Martin Rhim"
             ],
             "RARE": [
-                "Inuk Hernández",
-                "Isla Zuu",
-                "Dimitrios Stanković",
-                "Ella Inoue",
-                "Ava Bairamov",
-                "Bruno Chong"
+                "James Orlando",
+                "Bishal Castillo",
+                "Leandra Kozłowski",
+                "Kiara Hun",
+                "Paula Marini",
+                "Willow Chadad"
             ],
             "LEGENDARY": [
-                "Naya Manukyan",
-                "Sophie Semyonov",
-                "Óliver Mytaras",
-                "Amayra Sin"
+                "Faisal Bai",
+                "Ben Dover",
+                "Karine Hernández"
             ]
         },
         "ORANGE": {
             "COMMON": [
-                "Luca Diederich",
-                "Julieta Marković",
-                "Theo Silva",
-                "Kirollos Lund",
-                "Guðrún Semyonov",
-                "Lena Laitinen",
-                "Lourenço Đukić",
-                "Tigran Valon",
-                "Hasan López",
-                "Martina Richardson",
-                "Matías Navarrete",
-                "Theo Olofsson"
+                "Ayim Ting",
+                "Maryam Egzon",
+                "Grace Ruíz",
+                "Aurora De Los Santos",
+                "Farrah Vargas",
+                "Gabriel Fekete",
+                "Hàorán Sin",
+                "Varvara Muñoz",
+                "Mia Tsiklauri",
+                "Sofía Kondō",
+                "Liam Delgado",
+                "Amina Akter"
             ],
             "RARE": [
-                "Mateo Smith",
-                "Manish Rojas",
-                "Gabriel Stoyanova",
-                "Anna Nilsson",
-                "Elshan Jayaweera",
-                "Shahd Ghazaryan"
+                "Maya Santos",
+                "Kyriaki Palma",
+                "Noah Rossetti",
+                "Nika Muñoz",
+                "Matilda Ueno",
+                "Ethan Pedersen"
             ],
             "LEGENDARY": [
-                "Ahmed Huáng",
-                "Charlotte Kovács",
-                "Aitana Brunner",
-                "Zümra Madrigal"
+                "Sofija Pettersen",
+                "Vesna Morelli",
+                "Hugie Rection"
             ]
         },
         "YELLOW": {
             "COMMON": [
-                "Elene Urbonas",
-                "Ane Dubois",
-                "Ivaana Salvador",
-                "Olivia Fehér",
-                "Luis Cardoso",
-                "Sophia Ayala",
-                "Ioanna Sánchez",
-                "Mary Arslan",
-                "Elizabeth Allen",
-                "Lin Tamura",
-                "Nazanin-Zahra Santoro",
-                "Daria Seo"
+                "Mattias Chun",
+                "Liam Chim",
+                "Anar Méndez",
+                "Inès Kritikos",
+                "Jelena Dervishi",
+                "Widelene Khachatryan",
+                "Oliver Jun",
+                "Martina Roh",
+                "Kazi Shengelia",
+                "Malu Peretz",
+                "Nehir Takata",
+                "Assia Ferreyra"
             ],
             "RARE": [
-                "Elyas Petrovski",
-                "Charlie Vásquez",
-                "Mohammed Fonseca",
-                "Rin Paz",
-                "Latifa Alves",
-                "Mia Kılıç"
+                "Veronika Pedersen",
+                "Valentina Shehu",
+                "David Jin",
+                "Fiadh Virtanen",
+                "Mia Marino",
+                "Yousouf Gomes"
             ],
             "LEGENDARY": [
-                "Elias Valdez",
-                "Theo Tsoi",
-                "Sekou Karlsen",
-                "Isabella Camilleri"
+                "Viktoria Pereira",
+                "Dhruv Guerrero",
+                "Ronald McMickey"
             ]
         },
         "GREEN": {
             "COMMON": [
-                "Ava Watanabe",
-                "Jack Munteanu",
-                "Ion Solovyov",
-                "Nivi Semyonov",
-                "Yassin Potočnik",
-                "Isabella Chowdhury",
-                "Marija Mendoza",
-                "Xīnyí Martins",
-                "Thomas Martínez",
-                "Dmitry Yáng",
-                "Freya Nomura",
-                "Laura Sargsyan"
+                "Rowan Shengelia",
+                "Noah Jiménez",
+                "Carlos Murphy",
+                "Zina Brooks",
+                "Markel Ortega",
+                "Mio Boyko",
+                "Mia Demirović",
+                "Lina Vásquez",
+                "Noor Vidmar",
+                "Gustavs Montes",
+                "Anna Castillo",
+                "Maksym Volkov"
             ],
             "RARE": [
-                "Leon Fuentes",
-                "Vesna Andrejev",
-                "Angelo Johnson",
-                "Alice Sanna",
-                "Vladyslav Sahakyan",
-                "Ema Ramirez"
+                "Danijel López",
+                "Tereza Takeda",
+                "Ian Nand",
+                "Umar Valdez",
+                "Jana Salinas",
+                "Noah Mitchell"
             ],
             "LEGENDARY": [
-                "Olivia Boyko",
-                "Krishna Meng",
-                "Odval Şimşek",
-                "Liz Espinoza"
+                "Lucas Sang",
+                "Mia Oblak",
+                "Saiyan Boy"
             ]
         },
         "BLUE": {
             "COMMON": [
-                "Victoria Roh",
-                "Hanna Santos",
-                "Ioannis Huang",
-                "Leordo Smirnov",
-                "Ginevra Mortensen",
-                "Valter Pak",
-                "Christina Sánchez",
-                "Dragana Hernandez",
-                "Elijah Thompson",
-                "Nur Chandra",
-                "Stanisław Chiba",
-                "Hana Lorenzo"
+                "Celine Sanhueza",
+                "Elizaveta Ahmetović",
+                "Syed Juárez",
+                "than García",
+                "Sultan Emine",
+                "Ane Nikolić",
+                "Azariah Murati",
+                "Lucas Correia",
+                "Nika Jiménez",
+                "Jana Ferretti",
+                "Francesco Hettiarachchi",
+                "Ginevra Davis"
             ],
             "RARE": [
-                "Zina Abuladze",
-                "Siphosethu Varela",
-                "Artem Miyamoto",
-                "Sesili Radulović",
-                "Antônio Sonn",
-                "Chun-chieh Jiménez"
+                "William Matsui",
+                "Sandra Bianchi",
+                "Liam Visser",
+                "Lilien Zupančič",
+                "Elias Cruz",
+                "Aleksandar Horvat"
             ],
             "LEGENDARY": [
-                "Charlotte Schroeder",
-                "Liam Chhet",
-                "Santiago Takaki",
-                "Olivia Valdez"
+                "Leo Ortiz",
+                "Phill McCann",
+                "Lovely Ismailov"
             ]
         },
         "PURPLE": {
             "COMMON": [
-                "Hussein Joensen",
-                "Ioane Torres",
-                "Youssef Álvarez",
-                "Andrea Ashkenazi",
-                "Mabel Gómez",
-                "Maryam Rodriguez",
-                "Aksel Tóth",
-                "Chia-hao Moore",
-                "Ahmad Kukk",
-                "Eeli Russo",
-                "Aylin Stanković",
-                "Regina Tapia"
+                "Oliver Lombardi",
+                "Eun-woo Halili",
+                "Anna Son",
+                "Valentina Miyasaki",
+                "Yusuf Ilić",
+                "Nuray Villalba",
+                "Bayarmaa Castro",
+                "Fadi Heng",
+                "Mahesh Kaur",
+                "Ivy Schneider",
+                "Leo Tahirović",
+                "Ha-joon Silva"
             ],
             "RARE": [
-                "Emma Diallo",
-                "Arman Takada",
-                "Aylin Fernández",
-                "James Karjalainen",
-                "Yasmine Hasanović",
-                "Laia Mercier"
+                "Valentina Ilić",
+                "Sophia Wagner",
+                "Samuel Ryu",
+                "Marko Muhamet",
+                "Mía Lín",
+                "Matyáš Nagy"
             ],
             "LEGENDARY": [
-                "Sofija Sen",
-                "Victoria Aoki",
-                "Tamar Tapia",
-                "Jovan Lee"
+                "Niel Vassiljev",
+                "Ioannis De Angelis",
+                "Dr Evil"
             ]
         }
     },
     "CHUBBY": {
         "RED": {
             "COMMON": [
-                "Charlotte Bravo",
-                "David Ivanoŭ",
-                "Dalila Munteanu",
-                "Sofía Phí",
-                "Emma Kwak",
-                "Matthew Gashi",
-                "Benedita López",
-                "Lethabo Janev",
-                "Santiago Díaz",
-                "Benjamín Kamiński",
-                "Abdoulaye Arben",
-                "Luna Chand"
+                "Nuka Hoffmann",
+                "August Kluivert",
+                "Leo François",
+                "Lukas Weber",
+                "Charlotte Gómez",
+                "Emma Aoki",
+                "Willow Prishtina",
+                "Ava Lehner",
+                "Marta Muñoz",
+                "Amaris Herrera",
+                "Julia Godoy",
+                "Gianna Rotari"
             ],
             "RARE": [
-                "Martim Martinez",
-                "Anzu Lambert",
-                "Theodore Auer",
-                "Artiom Olsen",
-                "Himari Navarrete",
-                "William Cortez"
+                "Adam Castillo",
+                "Dylan Son",
+                "Binita Eriksson",
+                "William Heng",
+                "Teura Petrenko",
+                "Artem Vidal"
             ],
             "LEGENDARY": [
-                "Hina Mora",
-                "Harry Simon",
-                "Lethabo Koak",
-                "Lewis Marino"
+                "Willow Chin",
+                "Walter Melon",
+                "Martina Ramírez"
             ]
         },
         "ORANGE": {
             "COMMON": [
-                "Ian Cárdenas",
-                "Rabina Fuentes",
-                "Jack García",
-                "Pol Turner",
-                "Amina González",
-                "Alexandra Lourenço",
-                "Natálie Keller",
-                "Renata Carvajal",
-                "Dylan O'Gallagher",
-                "Ayla Kovačević",
-                "Mia Tang",
-                "Angeline Powell"
+                "Ana Rodríguez",
+                "Théo Mulder",
+                "Leonardo Eriksson",
+                "Amálie Duarte",
+                "Teura Shrestha",
+                "Sophie Martínez",
+                "Sofi Kovačević",
+                "Michael Greco",
+                "Andrea Moser",
+                "Ella Ishii",
+                "Lukáš Rodriguez",
+                "Ömer Asaf Nagy"
             ],
             "RARE": [
-                "Fiadh Bytyqi",
-                "Agustina Ramos",
-                "Katerina Kaur",
-                "James Figueroa",
-                "Patrícia Rebane",
-                "Tommaso Mamedovi"
+                "Lily Ribeiro",
+                "Olivia Marino",
+                "Theodor Jones",
+                "Paninnguaq Sullivan",
+                "Sophia Sanz",
+                "Emily Davis"
             ],
             "LEGENDARY": [
-                "Abubakr Khatun",
-                "Anastasia Malcah",
-                "Maryam Hah",
-                "Joseph Navarrete"
+                "Douglas Douglas",
+                "Esther Gómez",
+                "William García"
             ]
         },
         "YELLOW": {
             "COMMON": [
-                "David Di Stefano",
-                "Marios Rodríguez",
-                "Emily Kinnunen",
-                "Abdullah Janssens",
-                "Emily Johnson",
-                "Samuel Arai",
-                "Amine Đoàn",
-                "Abdelkader Georgiev",
-                "Riko Tsiklauri",
-                "Wassim Fujiwara",
-                "Juan Andrés Kazloŭski",
-                "Nil Morgan"
+                "Sophia Suárez",
+                "Emilia Mkrtchyan",
+                "Tehei Jovanović",
+                "Jack Toro",
+                "Adam Henriksen",
+                "Dion Cojocari",
+                "Beshoi Mạc",
+                "Elshan De Angelis",
+                "Daniels Maldonado",
+                "Ivan Petrauskienė",
+                "Elizabeth Anderson",
+                "Julia Radulović"
             ],
             "RARE": [
-                "Joe Kostov",
-                "Fūma Hasani",
-                "Haruma Caputo",
-                "Chloe Jensen",
-                "Carolina Thomas",
-                "Kazi Kučerová"
+                "Marama Tamura",
+                "Liam Ramos",
+                "Abdulaziz Janev",
+                "Youssef Huáng",
+                "María Teresa Şahin",
+                "Min-jun Gajdoš"
             ],
             "LEGENDARY": [
-                "Victoria Roh",
-                "Ethan Bah",
-                "Paula Thomsen",
-                "Hiro Shkreli"
+                "Ben Krupp",
+                "Ivan Ibrahimović",
+                "Fiadh Giménez"
             ]
         },
         "GREEN": {
             "COMMON": [
-                "Jacob Rim",
-                "Teodora Takata",
-                "Mikołaj Grassi",
-                "Amēlija Lefebvre",
-                "Ámbar Camilleri",
-                "Sarah Yang",
-                "Safija Petrović",
-                "Maia Kaczmarek",
-                "Adam Kovalenko",
-                "Mohammad Berndsen",
-                "Amir Nhek",
-                "Matei Tuominen"
+                "Lev Valentini",
+                "Sesili Nguyen",
+                "Olivia Johnson",
+                "Anastasija Vargas",
+                "Tehei Jankowski",
+                "Mattia Maier",
+                "Míngzé Rossetti",
+                "Miguel Ángel Deo",
+                "Nora Horváth",
+                "Mia Gómez",
+                "Ari Arben",
+                "Elmar Sharma"
             ],
             "RARE": [
-                "Ivan Krajnc",
-                "Jana Rossi",
-                "Rosie Colombo",
-                "Emily Khutsishvili",
-                "Lev Serrano",
-                "Aïcha Neméth"
+                "Pau Pellegrini",
+                "Gael Chun",
+                "Victoria Dumitru",
+                "Malik Mladenovski",
+                "Li-hua Meas",
+                "Juliette Eriksson"
             ],
             "LEGENDARY": [
-                "Amar Ruíz",
-                "Alexandru Kavalioŭ",
-                "Gogo Schmid",
-                "Huseyn Jayasuriya"
+                "Hugo Robles",
+                "George Tabatadze",
+                "Anita Calculator"
             ]
         },
         "BLUE": {
             "COMMON": [
-                "Anna de la Cruz",
-                "Yuna Guō",
-                "Markel Navarrete",
-                "Nikola Lopez",
-                "Harun Harada",
-                "Agustín Jara",
-                "Paula Olsen",
-                "Helena Vera",
-                "Ella Lynch",
-                "Ellie López",
-                "Robert Wilson",
-                "Noah Mejía"
+                "Ahmad Maharjan",
+                "Theo Chazan",
+                "Areni Harris",
+                "Aya Luna",
+                "Victoria Lee",
+                "Meryem Wilson",
+                "Theo Dahl",
+                "Somporn Mon",
+                "Abdullah Chen",
+                "Aygun Tapia",
+                "Charlie Kılıç",
+                "Ivik Pedersen"
             ],
             "RARE": [
-                "Pari Martin",
-                "Viraj Van Dyk",
-                "Toivo Doğan",
-                "Fatima Khlot",
-                "Pau Díaz",
-                "Louis Smagulov"
+                "Abubakr Huáng",
+                "Luca Pavlov",
+                "Hudson Yáñez",
+                "Lina Van Dijk",
+                "Alisa Vergara",
+                "Tunar Melnic"
             ],
             "LEGENDARY": [
-                "David Simić",
-                "Shahd Beridze",
-                "Ava Fujiwara",
-                "Wen-Hsiung Rossi"
+                "Seo-ah Poulsen",
+                "Wan Popescu",
+                "Harry Baals"
             ]
         },
         "PURPLE": {
             "COMMON": [
-                "Gael Braun",
-                "Gabriel Trajanovski",
-                "Sophia Ramirez",
-                "Liam Correia",
-                "Yousouf Godoy",
-                "Gerónimo Duarte",
-                "Mia Khutsishvili",
-                "Paneeraq Niemi",
-                "Danylo Hall",
-                "Kamilė Riquelme",
-                "Tomás Sanhueza",
-                "Angeline Yamashita"
+                "Helma Sánchez",
+                "Duarte Karunaratne",
+                "Antonella Kukk",
+                "Hjørdis Pellegrini",
+                "Ayesha Gonzales",
+                "Elena Rodríguez",
+                "Sara Sánchez",
+                "Shristi Prakash",
+                "Adam Ruiz",
+                "Aksel Ponce",
+                "Emely Fernández",
+                "Inunnguag Melnyk"
             ],
             "RARE": [
-                "Rashad Leroy",
-                "Murad Ryu",
-                "Olivia Gatti",
-                "Olivia Samaras",
-                "Hana Gustafsson",
-                "Alessandro Keo"
+                "Mia Varela",
+                "Sara Khat",
+                "Malik Shibata",
+                "Hana Zamora",
+                "Kiran Cebotari",
+                "Ella Hansson"
             ],
             "LEGENDARY": [
-                "Lilja Cárdenas",
-                "Kairo Karjalainen",
-                "Olivia Rosario",
-                "Ella Hoa"
+                "Charlotte Nieminen",
+                "Himari Thill",
+                "Tiny Kox"
             ]
         }
     },
     "STUBBY": {
         "RED": {
             "COMMON": [
-                "Noah Moreno",
-                "Ljiljana Pinto",
-                "Noor Welter",
-                "Ahmed Miranda",
-                "Dragan Szabó",
-                "Juan Bardhi",
-                "Filip Yun",
-                "Reina Tapia",
-                "Siti Abazi",
-                "Robert Leitner",
-                "Emilia Singh",
-                "Yamato Ông"
+                "Emma Chiu",
+                "Daniel Müller",
+                "Aruuke Chhet",
+                "Amara Salo",
+                "Ari Morgan",
+                "Mei Aguirre",
+                "Yekaterina Gallo",
+                "Nagi Schneider",
+                "Dragan Mora",
+                "Saga Molina",
+                "Victoria Çetin",
+                "María José Vásquez"
             ],
             "RARE": [
-                "Aria Silva",
-                "Victoria Núñez",
-                "Leni Tân",
-                "Mohammad-Taha Ortiz",
-                "Ayim Brown",
-                "Lilien Lee"
+                "Sumayah Kavalioŭ",
+                "Peterson Chetry",
+                "Tommy Leite",
+                "Luka Sahakyan",
+                "Lily Kovač",
+                "Leo Nikolovski"
             ],
             "LEGENDARY": [
-                "Oliver Серик",
-                "Theodor Rai",
-                "Elnur Yun",
-                "Sarah Jenkins"
+                "Sofía Girard",
+                "Lily Taylor",
+                "Lenna Yau"
             ]
         },
         "ORANGE": {
             "COMMON": [
-                "Ji-an Kozlov",
-                "Kiara Pinas",
-                "Danylo Palmieri",
-                "Alexander Riquelme",
-                "Viktoriya Ponce",
-                "Mùyáng Markoski",
-                "Azra Rizzo",
-                "Laia Wilson",
-                "Isabella Trajanoski",
-                "Henry Halvorsen",
-                "Ioannis Nguyen",
-                "Nina Koval"
+                "Matei Nakashima",
+                "Sofia Chea",
+                "Aziz Valencia",
+                "Nora González",
+                "Kaia Mendoza",
+                "Ahmed Araya",
+                "Artyom Ghang",
+                "Olivia David",
+                "Sofia Halvorsen",
+                "Lian Young",
+                "David Delgado",
+                "Anastasia Ibarra"
             ],
             "RARE": [
-                "Adrian Katz",
-                "Alikhan Quinn",
-                "Damjan White",
-                "Nils Morales",
-                "Emil Nomura",
-                "Franciszek Bailey"
+                "Toivo White",
+                "Jakub Sharma",
+                "Anna Zieliński",
+                "Lilit Nava",
+                "Gordana Marković",
+                "Nada Jiménez"
             ],
             "LEGENDARY": [
-                "Marija Itō",
-                "Nurislam Nilsen",
-                "Minik Yos",
-                "Amelia Edry"
+                "Roghayyeh Pop",
+                "Hanna Alvarado",
+                "Chet Faker"
             ]
         },
         "YELLOW": {
             "COMMON": [
-                "Leo Suh",
-                "Noah Miranda",
-                "Sarah Gonçalves",
-                "Luca Grassi",
-                "Habib Kaya",
-                "Abubakr Pedersen",
-                "Jack Gruber",
-                "Olivia Gajdoš",
-                "Nora Cha",
-                "Vittoria Rudenko",
-                "Mía Martini",
-                "Jacob Romero"
+                "Juan Thompson",
+                "Isabel Coppola",
+                "Omar Flores",
+                "Henry Kozłowski",
+                "Fatemeh Knežević",
+                "Fatemeh Shapira",
+                "Panagiotis Smith",
+                "Yasna Rivero",
+                "Michael Karjalainen",
+                "Isidora Ramírez",
+                "José Luis Demirović",
+                "Laura Jayasinghe"
             ],
             "RARE": [
-                "Gael Teo",
-                "Ahmed Marković",
-                "Mahamadou Méndez",
-                "Miguel Ángel Contreras",
-                "Ella Balázs",
-                "Omar Rodríguez"
+                "Mark Ibáñez",
+                "Ginevra Gutiérrez",
+                "Nia Alexander",
+                "Marco Antonio Yoshida",
+                "Emmanuel Jiménez",
+                "Clara Mortensen"
             ],
             "LEGENDARY": [
-                "Princess Jones",
-                "Yusuf Mejía",
-                "Arjun Tiu",
-                "Emma Maldonado"
+                "Dimitrios Koloski",
+                "Noah Chaudhary",
+                "Ema Rizz"
             ]
         },
         "GREEN": {
             "COMMON": [
-                "Muhammad Lim",
-                "Matías Lombardo",
-                "Jan Hui",
-                "Anastasija Kask",
-                "Amelia Ramos",
-                "Daniel Shah",
-                "Elene Devi",
-                "Jan Mason",
-                "Leon Pereira",
-                "Heikapu Georgiev",
-                "Berrdo Hernández",
-                "Nathan Volkov"
+                "Farah Lín",
+                "Henry Gómez",
+                "Şerife Božić",
+                "Nagisa Farías",
+                "Artur Mäkelä",
+                "María Ospanov",
+                "Jákup Kennedy",
+                "Noah Karlsen",
+                "Cillian Popescu",
+                "Matas Wagner",
+                "Elizabeth Campos",
+                "Leon Kuqi"
             ],
             "RARE": [
-                "Maximiliano Piotrowski",
-                "Catalina Ozoliņš",
-                "Tom Krličević",
-                "Amara Ichikawa",
-                "Sophie Saarinen",
-                "Olivia Hettiarachchi"
+                "Levi Suh",
+                "Marie Novak",
+                "Liam Baláž",
+                "Grace Kastrati",
+                "Damian Goh",
+                "AbulFazl Fischer"
             ],
             "LEGENDARY": [
-                "Maria Ferreira",
-                "Darija Díaz",
-                "Nia Mägi",
-                "Frida Nieminen"
+                "Noah Zupan",
+                "Liam Polishchuk",
+                "Miguel Darthveiderson"
             ]
         },
         "BLUE": {
             "COMMON": [
-                "Nora Perez",
-                "Tess Petrović",
-                "Evelina Sanjeewa",
-                "Shu-hua Cheon",
-                "Liam Herrera",
-                "Yousouf Wiśniewski",
-                "Boris Schuster",
-                "Žan Ward",
-                "Maia Delemović",
-                "Freja Petrović",
-                "Doha Castañeda",
-                "Lucas Baumgartner"
+                "Vicente Turner",
+                "Sienna Maisuradze",
+                "Nora Koyama",
+                "Anna Hashimoto",
+                "Thomas Johansson",
+                "Kadiatou Marković",
+                "Barbara Lín",
+                "Ángel Lee",
+                "Ella Greco",
+                "Yīnuò Müller",
+                "Aimar Uch",
+                "Kiara Alievi"
             ],
             "RARE": [
-                "Gaspar Hwang",
-                "Abbas Marchenko",
-                "Markus Jones",
-                "Maitê Diederich",
-                "Mia Ferrari",
-                "Areni Hall"
+                "Ye-jun Sampath",
+                "Valeria Figueiredo",
+                "Olivia Rusu",
+                "Jana Tat",
+                "Luciana Jurić",
+                "Lesedi Gim"
             ],
             "LEGENDARY": [
-                "Leah Pavlović",
-                "Mateo Johnson",
-                "Amelia Morozov",
-                "Adriana Toro"
+                "Ulloriaq Olsen",
+                "Luka Moore",
+                "Miles Red"
             ]
         },
         "PURPLE": {
             "COMMON": [
-                "Sophia Jakobsson",
-                "Anna Ivanova",
-                "Milica Tomić",
-                "Zina Kristensen",
-                "Samantha Fiore",
-                "Charlie Rinaldi",
-                "David Uch",
-                "Paraskevi Trajanoski",
-                "Valentina Serra",
-                "Manish Hoffmann",
-                "Ava Toro",
-                "Oliver Khlot"
+                "Martin Wimmer",
+                "Karim Karlsson",
+                "Miguel Popescu",
+                "Arthur Takahashi",
+                "Djeneba García",
+                "Ella Moreno",
+                "Viktor Sung",
+                "Chih-wei Tang",
+                "Youssef Castillo",
+                "Dalila Imai",
+                "Farzana Castillo",
+                "Lucas Kučerová"
             ],
             "RARE": [
-                "Amelia Krasniqi",
-                "Matteo Takeda",
-                "Joshua Boyko",
-                "Sofi Hasanov",
-                "Nóa Steffen",
-                "Felix Yakovenko"
+                "Elijah Sánchez",
+                "Manny Handy",
+                "Emma Grasso",
+                "Ella Lee",
+                "James Chim",
+                "Artiom Taylor"
             ],
             "LEGENDARY": [
-                "Charlie Rozman",
-                "Amir Haas",
-                "Michail Fischer",
-                "Sofiya Gelashvili"
+                "David Ortiz",
+                "Ali Wallner",
+                "Cillian Egzon"
             ]
         }
     }
