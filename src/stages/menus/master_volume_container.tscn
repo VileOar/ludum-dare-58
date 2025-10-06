@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://crxkyh7ncv0a3"]
+
+[ext_resource type="Theme" uid="uid://bmvvasfgrxqll" path="res://assets/themes/button_theme.tres" id="1_my0r4"]
+[ext_resource type="Theme" uid="uid://boonq02ic5uaj" path="res://assets/themes/options_theme.tres" id="2_5xh3s"]
+[ext_resource type="Script" uid="uid://b5ondieb8w1gx" path="res://src/menus/options/volume_slider.gd" id="3_q5kdk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hry04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmax6"]
+
+[node name="MasterVolumeContainer" type="HBoxContainer"]
+alignment = 1
+
+[node name="MasterVolume" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_my0r4")
+theme_override_font_sizes/font_size = 42
+text = "Master Volume"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 256
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
+
+[node name="SliderContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="SliderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="MasterSlider" type="HSlider" parent="SliderContainer"]
+layout_mode = 2
+theme = ExtResource("2_5xh3s")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("3_q5kdk")
+bus_name = "Master"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://blc2jaxidlxx5"]
+
+[ext_resource type="SpriteFrames" uid="uid://cemxgvvvt7l8o" path="res://assets/spriteframes/click_me.tres" id="1_u7q2t"]
+
+[node name="ClickMe" type="AnimatedSprite2D"]
+modulate = Color(1, 0.6392157, 0, 1)
+rotation = -3.1415927
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("1_u7q2t")
+animation = &"ClickMe"
+flip_h = true
+
+[node name="ClickMeLb" type="Label" parent="."]
+offset_left = -28.0
+offset_right = 41.0
+offset_bottom = 23.0
+scale = Vector2(-1, 1)
+text = "Click Me!"

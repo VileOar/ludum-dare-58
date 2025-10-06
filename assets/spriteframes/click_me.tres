@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cemxgvvvt7l8o"]
+
+[ext_resource type="Texture2D" uid="uid://bheufc1spg3o6" path="res://assets/ui/Click Me/touch_finger_one.png" id="1_mj3t3"]
+[ext_resource type="Texture2D" uid="uid://cp57whv2qmulg" path="res://assets/ui/Click Me/touch_swipe_down.png" id="2_84dkc"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mj3t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_84dkc")
+}],
+"loop": true,
+"name": &"ClickMe",
+"speed": 5.0
+}]
