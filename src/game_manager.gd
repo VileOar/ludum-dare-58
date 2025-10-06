@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		_hud_ref.update_timer(_time_left)
 	else:
 		_hud_ref.update_timer(0)
-		_end_game()
+		_end_game(Global.END_MESSAGE_TIMEOUT)
 
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -38,7 +38,7 @@ func remove_bag_slot() -> void:
 		_bag_slots_remaining -= 1
 		_hud_ref.update_bag_slots_display(_bag_slots_remaining)
 		if _bag_slots_remaining == 0:
-			_end_game()
+			_end_game(Global.END_MESSAGE_FULL_BAG)
 
 func collect_mook(mook: Mook) -> void:
 	ScoreManager.on_collect(mook.get_stats())
@@ -63,8 +63,9 @@ func _quit_to_title() -> void:
 	Global.set_is_paused(false)
 	emit_signal("end_game")
 
-func _end_game() -> void:
+func _end_game(end_message: String) -> void:
 	emit_signal("end_game")
+	Global.set_end_message(end_message)
 	Global.set_final_score(ScoreManager._calculate_final_score())
 	var change_scene := func():
 		get_tree().change_scene_to_file(Global.SCORE_SCENE_FILEPATH)

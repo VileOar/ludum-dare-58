@@ -39,6 +39,10 @@ const TITLE_SCENE_FILEPATH: String = "res://src/stages/main_menu.tscn"
 const LEVEL_SCENE_FILEPATH: String = "res://src/stages/level.tscn"
 const SCORE_SCENE_FILEPATH: String = "res://src/stages/score_screen.tscn"
 
+# end game messages
+const END_MESSAGE_FULL_BAG: String = "Rest In Peace"
+const END_MESSAGE_TIMEOUT: String = "Your Time Has Come"
+
 enum Shapes {
 	POINTY,
 	BLOCKY,
@@ -69,6 +73,8 @@ enum Combos {
 }
 
 var _final_score: int = 0
+
+var _end_game_message: String = END_MESSAGE_FULL_BAG
 
 var _is_paused: bool = false
 
@@ -133,3 +139,9 @@ func set_is_paused(new_value: bool) -> void:
 
 func get_is_paused() -> bool:
 	return _is_paused
+
+func set_end_message(new_msg: String) -> void:
+	_end_game_message = new_msg
+
+func get_end_message() -> String:
+	return _end_game_message

@@ -5,6 +5,8 @@ extends Control
 
 @onready var _all_collected_mooks = ScoreManager._all_collected_mooks
 
+const BACKGROUND_MUSIC : String = "EndGameMusic"
+
 var _score_string : String = "Score {score}"
 
 # variables used for the combo display
@@ -14,6 +16,8 @@ var _combo_score: int
 
 
 func _ready() -> void:
+	# update title with end message
+	$Title.text = Global.get_end_message()
 	_play_end_game_audio()
 	
 	ScoreManager._reset_all()
@@ -74,9 +78,34 @@ func _on_scored_a_combo(combo_score: int, combo: Global.Combos) -> void:
 func _update_score_label(new_score: int) -> void:
 	$Score.text = _score_string.format({"score": new_score})
 
+func _on_play_again_pressed() -> void:
+	_play_click_sfx()
+	AudioManager.instance.fade_out_music(BACKGROUND_MUSIC)
+	var change_scene := func():
+		get_tree().change_scene_to_file(Global.LEVEL_SCENE_FILEPATH)
+	change_scene.call_deferred()
+
+func _on_soul_dex_pressed() -> void:
+	_play_click_sfx()
+	$DexMenu.show()
+
+func _on_quit_pressed() -> void:
+	_play_click_sfx()
+	AudioManager.instance.fade_out_music(BACKGROUND_MUSIC)
+	var change_scene := func():
+		get_tree().change_scene_to_file(Global.TITLE_SCENE_FILEPATH)
+	change_scene.call_deferred()
 
 #region Audio
 func _play_end_game_audio() -> void:
-	AudioManager.instance.play_audio("EndGameMusic")
-
+	AudioManager.instance.play_audio(BACKGROUND_MUSIC)
+	
+func _play_click_sfx() -> void:
+	AudioManager.play_click_sfx()
+	
+func _play_hover_sfx() -> void:
+	AudioManager.play_hover_sfx()
+	
+func _on_button_mouse_entered():
+	_play_hover_sfx()
 #endregion
