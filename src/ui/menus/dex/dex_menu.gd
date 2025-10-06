@@ -106,3 +106,19 @@ func _on_sort_button_item_selected(index):
 
 	for c in children:
 		list.move_child(c, 0)
+
+
+func _on_close_pressed() -> void:
+	_play_click_sfx()
+	self.visible = false
+
+#region audio
+func _play_click_sfx() -> void:
+	AudioManager.play_click_sfx()
+	
+func _play_hover_sfx() -> void:
+	AudioManager.play_hover_sfx()
+	
+func _on_button_mouse_entered():
+	_play_hover_sfx()
+#endregion

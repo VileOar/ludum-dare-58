@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://iorpodfv3lm7"]
+[gd_scene load_steps=8 format=3 uid="uid://iorpodfv3lm7"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
-[ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/ui/main_menu.gd" id="2_806vh"]
+[ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
 [ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_vna5b"]
 [ext_resource type="PackedScene" uid="uid://ctt72jhrk3frn" path="res://src/stages/level.tscn" id="3_tlms7"]
+[ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
+[ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,71 +20,365 @@ script = ExtResource("2_806vh")
 _game_scene = ExtResource("3_tlms7")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(2.743707, 2.743707)
 texture = ExtResource("2_vna5b")
 centered = false
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 1036.0
-offset_bottom = 344.0
-theme_override_font_sizes/font_size = 144
-text = "Untitled Game"
+[node name="SolidBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 
-[node name="Play" type="Button" parent="."]
-layout_mode = 0
+[node name="TitleScreen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.18200001
+anchor_bottom = 0.18200001
 offset_left = 100.0
-offset_top = 400.0
+offset_top = 95.72
+offset_right = 1050.0
+offset_bottom = 277.72
+theme_override_constants/shadow_offset_x = 11
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 181
+text = "Let it Reap"
+
+[node name="Play" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.33800003
+anchor_bottom = 0.33800003
+offset_left = 100.0
+offset_top = 311.48
 offset_right = 257.0
-offset_bottom = 480.0
+offset_bottom = 391.48
 theme_override_font_sizes/font_size = 72
 text = "Play"
+flat = true
+alignment = 0
 
-[node name="Collection" type="Button" parent="."]
-layout_mode = 0
+[node name="Collection" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.44000003
+anchor_bottom = 0.44000003
 offset_left = 100.0
-offset_top = 510.0
-offset_right = 432.0
-offset_bottom = 590.0
+offset_top = 417.4
+offset_right = 401.0
+offset_bottom = 497.4
 theme_override_font_sizes/font_size = 72
-text = "Collection"
+text = "Soul Dex"
+flat = true
+alignment = 0
 
-[node name="Options" type="Button" parent="."]
-layout_mode = 0
+[node name="Options" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.54200006
+anchor_bottom = 0.54200006
 offset_left = 100.0
-offset_top = 620.0
+offset_top = 523.32
 offset_right = 347.0
-offset_bottom = 700.0
+offset_bottom = 603.32
 theme_override_font_sizes/font_size = 72
 text = "Options"
+flat = true
+alignment = 0
 
-[node name="Credits" type="Button" parent="."]
-layout_mode = 0
+[node name="HowToPlay" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.64400005
+anchor_bottom = 0.64400005
 offset_left = 100.0
-offset_top = 730.0
-offset_right = 270.0
-offset_bottom = 810.0
+offset_top = 629.24
+offset_right = 474.0
+offset_bottom = 709.24
+theme_override_font_sizes/font_size = 72
+text = "How to play"
+flat = true
+alignment = 0
+
+[node name="Credits" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.74500006
+anchor_bottom = 0.74500006
+offset_left = 100.0
+offset_top = 735.2
+offset_right = 329.0
+offset_bottom = 815.2
 theme_override_font_sizes/font_size = 72
 text = "Credits"
+flat = true
+alignment = 0
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 0
+[node name="Quit" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84700006
+anchor_bottom = 0.84700006
 offset_left = 100.0
-offset_top = 840.0
+offset_top = 841.12
 offset_right = 270.0
-offset_bottom = 920.0
+offset_bottom = 921.12
 theme_override_font_sizes/font_size = 72
 text = "Quit"
+flat = true
+alignment = 0
 
-[connection signal="mouse_entered" from="Play" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
-[connection signal="mouse_entered" from="Collection" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Collection" to="." method="_on_collection_button_pressed"]
-[connection signal="mouse_entered" from="Options" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Options" to="." method="_on_options_button_pressed"]
-[connection signal="mouse_entered" from="Credits" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Credits" to="." method="_on_credits_button_pressed"]
-[connection signal="mouse_entered" from="Quit" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]
+[node name="Death" type="AnimatedSprite2D" parent="TitleScreen"]
+position = Vector2(1550, 540)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("5_ic5we")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.38982445
+flip_h = true
+
+[node name="Options" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.375
+anchor_bottom = 4.375
+offset_left = 722.0
+offset_top = -72.0
+offset_right = 1199.0
+offset_bottom = 72.0
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 144
+text = "Options"
+
+[node name="OptionsReturn" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 22.875002
+anchor_bottom = 22.875002
+offset_left = 835.0
+offset_top = -40.00006
+offset_right = 1086.0
+offset_bottom = 39.99994
+theme_override_font_sizes/font_size = 72
+text = "Return"
+flat = true
+
+[node name="HowToPlay" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.375
+anchor_bottom = 4.375
+offset_left = 582.0
+offset_top = -72.0
+offset_right = 1338.0
+offset_bottom = 72.0
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 144
+text = "How to Play"
+
+[node name="HowToPlayReturn" type="Button" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 22.875002
+anchor_bottom = 22.875002
+offset_left = 835.0
+offset_top = -40.00006
+offset_right = 1086.0
+offset_bottom = 39.99994
+theme_override_font_sizes/font_size = 72
+text = "Return"
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 672.0
+offset_top = -65.48004
+offset_right = 1248.0
+offset_bottom = 65.51996
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("6_jscuh")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Move the [color=#1d2b53]Mouse[/color] to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color] to slash [br] Use [color=#1d2b53]WASD[/color] to move the camera"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.375
+anchor_bottom = 4.375
+offset_left = 740.0
+offset_top = -72.0
+offset_right = 1181.0
+offset_bottom = 72.0
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 144
+text = "Credits"
+
+[node name="CreditsVBox" type="VBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.500001
+anchor_bottom = 13.500001
+offset_left = 797.0
+offset_top = -258.00006
+offset_right = 1124.0
+offset_bottom = 257.99994
+
+[node name="Artist" type="Label" parent="Credits/CreditsVBox"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Artist"
+
+[node name="HSeparator5" type="HSeparator" parent="Credits/CreditsVBox"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="ArtHbox" type="HBoxContainer" parent="Credits/CreditsVBox"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Credits/CreditsVBox/ArtHbox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ArtistName" type="Label" parent="Credits/CreditsVBox/ArtHbox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("6_jscuh")
+theme_override_font_sizes/font_size = 36
+text = "Pedro Valerio"
+
+[node name="HSeparator" type="HSeparator" parent="Credits/CreditsVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Developers" type="Label" parent="Credits/CreditsVBox"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Developers"
+
+[node name="HSeparator3" type="HSeparator" parent="Credits/CreditsVBox"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="DevHBox" type="HBoxContainer" parent="Credits/CreditsVBox"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Credits/CreditsVBox/DevHBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="DeveloperNames" type="Label" parent="Credits/CreditsVBox/DevHBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_jscuh")
+theme_override_font_sizes/font_size = 36
+text = "Daniel Francisco
+Francisco Pinto
+Luis Chaves
+Miguel Monteiro
+Pedro Valerio"
+
+[node name="HSeparator2" type="HSeparator" parent="Credits/CreditsVBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SoundDesigner" type="Label" parent="Credits/CreditsVBox"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Sound Designer"
+
+[node name="HSeparator4" type="HSeparator" parent="Credits/CreditsVBox"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="SoundHBox" type="HBoxContainer" parent="Credits/CreditsVBox"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Credits/CreditsVBox/SoundHBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="SoundDesignName" type="Label" parent="Credits/CreditsVBox/SoundHBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("6_jscuh")
+theme_override_font_sizes/font_size = 36
+text = "Francisco Pinto"
+
+[node name="CreditsReturn" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 22.875002
+anchor_bottom = 22.875002
+offset_left = 835.0
+offset_top = -40.00006
+offset_right = 1086.0
+offset_bottom = 39.99994
+theme_override_font_sizes/font_size = 72
+text = "Return"
+flat = true
+
+[node name="DexMenu" parent="." instance=ExtResource("4_uc5nx")]
+visible = false
+layout_mode = 1
+
+[connection signal="mouse_entered" from="TitleScreen/Play" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/Play" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/Collection" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/Collection" to="." method="_on_collection_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/Options" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/Options" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/HowToPlay" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/HowToPlay" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/Credits" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/Credits" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/Quit" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/Quit" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="Options/OptionsReturn" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Options/OptionsReturn" to="." method="_on_options_return_pressed"]
+[connection signal="mouse_entered" from="HowToPlay/HowToPlayReturn" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="HowToPlay/HowToPlayReturn" to="." method="_on_how_to_play_return_pressed"]
+[connection signal="mouse_entered" from="Credits/CreditsReturn" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Credits/CreditsReturn" to="." method="_on_credits_return_pressed"]
