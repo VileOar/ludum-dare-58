@@ -23,6 +23,7 @@ func _ready():
 					entry.init_vars(Global.Shapes[shape], Global.Colours[colour], Global.Rarities[rarity], single_name, counter)
 
 					counter += 1
+					roaming_souls += 1
 
 					dex_entries[Global.Shapes[shape]][Global.Colours[colour]][Global.Rarities[rarity]].append(entry)
 
@@ -34,3 +35,13 @@ func load_name_data():
 
 		if parsed_result is Dictionary:
 			return parsed_result
+
+
+func on_collect_mook(collected_mook : MookStats) -> void:
+	var entries = dex_entries[collected_mook.shape][collected_mook.colour][collected_mook.rarity]
+	for entry in entries:
+		if entry.entry_name == collected_mook.name:
+			if entry.acquired == false:
+				entry.acquired = true
+				acquired_souls += 1
+				roaming_souls -= 1
