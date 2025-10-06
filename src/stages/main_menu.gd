@@ -1,7 +1,7 @@
 extends Control
 
 @onready var _title_screen : Control = $TitleScreen
-@onready var _options_screen : Control = $Options
+@onready var _options_screen : Control = $OptionsMenu
 @onready var _credits_screen : Control = $Credits
 @onready var _how_to_play_screen : Control = $HowToPlay
 @onready var _collection_screen : Control = $DexMenu
@@ -21,13 +21,7 @@ func _on_collection_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	_play_click_sfx()
-	_title_screen.hide()
 	_options_screen.show()
-
-func _on_options_return_pressed() -> void:
-	_play_click_sfx()
-	_options_screen.hide()
-	_title_screen.show()
 
 func _on_how_to_play_button_pressed() -> void:
 	_play_click_sfx()

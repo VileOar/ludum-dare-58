@@ -1,18 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://2fbjapo3ufqi"]
+[gd_scene load_steps=6 format=3 uid="uid://2fbjapo3ufqi"]
 
-[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_f6m0a"]
-[ext_resource type="Script" uid="uid://dse3f2apyn8mr" path="res://src/stages/menus/volume_slider.gd" id="1_mim7x"]
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_4d6w3"]
+[ext_resource type="Script" uid="uid://dse3f2apyn8mr" path="res://src/stages/menus/volume_slider.gd" id="2_d0n5t"]
+[ext_resource type="Script" uid="uid://cplsht4jusfbe" path="res://src/stages/menus/options_menu.gd" id="2_n1e23"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hry04"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmax6"]
 
-[node name="Options" type="Control"]
+[node name="OptionsMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("1_f6m0a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4d6w3")
+script = ExtResource("2_n1e23")
+
+[node name="SolidBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -20,9 +33,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 722.0
-offset_top = -72.0
+offset_top = -4622.0
 offset_right = 1199.0
-offset_bottom = 72.0
+offset_bottom = -4478.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
@@ -71,7 +84,7 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
-script = ExtResource("1_mim7x")
+script = ExtResource("2_d0n5t")
 bus_name = "Master"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
@@ -109,7 +122,7 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
-script = ExtResource("1_mim7x")
+script = ExtResource("2_d0n5t")
 bus_name = "Music"
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
@@ -147,18 +160,21 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
-script = ExtResource("1_mim7x")
+script = ExtResource("2_d0n5t")
 bus_name = "SFX"
 
-[node name="OptionsReturn" type="Button" parent="."]
+[node name="Return" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 22.875002
 anchor_bottom = 22.875002
 offset_left = 835.0
-offset_top = -40.00006
+offset_top = -23830.002
 offset_right = 1086.0
-offset_bottom = 39.99994
+offset_bottom = -23750.002
 theme_override_font_sizes/font_size = 72
 text = "Return"
 flat = true
+
+[connection signal="mouse_entered" from="Return" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3jxdog6ffevl"]
+[gd_scene load_steps=5 format=3 uid="uid://d3jxdog6ffevl"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_mmpqy"]
 [ext_resource type="Script" uid="uid://djbkh8x5xn8qh" path="res://src/ui/pause_menu.gd" id="1_yqfnv"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="3_6qq3a"]
+[ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="4_lbq8y"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -60,9 +61,24 @@ offset_left = 810.0
 offset_top = -40.0
 offset_right = 1111.0
 offset_bottom = 40.0
+grow_vertical = 2
 theme_override_font_sizes/font_size = 72
 text = "Soul Dex"
 flat = true
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.60200006
+anchor_bottom = 0.60200006
+offset_left = 837.0
+offset_top = -40.160034
+offset_right = 1084.0
+offset_bottom = 39.839966
+theme_override_font_sizes/font_size = 72
+text = "Options"
+flat = true
+alignment = 0
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 1
@@ -70,9 +86,9 @@ anchors_preset = -1
 anchor_top = 0.60200006
 anchor_bottom = 0.60200006
 offset_left = 875.0
-offset_top = -40.160034
+offset_top = 69.839966
 offset_right = 1045.0
-offset_bottom = 39.839966
+offset_bottom = 149.83997
 theme_override_font_sizes/font_size = 72
 text = "Quit
 "
@@ -83,9 +99,15 @@ alignment = 0
 visible = false
 layout_mode = 1
 
+[node name="OptionsMenu" parent="." instance=ExtResource("4_lbq8y")]
+visible = false
+layout_mode = 1
+
 [connection signal="mouse_entered" from="Resume" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="SoulDex" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="SoulDex" to="." method="_on_soul_dex_pressed"]
+[connection signal="mouse_entered" from="Options" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
