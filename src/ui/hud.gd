@@ -11,6 +11,8 @@ extends Control
 	$VBoxContainer/Slot1/TextureRect,
 ]
 
+func _ready() -> void:
+	ScoreManager.connect("scored_a_combo", display_combo_pop_up)
 
 func update_bag_slots_display(bag_slots) -> void:
 	$BagSlots.text = "Bag slots: " + str(bag_slots)
