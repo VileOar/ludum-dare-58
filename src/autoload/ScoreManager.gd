@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var _hud_ref: Hud
+#TODO: fix hud ref
+#@export var _hud_ref: Hud
 
 # store streak counts
 var _same_colour_streak: int = 1
@@ -153,7 +154,7 @@ func _3_shapes_of_colour_check() -> void:
 		# calculate the combo score and add it to the total
 		var combo_score = Global.THREE_SHAPES_OF_COLOUR_BONUS
 		_combo_score_total += combo_score
-		_hud_ref.display_combo_pop_up(combo_score)
+		#_hud_ref.display_combo_pop_up(combo_score)
 		print(">>> 3 shapes of colours combo")
 
 # checks if last 4 collected mooks are of the same colour and different shapes
@@ -164,7 +165,7 @@ func _all_shapes_of_colours_check() -> void:
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_shapes.size())
 		var combo_score = mook_score_total * Global.ALL_SHAPES_OF_COLOUR_MULTIPLIER
 		_combo_score_total += combo_score
-		_hud_ref.display_combo_pop_up(combo_score)
+		#_hud_ref.display_combo_pop_up(combo_score)
 		print(">>> all shapes of colours combo")
 
 # checks if last 6 collected mooks are of the same shape and different colours
@@ -175,7 +176,7 @@ func _all_colours_of_shape_check() -> void:
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_colours.size())
 		var combo_score = mook_score_total * Global.ALL_COLOURS_OF_SHAPE_MULTIPLIER
 		_combo_score_total += combo_score
-		_hud_ref.display_combo_pop_up(combo_score)
+		#_hud_ref.display_combo_pop_up(combo_score)
 		print(">>> all colours of shapes combo")
 
 # calculates the sum of the score values of each mook in the combo
