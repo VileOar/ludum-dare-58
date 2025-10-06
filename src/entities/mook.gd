@@ -20,9 +20,6 @@ const MOUSE_DIST_PANIC_THRESHOLD := pow(Global.BLOCK * 2.0, 2)
 # chance for becoming panicked when another panicked entity enters vicinity
 const PANIC_INFECTION_CHANCE := 0.05
 
-const RARE_PARTICLES_COLOUR = Color("e155ed")
-const LEGENDARY_PARTICLES_COLOUR = Color("f3ef7d")
-
 enum States {
 	IDLE,
 	WANDER,
@@ -34,6 +31,7 @@ enum States {
 @onready var _proximity_detector: Area2D = $ProximityDetector
 @onready var _state_change_timer: Timer = $StateChangeTimer
 @onready var _particles: GPUParticles2D = $GPUParticles2D
+@onready var _aura: Sprite2D = $Aura
 
 
 # dict of states and update methods
@@ -65,18 +63,23 @@ var _mov_dir := Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
-	if _is_panicable() and !is_panic() and !Global.get_is_paused():
+	if _is_panicable():
+
 		var mouse_dist = get_global_mouse_position().distance_squared_to(global_position)
-		if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD:
-			_change_state(States.PANIC)
-			var col = RARE_PARTICLES_COLOUR if _stats.rarity == Global.Rarities.RARE else LEGENDARY_PARTICLES_COLOUR
-			(_particles.process_material as ParticleProcessMaterial).color = col
+
+		if mouse_dist >= MOUSE_DIST_PANIC_THRESHOLD and _particles.emitting:
+			_particles.emitting = false
+		if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD and _particles.emitting == false:
 			_particles.emitting = true
-			_play_mook_discovered_sfx(_stats.rarity)
+
+		if !is_panic() and !Global.get_is_paused():
+			if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD:
+				_change_state(States.PANIC)
+				_play_mook_discovered_sfx(_stats.rarity)
 	
 	if _state_updates.has(_state):
 		_state_updates[_state].call(delta)
-
+			
 
 func set_stats(new_stats: MookStats):
 	while !is_node_ready():
@@ -85,6 +88,11 @@ func set_stats(new_stats: MookStats):
 	_sprite.material = Global.get_material_from_colour(_stats.colour)
 	_sprite.sprite_frames = Global.get_spriteframes_from_shape(_stats.shape)
 
+	if _stats.rarity != Global.Rarities.COMMON:
+		_particles.modulate = Global.rarity_colour_values[_stats.rarity]
+		_aura.material = Global._aura_materials[_stats.rarity]
+		_aura.visible = true
+		
 
 func get_stats() -> MookStats:
 	return _stats
@@ -119,7 +127,7 @@ func _move_and_bounce(speed: float, delta: float):
 	if collision:
 		_mov_dir = _mov_dir.bounce(collision.get_normal())
 	
-	_sprite.scale.x = -sign(_mov_dir.x) * abs(_sprite.scale.x)
+	_sprite.scale.x = - sign(_mov_dir.x) * abs(_sprite.scale.x)
 
 
 func _change_state(new_state: States):
@@ -158,7 +166,7 @@ func _state_wander(delta: float):
 	if _dirty_state:
 		_state_change_timer.start(randf_range(WANDER_MIN_DUR, WANDER_MAX_DUR))
 		if _mov_dir.length_squared() == 0:
-			_mov_dir = Vector2.from_angle(randf_range(0, 2*PI))
+			_mov_dir = Vector2.from_angle(randf_range(0, 2 * PI))
 		_dirty_state = false
 		_sprite.play("walk")
 	
@@ -172,7 +180,7 @@ func _state_wander(delta: float):
 func _state_panic(delta: float):
 	if _dirty_state:
 		_state_change_timer.start(randf_range(PANIC_MIN_DUR, PANIC_MAX_DUR))
-		_mov_dir = Vector2.from_angle(randf_range(0, 2*PI))
+		_mov_dir = Vector2.from_angle(randf_range(0, 2 * PI))
 		_dirty_state = false
 		_sprite.play("run")
 	

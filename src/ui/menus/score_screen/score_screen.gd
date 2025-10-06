@@ -37,6 +37,7 @@ func spawn_mook_icons():
 		mook_icon_texture.modulate = Global.colour_values[mook.colour]
 		
 		$GridContainer.add_child(mook_icon)
+		_play_special_sfx()
 		
 		ScoreManager.on_collect(mook)
 		_update_score_label(ScoreManager._calculate_final_score())
@@ -79,12 +80,14 @@ func _on_scored_a_combo(combo_score: int, combo: Global.Combos) -> void:
 func _update_score_label(new_score: int) -> void:
 	$Score.text = _score_string.format({"score": new_score})
 
+
 func _on_play_again_pressed() -> void:
 	_play_click_sfx()
 	AudioManager.instance.fade_out_music(BACKGROUND_MUSIC)
 	var change_scene := func():
 		get_tree().change_scene_to_file(Global.LEVEL_SCENE_FILEPATH)
 	change_scene.call_deferred()
+
 
 func _on_soul_dex_pressed() -> void:
 	_play_click_sfx()
@@ -101,6 +104,25 @@ func _on_quit_pressed() -> void:
 func _play_end_game_audio() -> void:
 	AudioManager.instance.play_audio(BACKGROUND_MUSIC)
 	
+	
+func _play_special_sfx() -> void:
+	AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
+	
+	#var _final_score = ScoreManager._calculate_final_score()
+	
+	#if _final_score < 300:
+		#AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
+		#
+	#if _final_score > 300 && _final_score < 600:
+		#AudioManager.instance.play_audio_random_pitch("MookScore2", 1.2, 1.5)
+	#
+	#if _final_score > 600:
+		#AudioManager.instance.play_audio_random_pitch("MookScore3", 1.2, 1.5)
+	
+func _play_combo_special_sfx() -> void:
+	AudioManager.instance.play_audio_random_pitch("ComboScore", 1.5, 1.5)
+	
+
 func _play_click_sfx() -> void:
 	AudioManager.play_click_sfx()
 	

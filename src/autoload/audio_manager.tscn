@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=43 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -39,6 +39,9 @@
 [ext_resource type="AudioStream" uid="uid://cqt47501c1542" path="res://assets/audio/sfx/death/pepSound2.mp3" id="31_2ein5"]
 [ext_resource type="AudioStream" uid="uid://b1jr5mxos4bew" path="res://assets/audio/sfx/death/pepSound4.mp3" id="32_oskr5"]
 [ext_resource type="AudioStream" uid="uid://c05gcjvr1c5wj" path="res://assets/audio/score_end/Goblin_Tinker_Soldier_Spy.mp3" id="37_e4lui"]
+[ext_resource type="AudioStream" uid="uid://c4s6jxlqjotx7" path="res://assets/audio/sfx/combo/powerUp3.mp3" id="40_07mg3"]
+[ext_resource type="AudioStream" uid="uid://b35ihtfjeufw6" path="res://assets/audio/sfx/combo/powerUp8.mp3" id="41_64yuj"]
+[ext_resource type="AudioStream" uid="uid://bvcnak7tdjeh5" path="res://assets/audio/sfx/combo/powerUp7.mp3" id="41_trt4d"]
 
 [node name="AudioManager" type="Node2D"]
 process_mode = 3
@@ -287,3 +290,29 @@ volume_db = -20.0
 stream = ExtResource("37_e4lui")
 volume_db = -22.0
 bus = &"Music"
+
+[node name="ScoreScreen" type="Node" parent="."]
+
+[node name="MookScore1" type="AudioStreamPlayer" parent="ScoreScreen"]
+stream = ExtResource("18_g62x6")
+volume_db = -17.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="MookScore2" type="AudioStreamPlayer" parent="ScoreScreen"]
+stream = ExtResource("41_trt4d")
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="MookScore3" type="AudioStreamPlayer" parent="ScoreScreen"]
+stream = ExtResource("41_64yuj")
+volume_db = -5.0
+pitch_scale = 1.7
+bus = &"SFX"
+
+[node name="ComboScore" type="AudioStreamPlayer" parent="ScoreScreen"]
+stream = ExtResource("40_07mg3")
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"SFX"
