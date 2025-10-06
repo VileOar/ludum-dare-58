@@ -7,8 +7,6 @@ extends Control
 
 const BACKGROUND_MUSIC : String = "EndGameMusic"
 
-var _score_string : String = "Score {score}"
-
 # variables used for the combo display
 var _has_scored_a_combo: bool = false
 var _combo: Global.Combos
@@ -46,39 +44,58 @@ func spawn_mook_icons():
 			_has_scored_a_combo = false
 			_display_combo()
 			
-			await get_tree().create_timer(10.0).timeout
+			await get_tree().create_timer(2.0).timeout
 		
 		await get_tree().create_timer(_spawn_icon_time).timeout
 	$Death.play("end")
 
 
 func _display_combo() -> void:
-	var combo_icons: Array[Control]
 	match _combo:
-		Global.Combos.THREE_SHAPES_OF_COLOUR:
-			# get last three mooks of the grid
-			for i in range(3, 0): 
-				var mook_icon: Control = $GridContainer.get_child($GridContainer.get_child_count() - 1 - i)
-				var animation_player: AnimationPlayer = mook_icon.get_node("TextureRect/AnimationPlayer")
-				animation_player.play()
+		#Global.Combos.THREE_SHAPES_OF_COLOUR:
+		#	# get last three mooks of the grid
+		#	for i in range(3, 0, -1):
+		#		var mook_icon: Control = $GridContainer.get_child($GridContainer.get_child_count() - i)
+		#		_animate_combo_icon(mook_icon, $ThreeComboPositions.get_child(i - 1).global_position)
 		Global.Combos.ALL_SHAPES_OF_COLOUR:
-			# get last six mooks of the grid
-			for i in range(6, 0):
-				combo_icons.push_back($GridContainer.get_child($GridContainer.get_child_count() - 1 - i))
+			# get last four mooks of the grid
+			for i in range(Global.Shapes.size(), 0, -1):
+				var mook_icon: Control = $GridContainer.get_child($GridContainer.get_child_count() - i)
+				_animate_combo_icon(mook_icon, $FourComboPositions.get_child(i - 1).global_position)
 		Global.Combos.ALL_COLOURS_OF_SHAPES:
 			# get last six mooks of the grid
-			for i in range(6, 0):
-				combo_icons.push_back($GridContainer.get_child($GridContainer.get_child_count() - 1 - i))
+			for i in range(6, 0, -1):
+				var mook_icon: Control = $GridContainer.get_child($GridContainer.get_child_count() - i)
+				_animate_combo_icon(mook_icon, $SixComboPositions.get_child(i - 1).global_position)
+
+
+func _animate_combo_icon(mook_icon, mook_target_position):
+	var animation_player: AnimationPlayer = mook_icon.get_node("TextureRect/AnimationPlayer")
+	if animation_player.is_playing():
+		await animation_player.animation_finished
+	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(mook_icon.get_node("TextureRect"), "scale", Vector2(7.0, 7.0), 0.5)
+	tween.set_parallel(true)
+	tween.tween_property(mook_icon.get_node("TextureRect"), "global_position", mook_target_position, 0.5)
+	tween.set_parallel(false)
+	tween.tween_property(mook_icon.get_node("TextureRect"), "scale", Vector2(7.0, 7.0), 1.0)
+	tween.tween_property(mook_icon.get_node("TextureRect"), "position", Vector2(0.0, 0.0), 0.5)
+	tween.set_parallel(true)
+	tween.tween_property(mook_icon.get_node("TextureRect"), "scale", Vector2(1.0, 1.0), 0.5)
 
 
 func _on_scored_a_combo(combo_score: int, combo: Global.Combos) -> void:
-	_has_scored_a_combo = true
-	_combo_score = combo_score
-	_combo = combo
+	if combo != Global.Combos.THREE_SHAPES_OF_COLOUR:
+		_has_scored_a_combo = true
+		_combo_score = combo_score
+		_combo = combo
 
 
 func _update_score_label(new_score: int) -> void:
-	$Score.text = _score_string.format({"score": new_score})
+	$Score/ScoreValue.text = str(new_score)
+	var tween = get_tree().create_tween()
+	tween.tween_property($Score/ScoreValue, "scale", Vector2(1.2, 1.2), 0.075)
+	tween.tween_property($Score/ScoreValue, "scale", Vector2(1.0, 1.0), 0.075)
 
 
 func _on_play_again_pressed() -> void:
