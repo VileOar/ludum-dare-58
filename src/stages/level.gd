@@ -23,9 +23,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
 		if (event as InputEventKey).keycode == KEY_SPACE:
 			_spawn_crowd(Global.NUM_SPAWNED_MOOKS)
-			$Label.hide()
-		elif (event as InputEventKey).keycode == KEY_E:
-			_start_wave()
+
+
+func _ready() -> void:
+	_spawn_crowd(Global.NUM_SPAWNED_MOOKS)
 
 
 func _physics_process(delta: float) -> void:

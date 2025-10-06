@@ -6,6 +6,9 @@ const BLOCK := 64.0
 # number of spawned entities on start
 const NUM_SPAWNED_MOOKS := 300
 
+const RARE_MOOK_CHANCE : float = 0.05
+const LEGENDARY_MOOK_CHANCE : float = 0.01
+
 # base value of a collected soul
 const BASE_SCORE: int = 10
 
@@ -49,6 +52,8 @@ enum Rarities {
 	LEGENDARY
 }
 
+var _final_score: int = 0
+
 var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
 	Shapes.POINTY: preload("uid://dntarescsau6g"),
 	Shapes.BLOCKY: preload("uid://2sswebanku4p"),
@@ -88,6 +93,11 @@ func _ready() -> void:
 		mat.set("shader_parameter/color", colour_values[col])
 		_materials[col] = mat
 
+func set_final_score(new_score) ->void:
+	_final_score = new_score
+
+func get_final_score() -> int:
+	return _final_score
 
 func get_spriteframes_from_shape(shape: Shapes) -> SpriteFrames:
 	return _sprite_frames[shape]
