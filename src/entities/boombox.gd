@@ -11,12 +11,10 @@ var current_music : String
 var _is_changing_music := false
 var _is_boombox_stopped := false
 var _festival_music_dictionary_with_bpm : Dictionary = {}
-var half_of_fade_timeout :float
 
 
 func _ready() -> void:
 	_setup_festival_music_dictionary()
-	half_of_fade_timeout = AudioManager.fade_timeout / 2
 	start_boombox()
 	
 	
@@ -36,7 +34,7 @@ func start_boombox():
 	current_music = get_random_festival_music_id()
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
 	AudioManager.instance.play_audio(current_music)
-	print("[Festival] Starting music is:", current_music)
+	#print("[Festival] Starting music is:", current_music)
 
 
 #region UI control
@@ -70,11 +68,12 @@ func change_boombox_music():
 	if current_music != null:
 		AudioManager.instance.fade_out_music(current_music)
 		_is_changing_music = true
-		_is_changing_music = false
 	AudioManager.instance.fade_in_music(new_music_id)
 	current_music = new_music_id
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
-	print("[Festival] New Music is:", current_music)
+	await get_tree().create_timer(AudioManager.fade_timeout).timeout
+	_is_changing_music = false
+	#print("[Festival] New Music is:", current_music)
 	
 	
 func get_random_festival_music_id() -> String:

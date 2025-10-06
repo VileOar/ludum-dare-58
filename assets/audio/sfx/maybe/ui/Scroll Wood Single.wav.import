@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7mferrajypih"
+path="res://.godot/imported/Scroll Wood Single.wav-99c75370c964af1013d1660f39482133.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/ui/Scroll Wood Single.wav"
+dest_files=["res://.godot/imported/Scroll Wood Single.wav-99c75370c964af1013d1660f39482133.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -3,7 +3,7 @@ extends Node2D
 
 @export var _score_screen: PackedScene
 @export var _hud_ref: Hud
-@export var _score_manager_ref: ScoreManager
+
 @export var _time_limit_timer: Timer
 
 var _bag_slots_remaining: int = Global.MAX_BAG_SLOTS
@@ -31,12 +31,12 @@ func remove_bag_slot() -> void:
 			_end_game()
 
 func collect_mook(mook: Mook) -> void:
-	_score_manager_ref.on_collect(mook.get_stats())
-	_hud_ref.update_bag_slot_icons(_score_manager_ref._last_collected_mooks)
+	ScoreManager.on_collect(mook.get_stats())
+	_hud_ref.update_bag_slot_icons(ScoreManager._last_collected_mooks)
 	remove_bag_slot()
 
 func _end_game() -> void:
-	Global.set_final_score(_score_manager_ref._calculate_final_score())
+	Global.set_final_score(ScoreManager._calculate_final_score())
 	var change_scene := func():
 		get_tree().change_scene_to_packed(_score_screen)
 	change_scene.call_deferred()

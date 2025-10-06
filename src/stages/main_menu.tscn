@@ -75,8 +75,13 @@ offset_bottom = 920.0
 theme_override_font_sizes/font_size = 72
 text = "Quit"
 
+[connection signal="mouse_entered" from="Play" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="Collection" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Collection" to="." method="_on_collection_button_pressed"]
+[connection signal="mouse_entered" from="Options" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Options" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="Credits" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]

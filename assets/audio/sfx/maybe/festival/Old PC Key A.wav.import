@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcschd4eljeyf"
+path="res://.godot/imported/Old PC Key A.wav-1dd4fe90576717a7fb4a3ec51762887f.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/festival/Old PC Key A.wav"
+dest_files=["res://.godot/imported/Old PC Key A.wav-1dd4fe90576717a7fb4a3ec51762887f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ygcoxnf4hhb4"
+path="res://.godot/imported/Discovery Sweep 001.wav-3d47cd7c70172d5714d0cb69bfdbd0dd.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/end/Discovery Sweep 001.wav"
+dest_files=["res://.godot/imported/Discovery Sweep 001.wav-3d47cd7c70172d5714d0cb69bfdbd0dd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
