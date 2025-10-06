@@ -13,6 +13,9 @@ func _on_soul_dex_pressed() -> void:
 	_play_click_sfx()
 	$DexMenu.show()
 
+func _on_options_pressed() -> void:
+	$OptionsMenu.show()
+
 func _on_quit_pressed() -> void:
 	on_quit.emit()
 	_play_click_sfx()

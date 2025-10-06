@@ -15,7 +15,7 @@ func _ready() -> void:
 	ScoreManager.connect("scored_a_combo", display_combo_pop_up)
 
 func update_bag_slots_display(bag_slots) -> void:
-	$BagSlots.text = "Bag slots: " + str(bag_slots)
+	$BagSlots.text = "%02d" % bag_slots
 
 
 func update_bag_slot_icons(last_collected_mooks: Array[MookStats]) -> void:

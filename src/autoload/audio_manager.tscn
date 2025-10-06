@@ -129,7 +129,7 @@ bus = &"SFX"
 [node name="Ambience" type="AudioStreamPlayer" parent="FestivalSFX"]
 stream = ExtResource("16_oskr5")
 volume_db = -28.0
-bus = &"SFX"
+bus = &"Music"
 
 [node name="FestivalSpecialSFX" type="Node" parent="."]
 
@@ -139,8 +139,10 @@ volume_db = -4.0
 bus = &"SFX"
 
 [node name="ComboPower2" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+bus = &"SFX"
 
 [node name="ComboPower3" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+bus = &"SFX"
 
 [node name="RarelMookDiscovered" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
 stream = ExtResource("18_g62x6")
@@ -169,30 +171,37 @@ bus = &"Music"
 [node name="Boogie" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("4_cmdha")
 volume_db = -22.0
+bus = &"Music"
 
 [node name="Neon" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("5_bjq5x")
 volume_db = -24.0
+bus = &"Music"
 
 [node name="Newer" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("6_tguw2")
 volume_db = -22.0
+bus = &"Music"
 
 [node name="Energy" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("7_4wg5e")
 volume_db = -22.0
+bus = &"Music"
 
 [node name="EnergyFaster" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("8_roxop")
 volume_db = -22.0
+bus = &"Music"
 
 [node name="Voxel" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("9_xy50i")
 volume_db = -22.0
+bus = &"Music"
 
 [node name="Wave" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("10_yc8ju")
 volume_db = -17.0
+bus = &"Music"
 
 [node name="DeathSFX" type="Node" parent="."]
 
@@ -245,9 +254,11 @@ bus = &"SFX"
 [node name="Music" type="AudioStreamPlayer" parent="MainMenuMusic"]
 stream = ExtResource("11_bjq5x")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="MainMenuMusic"]
 volume_db = -27.0
+bus = &"Music"
 
 [node name="Music" type="Node" parent="."]
 
@@ -275,4 +286,4 @@ volume_db = -20.0
 [node name="EndGameMusic" type="AudioStreamPlayer" parent="EndGame"]
 stream = ExtResource("37_e4lui")
 volume_db = -22.0
-bus = &"SFX"
+bus = &"Music"

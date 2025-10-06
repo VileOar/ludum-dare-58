@@ -2,10 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
-[ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_vna5b"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
+[ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,12 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s8g4t")
 script = ExtResource("2_806vh")
-
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(2.743707, 2.743707)
-texture = ExtResource("2_vna5b")
-centered = false
 
 [node name="SolidBackground" type="ColorRect" parent="."]
 layout_mode = 1
@@ -103,7 +97,7 @@ offset_top = 629.24
 offset_right = 474.0
 offset_bottom = 709.24
 theme_override_font_sizes/font_size = 72
-text = "How to play"
+text = "How to Play"
 flat = true
 alignment = 0
 
@@ -143,39 +137,6 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.38982445
 flip_h = true
-
-[node name="Options" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Title" type="Label" parent="Options"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 4.375
-anchor_bottom = 4.375
-offset_left = 722.0
-offset_top = -75.0
-offset_right = 1199.0
-offset_bottom = 69.0
-theme_override_constants/shadow_offset_x = 9
-theme_override_constants/shadow_offset_y = 0
-theme_override_font_sizes/font_size = 144
-text = "Options"
-
-[node name="OptionsReturn" type="Button" parent="Options"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 22.875002
-anchor_bottom = 22.875002
-offset_left = 835.0
-offset_top = -40.00006
-offset_right = 1086.0
-offset_bottom = 39.99994
-theme_override_font_sizes/font_size = 72
-text = "Return"
-flat = true
 
 [node name="HowToPlay" type="Control" parent="."]
 visible = false
@@ -362,6 +323,10 @@ flat = true
 visible = false
 layout_mode = 1
 
+[node name="OptionsMenu" parent="." instance=ExtResource("6_uc5nx")]
+visible = false
+layout_mode = 1
+
 [connection signal="mouse_entered" from="TitleScreen/Play" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="TitleScreen/Play" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="TitleScreen/Collection" to="." method="_on_button_mouse_entered"]
@@ -374,8 +339,6 @@ layout_mode = 1
 [connection signal="pressed" from="TitleScreen/Credits" to="." method="_on_credits_button_pressed"]
 [connection signal="mouse_entered" from="TitleScreen/Quit" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="TitleScreen/Quit" to="." method="_on_quit_button_pressed"]
-[connection signal="mouse_entered" from="Options/OptionsReturn" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Options/OptionsReturn" to="." method="_on_options_return_pressed"]
 [connection signal="mouse_entered" from="HowToPlay/HowToPlayReturn" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="HowToPlay/HowToPlayReturn" to="." method="_on_how_to_play_return_pressed"]
 [connection signal="mouse_entered" from="Credits/CreditsReturn" to="." method="_on_button_mouse_entered"]

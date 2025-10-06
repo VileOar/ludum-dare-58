@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cc588cokwg882"]
 
 [ext_resource type="Script" uid="uid://bg3rji7k7w5y0" path="res://src/ui/menus/score_screen/score_screen.gd" id="1_kij6a"]
-[ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_bll3o"]
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="3_3kpix"]
+[ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_cekjg"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="6_2gbsl"]
 
 [node name="ScoreScreen" type="Control"]
@@ -12,33 +12,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_3kpix")
 script = ExtResource("1_kij6a")
+metadata/_edit_horizontal_guides_ = [958.0]
 
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(2.743707, 2.743707)
-texture = ExtResource("2_bll3o")
-centered = false
+[node name="SolidBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15900001
+anchor_bottom = 0.15900001
 offset_left = 100.0
-offset_top = 100.0
+offset_top = -71.72002
 offset_right = 973.0
-offset_bottom = 244.0
-theme = ExtResource("3_3kpix")
+offset_bottom = 72.27998
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
-text = "Rest in Peace"
+text = "Rest In Peace"
 
 [node name="Score" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.72800004
+anchor_bottom = 0.72800004
 offset_left = 100.0
-offset_top = 832.0
+offset_top = -72.24005
 offset_right = 451.0
-offset_bottom = 976.0
-theme = ExtResource("3_3kpix")
+offset_bottom = 71.75995
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 144
-text = "Score"
+text = "Score 00000"
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -56,3 +69,57 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.38982445
 flip_h = true
+
+[node name="PlayAgain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.87000006
+anchor_bottom = 0.87000006
+offset_left = 130.0
+offset_top = -39.600098
+offset_right = 500.0
+offset_bottom = 40.399902
+theme_override_font_sizes/font_size = 72
+text = "Play Again"
+flat = true
+alignment = 0
+
+[node name="SoulDex" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.87000006
+anchor_bottom = 0.87000006
+offset_left = 810.0
+offset_top = -29.600098
+offset_right = 1111.0
+offset_bottom = 50.399902
+theme_override_font_sizes/font_size = 72
+text = "Soul Dex"
+flat = true
+alignment = 0
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.87000006
+anchor_bottom = 0.87000006
+offset_left = 1621.0
+offset_top = -29.600098
+offset_right = 1791.0
+offset_bottom = 50.399902
+theme_override_font_sizes/font_size = 72
+text = "Quit"
+flat = true
+alignment = 0
+
+[node name="DexMenu" parent="." instance=ExtResource("4_cekjg")]
+visible = false
+z_index = 2
+layout_mode = 1
+
+[connection signal="mouse_entered" from="PlayAgain" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="mouse_entered" from="SoulDex" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="SoulDex" to="." method="_on_soul_dex_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
