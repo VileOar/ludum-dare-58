@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ludum-dare-58"
-run/main_scene="uid://ctt72jhrk3frn"
+run/main_scene="uid://iorpodfv3lm7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://ddmsqu6e7yksu"
+
+[audio]
+
+buses/default_bus_layout="uid://dskl8mjaapoev"
 
 [autoload]
 

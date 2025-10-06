@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cb04lkn5w531r"
+path="res://.godot/imported/funny death sound effects no copyright funny memes effect.mp3-e315dadf4458202db3c42019fcb15de5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/death/funny death sound effects no copyright funny memes effect.mp3"
+dest_files=["res://.godot/imported/funny death sound effects no copyright funny memes effect.mp3-e315dadf4458202db3c42019fcb15de5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

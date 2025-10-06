@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cf7ovpg80fg5n"
+path="res://.godot/imported/pained_noise_02.ogg-02f81d9f778938ec4d32135e3422116f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/death/open game art/pained_noise_02.ogg"
+dest_files=["res://.godot/imported/pained_noise_02.ogg-02f81d9f778938ec4d32135e3422116f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
