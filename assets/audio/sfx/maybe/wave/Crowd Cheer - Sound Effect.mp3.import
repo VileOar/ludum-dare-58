@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bpa8lvjrm421c"
-path="res://.godot/imported/Crowd Cheer - Sound Effect.mp3-eead37d7f9ad036959837184e3dbea6e.mp3str"
+path="res://.godot/imported/Crowd Cheer - Sound Effect.mp3-d1008df12fb4ab462953d5bde4c5ab30.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/sfx/Crowd Cheer - Sound Effect.mp3"
-dest_files=["res://.godot/imported/Crowd Cheer - Sound Effect.mp3-eead37d7f9ad036959837184e3dbea6e.mp3str"]
+source_file="res://assets/audio/sfx/maybe/wave/Crowd Cheer - Sound Effect.mp3"
+dest_files=["res://.godot/imported/Crowd Cheer - Sound Effect.mp3-d1008df12fb4ab462953d5bde4c5ab30.mp3str"]
 
 [params]
 

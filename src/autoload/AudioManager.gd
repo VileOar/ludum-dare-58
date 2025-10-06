@@ -43,6 +43,7 @@ func _ready():
 	# Festival Audio
 	add_to_sound_player_dictionary("Scratch", $FestivalSFX/Scratch)
 	add_to_sound_player_dictionary("ButtonClick", $FestivalSFX/ButtonClick)
+	add_to_sound_player_dictionary("Ambience", $FestivalSFX/Ambience)
 	
 	# Festival Special Audio
 	add_to_sound_player_dictionary("ComboPower1", $FestivalSpecialSFX/ComboPower1)

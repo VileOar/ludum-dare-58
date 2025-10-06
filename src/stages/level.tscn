@@ -183,8 +183,8 @@ shape = SubResource("RectangleShape2D_s8p13")
 
 [node name="WaveSFX2D" type="AudioStreamPlayer2D" parent="WaveArea/CollisionShape2D"]
 stream = ExtResource("5_4m3y5")
-max_distance = 1000.0
-attenuation = 2.2191393
+max_distance = 850.0
+attenuation = 2.5
 bus = &"SFX"
 
 [node name="MouseCircleUniforms" type="Node2D" parent="."]
@@ -194,8 +194,9 @@ script = ExtResource("3_264d3")
 wait_time = 10.0
 autostart = true
 
-[node name="BoomBox" parent="." instance=ExtResource("5_j8obf")]
+[node name="BoomBox" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_j8obf")]
 position = Vector2(1536, 1152)
+game_manager = NodePath("../GameManager")
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("_tilemap") instance=ExtResource("5_bxh7n")]
 _tilemap = NodePath("../FestivalTileMap")
