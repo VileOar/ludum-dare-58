@@ -62,6 +62,12 @@ enum Rarities {
 	LEGENDARY
 }
 
+enum Combos {
+	THREE_SHAPES_OF_COLOUR,
+	ALL_SHAPES_OF_COLOUR,
+	ALL_COLOURS_OF_SHAPES
+}
+
 var _final_score: int = 0
 
 var _is_paused: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo6nia8h14s4y"]
+[gd_scene load_steps=6 format=3 uid="uid://bo6nia8h14s4y"]
 
 [ext_resource type="Texture2D" uid="uid://cbqpmwtvv6i2l" path="res://assets/gfx/name_dex/circle_icon.png" id="1_6eta0"]
 
@@ -53,10 +53,36 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.75)
 }
 
+[sub_resource type="Animation" id="Animation_t462y"]
+resource_name = "show_icon_in_combo"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ibagf"]
 _data = {
 &"RESET": SubResource("Animation_ibagf"),
-&"icon_spawn": SubResource("Animation_6eta0")
+&"icon_spawn": SubResource("Animation_6eta0"),
+&"show_icon_in_combo": SubResource("Animation_t462y")
 }
 
 [node name="score_screen_mook_icon" type="Control"]

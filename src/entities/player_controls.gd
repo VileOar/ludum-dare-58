@@ -19,7 +19,7 @@ func _on_mook_death(mook : Mook) -> void:
 	if mook.get_stats().rarity == Global.Rarities.LEGENDARY:
 		AudioManager.instance.play_death_sfx()
 		#AudioManager.instance.play_special_death_sfx()
-		
+
 
 func _process(_delta):
 	if !Global.get_is_paused():
