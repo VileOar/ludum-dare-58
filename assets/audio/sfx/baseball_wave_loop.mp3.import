@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/baseball_wave_loop.mp3-e60cf82ca78adb9e8f5882
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

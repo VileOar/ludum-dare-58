@@ -87,8 +87,8 @@ func _play_button_click_sfx():
 func _play_ambience_sfx():
 	AudioManager.instance.play_audio("Ambience");
 	
-func _stop_ambience_sfx():
-	AudioManager.instance.stop_audio("Ambience");
+func _stop_fade_out_ambience_sfx():
+	AudioManager.instance.fade_out_music("Ambience");
 
 #endregion
 
@@ -109,7 +109,7 @@ func change_boombox_music():
 func stop_festival_audio() -> void:
 	_is_changing_music = true
 	AudioManager.instance.fade_out_music(current_music)
-	_stop_ambience_sfx()
+	_stop_fade_out_ambience_sfx()
 	
 	
 func get_random_festival_music_id() -> String:

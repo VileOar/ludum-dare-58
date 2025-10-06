@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=40 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -25,6 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://ffcnb615riyr" path="res://assets/audio/sfx/good_catch/powerUp8.mp3" id="13_2ein5"]
 [ext_resource type="AudioStream" uid="uid://cj2yd4uqo03ii" path="res://assets/audio/sfx/maybe/death/own_voice/I Can't Believe You've Done This-02.wav" id="15_yc8ju"]
 [ext_resource type="AudioStream" uid="uid://bl4mkqdxq7y41" path="res://assets/audio/sfx/Crowd Noise.wav" id="16_oskr5"]
+[ext_resource type="AudioStream" uid="uid://novn18pdwpb8" path="res://assets/audio/sfx/good_catch/squeak.wav" id="18_g62x6"]
+[ext_resource type="AudioStream" uid="uid://b3h5gmpq8n273" path="res://assets/audio/sfx/good_catch/tone1.mp3" id="19_2e81x"]
 [ext_resource type="AudioStream" uid="uid://dyatw761b8kvj" path="res://assets/audio/sfx/death/death_voice-01.wav" id="23_5pwo6"]
 [ext_resource type="AudioStream" uid="uid://8uve5ech2pjx" path="res://assets/audio/sfx/death/death_voice-02.wav" id="24_3nef7"]
 [ext_resource type="AudioStream" uid="uid://ealiu3iqfxgy" path="res://assets/audio/sfx/death/death_voice-04.wav" id="25_uncrk"]
@@ -139,6 +141,18 @@ bus = &"SFX"
 [node name="ComboPower2" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
 
 [node name="ComboPower3" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+
+[node name="RarelMookDiscovered" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+stream = ExtResource("18_g62x6")
+volume_db = -17.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="LegendaryMookDiscovered" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+stream = ExtResource("19_2e81x")
+volume_db = -12.0
+pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="FestivalMusic" type="Node" parent="."]
 
