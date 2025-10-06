@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=36 format=4 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://djn7cqch6mrxt" path="res://src/camera/camera_controller.tscn" id="5_bxh7n"]
 [ext_resource type="PackedScene" uid="uid://dnij3jwk3tqwh" path="res://src/entities/boombox.tscn" id="5_j8obf"]
 [ext_resource type="PackedScene" uid="uid://c5sj4ygeee2n7" path="res://src/entities/player_controls.tscn" id="5_s8p13"]
+[ext_resource type="SpriteFrames" uid="uid://cemxgvvvt7l8o" path="res://assets/spriteframes/click_me.tres" id="8_0hdsd"]
 [ext_resource type="PackedScene" uid="uid://7rd8y3dlx2kn" path="res://src/game_manager.tscn" id="9_0g1bc"]
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="9_dal01"]
 [ext_resource type="Shader" uid="uid://b8nklmssypkyl" path="res://assets/shaders/night_shade.gdshader" id="10_4m3y5"]
 [ext_resource type="PackedScene" uid="uid://cc588cokwg882" path="res://src/stages/score_screen.tscn" id="10_le4al"]
 [ext_resource type="Script" uid="uid://be0rpj72mjvtg" path="res://src/game_manager.gd" id="10_w8kg7"]
@@ -98,6 +100,92 @@ size = Vector2(512, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8p13"]
 size = Vector2(32, 2000)
+
+[sub_resource type="Animation" id="Animation_nqcx0"]
+resource_name = "ClickMe"
+length = 3.000005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClickMe:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.050000012, 0.40132174, 0.75515246, 1.1058605, 1.459691, 1.8140562, 2.1678867, 2.5097091, 2.8635397),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(1.5, -1.5), Vector2(1, -1), Vector2(1.5, -1.5), Vector2(1, -1), Vector2(1.5, -1.5), Vector2(1, -1), Vector2(1.5, -1.5), Vector2(1, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClickMe:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.050000012, 2.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClickMe:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.6392157, 0, 0.13725491), Color(1, 0.6392157, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kdot6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClickMe:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.6392157, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClickMe:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClickMe:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_736lg"]
+_data = {
+&"ClickMe": SubResource("Animation_nqcx0"),
+&"RESET": SubResource("Animation_kdot6")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0hdsd"]
 shader = ExtResource("10_4m3y5")
@@ -212,6 +300,30 @@ autostart = true
 [node name="BoomBox" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_j8obf")]
 position = Vector2(1536, 1152)
 game_manager = NodePath("../GameManager")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_736lg")
+}
+autoplay = "ClickMe"
+
+[node name="ClickMe" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.6392157, 0, 1)
+position = Vector2(1607, 1111)
+rotation = -3.1415927
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("8_0hdsd")
+animation = &"ClickMe"
+frame_progress = 0.49018422
+flip_h = true
+
+[node name="ClickMeLb" type="Label" parent="ClickMe"]
+offset_left = -28.0
+offset_right = 41.0
+offset_bottom = 23.0
+scale = Vector2(-1, 1)
+theme = ExtResource("9_dal01")
+text = "Click Me!"
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("_tilemap") instance=ExtResource("5_bxh7n")]
 _tilemap = NodePath("../FestivalTileMap")

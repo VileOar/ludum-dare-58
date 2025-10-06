@@ -347,7 +347,7 @@ theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("6_jscuh")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "Move the [color=#1d2b53]Mouse[/color] to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color] to slash [br] Use [color=#1d2b53]WASD[/color] to move the camera"
+text = "Move the [color=#1d2b53]Mouse[/color] to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color] to slash [br] Use [color=#1d2b53]WASD[/color] to move the camera [br] Press [color=#1d2b53]E[/color] to make the crowd wave "
 fit_content = true
 autowrap_mode = 0
 
