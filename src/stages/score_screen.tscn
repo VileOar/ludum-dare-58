@@ -114,6 +114,7 @@ alignment = 0
 
 [node name="DexMenu" parent="." instance=ExtResource("4_cekjg")]
 visible = false
+z_index = 2
 layout_mode = 1
 
 [connection signal="mouse_entered" from="PlayAgain" to="." method="_on_button_mouse_entered"]
