@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="5_vtifm"]
 [ext_resource type="Texture2D" uid="uid://dhldjf6ten6bf" path="res://assets/ui/how_to_play/three_combo.png" id="5_xwlnd"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
-[ext_resource type="PackedScene" uid="uid://wg26fathbma7" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
+[ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
 [ext_resource type="Texture2D" uid="uid://d18nh43rgr6j" path="res://assets/ui/how_to_play/four_combo.png" id="6_vtifm"]
 [ext_resource type="Texture2D" uid="uid://dco0fxdevogyl" path="res://assets/ui/how_to_play/6_combo.png" id="7_bech7"]
 [ext_resource type="Texture2D" uid="uid://bmdl0rikfovr6" path="res://assets/ui/keyboard_mouse/keyboard_arrow_down_outline.png" id="8_5867a"]
@@ -122,7 +122,7 @@ offset_bottom = 274.72
 theme_override_constants/shadow_offset_x = 11
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 181
-text = "Let it Reap"
+text = "Let it RI.P."
 
 [node name="Play" type="Button" parent="TitleScreen"]
 layout_mode = 1

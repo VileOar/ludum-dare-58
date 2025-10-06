@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Let it Reap"
+config/name="Let it R.I.P."
 config/description="Slash and tear through the crowd to collect soul combos."
 run/main_scene="uid://iorpodfv3lm7"
 config/features=PackedStringArray("4.5", "Forward Plus")
