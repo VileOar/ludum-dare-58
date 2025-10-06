@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=31 format=4 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5sj4ygeee2n7" path="res://src/entities/player_controls.tscn" id="5_s8p13"]
 [ext_resource type="PackedScene" uid="uid://bq81xdodhm5ok" path="res://src/score_manager.tscn" id="8_67lxk"]
 [ext_resource type="PackedScene" uid="uid://7rd8y3dlx2kn" path="res://src/game_manager.tscn" id="9_0g1bc"]
+[ext_resource type="Shader" uid="uid://b8nklmssypkyl" path="res://assets/shaders/night_shade.gdshader" id="10_4m3y5"]
 [ext_resource type="PackedScene" uid="uid://cc588cokwg882" path="res://src/stages/score_screen.tscn" id="10_le4al"]
 [ext_resource type="Script" uid="uid://be0rpj72mjvtg" path="res://src/game_manager.gd" id="10_w8kg7"]
 
@@ -97,6 +98,13 @@ size = Vector2(512, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8p13"]
 size = Vector2(32, 2000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hdsd"]
+shader = ExtResource("10_4m3y5")
+shader_parameter/circle_radius = 150.0
+shader_parameter/circle_smooth_width = 50.0
+shader_parameter/mouse_position = Vector2(0, 0)
+shader_parameter/screen_resolution = Vector2(0, 0)
 
 [node name="Level" type="Node" node_paths=PackedStringArray("_center_blocked")]
 script = ExtResource("1_vs6yo")
@@ -190,6 +198,17 @@ _tilemap = NodePath("../FestivalTileMap")
 _game_manager_ref = NodePath("../GameManager")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NightShade" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_0hdsd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03355683, 0.062034234, 0.14412752, 0.88235295)
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("3_g47tv")]
 

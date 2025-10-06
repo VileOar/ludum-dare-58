@@ -1,8 +1,13 @@
 extends Node2D
 
+@onready var _night_shade: ColorRect = %NightShade
+
 
 func _ready():
-	for mat in Global.get_all_materials():
+	var mat_array = Global.get_all_materials()
+	mat_array.append(_night_shade.material)
+
+	for mat in mat_array:
 		mat.set("shader_parameter/screen_resolution", get_viewport().get_visible_rect().size)
 		mat.set("shader_parameter/circle_radius", Global.MOUSE_CIRCLE_RADIUS)
 		mat.set("shader_parameter/circle_smooth_width", Global.MOUSE_CIRCLE_SMOOTH_WIDTH)
@@ -10,5 +15,6 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
+		_night_shade.material.set("shader_parameter/mouse_position", event.position)
 		for mat in Global.get_all_materials():
 			mat.set("shader_parameter/mouse_position", event.position)
