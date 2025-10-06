@@ -1,7 +1,5 @@
 extends Control
 
-@export var _game_scene: PackedScene
-
 @onready var _title_screen : Control = $TitleScreen
 @onready var _options_screen : Control = $Options
 @onready var _credits_screen : Control = $Credits
@@ -15,41 +13,41 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	_play_click_sfx()
 	_stop_main_menu_music()
-	get_tree().change_scene_to_packed(_game_scene)
+	get_tree().change_scene_to_file(Global.LEVEL_SCENE_FILEPATH)
 
 func _on_collection_button_pressed() -> void:
 	_play_click_sfx()
-	_collection_screen.visible = true
+	_collection_screen.show()
 
 func _on_options_button_pressed() -> void:
 	_play_click_sfx()
-	_title_screen.visible = false
-	_options_screen.visible = true
+	_title_screen.hide()
+	_options_screen.show()
 
 func _on_options_return_pressed() -> void:
 	_play_click_sfx()
-	_options_screen.visible = false
-	_title_screen.visible = true
+	_options_screen.hide()
+	_title_screen.show()
 
 func _on_how_to_play_button_pressed() -> void:
 	_play_click_sfx()
-	_title_screen.visible = false
-	_how_to_play_screen.visible = true
+	_title_screen.hide()
+	_how_to_play_screen.show()
 
 func _on_how_to_play_return_pressed() -> void:
 	_play_click_sfx()
-	_how_to_play_screen.visible = false
-	_title_screen.visible = true
+	_how_to_play_screen.hide()
+	_title_screen.show()
 
 func _on_credits_button_pressed() -> void:
 	_play_click_sfx()
-	_title_screen.visible = false
-	_credits_screen.visible = true
+	_title_screen.hide()
+	_credits_screen.show()
 
 func _on_credits_return_pressed() -> void:
 	_play_click_sfx()
-	_credits_screen.visible = false
-	_title_screen.visible = true
+	_credits_screen.hide()
+	_title_screen.show()
 
 func _on_quit_button_pressed() -> void:
 	_play_click_sfx()

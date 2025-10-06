@@ -1,17 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://iorpodfv3lm7"]
+[gd_scene load_steps=7 format=3 uid="uid://iorpodfv3lm7"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
 [ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_vna5b"]
-[ext_resource type="PackedScene" uid="uid://ctt72jhrk3frn" path="res://src/stages/level.tscn" id="3_tlms7"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
-[ext_resource type="Script" uid="uid://dse3f2apyn8mr" path="res://src/stages/menus/volume_slider.gd" id="6_rh86a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hry04"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmax6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,8 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s8g4t")
 script = ExtResource("2_806vh")
-_game_scene = ExtResource("3_tlms7")
-metadata/_edit_vertical_guides_ = [1557.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -51,9 +43,9 @@ anchors_preset = -1
 anchor_top = 0.18200001
 anchor_bottom = 0.18200001
 offset_left = 100.0
-offset_top = 95.72
+offset_top = 92.72
 offset_right = 1050.0
-offset_bottom = 277.72
+offset_bottom = 274.72
 theme_override_constants/shadow_offset_x = 11
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 181
@@ -111,7 +103,7 @@ offset_top = 629.24
 offset_right = 474.0
 offset_bottom = 709.24
 theme_override_font_sizes/font_size = 72
-text = "How to play"
+text = "How to Play"
 flat = true
 alignment = 0
 
@@ -164,129 +156,13 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 722.0
-offset_top = -72.0
+offset_top = -75.0
 offset_right = 1199.0
-offset_bottom = 72.0
+offset_bottom = 69.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
 text = "Options"
-
-[node name="MarginContainer" type="MarginContainer" parent="Options"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer"]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="Options/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 380
-
-[node name="MasterVolumeContainer" type="HBoxContainer" parent="Options/MarginContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="MasterVolume" type="Label" parent="Options/MarginContainer/VBoxContainer/MasterVolumeContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 72
-text = "Master Volume"
-
-[node name="VSeparator" type="VSeparator" parent="Options/MarginContainer/VBoxContainer/MasterVolumeContainer"]
-layout_mode = 2
-theme_override_constants/separation = 256
-theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
-
-[node name="SliderContainer" type="VBoxContainer" parent="Options/MarginContainer/VBoxContainer/MasterVolumeContainer"]
-custom_minimum_size = Vector2(440, 0)
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="Options/MarginContainer/VBoxContainer/MasterVolumeContainer/SliderContainer"]
-layout_mode = 2
-theme_override_constants/separation = 19
-theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
-
-[node name="MasterSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/MasterVolumeContainer/SliderContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
-script = ExtResource("6_rh86a")
-bus_name = "Master"
-
-[node name="HSeparator2" type="HSeparator" parent="Options/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 36
-
-[node name="MusicVolumeContainer" type="HBoxContainer" parent="Options/MarginContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="MusicVolume" type="Label" parent="Options/MarginContainer/VBoxContainer/MusicVolumeContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 72
-text = "Music Volume"
-
-[node name="VSeparator" type="VSeparator" parent="Options/MarginContainer/VBoxContainer/MusicVolumeContainer"]
-layout_mode = 2
-theme_override_constants/separation = 291
-theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
-
-[node name="SliderContainer" type="VBoxContainer" parent="Options/MarginContainer/VBoxContainer/MusicVolumeContainer"]
-custom_minimum_size = Vector2(440, 0)
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="Options/MarginContainer/VBoxContainer/MusicVolumeContainer/SliderContainer"]
-layout_mode = 2
-theme_override_constants/separation = 19
-theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
-
-[node name="MusicSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/MusicVolumeContainer/SliderContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
-script = ExtResource("6_rh86a")
-bus_name = "Music"
-
-[node name="HSeparator3" type="HSeparator" parent="Options/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 36
-
-[node name="SoundVolumeContainer" type="HBoxContainer" parent="Options/MarginContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="SoundVolume" type="Label" parent="Options/MarginContainer/VBoxContainer/SoundVolumeContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 72
-text = "Sound Volume"
-
-[node name="VSeparator" type="VSeparator" parent="Options/MarginContainer/VBoxContainer/SoundVolumeContainer"]
-layout_mode = 2
-theme_override_constants/separation = 282
-theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
-
-[node name="SliderContainer" type="VBoxContainer" parent="Options/MarginContainer/VBoxContainer/SoundVolumeContainer"]
-custom_minimum_size = Vector2(440, 0)
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="Options/MarginContainer/VBoxContainer/SoundVolumeContainer/SliderContainer"]
-layout_mode = 2
-theme_override_constants/separation = 19
-theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
-
-[node name="SoundSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/SoundVolumeContainer/SliderContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
-script = ExtResource("6_rh86a")
-bus_name = "SFX"
 
 [node name="OptionsReturn" type="Button" parent="Options"]
 layout_mode = 1
@@ -313,9 +189,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 582.0
-offset_top = -72.0
+offset_top = -75.0
 offset_right = 1338.0
-offset_bottom = 72.0
+offset_bottom = 69.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
@@ -347,7 +223,7 @@ theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("6_jscuh")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "Move the [color=#1d2b53]Mouse[/color] to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color] to slash [br] Use [color=#1d2b53]WASD[/color] to move the camera [br] Press [color=#1d2b53]E[/color] to make the crowd wave "
+text = "Move the [color=#1d2b53]Mouse[/color] to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color] to slash [br] Use [color=#1d2b53]WASD[/color] to move the camera"
 fit_content = true
 autowrap_mode = 0
 
@@ -363,9 +239,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 740.0
-offset_top = -72.0
+offset_top = -75.0
 offset_right = 1181.0
-offset_bottom = 72.0
+offset_bottom = 69.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144

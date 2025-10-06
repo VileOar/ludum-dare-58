@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://7rd8y3dlx2kn" path="res://src/game_manager.tscn" id="9_0g1bc"]
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="9_dal01"]
 [ext_resource type="Shader" uid="uid://b8nklmssypkyl" path="res://assets/shaders/night_shade.gdshader" id="10_4m3y5"]
-[ext_resource type="PackedScene" uid="uid://cc588cokwg882" path="res://src/stages/score_screen.tscn" id="10_le4al"]
 [ext_resource type="Script" uid="uid://be0rpj72mjvtg" path="res://src/game_manager.gd" id="10_w8kg7"]
+[ext_resource type="PackedScene" uid="uid://d3jxdog6ffevl" path="res://src/ui/pause_menu.tscn" id="15_0hdsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67lxk"]
 texture = ExtResource("3_j8obf")
@@ -346,10 +346,14 @@ color = Color(0.03355683, 0.062034234, 0.14412752, 0.88235295)
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("3_g47tv")]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref", "_time_limit_timer") instance=ExtResource("9_0g1bc")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_0hdsd")]
+visible = false
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref", "_pause_menu_ref", "_night_shade_ref", "_time_limit_timer") instance=ExtResource("9_0g1bc")]
 script = ExtResource("10_w8kg7")
-_score_screen = ExtResource("10_le4al")
 _hud_ref = NodePath("../CanvasLayer/Hud")
+_pause_menu_ref = NodePath("../CanvasLayer/PauseMenu")
+_night_shade_ref = NodePath("../CanvasLayer/NightShade")
 _time_limit_timer = NodePath("../TimeLimitTimer")
 
 [node name="TimeLimitTimer" type="Timer" parent="."]
