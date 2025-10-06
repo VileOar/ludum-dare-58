@@ -22,6 +22,7 @@ Signals="*res://src/autoload/Signals.gd"
 Global="*res://src/autoload/Global.gd"
 AudioManager="*res://src/autoload/audio_manager.tscn"
 DexManager="*res://src/autoload/DexManager.gd"
+ScoreManager="*res://src/autoload/ScoreManager.gd"
 
 [display]
 

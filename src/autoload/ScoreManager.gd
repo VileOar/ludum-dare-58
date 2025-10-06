@@ -1,4 +1,3 @@
-class_name ScoreManager
 extends Node2D
 
 # store streak counts
@@ -20,6 +19,8 @@ var _unique_shapes: Array
 var _unique_shapes_remaining: Array
 var _unique_colours: Array
 var _unique_colours_remaining: Array
+# array that stores all collected mooks
+var _all_collected_mooks: Array[MookStats] = []
 # store the stats of the last and second to last collected mook
 var _last_collected_mook: MookStats
 var _second_to_last_collected_mook: MookStats
@@ -47,6 +48,7 @@ func _reset_unique_colours_remaining() -> void:
 	_unique_colours_remaining = Global.Colours.values()
 
 func on_collect(collected_mook : MookStats) -> void:
+	_all_collected_mooks.push_back(collected_mook)
 	_second_to_last_collected_mook = _last_collected_mook
 	_last_collected_mook = collected_mook
 	# add collected mook to array

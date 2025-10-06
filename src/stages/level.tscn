@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=28 format=4 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://djn7cqch6mrxt" path="res://src/camera/camera_controller.tscn" id="5_bxh7n"]
 [ext_resource type="PackedScene" uid="uid://dnij3jwk3tqwh" path="res://src/entities/boombox.tscn" id="5_j8obf"]
 [ext_resource type="PackedScene" uid="uid://c5sj4ygeee2n7" path="res://src/entities/player_controls.tscn" id="5_s8p13"]
-[ext_resource type="PackedScene" uid="uid://bq81xdodhm5ok" path="res://src/score_manager.tscn" id="8_67lxk"]
 [ext_resource type="PackedScene" uid="uid://7rd8y3dlx2kn" path="res://src/game_manager.tscn" id="9_0g1bc"]
 [ext_resource type="Shader" uid="uid://b8nklmssypkyl" path="res://assets/shaders/night_shade.gdshader" id="10_4m3y5"]
 [ext_resource type="PackedScene" uid="uid://cc588cokwg882" path="res://src/stages/score_screen.tscn" id="10_le4al"]
@@ -212,13 +211,10 @@ color = Color(0.03355683, 0.062034234, 0.14412752, 0.88235295)
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("3_g47tv")]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref", "_score_manager_ref") instance=ExtResource("9_0g1bc")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref") instance=ExtResource("9_0g1bc")]
 script = ExtResource("10_w8kg7")
 _score_screen = ExtResource("10_le4al")
 _hud_ref = NodePath("../CanvasLayer/Hud")
-_score_manager_ref = NodePath("../ScoreManager")
-
-[node name="ScoreManager" parent="." instance=ExtResource("8_67lxk")]
 
 [connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
