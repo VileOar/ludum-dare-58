@@ -5,9 +5,6 @@ uniform float circle_smooth_width : hint_range(0, 1000) = 50.0;
 uniform vec2 mouse_position = vec2(0.0);
 uniform vec2 screen_resolution = vec2(0.0);
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
 
 void fragment() {
 	// Convert UV to pixel position
