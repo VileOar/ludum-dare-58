@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://iorpodfv3lm7"]
+[gd_scene load_steps=7 format=3 uid="uid://iorpodfv3lm7"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
 [ext_resource type="Texture2D" uid="uid://dauidt5y7cfni" path="res://assets/ui/main_menu_placeholder_bg.jpg" id="2_vna5b"]
-[ext_resource type="PackedScene" uid="uid://ctt72jhrk3frn" path="res://src/stages/level.tscn" id="3_tlms7"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
@@ -17,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s8g4t")
 script = ExtResource("2_806vh")
-_game_scene = ExtResource("3_tlms7")
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -45,9 +43,9 @@ anchors_preset = -1
 anchor_top = 0.18200001
 anchor_bottom = 0.18200001
 offset_left = 100.0
-offset_top = 95.72
+offset_top = 92.72
 offset_right = 1050.0
-offset_bottom = 277.72
+offset_bottom = 274.72
 theme_override_constants/shadow_offset_x = 11
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 181
@@ -158,9 +156,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 722.0
-offset_top = -72.0
+offset_top = -75.0
 offset_right = 1199.0
-offset_bottom = 72.0
+offset_bottom = 69.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
@@ -191,9 +189,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 582.0
-offset_top = -72.0
+offset_top = -75.0
 offset_right = 1338.0
-offset_bottom = 72.0
+offset_bottom = 69.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
@@ -241,9 +239,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 740.0
-offset_top = -72.0
+offset_top = -75.0
 offset_right = 1181.0
-offset_bottom = 72.0
+offset_bottom = 69.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144

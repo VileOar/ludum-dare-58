@@ -110,7 +110,7 @@ func _on_sort_button_item_selected(index):
 
 func _on_close_pressed() -> void:
 	_play_click_sfx()
-	self.visible = false
+	self.hide()
 
 #region audio
 func _play_click_sfx() -> void:

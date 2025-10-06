@@ -1,6 +1,6 @@
 extends Node2D
 
-signal scored_a_combo(combo_score)
+signal scored_a_combo(combo_score: int, combo: Global.Combos)
 
 # store streak counts
 var _same_colour_streak: int = 1
@@ -153,7 +153,7 @@ func _3_shapes_of_colour_check() -> void:
 		# calculate the combo score and add it to the total
 		var combo_score = Global.THREE_SHAPES_OF_COLOUR_BONUS
 		_combo_score_total += combo_score
-		scored_a_combo.emit(combo_score)
+		scored_a_combo.emit(combo_score, Global.Combos.THREE_SHAPES_OF_COLOUR)
 		print(">>> 3 shapes of colours combo")
 
 # checks if last 4 collected mooks are of the same colour and different shapes
@@ -164,7 +164,7 @@ func _all_shapes_of_colours_check() -> void:
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_shapes.size())
 		var combo_score = mook_score_total * Global.ALL_SHAPES_OF_COLOUR_MULTIPLIER
 		_combo_score_total += combo_score
-		scored_a_combo.emit(combo_score)
+		scored_a_combo.emit(combo_score, Global.Combos.ALL_SHAPES_OF_COLOUR)
 		print(">>> all shapes of colours combo")
 
 # checks if last 6 collected mooks are of the same shape and different colours
@@ -175,7 +175,7 @@ func _all_colours_of_shape_check() -> void:
 		var mook_score_total: int = _calculate_mook_score_in_combo(_unique_colours.size())
 		var combo_score = mook_score_total * Global.ALL_COLOURS_OF_SHAPE_MULTIPLIER
 		_combo_score_total += combo_score
-		scored_a_combo.emit(combo_score)
+		scored_a_combo.emit(combo_score, Global.Combos.ALL_COLOURS_OF_SHAPES)
 		print(">>> all colours of shapes combo")
 
 # calculates the sum of the score values of each mook in the combo
@@ -202,3 +202,24 @@ func _calculate_mook_score_in_combo(combo_size: int) -> int:
 
 func _calculate_final_score() -> int:
 	return _combo_score_total + _no_combo_score_total
+
+func _reset_all() -> void:
+	_same_colour_streak = 1
+	_same_shape_streak = 1
+	_unique_shape_same_colour_streak = 1
+	_same_shape_unique_colour_streak = 1
+	_collected_mooks_total = 0
+	_collected_commons_counter = 0
+	_collected_rares_counter = 0
+	_collected_legendaries_counter = 0
+	_3_shapes_of_colour_counter = 0
+	_all_shapes_of_colour_counter = 0
+	_all_colours_of_shape_counter = 0
+	_reset_unique_shapes_remaining()
+	_reset_unique_colours_remaining()
+	_all_collected_mooks = []
+	_last_collected_mook = null
+	_second_to_last_collected_mook = null
+	_last_collected_mooks.clear()
+	_combo_score_total = 0
+	_no_combo_score_total = 0

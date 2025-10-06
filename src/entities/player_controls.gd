@@ -19,10 +19,11 @@ func _on_mook_death(mook : Mook) -> void:
 	if mook.get_stats().rarity == Global.Rarities.LEGENDARY:
 		AudioManager.instance.play_death_sfx()
 		#AudioManager.instance.play_special_death_sfx()
-		
+
 
 func _process(_delta):
-	$SlashArea.position = get_global_mouse_position()
+	if !Global.get_is_paused():
+		$SlashArea.position = get_global_mouse_position()
 
 
 func _input(event):
@@ -39,11 +40,11 @@ func _input(event):
 
 
 func _play_slice_sfx() -> void:
-	is_slice_sfx_playable = false
-	AudioManager.instance.play_random_slice_sfx()
-	await get_tree().create_timer(sfx_timeout).timeout
-	is_slice_sfx_playable = true
-	
+	if !Global.get_is_paused():
+		is_slice_sfx_playable = false
+		AudioManager.instance.play_random_slice_sfx()
+		await get_tree().create_timer(sfx_timeout).timeout
+		is_slice_sfx_playable = true
 
 func _on_slash_area_body_entered(body: Node2D) -> void:
 	if is_clicked:
