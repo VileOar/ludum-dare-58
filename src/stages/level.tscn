@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=29 format=4 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]

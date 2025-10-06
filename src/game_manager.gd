@@ -23,6 +23,7 @@ func collect_mook(mook: Mook) -> void:
 	remove_bag_slot()
 
 func _end_game() -> void:
+	Global.set_final_score(_score_manager_ref._calculate_final_score())
 	var change_scene := func():
 		get_tree().change_scene_to_packed(_score_screen)
 	change_scene.call_deferred()

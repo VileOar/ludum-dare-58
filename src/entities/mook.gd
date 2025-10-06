@@ -18,8 +18,8 @@ const MOUSE_DIST_PANIC_THRESHOLD := pow(Global.BLOCK * 2.0, 2)
 # chance for becoming panicked when another panicked entity enters vicinity
 const PANIC_INFECTION_CHANCE := 0.05
 
-const RARE_PARTICLES_COLOUR = Color("f3ef7d")
-const LEGENDARY_PARTICLES_COLOUR = Color("e155ed")
+const RARE_PARTICLES_COLOUR = Color("e155ed")
+const LEGENDARY_PARTICLES_COLOUR = Color("f3ef7d")
 
 enum States {
 	IDLE,
