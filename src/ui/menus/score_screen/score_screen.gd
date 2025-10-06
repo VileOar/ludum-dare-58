@@ -138,6 +138,7 @@ func _play_special_sfx() -> void:
 		AudioManager.instance.play_audio_random_pitch("MookScore3", 1.7, 1.9)
 	
 func _play_combo_special_sfx() -> void:
+	await get_tree().create_timer(0.5).timeout
 	AudioManager.instance.play_audio_random_pitch("ComboScore", 1.5, 1.5)
 	
 
