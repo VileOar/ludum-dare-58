@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 			var col = RARE_PARTICLES_COLOUR if _stats.rarity == Global.Rarities.RARE else LEGENDARY_PARTICLES_COLOUR
 			(_particles.process_material as ParticleProcessMaterial).color = col
 			_particles.emitting = true
+			_play_mook_discovered_sfx(_stats.rarity)
 	
 	if _state_updates.has(_state):
 		_state_updates[_state].call(delta)
@@ -182,6 +183,20 @@ func _state_anim(_delta: float):
 			anim = _idle_anims[randi() % _idle_anims.size()]
 		_sprite.pause()
 		_sprite.play(anim)
+
+
+#region Audio
+
+func _play_mook_discovered_sfx(rarity) -> void:
+	if rarity == Global.Rarities.RARE:
+		AudioManager.instance.play_audio_random_pitch("RarelMookDiscovered", 1.4, 1.6)
+	if rarity == Global.Rarities.LEGENDARY:
+		AudioManager.instance.play_audio_random_pitch("LegendaryMookDiscovered", 1.4, 1.6)
+		
+		
+
+
+#endregion
 
 
 # --- || Callbacks || ---

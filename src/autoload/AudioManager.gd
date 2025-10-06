@@ -49,6 +49,8 @@ func _ready():
 	add_to_sound_player_dictionary("ComboPower1", $FestivalSpecialSFX/ComboPower1)
 	add_to_sound_player_dictionary("ComboPower2", $FestivalSpecialSFX/ComboPower2)
 	add_to_sound_player_dictionary("ComboPower3", $FestivalSpecialSFX/ComboPower3)
+	add_to_sound_player_dictionary("RarelMookDiscovered", $FestivalSpecialSFX/RarelMookDiscovered)
+	add_to_sound_player_dictionary("LegendaryMookDiscovered", $FestivalSpecialSFX/LegendaryMookDiscovered)
 	
 	# Festival Music
 	add_to_sound_player_dictionary("Aerosol", $FestivalMusic/Aerosol)
@@ -81,6 +83,10 @@ func _ready():
 	add_to_sound_player_dictionary("EndGame", $Music/EndGame)
 	add_to_sound_player_dictionary("Arena", $Music/Arena)
 	add_to_sound_player_dictionary("Menu", $Music/Menu)
+	
+	# End Game
+	add_to_sound_player_dictionary("EndGameMusic", $EndGame/EndGameMusic)
+	
 
 	queues_by_name["shoot"] = $ShootAudioQueue
 	

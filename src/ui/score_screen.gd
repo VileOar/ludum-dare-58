@@ -4,6 +4,7 @@ var _score_string : String = "Score {score}"
 
 func _ready() -> void:
 	_update_score_label(Global.get_final_score())
+	_play_end_game_audio()
 	
 	for mook in ScoreManager._all_collected_mooks:
 		var texture_rect = TextureRect.new()
@@ -14,5 +15,13 @@ func _ready() -> void:
 		
 		$GridContainer.add_child(texture_rect)
 
+
 func _update_score_label(new_score: int) -> void:
 	$Score.text = _score_string.format({"score": new_score})
+
+
+#region Audio
+func _play_end_game_audio() -> void:
+	AudioManager.instance.play_audio("EndGameMusic")
+
+#endregion
