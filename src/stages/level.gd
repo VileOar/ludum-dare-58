@@ -9,6 +9,7 @@ const WAVE_MAX_INTERVAL := 15.0
 @onready var _entities: Node2D = $Entities
 @onready var _wave_area: Area2D = $WaveArea
 @onready var _wave_timer: Timer = $WaveTimer
+@onready var wave_sfx_2d: AudioStreamPlayer2D = $WaveArea/CollisionShape2D/WaveSFX2D
 
 
 @export var _spawn_bounds: Rect2
@@ -35,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		if _wave_area.position.x > _spawn_bounds.end.x:
 			_wave_active = false
 			_wave_area.monitoring = false
+			wave_sfx_2d.stop()
 
 
 func _spawn_crowd(amount: int):
@@ -61,6 +63,8 @@ func _start_wave():
 			_spawn_bounds.position.x,
 			_spawn_bounds.position.y + _spawn_bounds.size.y / 2
 	)
+	wave_sfx_2d.stream_paused = false
+	wave_sfx_2d.play()
 	
 func _get_random_spawn_pos() -> Vector2:
 	return Vector2(

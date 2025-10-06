@@ -10,3 +10,6 @@ unique_name_in_owner = true
 
 [node name="MainCamera" type="Camera2D" parent="CameraAnchor"]
 unique_name_in_owner = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="CameraAnchor/MainCamera"]
+current = true
