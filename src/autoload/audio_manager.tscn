@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=38 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -22,7 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://dlr7ynsk6qysv" path="res://assets/audio/sfx/slice/Blade Swoosh G.wav" id="10_a8owg"]
 [ext_resource type="AudioStream" uid="uid://bdbtmmgp6ueh7" path="res://assets/audio/festival_music/Wave After Wave.mp3" id="10_yc8ju"]
 [ext_resource type="AudioStream" uid="uid://7kjl03bo8rfl" path="res://assets/audio/main menu/Vibing Over Venus.mp3" id="11_bjq5x"]
+[ext_resource type="AudioStream" uid="uid://ffcnb615riyr" path="res://assets/audio/sfx/good_catch/powerUp8.mp3" id="13_2ein5"]
 [ext_resource type="AudioStream" uid="uid://cj2yd4uqo03ii" path="res://assets/audio/sfx/maybe/death/own_voice/I Can't Believe You've Done This-02.wav" id="15_yc8ju"]
+[ext_resource type="AudioStream" uid="uid://bl4mkqdxq7y41" path="res://assets/audio/sfx/Crowd Noise.wav" id="16_oskr5"]
 [ext_resource type="AudioStream" uid="uid://dyatw761b8kvj" path="res://assets/audio/sfx/death/death_voice-01.wav" id="23_5pwo6"]
 [ext_resource type="AudioStream" uid="uid://8uve5ech2pjx" path="res://assets/audio/sfx/death/death_voice-02.wav" id="24_3nef7"]
 [ext_resource type="AudioStream" uid="uid://ealiu3iqfxgy" path="res://assets/audio/sfx/death/death_voice-04.wav" id="25_uncrk"]
@@ -34,10 +36,26 @@
 [ext_resource type="AudioStream" uid="uid://boejo3ntt4l1f" path="res://assets/audio/sfx/death/pepSound1.mp3" id="30_u28ax"]
 [ext_resource type="AudioStream" uid="uid://cqt47501c1542" path="res://assets/audio/sfx/death/pepSound2.mp3" id="31_2ein5"]
 [ext_resource type="AudioStream" uid="uid://b1jr5mxos4bew" path="res://assets/audio/sfx/death/pepSound4.mp3" id="32_oskr5"]
+[ext_resource type="AudioStream" uid="uid://c05gcjvr1c5wj" path="res://assets/audio/score_end/Goblin_Tinker_Soldier_Spy.mp3" id="37_e4lui"]
 
 [node name="AudioManager" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_c5aou")
+
+[node name="NotUsed" type="Node" parent="."]
+
+[node name="Death9" type="AudioStreamPlayer" parent="NotUsed"]
+stream = ExtResource("30_u28ax")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death10" type="AudioStreamPlayer" parent="NotUsed"]
+stream = ExtResource("31_2ein5")
+bus = &"SFX"
+
+[node name="Death11" type="AudioStreamPlayer" parent="NotUsed"]
+stream = ExtResource("32_oskr5")
+bus = &"SFX"
 
 [node name="UI" type="Node" parent="."]
 
@@ -106,6 +124,22 @@ stream = ExtResource("6_mk4vl")
 volume_db = -10.0
 bus = &"SFX"
 
+[node name="Ambience" type="AudioStreamPlayer" parent="FestivalSFX"]
+stream = ExtResource("16_oskr5")
+volume_db = -28.0
+bus = &"SFX"
+
+[node name="FestivalSpecialSFX" type="Node" parent="."]
+
+[node name="ComboPower1" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+stream = ExtResource("13_2ein5")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="ComboPower2" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+
+[node name="ComboPower3" type="AudioStreamPlayer" parent="FestivalSpecialSFX"]
+
 [node name="FestivalMusic" type="Node" parent="."]
 
 [node name="Aerosol" type="AudioStreamPlayer" parent="FestivalMusic"]
@@ -150,12 +184,12 @@ volume_db = -17.0
 
 [node name="Death1" type="AudioStreamPlayer" parent="DeathSFX"]
 stream = ExtResource("23_5pwo6")
-volume_db = -5.0
+volume_db = -3.0
 bus = &"SFX"
 
 [node name="Death2" type="AudioStreamPlayer" parent="DeathSFX"]
 stream = ExtResource("24_3nef7")
-volume_db = -5.0
+volume_db = -3.0
 bus = &"SFX"
 
 [node name="Death3" type="AudioStreamPlayer" parent="DeathSFX"]
@@ -170,35 +204,19 @@ bus = &"SFX"
 
 [node name="Death5" type="AudioStreamPlayer" parent="DeathSFX"]
 stream = ExtResource("27_2ein5")
-volume_db = -5.0
 bus = &"SFX"
 
 [node name="Death6" type="AudioStreamPlayer" parent="DeathSFX"]
 stream = ExtResource("28_oskr5")
-volume_db = -5.0
 bus = &"SFX"
 
 [node name="Death7" type="AudioStreamPlayer" parent="DeathSFX"]
 stream = ExtResource("29_e4lui")
-volume_db = -5.0
 bus = &"SFX"
 
 [node name="Death8" type="AudioStreamPlayer" parent="DeathSFX"]
 stream = ExtResource("30_g62x6")
 volume_db = -5.0
-bus = &"SFX"
-
-[node name="Death9" type="AudioStreamPlayer" parent="DeathSFX"]
-stream = ExtResource("30_u28ax")
-volume_db = -5.0
-bus = &"SFX"
-
-[node name="Death10" type="AudioStreamPlayer" parent="DeathSFX"]
-stream = ExtResource("31_2ein5")
-bus = &"SFX"
-
-[node name="Death11" type="AudioStreamPlayer" parent="DeathSFX"]
-stream = ExtResource("32_oskr5")
 bus = &"SFX"
 
 [node name="SpecialDeathSFX" type="Node" parent="."]
@@ -237,3 +255,10 @@ volume_db = -20.0
 [node name="ShootAudioQueue" type="Node" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ShootAudioQueue"]
+
+[node name="EndGame" type="Node" parent="."]
+
+[node name="EndGameMusic" type="AudioStreamPlayer" parent="EndGame"]
+stream = ExtResource("37_e4lui")
+volume_db = -22.0
+bus = &"SFX"

@@ -1,6 +1,7 @@
 class_name GameManager
 extends Node2D
 
+signal end_game
 @export var _score_screen: PackedScene
 @export var _hud_ref: Hud
 
@@ -36,7 +37,9 @@ func collect_mook(mook: Mook) -> void:
 	remove_bag_slot()
 
 func _end_game() -> void:
+	emit_signal("end_game")
 	Global.set_final_score(ScoreManager._calculate_final_score())
 	var change_scene := func():
 		get_tree().change_scene_to_packed(_score_screen)
 	change_scene.call_deferred()
+	

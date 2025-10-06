@@ -43,7 +43,12 @@ func _ready():
 	# Festival Audio
 	add_to_sound_player_dictionary("Scratch", $FestivalSFX/Scratch)
 	add_to_sound_player_dictionary("ButtonClick", $FestivalSFX/ButtonClick)
+	add_to_sound_player_dictionary("Ambience", $FestivalSFX/Ambience)
 	
+	# Festival Special Audio
+	add_to_sound_player_dictionary("ComboPower1", $FestivalSpecialSFX/ComboPower1)
+	add_to_sound_player_dictionary("ComboPower2", $FestivalSpecialSFX/ComboPower2)
+	add_to_sound_player_dictionary("ComboPower3", $FestivalSpecialSFX/ComboPower3)
 	
 	# Festival Music
 	add_to_sound_player_dictionary("Aerosol", $FestivalMusic/Aerosol)
@@ -65,9 +70,9 @@ func _ready():
 	add_to_sound_player_dictionary("Death6", $DeathSFX/Death6)
 	add_to_sound_player_dictionary("Death7", $DeathSFX/Death7)
 	add_to_sound_player_dictionary("Death8", $DeathSFX/Death8)
-	add_to_sound_player_dictionary("Death9", $DeathSFX/Death9)
-	add_to_sound_player_dictionary("Death10", $DeathSFX/Death10)
-	add_to_sound_player_dictionary("Death11", $DeathSFX/Death11)
+	#add_to_sound_player_dictionary("Death9", $DeathSFX/Death9)
+	#add_to_sound_player_dictionary("Death10", $DeathSFX/Death10)
+	#add_to_sound_player_dictionary("Death11", $DeathSFX/Death11)
 	
 	
 	# Music

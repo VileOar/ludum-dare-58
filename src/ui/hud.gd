@@ -23,9 +23,12 @@ func update_bag_slot_icons(last_collected_mooks: Array[MookStats]) -> void:
 		bag_slot_icons[i].texture = Global.shape_icons[last_collected_mooks[i].shape]
 		bag_slot_icons[i].modulate = Global.colour_values[last_collected_mooks[i].colour]
 
+
 func display_combo_pop_up(bonus_score: int) -> void:
 	$Combo.text = "Combo! +" + str(bonus_score)
 	$Combo/ComboAnimPlayer.play("combo_pop_up")
+	AudioManager.play_audio("ComboPower1")
+
 
 func update_timer(time) -> void:
 	var secs = round(time)

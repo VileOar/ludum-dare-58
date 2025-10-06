@@ -3,6 +3,7 @@ class_name BoomBox
 
 @onready var boom_timer: Timer = $BoomTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var game_manager : GameManager
 
 var _interval = 0.0
 
@@ -16,7 +17,12 @@ var _festival_music_dictionary_with_bpm : Dictionary = {}
 
 func _ready() -> void:
 	_setup_festival_music_dictionary()
+	_play_ambience_sfx()
 	start_boombox()
+	if game_manager != null:
+		game_manager.end_game.connect(stop_festival_audio)
+	else:
+		print("[Error] game manager not assigned to BoomBox!")
 	
 	
 func _setup_festival_music_dictionary():
@@ -77,6 +83,13 @@ func _play_scratch_sfx():
 func _play_button_click_sfx():
 	AudioManager.play_audio("ButtonClick")
 
+
+func _play_ambience_sfx():
+	AudioManager.instance.play_audio("Ambience");
+	
+func _stop_ambience_sfx():
+	AudioManager.instance.stop_audio("Ambience");
+
 #endregion
 
 
@@ -91,6 +104,12 @@ func change_boombox_music():
 	await get_tree().create_timer(AudioManager.fade_timeout).timeout
 	_is_changing_music = false
 	#print("[Festival] New Music is:", current_music)
+
+
+func stop_festival_audio() -> void:
+	_is_changing_music = true
+	AudioManager.instance.fade_out_music(current_music)
+	_stop_ambience_sfx()
 	
 	
 func get_random_festival_music_id() -> String:

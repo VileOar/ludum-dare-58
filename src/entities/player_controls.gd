@@ -11,14 +11,14 @@ var has_entered: Dictionary[Node2D, bool]
 var is_slice_sfx_playable: bool = true
 
 
-
 func _on_mook_death(mook : Mook) -> void:
 	if mook.get_stats().rarity == Global.Rarities.COMMON:
 		AudioManager.instance.play_death_sfx()
 	if mook.get_stats().rarity == Global.Rarities.RARE:
-		AudioManager.instance.play_special_death_sfx()
+		AudioManager.instance.play_death_sfx()
 	if mook.get_stats().rarity == Global.Rarities.LEGENDARY:
-		AudioManager.instance.play_special_death_sfx()
+		AudioManager.instance.play_death_sfx()
+		#AudioManager.instance.play_special_death_sfx()
 		
 
 func _process(_delta):
