@@ -181,7 +181,22 @@ metadata/_edit_group_ = true
 position = Vector2(0, 208)
 shape = SubResource("RectangleShape2D_s8p13")
 
+[node name="WaveSFX2DTop" type="AudioStreamPlayer2D" parent="WaveArea/CollisionShape2D"]
+position = Vector2(0, -800)
+stream = ExtResource("5_4m3y5")
+max_distance = 850.0
+attenuation = 2.5
+bus = &"SFX"
+
 [node name="WaveSFX2D" type="AudioStreamPlayer2D" parent="WaveArea/CollisionShape2D"]
+position = Vector2(0, -200)
+stream = ExtResource("5_4m3y5")
+max_distance = 850.0
+attenuation = 2.5
+bus = &"SFX"
+
+[node name="WaveSFX2DBottom" type="AudioStreamPlayer2D" parent="WaveArea/CollisionShape2D"]
+position = Vector2(0, 400)
 stream = ExtResource("5_4m3y5")
 max_distance = 850.0
 attenuation = 2.5
