@@ -58,7 +58,6 @@ animations = [{
 }]
 
 [node name="DeadMook" type="AnimatedSprite2D"]
-position = Vector2(536, 344)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_j31f1")
 animation = &"stubby"

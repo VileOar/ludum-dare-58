@@ -48,6 +48,7 @@ func spawn_mook_icons():
 			await get_tree().create_timer(10.0).timeout
 		
 		await get_tree().create_timer(_spawn_icon_time).timeout
+	$Death.play("end")
 
 
 func _display_combo() -> void:

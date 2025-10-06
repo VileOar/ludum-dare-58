@@ -65,9 +65,9 @@ columns = 15
 position = Vector2(1550, 540)
 scale = Vector2(10, 10)
 sprite_frames = ExtResource("6_2gbsl")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.38982445
+animation = &"counting"
+autoplay = "counting"
+frame_progress = 0.09198392
 flip_h = true
 
 [node name="PlayAgain" type="Button" parent="."]
