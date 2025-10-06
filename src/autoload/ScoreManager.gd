@@ -202,3 +202,24 @@ func _calculate_mook_score_in_combo(combo_size: int) -> int:
 
 func _calculate_final_score() -> int:
 	return _combo_score_total + _no_combo_score_total
+
+func _reset_all() -> void:
+	_same_colour_streak = 1
+	_same_shape_streak = 1
+	_unique_shape_same_colour_streak = 1
+	_same_shape_unique_colour_streak = 1
+	_collected_mooks_total = 0
+	_collected_commons_counter = 0
+	_collected_rares_counter = 0
+	_collected_legendaries_counter = 0
+	_3_shapes_of_colour_counter = 0
+	_all_shapes_of_colour_counter = 0
+	_all_colours_of_shape_counter = 0
+	_reset_unique_shapes_remaining()
+	_reset_unique_colours_remaining()
+	_all_collected_mooks = []
+	_last_collected_mook = null
+	_second_to_last_collected_mook = null
+	_last_collected_mooks.clear()
+	_combo_score_total = 0
+	_no_combo_score_total = 0
