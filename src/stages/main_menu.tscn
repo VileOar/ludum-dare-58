@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://iorpodfv3lm7"]
+[gd_scene load_steps=30 format=3 uid="uid://iorpodfv3lm7"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
+[ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="5_vtifm"]
 [ext_resource type="Texture2D" uid="uid://dhldjf6ten6bf" path="res://assets/ui/how_to_play/three_combo.png" id="5_xwlnd"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
 [ext_resource type="PackedScene" uid="uid://wg26fathbma7" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
@@ -20,6 +21,68 @@
 [ext_resource type="Texture2D" uid="uid://owe48uv6buf3" path="res://assets/ui/keyboard_mouse/keyboard_w_outline.png" id="16_85lw3"]
 [ext_resource type="Texture2D" uid="uid://bkjjhgwkmj130" path="res://assets/ui/keyboard_mouse/mouse_left.png" id="17_riakk"]
 [ext_resource type="Texture2D" uid="uid://c8wcabee3wpob" path="res://assets/ui/keyboard_mouse/mouse_move.png" id="18_1e5n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmb4f"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaj65"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpgk4"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miru0"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnh7m"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6hfj"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42518"]
+atlas = ExtResource("5_vtifm")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6hfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmb4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaj65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpgk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miru0")
+}],
+"loop": false,
+"name": &"boomin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnh7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6hfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42518")
+}],
+"loop": false,
+"name": &"press",
+"speed": 10.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -43,6 +106,7 @@ grow_vertical = 2
 color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 
 [node name="TitleScreen" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -155,7 +219,6 @@ frame_progress = 0.38982445
 flip_h = true
 
 [node name="HowToPlay" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -264,6 +327,31 @@ text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
 fit_content = true
 autowrap_mode = 0
 
+[node name="BoomBoxLb" type="RichTextLabel" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 1238.0
+offset_top = 472.51996
+offset_right = 2048.0
+offset_bottom = 697.51996
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("6_jscuh")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[color=#1d2b53]Click[/color] the         to change the song!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="BoomBox" type="AnimatedSprite2D" parent="HowToPlay"]
+position = Vector2(1481, 1026)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s6hfj")
+animation = &"boomin"
+frame = 3
+frame_progress = 1.0
+
 [node name="ThreeCombo" type="Sprite2D" parent="HowToPlay"]
 position = Vector2(1252, 399)
 scale = Vector2(0.5, 0.5)
@@ -312,15 +400,15 @@ position = Vector2(1233, 776)
 texture = ExtResource("16_85lw3")
 
 [node name="KeyboardEscapeOutline" type="Sprite2D" parent="HowToPlay"]
-position = Vector2(391, 802)
+position = Vector2(377, 823)
 texture = ExtResource("14_hvpaj")
 
 [node name="MouseLeft" type="Sprite2D" parent="HowToPlay"]
-position = Vector2(571, 755)
+position = Vector2(557, 776)
 texture = ExtResource("17_riakk")
 
 [node name="MouseMove" type="Sprite2D" parent="HowToPlay"]
-position = Vector2(437.00003, 706)
+position = Vector2(423, 727)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("18_1e5n8")
 
