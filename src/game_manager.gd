@@ -14,6 +14,8 @@ var _bag_slots_remaining: int = Global.MAX_BAG_SLOTS
 var _time_left: float = Global.TIME_LIMIT
 
 func _ready() -> void:
+	# reset all score related stuff
+	ScoreManager.reset_all()
 	# initialize hud
 	_hud_ref.update_bag_slots_display(_bag_slots_remaining)
 	_time_limit_timer.start(_time_left)
