@@ -11,24 +11,14 @@ const WAVE_MAX_INTERVAL := 15.0
 @onready var _wave_timer: Timer = $WaveTimer
 @onready var wave_sfx_2d: AudioStreamPlayer2D = $WaveArea/CollisionShape2D/WaveSFX2D
 
-
 @export var _spawn_bounds: Rect2
 @export var _center_blocked: StaticBody2D
 
 # whether a wave is currently running
 var _wave_active = false
 
-
-# TODO: remove
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed():
-		if (event as InputEventKey).keycode == KEY_SPACE:
-			_spawn_crowd(Global.NUM_SPAWNED_MOOKS)
-
-
 func _ready() -> void:
 	_spawn_crowd(Global.NUM_SPAWNED_MOOKS)
-
 
 func _physics_process(delta: float) -> void:
 	if _wave_active:
