@@ -63,7 +63,7 @@ var _mov_dir := Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
-	if _is_panicable() and !is_panic():
+	if _is_panicable() and !is_panic() and !Global.get_is_paused():
 		var mouse_dist = get_global_mouse_position().distance_squared_to(global_position)
 		if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD:
 			_change_state(States.PANIC)

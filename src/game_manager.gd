@@ -2,8 +2,10 @@ class_name GameManager
 extends Node2D
 
 signal end_game
-@export var _score_screen: PackedScene
+
 @export var _hud_ref: Hud
+@export var _pause_menu_ref: PauseMenu
+@export var _night_shade_ref: ColorRect
 
 @export var _time_limit_timer: Timer
 
@@ -15,6 +17,9 @@ func _ready() -> void:
 	# initialize hud
 	_hud_ref.update_bag_slots_display(_bag_slots_remaining)
 	_time_limit_timer.start(_time_left)
+	# connect signals
+	_pause_menu_ref.connect("on_resume", _resume_game)
+	_pause_menu_ref.connect("on_quit", _quit_to_title)
 
 func _process(_delta: float) -> void:
 	_time_left = _time_limit_timer.time_left
@@ -23,6 +28,10 @@ func _process(_delta: float) -> void:
 	else:
 		_hud_ref.update_timer(0)
 		_end_game()
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		_pause_game()
 
 func remove_bag_slot() -> void:
 	if _bag_slots_remaining > 0:
@@ -36,10 +45,28 @@ func collect_mook(mook: Mook) -> void:
 	_hud_ref.update_bag_slot_icons(ScoreManager._last_collected_mooks)
 	remove_bag_slot()
 
+func _pause_game() -> void:
+	Global.set_is_paused(true)
+	_night_shade_ref.hide()
+	_hud_ref.hide()
+	_pause_menu_ref.show()
+	Engine.time_scale = 0
+
+func _resume_game() -> void:
+	Global.set_is_paused(false)
+	_night_shade_ref.show()
+	_hud_ref.show()
+	Engine.time_scale = 1
+
+func _quit_to_title() -> void:
+	Engine.time_scale = 1
+	Global.set_is_paused(false)
+	emit_signal("end_game")
+
 func _end_game() -> void:
 	emit_signal("end_game")
 	Global.set_final_score(ScoreManager._calculate_final_score())
 	var change_scene := func():
-		get_tree().change_scene_to_packed(_score_screen)
+		get_tree().change_scene_to_file(Global.SCORE_SCENE_FILEPATH)
 	change_scene.call_deferred()
 	

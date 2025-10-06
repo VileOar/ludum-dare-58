@@ -34,6 +34,11 @@ const ALL_COLOURS_OF_SHAPE_MULTIPLIER: int = 3
 const MOUSE_CIRCLE_RADIUS := 150.0
 const MOUSE_CIRCLE_SMOOTH_WIDTH := 50.0
 
+# filepaths to the game scenes
+const TITLE_SCENE_FILEPATH: String = "res://src/stages/main_menu.tscn"
+const LEVEL_SCENE_FILEPATH: String = "res://src/stages/level.tscn"
+const SCORE_SCENE_FILEPATH: String = "res://src/stages/score_screen.tscn"
+
 enum Shapes {
 	POINTY,
 	BLOCKY,
@@ -58,6 +63,8 @@ enum Rarities {
 }
 
 var _final_score: int = 0
+
+var _is_paused: bool = false
 
 var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
 	Shapes.POINTY: preload("uid://dntarescsau6g"),
@@ -98,7 +105,7 @@ func _ready() -> void:
 		mat.set("shader_parameter/color", colour_values[col])
 		_materials[col] = mat
 
-func set_final_score(new_score) ->void:
+func set_final_score(new_score) -> void:
 	_final_score = new_score
 
 func get_final_score() -> int:
@@ -114,3 +121,9 @@ func get_material_from_colour(colour: Colours) -> ShaderMaterial:
 
 func get_all_materials() -> Array[ShaderMaterial]:
 	return _materials.values()
+
+func set_is_paused(new_value: bool) -> void:
+	_is_paused = new_value
+
+func get_is_paused() -> bool:
+	return _is_paused
