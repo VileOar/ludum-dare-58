@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="ludum-dare-58"
-run/main_scene="uid://iorpodfv3lm7"
+config/name="Let it Reap"
+config/description="Slash and tear through the crowd to collect soul combos."
+run/main_scene="uid://ctt72jhrk3frn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://ddmsqu6e7yksu"
+config/icon="uid://cv0448swvrch2"
 
 [audio]
 
@@ -26,6 +27,7 @@ Signals="*res://src/autoload/Signals.gd"
 Global="*res://src/autoload/Global.gd"
 AudioManager="*res://src/autoload/audio_manager.tscn"
 DexManager="*res://src/autoload/DexManager.gd"
+ScoreManager="*res://src/autoload/ScoreManager.gd"
 
 [display]
 

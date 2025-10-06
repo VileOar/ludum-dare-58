@@ -61,12 +61,18 @@ func standard_sort(a, b):
 func sort_by_colour(a, b):
 	if a.data_copy.colour > b.data_copy.colour:
 		return true
+	if a.data_copy.colour == b.data_copy.colour:
+		if a.data_copy.entry_number > b.data_copy.entry_number:
+			return true
 	return false
 
 
 func sort_by_rarity(a, b):
 	if a.data_copy.rarity > b.data_copy.rarity:
 		return true
+	if a.data_copy.rarity == b.data_copy.rarity:
+		if a.data_copy.entry_number > b.data_copy.entry_number:
+			return true
 	return false
 
 
