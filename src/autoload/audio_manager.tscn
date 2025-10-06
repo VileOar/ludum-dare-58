@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=35 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -8,16 +8,32 @@
 [ext_resource type="AudioStream" uid="uid://fig2h0psp7xe" path="res://assets/audio/festival_music/Boogie Party.mp3" id="4_cmdha"]
 [ext_resource type="AudioStream" uid="uid://du6x8lsntfd63" path="res://assets/audio/sfx/maybe/ui/Scroll Shuffle High Single.wav" id="4_xy50i"]
 [ext_resource type="AudioStream" uid="uid://cocfstsu8qssj" path="res://assets/audio/sfx/maybe/festival/scratch_hit.wav" id="5_5wjwd"]
+[ext_resource type="AudioStream" uid="uid://7kf72yeucody" path="res://assets/audio/sfx/slice/Blade Swoosh A.wav" id="5_8kkmp"]
 [ext_resource type="AudioStream" uid="uid://dvmegprx3c70y" path="res://assets/audio/festival_music/Neon Laser Horizon.mp3" id="5_bjq5x"]
 [ext_resource type="AudioStream" uid="uid://dcschd4eljeyf" path="res://assets/audio/sfx/maybe/festival/Old PC Key A.wav" id="6_mk4vl"]
+[ext_resource type="AudioStream" uid="uid://drk55sa3ej3c0" path="res://assets/audio/sfx/slice/Blade Swoosh B.wav" id="6_slykp"]
 [ext_resource type="AudioStream" uid="uid://ufbm177pjwf8" path="res://assets/audio/festival_music/Newer Wave.mp3" id="6_tguw2"]
 [ext_resource type="AudioStream" uid="uid://dqoi5a8h5slr7" path="res://assets/audio/festival_music/Raving Energy.mp3" id="7_4wg5e"]
+[ext_resource type="AudioStream" uid="uid://c5i6j07dwk4vp" path="res://assets/audio/sfx/slice/Blade Swoosh C.wav" id="7_5pwo6"]
 [ext_resource type="AudioStream" uid="uid://5inmoqlot1l8" path="res://assets/audio/festival_music/Raving Energy (faster).mp3" id="8_roxop"]
+[ext_resource type="AudioStream" uid="uid://ww81jkqnvt4d" path="res://assets/audio/sfx/slice/Blade Swoosh D.wav" id="8_xeqvl"]
+[ext_resource type="AudioStream" uid="uid://debx03nra1bwu" path="res://assets/audio/sfx/slice/Blade Swoosh F.wav" id="9_mqnxj"]
 [ext_resource type="AudioStream" uid="uid://8saj6176hf4c" path="res://assets/audio/festival_music/Voxel Revolution.mp3" id="9_xy50i"]
+[ext_resource type="AudioStream" uid="uid://dlr7ynsk6qysv" path="res://assets/audio/sfx/slice/Blade Swoosh G.wav" id="10_a8owg"]
 [ext_resource type="AudioStream" uid="uid://bdbtmmgp6ueh7" path="res://assets/audio/festival_music/Wave After Wave.mp3" id="10_yc8ju"]
 [ext_resource type="AudioStream" uid="uid://7kjl03bo8rfl" path="res://assets/audio/main menu/Vibing Over Venus.mp3" id="11_bjq5x"]
-[ext_resource type="Script" uid="uid://bn5uithhtknqu" path="res://src/autoload/death_sfx_import.gd" id="14_xy50i"]
 [ext_resource type="AudioStream" uid="uid://cj2yd4uqo03ii" path="res://assets/audio/sfx/maybe/death/own_voice/I Can't Believe You've Done This-02.wav" id="15_yc8ju"]
+[ext_resource type="AudioStream" uid="uid://dyatw761b8kvj" path="res://assets/audio/sfx/death/death_voice-01.wav" id="23_5pwo6"]
+[ext_resource type="AudioStream" uid="uid://8uve5ech2pjx" path="res://assets/audio/sfx/death/death_voice-02.wav" id="24_3nef7"]
+[ext_resource type="AudioStream" uid="uid://ealiu3iqfxgy" path="res://assets/audio/sfx/death/death_voice-04.wav" id="25_uncrk"]
+[ext_resource type="AudioStream" uid="uid://brpgi8b6lsq1h" path="res://assets/audio/sfx/death/death_voice-06.wav" id="26_u28ax"]
+[ext_resource type="AudioStream" uid="uid://dy824pi2f7tb4" path="res://assets/audio/sfx/death/death_voice-07.wav" id="27_2ein5"]
+[ext_resource type="AudioStream" uid="uid://prs0rw17a8k4" path="res://assets/audio/sfx/death/death_voice-12.wav" id="28_oskr5"]
+[ext_resource type="AudioStream" uid="uid://s23qropwdhc7" path="res://assets/audio/sfx/death/death_voice-13.wav" id="29_e4lui"]
+[ext_resource type="AudioStream" uid="uid://1m55iir5iq6c" path="res://assets/audio/sfx/death/death_voice-15.wav" id="30_g62x6"]
+[ext_resource type="AudioStream" uid="uid://boejo3ntt4l1f" path="res://assets/audio/sfx/death/pepSound1.mp3" id="30_u28ax"]
+[ext_resource type="AudioStream" uid="uid://cqt47501c1542" path="res://assets/audio/sfx/death/pepSound2.mp3" id="31_2ein5"]
+[ext_resource type="AudioStream" uid="uid://b1jr5mxos4bew" path="res://assets/audio/sfx/death/pepSound4.mp3" id="32_oskr5"]
 
 [node name="AudioManager" type="Node2D"]
 process_mode = 3
@@ -45,6 +61,38 @@ pitch_scale = 1.2
 max_polyphony = 10
 bus = &"SFX"
 
+[node name="SliceSFX" type="Node" parent="."]
+
+[node name="ASlice1" type="AudioStreamPlayer" parent="SliceSFX"]
+stream = ExtResource("5_8kkmp")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ASlice2" type="AudioStreamPlayer" parent="SliceSFX"]
+stream = ExtResource("6_slykp")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ASlice3" type="AudioStreamPlayer" parent="SliceSFX"]
+stream = ExtResource("7_5pwo6")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ASlice4" type="AudioStreamPlayer" parent="SliceSFX"]
+stream = ExtResource("8_xeqvl")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ASlice5" type="AudioStreamPlayer" parent="SliceSFX"]
+stream = ExtResource("9_mqnxj")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ASlice6" type="AudioStreamPlayer" parent="SliceSFX"]
+stream = ExtResource("10_a8owg")
+volume_db = -15.0
+bus = &"SFX"
+
 [node name="FestivalSFX" type="Node" parent="."]
 
 [node name="Scratch" type="AudioStreamPlayer" parent="FestivalSFX"]
@@ -62,48 +110,102 @@ bus = &"SFX"
 
 [node name="Aerosol" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("2_pbdaj")
-volume_db = -12.0
+volume_db = -22.0
+bus = &"Music"
 
 [node name="Arroz" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("3_pbdaj")
-volume_db = -16.0
+volume_db = -24.0
+bus = &"Music"
 
 [node name="Boogie" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("4_cmdha")
-volume_db = -16.0
+volume_db = -22.0
 
 [node name="Neon" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("5_bjq5x")
-volume_db = -16.0
+volume_db = -24.0
 
 [node name="Newer" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("6_tguw2")
-volume_db = -16.0
+volume_db = -22.0
 
 [node name="Energy" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("7_4wg5e")
-volume_db = -17.0
+volume_db = -22.0
 
 [node name="EnergyFaster" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("8_roxop")
-volume_db = -17.0
+volume_db = -22.0
 
 [node name="Voxel" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("9_xy50i")
-volume_db = -14.0
+volume_db = -22.0
 
 [node name="Wave" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("10_yc8ju")
-volume_db = -16.0
+volume_db = -17.0
 
 [node name="DeathSFX" type="Node" parent="."]
-script = ExtResource("14_xy50i")
+
+[node name="Death1" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("23_5pwo6")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death2" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("24_3nef7")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death3" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("25_uncrk")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death4" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("26_u28ax")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death5" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("27_2ein5")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death6" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("28_oskr5")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death7" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("29_e4lui")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death8" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("30_g62x6")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death9" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("30_u28ax")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Death10" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("31_2ein5")
+bus = &"SFX"
+
+[node name="Death11" type="AudioStreamPlayer" parent="DeathSFX"]
+stream = ExtResource("32_oskr5")
+bus = &"SFX"
 
 [node name="SpecialDeathSFX" type="Node" parent="."]
 
 [node name="DoneThis" type="AudioStreamPlayer" parent="SpecialDeathSFX"]
 stream = ExtResource("15_yc8ju")
-volume_db = -15.0
+volume_db = -24.0
 bus = &"SFX"
 
 [node name="MainMenuMusic" type="Node" parent="."]

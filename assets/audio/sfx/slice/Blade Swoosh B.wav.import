@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drk55sa3ej3c0"
+path="res://.godot/imported/Blade Swoosh B.wav-98a883fc554fccffc2f9211a20784883.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/slice/Blade Swoosh B.wav"
+dest_files=["res://.godot/imported/Blade Swoosh B.wav-98a883fc554fccffc2f9211a20784883.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
