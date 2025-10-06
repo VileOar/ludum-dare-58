@@ -5,6 +5,7 @@ extends Node2D
 # Reference to the itself, ensuring only one exists
 var instance : Node
 @onready var _festival_music: Node = $FestivalMusic
+@onready var death_sfx: Node = $DeathSFX
 var festival_music_name = "FestivalMusic"
 
 # Dictionary to store each SoundPlayer nodes by its name
@@ -23,9 +24,33 @@ func _ready():
 	add_to_sound_player_dictionary("ButtonDecline", $UI/ButtonDecline)
 	add_to_sound_player_dictionary("ButtonHover", $UI/ButtonHover)
 	
+	# Special Death Sounds
+	add_to_sound_player_dictionary("DoneThis", $SpecialDeathSFX/DoneThis)
+	
 	# Main Menu Music
 	add_to_sound_player_dictionary("MainMenuMusic", $MainMenuMusic/Music)
 	add_to_sound_player_dictionary("Ambience", $MainMenuMusic/Ambience)
+	
+	# Slice Audio
+	add_to_sound_player_dictionary("ASlice1", $SliceSFX/ASlice1)
+	add_to_sound_player_dictionary("ASlice2", $SliceSFX/ASlice2)
+	add_to_sound_player_dictionary("ASlice3", $SliceSFX/ASlice3)
+	add_to_sound_player_dictionary("ASlice4", $SliceSFX/ASlice4)
+	add_to_sound_player_dictionary("ASlice5", $SliceSFX/ASlice5)
+	add_to_sound_player_dictionary("ASlice6", $SliceSFX/ASlice6)
+
+	
+	# Festival Audio
+	add_to_sound_player_dictionary("Scratch", $FestivalSFX/Scratch)
+	add_to_sound_player_dictionary("ButtonClick", $FestivalSFX/ButtonClick)
+	add_to_sound_player_dictionary("Ambience", $FestivalSFX/Ambience)
+	
+	# Festival Special Audio
+	add_to_sound_player_dictionary("ComboPower1", $FestivalSpecialSFX/ComboPower1)
+	add_to_sound_player_dictionary("ComboPower2", $FestivalSpecialSFX/ComboPower2)
+	add_to_sound_player_dictionary("ComboPower3", $FestivalSpecialSFX/ComboPower3)
+	add_to_sound_player_dictionary("RarelMookDiscovered", $FestivalSpecialSFX/RarelMookDiscovered)
+	add_to_sound_player_dictionary("LegendaryMookDiscovered", $FestivalSpecialSFX/LegendaryMookDiscovered)
 	
 	# Festival Music
 	add_to_sound_player_dictionary("Aerosol", $FestivalMusic/Aerosol)
@@ -38,6 +63,19 @@ func _ready():
 	add_to_sound_player_dictionary("Voxel", $FestivalMusic/Voxel)
 	add_to_sound_player_dictionary("Wave", $FestivalMusic/Wave)
 	
+	# Death Audio
+	add_to_sound_player_dictionary("Death1", $DeathSFX/Death1)
+	add_to_sound_player_dictionary("Death2", $DeathSFX/Death2)
+	add_to_sound_player_dictionary("Death3", $DeathSFX/Death3)
+	add_to_sound_player_dictionary("Death4", $DeathSFX/Death4)
+	add_to_sound_player_dictionary("Death5", $DeathSFX/Death5)
+	add_to_sound_player_dictionary("Death6", $DeathSFX/Death6)
+	add_to_sound_player_dictionary("Death7", $DeathSFX/Death7)
+	add_to_sound_player_dictionary("Death8", $DeathSFX/Death8)
+	#add_to_sound_player_dictionary("Death9", $DeathSFX/Death9)
+	#add_to_sound_player_dictionary("Death10", $DeathSFX/Death10)
+	#add_to_sound_player_dictionary("Death11", $DeathSFX/Death11)
+	
 	
 	# Music
 	add_to_sound_player_dictionary("EndRound", $Music/EndRound)
@@ -45,6 +83,10 @@ func _ready():
 	add_to_sound_player_dictionary("EndGame", $Music/EndGame)
 	add_to_sound_player_dictionary("Arena", $Music/Arena)
 	add_to_sound_player_dictionary("Menu", $Music/Menu)
+	
+	# End Game
+	add_to_sound_player_dictionary("EndGameMusic", $EndGame/EndGameMusic)
+	
 
 	queues_by_name["shoot"] = $ShootAudioQueue
 	
@@ -54,6 +96,14 @@ func play_audio(audio_name):
 	var audio_node = _sound_player_by_name.get(audio_name)
 	if audio_node != null:
 			audio_node.play()
+			
+			
+func play_audio_random_pitch(audio_name, min_pitch :float, max_pitch :float):
+	# Get the "audio_name" node if it exists and is an AudioStreamPlayer
+	var audio_node = _sound_player_by_name.get(audio_name)
+	if audio_node != null:
+		audio_node.pitch_scale = Utils.rng.randf_range(min_pitch, max_pitch)
+		audio_node.play()
 
 
 func play_audio_queue(audio_name):
@@ -130,6 +180,23 @@ func add_to_sound_player_dictionary(node_name, node):
 	
 func set_master_volume(volume : float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume))
+	
+	
+# Special Audio
+func play_random_slice_sfx():
+	var slice_name = "ASlice"
+	var slice_number = Utils.rng.randi_range(1, 6)
+	var slice_str = str(slice_name, slice_number)
+	play_audio(slice_str)
+
+func play_special_death_sfx():
+	play_audio_random_pitch("DoneThis", 1.1, 1.5)
+
+
+func play_death_sfx():
+	var death_number = Utils.rng.randi_range(1, death_sfx.get_child_count() - 1)
+	var death_str = str("Death", death_number)
+	play_audio_random_pitch(death_str, 1.1, 1.3)
 	
 	
 # UI Audio

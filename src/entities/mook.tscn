@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvi62h2rmxdjb" path="res://src/entities/mook.gd" id="1_eu1mi"]
 [ext_resource type="SpriteFrames" uid="uid://cxebhbvprf5m6" path="res://assets/spriteframes/lozenge_frames.tres" id="2_eu1mi"]
+[ext_resource type="PackedScene" uid="uid://pd4e3amlebjq" path="res://src/entities/dead_mook.tscn" id="2_w1ghx"]
 [ext_resource type="Shader" uid="uid://52oqfdc7rt6o" path="res://assets/shaders/aura.gdshader" id="2_woljm"]
 [ext_resource type="Texture2D" uid="uid://chtyvf3fdmgx2" path="res://assets/shaders/aura_noise.tres" id="3_q7fjv"]
 [ext_resource type="Texture2D" uid="uid://4fh3yucmvq34" path="res://assets/shaders/textures/circle_fade.jpg" id="3_woljm"]
@@ -46,6 +47,7 @@ hue_variation_max = 0.039999977
 [node name="Mook" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_eu1mi")
+dead_PCK = ExtResource("2_w1ghx")
 
 [node name="Aura" type="Sprite2D" parent="."]
 visible = false

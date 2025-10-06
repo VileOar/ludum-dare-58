@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnuchsqsj6kht"
+path="res://.godot/imported/Mystery Ensemble 001.wav-5e1df3270c7fe9bc9aa261d6bf46952d.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/maybe/end/Mystery Ensemble 001.wav"
+dest_files=["res://.godot/imported/Mystery Ensemble 001.wav-5e1df3270c7fe9bc9aa261d6bf46952d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

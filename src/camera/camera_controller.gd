@@ -45,17 +45,17 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
+	if !Global.get_is_paused():
+		cam_move_direction = Vector2(
+			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+			Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		)
 
-	cam_move_direction = Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	)
-
-	var mov_dir = cam_move_direction.normalized() * pan_speed
-	cam_anchor.position.x = clamp(cam_anchor.position.x + mov_dir.x, _total_area.position.x, _total_area.end.x)
-	cam_anchor.position.y = clamp(cam_anchor.position.y + mov_dir.y, _total_area.position.y, _total_area.end.y)
-#	TODO can be applied an factor to smooth transition ex: /10
-	_set_cam_position(Vector2(cam_anchor.position.x, cam_anchor.position.y))
+		var mov_dir = cam_move_direction.normalized() * pan_speed
+		cam_anchor.position.x = clamp(cam_anchor.position.x + mov_dir.x, _total_area.position.x, _total_area.end.x)
+		cam_anchor.position.y = clamp(cam_anchor.position.y + mov_dir.y, _total_area.position.y, _total_area.end.y)
+	#	TODO can be applied an factor to smooth transition ex: /10
+		_set_cam_position(Vector2(cam_anchor.position.x, cam_anchor.position.y))
 
 
 func _set_cam_position(new_position : Vector2) -> void:

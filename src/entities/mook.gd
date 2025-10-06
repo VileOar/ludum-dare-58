@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Mook
 
+@export var dead_PCK: PackedScene
+
 const WANDER_SPEED := Global.BLOCK * 0.5
 const PANIC_SPEED := Global.BLOCK * 2.0
 
@@ -62,6 +64,7 @@ var _mov_dir := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	if _is_panicable():
+
 		var mouse_dist = get_global_mouse_position().distance_squared_to(global_position)
 
 		if mouse_dist >= MOUSE_DIST_PANIC_THRESHOLD and _particles.emitting:
@@ -69,9 +72,10 @@ func _physics_process(delta: float) -> void:
 		if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD and _particles.emitting == false:
 			_particles.emitting = true
 
-		if !is_panic():
+		if !is_panic() and !Global.get_is_paused():
 			if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD:
 				_change_state(States.PANIC)
+				_play_mook_discovered_sfx(_stats.rarity)
 	
 	if _state_updates.has(_state):
 		_state_updates[_state].call(delta)
@@ -103,6 +107,13 @@ func do_the_wave():
 	if !(is_panic() and _is_panicable()):
 		_change_state(States.ANIM)
 		_sprite.play("wave")
+
+
+func die():
+	var dead = dead_PCK.instantiate() as DeadMook
+	dead.setup_dead(_stats.shape, _stats.colour, _sprite.scale)
+	dead.position = position
+	get_parent().add_child(dead)
 
 
 # whether this entity gets locked to panic state and enters panic state with mouse
@@ -189,6 +200,20 @@ func _state_anim(_delta: float):
 			anim = _idle_anims[randi() % _idle_anims.size()]
 		_sprite.pause()
 		_sprite.play(anim)
+
+
+#region Audio
+
+func _play_mook_discovered_sfx(rarity) -> void:
+	if rarity == Global.Rarities.RARE:
+		AudioManager.instance.play_audio_random_pitch("RarelMookDiscovered", 1.4, 1.6)
+	if rarity == Global.Rarities.LEGENDARY:
+		AudioManager.instance.play_audio_random_pitch("LegendaryMookDiscovered", 1.4, 1.6)
+		
+		
+
+
+#endregion
 
 
 # --- || Callbacks || ---

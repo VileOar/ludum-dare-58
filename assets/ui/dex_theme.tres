@@ -1,12 +1,14 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://wuavbajw8yip"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://wuavbajw8yip"]
 
 [ext_resource type="StyleBox" uid="uid://b0wkqsv6xh7ty" path="res://assets/ui/panel_style.tres" id="1_msiot"]
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="2_msiot"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oysml"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_msiot"]
 
 [resource]
+default_font = ExtResource("2_msiot")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_oysml")
 PanelContainer/styles/panel = ExtResource("1_msiot")
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_msiot")

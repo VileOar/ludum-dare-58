@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnij3jwk3tqwh"]
+[gd_scene load_steps=15 format=3 uid="uid://dnij3jwk3tqwh"]
 
 [ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="1_vnh7m"]
 [ext_resource type="Script" uid="uid://csrsrdxpb5aa5" path="res://src/entities/boombox.gd" id="2_dmb4f"]
@@ -68,6 +68,43 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmb4f"]
 size = Vector2(65, 50)
 
+[sub_resource type="Animation" id="Animation_4jn58"]
+resource_name = "shake"
+length = 0.26667002
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 2.8284273, 1, 3.249009, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0, 0.17453292519943295, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_whv8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0tlu"]
+_data = {
+&"RESET": SubResource("Animation_whv8p"),
+&"shake": SubResource("Animation_4jn58")
+}
+
 [node name="BoomBox" type="AnimatedSprite2D"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_s6hfj")
@@ -85,6 +122,11 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_dmb4f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o0tlu")
+}
 
 [connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]
 [connection signal="input_event" from="Area2D" to="." method="_on_boom_box_input_event"]

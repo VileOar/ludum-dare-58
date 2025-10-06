@@ -15,7 +15,7 @@ func _ready():
 
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !Global.get_is_paused():
 		_night_shade.material.set("shader_parameter/mouse_position", event.position)
 		for mat in Global.get_all_aura_materials():
 			mat.set("shader_parameter/mouse_position", event.position)

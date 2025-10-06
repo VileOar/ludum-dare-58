@@ -1,7 +1,94 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc07purbnab5q"]
+[gd_scene load_steps=9 format=3 uid="uid://bc07purbnab5q"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_4rn03"]
 [ext_resource type="Script" uid="uid://cy61838ieyiiu" path="res://src/ui/hud.gd" id="1_eqvli"]
+[ext_resource type="Texture2D" uid="uid://drarf6t5qb0bu" path="res://assets/ui/bag.png" id="3_i4jpw"]
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="3_snmo6"]
+
+[sub_resource type="Animation" id="Animation_snmo6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4rn03"]
+resource_name = "combo_pop_up"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snmo6"]
+_data = {
+&"RESET": SubResource("Animation_snmo6"),
+&"combo_pop_up": SubResource("Animation_4rn03")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0isw4"]
 bg_color = Color(0.37254903, 0.34117648, 0.30980393, 1)
@@ -22,14 +109,59 @@ mouse_filter = 2
 theme = ExtResource("1_4rn03")
 script = ExtResource("1_eqvli")
 
-[node name="BagSlots" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 21.0
-offset_right = 232.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 42
-text = "Bag slots: "
+offset_top = 22.0
+offset_right = 128.0
+offset_bottom = 118.0
+texture = ExtResource("3_i4jpw")
+
+[node name="BagSlots" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 48.0
+offset_right = 200.0
+offset_bottom = 120.0
+pivot_offset = Vector2(0, 72)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("3_snmo6")
+theme_override_font_sizes/font_size = 72
+text = "00"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1672.0
+offset_top = 48.0
+offset_right = 1888.0
+offset_bottom = 120.0
+pivot_offset = Vector2(90, 72)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("3_snmo6")
+theme_override_font_sizes/font_size = 72
+text = "00:000"
+
+[node name="Combo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 287.0
+offset_right = 166.0
+offset_bottom = 335.0
+pivot_offset = Vector2(67, 48)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 48
+text = "Combo! +100"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ComboAnimPlayer" type="AnimationPlayer" parent="Combo"]
+libraries = {
+&"": SubResource("AnimationLibrary_snmo6")
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(60, 60)

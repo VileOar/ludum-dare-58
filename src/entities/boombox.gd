@@ -2,6 +2,8 @@ extends AnimatedSprite2D
 class_name BoomBox
 
 @onready var boom_timer: Timer = $BoomTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var game_manager : GameManager
 
 var _interval = 0.0
 
@@ -11,13 +13,16 @@ var current_music : String
 var _is_changing_music := false
 var _is_boombox_stopped := false
 var _festival_music_dictionary_with_bpm : Dictionary = {}
-var half_of_fade_timeout :float
 
 
 func _ready() -> void:
 	_setup_festival_music_dictionary()
-	half_of_fade_timeout = AudioManager.fade_timeout / 2
+	_play_ambience_sfx()
 	start_boombox()
+	if game_manager != null:
+		game_manager.end_game.connect(stop_festival_audio)
+	else:
+		print("[Error] game manager not assigned to BoomBox!")
 	
 	
 func _setup_festival_music_dictionary():
@@ -36,14 +41,16 @@ func start_boombox():
 	current_music = get_random_festival_music_id()
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
 	AudioManager.instance.play_audio(current_music)
-	print("[Festival] Starting music is:", current_music)
+	#print("[Festival] Starting music is:", current_music)
 
 
 #region UI control
 func press():
 	pause()
 	play("press")
+	_play_next_music()
 	_is_boombox_stopped = true
+	animation_player.play("shake")
 
 			
 func set_beat_freq_with_timer(freq: float, time_to_wait :float):
@@ -64,17 +71,45 @@ func _beat():
 
 #endregion
 
+#region Audio
+func _play_next_music()-> void:
+	_play_button_click_sfx()
+	await get_tree().create_timer(0.1).timeout
+	_play_scratch_sfx()
+
+func _play_scratch_sfx():
+	AudioManager.play_audio("Scratch")
+	
+func _play_button_click_sfx():
+	AudioManager.play_audio("ButtonClick")
+
+
+func _play_ambience_sfx():
+	AudioManager.instance.play_audio("Ambience");
+	
+func _stop_fade_out_ambience_sfx():
+	AudioManager.instance.fade_out_music("Ambience");
+
+#endregion
+
 
 func change_boombox_music():
 	var new_music_id = _get_different_music()
 	if current_music != null:
 		AudioManager.instance.fade_out_music(current_music)
 		_is_changing_music = true
-		_is_changing_music = false
 	AudioManager.instance.fade_in_music(new_music_id)
 	current_music = new_music_id
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
-	print("[Festival] New Music is:", current_music)
+	await get_tree().create_timer(AudioManager.fade_timeout).timeout
+	_is_changing_music = false
+	#print("[Festival] New Music is:", current_music)
+
+
+func stop_festival_audio() -> void:
+	_is_changing_music = true
+	AudioManager.instance.fade_out_music(current_music)
+	_stop_fade_out_ambience_sfx()
 	
 	
 func get_random_festival_music_id() -> String:

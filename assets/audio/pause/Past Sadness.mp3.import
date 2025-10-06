@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Past Sadness.mp3-3c66f56b64bfd2206d3b0b815c92
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
