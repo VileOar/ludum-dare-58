@@ -44,6 +44,7 @@ func remove_bag_slot() -> void:
 
 func collect_mook(mook: Mook) -> void:
 	ScoreManager.on_collect(mook.get_stats())
+	DexManager.on_collect_mook(mook.get_stats())
 	_hud_ref.update_bag_slot_icons(ScoreManager._last_collected_mooks)
 	remove_bag_slot()
 

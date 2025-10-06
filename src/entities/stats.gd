@@ -24,7 +24,8 @@ static func build_random_stats() -> MookStats:
 	else:
 		stats.rarity = Global.Rarities.LEGENDARY
 	
-	# TODO: choose name according to rarity
+	stats.name = DexManager.dex_entries[stats.shape][stats.colour][stats.rarity].pick_random().entry_name
+
 	return stats
 
 
