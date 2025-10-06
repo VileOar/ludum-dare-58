@@ -5,6 +5,7 @@ extends Node2D
 # Reference to the itself, ensuring only one exists
 var instance : Node
 @onready var _festival_music: Node = $FestivalMusic
+@onready var _death_sfx: Node = $DeathSFX
 var festival_music_name = "FestivalMusic"
 
 # Dictionary to store each SoundPlayer nodes by its name
@@ -22,6 +23,9 @@ func _ready():
 	add_to_sound_player_dictionary("ButtonAccept", $UI/ButtonAccept)
 	add_to_sound_player_dictionary("ButtonDecline", $UI/ButtonDecline)
 	add_to_sound_player_dictionary("ButtonHover", $UI/ButtonHover)
+	
+	# Special Death Sounds
+	add_to_sound_player_dictionary("DoneThis", $SpecialDeathSFX/DoneThis)
 	
 	# Main Menu Music
 	add_to_sound_player_dictionary("MainMenuMusic", $MainMenuMusic/Music)
@@ -130,6 +134,17 @@ func add_to_sound_player_dictionary(node_name, node):
 	
 func set_master_volume(volume : float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume))
+	
+	
+# Special Audio
+func play_special_death_sfx():
+	play_audio("DoneThis")
+
+
+func play_death_sfx():
+	var death_sfx : AudioStreamPlayer = _death_sfx.get_child(Utils.rng.randi_range(0, _death_sfx.get_child_count()-1))
+	death_sfx.pitch_scale = Utils.rng.randf_range(0.95, 1.05)
+	death_sfx.play()
 	
 	
 # UI Audio

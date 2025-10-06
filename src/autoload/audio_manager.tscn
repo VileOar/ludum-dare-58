@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=17 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://8saj6176hf4c" path="res://assets/audio/festival_music/Voxel Revolution.mp3" id="9_xy50i"]
 [ext_resource type="AudioStream" uid="uid://bdbtmmgp6ueh7" path="res://assets/audio/festival_music/Wave After Wave.mp3" id="10_yc8ju"]
 [ext_resource type="AudioStream" uid="uid://7kjl03bo8rfl" path="res://assets/audio/main menu/Vibing Over Venus.mp3" id="11_bjq5x"]
+[ext_resource type="Script" uid="uid://bn5uithhtknqu" path="res://src/autoload/death_sfx_import.gd" id="14_xy50i"]
+[ext_resource type="AudioStream" uid="uid://cj2yd4uqo03ii" path="res://assets/audio/sfx/maybe/death/own_voice/I Can't Believe You've Done This-02.wav" id="15_yc8ju"]
 
 [node name="AudioManager" type="Node2D"]
 process_mode = 3
@@ -78,6 +80,16 @@ volume_db = -14.0
 [node name="Wave" type="AudioStreamPlayer" parent="FestivalMusic"]
 stream = ExtResource("10_yc8ju")
 volume_db = -16.0
+
+[node name="DeathSFX" type="Node" parent="."]
+script = ExtResource("14_xy50i")
+
+[node name="SpecialDeathSFX" type="Node" parent="."]
+
+[node name="DoneThis" type="AudioStreamPlayer" parent="SpecialDeathSFX"]
+stream = ExtResource("15_yc8ju")
+volume_db = -15.0
+bus = &"SFX"
 
 [node name="MainMenuMusic" type="Node" parent="."]
 
