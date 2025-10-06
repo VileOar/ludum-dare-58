@@ -4,8 +4,9 @@ extends Node2D
 
 
 func _ready():
-	var mat_array = Global.get_all_materials()
+	var mat_array := Global.get_all_materials()
 	mat_array.append(_night_shade.material)
+	mat_array.append_array(Global.get_all_aura_materials())
 
 	for mat in mat_array:
 		mat.set("shader_parameter/screen_resolution", get_viewport().get_visible_rect().size)
@@ -16,5 +17,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion and !Global.get_is_paused():
 		_night_shade.material.set("shader_parameter/mouse_position", event.position)
+		for mat in Global.get_all_aura_materials():
+			mat.set("shader_parameter/mouse_position", event.position)
 		for mat in Global.get_all_materials():
 			mat.set("shader_parameter/mouse_position", event.position)
