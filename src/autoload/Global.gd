@@ -20,17 +20,26 @@ const BASE_SCORE: int = 10
 const GOOD_SCORE_THRESHOLD: int = 650
 
 # multipliers awarded on soul rarity
-const RARE_MULTIPLIER: int = 2
-const LEGENDARY_MULTIPLIER: int = 3
-const RARE_SCORE: int = BASE_SCORE * RARE_MULTIPLIER
-const LEGENDARY_SCORE: int = BASE_SCORE * LEGENDARY_MULTIPLIER
+const _RARE_MULTIPLIER: int = 2
+const _LEGENDARY_MULTIPLIER: int = 3
+const RARE_SCORE: int = BASE_SCORE * _RARE_MULTIPLIER
+const LEGENDARY_SCORE: int = BASE_SCORE * _LEGENDARY_MULTIPLIER
 
-# bonus awarded on getting 3 shapes of the same colour in a row
-const THREE_SHAPES_OF_COLOUR_BONUS: int = BASE_SCORE
-# multiplier awarded on getting all shapes of the same colour in a row
-const ALL_SHAPES_OF_COLOUR_MULTIPLIER: int = 2
-# multiplier awarded on getting all colours of the same shape in a row
-const ALL_COLOURS_OF_SHAPE_MULTIPLIER: int = 3
+# all combos that exist and their respective scores
+#region Combos
+enum BonusTypes{
+	FLAT,
+	MULTIPLIER
+}
+
+enum Combos {
+	ALL_SHAPES_OF_COLOUR,
+	ALL_COLOURS_OF_SHAPES
+}
+
+# pairs each combo to their rules -> initialized on ready()
+var combo_rules: Dictionary[int, ComboRule]
+#endregion Combos
 
 # mouse circle shader uniforms
 const MOUSE_CIRCLE_RADIUS := 150.0
@@ -68,16 +77,11 @@ enum Rarities {
 	LEGENDARY
 }
 
-enum Combos {
-	THREE_SHAPES_OF_COLOUR,
-	ALL_SHAPES_OF_COLOUR,
-	ALL_COLOURS_OF_SHAPES
-}
-
+# stores the final score achieved in the game
 var _final_score: int = 0
-
+# stores the message to display on the score screen
 var _end_game_message: String = END_MESSAGE_FULL_BAG
-
+# stores whether the game is currently paused
 var _is_paused: bool = false
 
 var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
@@ -138,14 +142,27 @@ func _ready() -> void:
 		mat.set("shader_parameter/speed", 2.0)
 
 		_aura_materials[rarity] = mat
-
-
-func set_final_score(new_score) ->  void:
-	_final_score = new_score
-
-
-func get_final_score() -> int:
-	return _final_score
+	
+	#region Initialize combo rules
+	# Populate combo rules array
+	for c in Combos.values():
+		combo_rules[c] = ComboRule.new()
+	
+	# Set rules for each combo
+	# ALL_SHAPES_OF_COLOUR
+	var current_rule  = combo_rules[Combos.ALL_SHAPES_OF_COLOUR]
+	current_rule.set_combo_length(Shapes.size())
+	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
+	current_rule.require_unique_shapes()
+	current_rule.require_same_colour()
+	
+	# ALL_COLOURS_OF_SHAPES
+	current_rule = combo_rules[Combos.ALL_COLOURS_OF_SHAPES]
+	current_rule.set_combo_length(Colours.size())
+	current_rule.set_bonus(3, BonusTypes.MULTIPLIER)
+	current_rule.require_same_shape()
+	current_rule.require_unique_colours()
+	#endregion Initialize combo rules
 
 
 func get_spriteframes_from_shape(shape: Shapes) -> SpriteFrames:
@@ -163,12 +180,21 @@ func get_all_materials() -> Array[ShaderMaterial]:
 func get_all_aura_materials() -> Array[ShaderMaterial]:
 	return _aura_materials.values()
 
+# getter and setter for _final_score
+func set_final_score(new_score) ->  void:
+	_final_score = new_score
+
+func get_final_score() -> int:
+	return _final_score
+
+# getter and setter for _is_paused
 func set_is_paused(new_value: bool) -> void:
 	_is_paused = new_value
 
 func get_is_paused() -> bool:
 	return _is_paused
 
+# getter and setter for _end_message
 func set_end_message(new_msg: String) -> void:
 	_end_game_message = new_msg
 

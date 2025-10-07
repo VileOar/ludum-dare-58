@@ -45,7 +45,7 @@ func remove_bag_slot() -> void:
 func collect_mook(mook: Mook) -> void:
 	ScoreManager.on_collect(mook.get_stats())
 	DexManager.on_collect_mook(mook.get_stats())
-	_hud_ref.update_bag_slot_icons(ScoreManager._last_collected_mooks)
+	_hud_ref.update_bag_slot_icons(ScoreManager.get_last_collected_mooks())
 	remove_bag_slot()
 
 func _pause_game() -> void:
@@ -69,7 +69,7 @@ func _quit_to_title() -> void:
 func _end_game(end_message: String) -> void:
 	emit_signal("end_game")
 	Global.set_end_message(end_message)
-	Global.set_final_score(ScoreManager._calculate_final_score())
+	Global.set_final_score(ScoreManager.calculate_total_score())
 	var change_scene := func():
 		get_tree().change_scene_to_file(Global.SCORE_SCENE_FILEPATH)
 	change_scene.call_deferred()

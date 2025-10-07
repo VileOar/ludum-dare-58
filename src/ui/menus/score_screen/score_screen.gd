@@ -3,7 +3,7 @@ extends Control
 
 @export var _spawn_icon_time: float = 0.15
 
-@onready var _all_collected_mooks = ScoreManager._all_collected_mooks
+var _all_collected_mooks: Array[MookStats]
 
 const BACKGROUND_MUSIC : String = "EndGameMusic"
 
@@ -18,6 +18,7 @@ func _ready() -> void:
 	$Title.text = Global.get_end_message()
 	_play_end_game_audio()
 	
+	_all_collected_mooks = ScoreManager.get_all_collected_mooks()
 	ScoreManager.reset_all()
 	ScoreManager.scored_a_combo.connect(_on_scored_a_combo)
 	
@@ -38,7 +39,7 @@ func spawn_mook_icons():
 		_play_special_sfx()
 		
 		ScoreManager.on_collect(mook)
-		_update_score_label(ScoreManager._calculate_final_score())
+		_update_score_label(ScoreManager.calculate_total_score())
 		
 		if _has_scored_a_combo:
 			_has_scored_a_combo = false
@@ -53,11 +54,6 @@ func spawn_mook_icons():
 
 func _display_combo() -> void:
 	match _combo:
-		#Global.Combos.THREE_SHAPES_OF_COLOUR:
-		#	# get last three mooks of the grid
-		#	for i in range(3, 0, -1):
-		#		var mook_icon: Control = $GridContainer.get_child($GridContainer.get_child_count() - i)
-		#		_animate_combo_icon(mook_icon, $ThreeComboPositions.get_child(i - 1).global_position)
 		Global.Combos.ALL_SHAPES_OF_COLOUR:
 			# get last four mooks of the grid
 			for i in range(Global.Shapes.size(), 0, -1):
@@ -86,10 +82,9 @@ func _animate_combo_icon(mook_icon, mook_target_position):
 
 
 func _on_scored_a_combo(combo_score: int, combo: Global.Combos) -> void:
-	if combo != Global.Combos.THREE_SHAPES_OF_COLOUR:
-		_has_scored_a_combo = true
-		_combo_score = combo_score
-		_combo = combo
+	_has_scored_a_combo = true
+	_combo_score = combo_score
+	_combo = combo
 
 
 func _update_score_label(new_score: int) -> void:
@@ -124,7 +119,7 @@ func _play_end_game_audio() -> void:
 	
 	
 func _play_special_sfx() -> void:
-	var _final_score = ScoreManager._calculate_final_score()
+	var _final_score = ScoreManager.calculate_total_score()
 	
 	if _final_score < 299:
 		AudioManager.instance.play_audio_random_pitch("MookScore1", 1.2, 1.5)
