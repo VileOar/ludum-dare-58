@@ -34,15 +34,24 @@ enum BonusTypes{
 # combos are in order of priority 
 # (if conditions overlap, whichever one comes first is the one that applies)
 enum Combos {
-	FIVE_MOOKS_SAME_COLOUR,
+	# 4 mook combos
 	ALL_SHAPES_SAME_COLOUR,
 	ALL_SHAPES_ANY_COLOUR,
+	# 5 mook combos
+	FIVE_MOOKS_WARM_COLOURS_SAME_SHAPE,
+	FIVE_MOOKS_COOL_COLOURS_SAME_SHAPE,
+	FIVE_MOOKS_WARM_COLOURS_ANY_SHAPE,
+	FIVE_MOOKS_COOL_COLOURS_ANY_SHAPE,
+	FIVE_MOOKS_SAME_COLOUR,
+	# 6 mook combos
 	ALL_COLOURS_IN_ORDER_SAME_SHAPE,
 	ALL_COLOURS_SAME_SHAPE,
 	ALL_COLOURS_IN_ORDER_ANY_SHAPE,
+	SIX_MOOKS_TRI_LOZ_SHAPES_SAME_COLOUR,
+	SIX_MOOKS_TRI_LOZ_SHAPES_ANY_COLOUR,
 	ALL_COLOURS_ANY_SHAPE,
 	PORTUGAL_COLOURS_SAME_SHAPE,
-	PORTUGAL_COLOURS_TTSSCC_SHAPES,
+	PORTUGAL_COLOURS_SSCSSS_SHAPES,
 	PORTUGAL_COLOURS_ANY_SHAPE
 }
 
@@ -158,14 +167,9 @@ func _ready() -> void:
 		combo_rules[c] = ComboRule.new()
 	
 	# Set rules for each combo
-	# FIVE_MOOKS_SAME_COLOUR
-	var current_rule  = combo_rules[Combos.FIVE_MOOKS_SAME_COLOUR]
-	current_rule.set_combo_length(5)
-	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
-	current_rule.require_same_colour()
-	
+	# ---------- 4 mook combos ----------
 	# ALL_SHAPES_SAME_COLOUR
-	current_rule  = combo_rules[Combos.ALL_SHAPES_SAME_COLOUR]
+	var current_rule  = combo_rules[Combos.ALL_SHAPES_SAME_COLOUR]
 	current_rule.set_combo_length(Shapes.size())
 	current_rule.set_bonus(3, BonusTypes.MULTIPLIER)
 	current_rule.require_unique_shapes()
@@ -176,7 +180,41 @@ func _ready() -> void:
 	current_rule.set_combo_length(Shapes.size())
 	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
 	current_rule.require_unique_shapes()
-
+	
+	# ---------- 5 mook combos ----------
+	# FIVE_MOOKS_WARM_COLOURS_SAME_SHAPE,
+	current_rule  = combo_rules[Combos.FIVE_MOOKS_WARM_COLOURS_SAME_SHAPE]
+	current_rule.set_combo_length(5)
+	current_rule.set_bonus(2.8, BonusTypes.MULTIPLIER)
+	current_rule.restrict_colours([Colours.RED, Colours.ORANGE, Colours.YELLOW])
+	current_rule.require_same_shape()
+	
+	# FIVE_MOOKS_COOL_COLOURS_SAME_SHAPE,
+	current_rule  = combo_rules[Combos.FIVE_MOOKS_COOL_COLOURS_SAME_SHAPE]
+	current_rule.set_combo_length(5)
+	current_rule.set_bonus(2.8, BonusTypes.MULTIPLIER)
+	current_rule.restrict_colours([Colours.GREEN, Colours.BLUE, Colours.PURPLE])
+	current_rule.require_same_shape()
+	
+	# FIVE_MOOKS_WARM_COLOURS_ANY_SHAPE,
+	current_rule  = combo_rules[Combos.FIVE_MOOKS_WARM_COLOURS_ANY_SHAPE]
+	current_rule.set_combo_length(5)
+	current_rule.set_bonus(2.4, BonusTypes.MULTIPLIER)
+	current_rule.restrict_colours([Colours.RED, Colours.ORANGE, Colours.YELLOW])
+	
+	# FIVE_MOOKS_COOL_COLOURS_ANY_SHAPE,
+	current_rule  = combo_rules[Combos.FIVE_MOOKS_COOL_COLOURS_ANY_SHAPE]
+	current_rule.set_combo_length(5)
+	current_rule.set_bonus(2.4, BonusTypes.MULTIPLIER)
+	current_rule.restrict_colours([Colours.GREEN, Colours.BLUE, Colours.PURPLE])
+	
+	# FIVE_MOOKS_SAME_COLOUR
+	current_rule  = combo_rules[Combos.FIVE_MOOKS_SAME_COLOUR]
+	current_rule.set_combo_length(5)
+	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
+	current_rule.require_same_colour()
+	
+	# ---------- 6 mook combos ----------
 	# ALL_COLOURS_IN_ORDER_SAME_SHAPE
 	current_rule = combo_rules[Combos.ALL_COLOURS_IN_ORDER_SAME_SHAPE]
 	current_rule.set_combo_length(Colours.size())
@@ -201,6 +239,19 @@ func _ready() -> void:
 		[Colours.RED, Colours.ORANGE, Colours.YELLOW, Colours.GREEN, Colours.BLUE, Colours.PURPLE]
 		)
 	
+	# SIX_MOOKS_TRI_LOZ_SHAPES_SAME_COLOUR,
+	current_rule = combo_rules[Combos.SIX_MOOKS_TRI_LOZ_SHAPES_SAME_COLOUR]
+	current_rule.set_combo_length(6)
+	current_rule.set_bonus(2.5, BonusTypes.MULTIPLIER)
+	current_rule.restrict_shapes([Shapes.POINTY, Shapes.STUBBY])
+	current_rule.require_same_colour()
+	
+	# SIX_MOOKS_TRI_LOZ_SHAPES_ANY_COLOUR,
+	current_rule = combo_rules[Combos.SIX_MOOKS_TRI_LOZ_SHAPES_ANY_COLOUR]
+	current_rule.set_combo_length(6)
+	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
+	current_rule.restrict_shapes([Shapes.POINTY, Shapes.STUBBY])
+	
 	# ALL_COLOURS_ANY_SHAPE
 	current_rule = combo_rules[Combos.ALL_COLOURS_ANY_SHAPE]
 	current_rule.set_combo_length(Colours.size())
@@ -216,8 +267,8 @@ func _ready() -> void:
 		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
 		)
 	
-	# PORTUGAL_COLOURS_TTSSCC_SHAPES
-	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_TTSSCC_SHAPES]
+	# PORTUGAL_COLOURS_SSCSSS_SHAPES
+	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_SSCSSS_SHAPES]
 	current_rule.set_combo_length(6)
 	current_rule.set_bonus(5.5, BonusTypes.MULTIPLIER)
 	current_rule.require_colour_sequence(

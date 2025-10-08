@@ -83,6 +83,12 @@ func _combo_check(combo: Global.Combos) -> void:
 	if combo_rule.is_shape_sequence_req():
 		if !_shape_seq_check(combo_length, combo_rule.get_shape_sequence()):
 			return
+	if combo_rule.is_colours_restricted():
+		if !_allowed_colours_check(combo_length, combo_rule.get_allowed_colours()):
+			return
+	if combo_rule.is_shapes_restricted():
+		if !_allowed_shapes_check(combo_length, combo_rule.get_allowed_shapes()):
+			return
 	# if all the requirements are met, score the combo
 	_collected_mooks_since_combo = 0
 	_combo_counter += 1
@@ -165,6 +171,24 @@ func _shape_seq_check(mooks_to_check: int, req_shape_seq: Array[Global.Shapes]) 
 	if shape_seq == req_shape_seq:
 		return true
 	return false
+
+# check if given amount of last mooks collected are of allowed colours
+func _allowed_colours_check(mooks_to_check: int, allowed_colours: Array[Global.Colours]) -> bool:
+	var last_mook_idx: int = _last_collected_mooks.size() - 1
+	for i in mooks_to_check:
+		var mook: MookStats = _last_collected_mooks[last_mook_idx - i]
+		if !allowed_colours.has(mook.colour):
+			return false
+	return true
+
+# check if given amount of last mooks collected are of allowed shapes
+func _allowed_shapes_check(mooks_to_check: int, allowed_shapes: Array[Global.Shapes]) -> bool:
+	var last_mook_idx: int = _last_collected_mooks.size() - 1
+	for i in mooks_to_check:
+		var mook: MookStats = _last_collected_mooks[last_mook_idx - i]
+		if !allowed_shapes.has(mook.shape):
+			return false
+	return true
 
 # calculates the sum of the score values of each mook in a combo
 func _calculate_mook_score(combo_size: int) -> int:
