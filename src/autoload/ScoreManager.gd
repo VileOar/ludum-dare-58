@@ -24,6 +24,16 @@ var _combo_score_total: int = 0
 # stores the total score of mooks collected outside of combos
 var _no_combo_score_total: int = 0
 
+# stores the amount of mooks collected since each combo
+var _mooks_since_combo: Dictionary [int, int]
+
+func _ready() -> void:
+	_reset_mooks_since_combo()
+
+func _reset_mooks_since_combo() -> void:
+	for combo in Global.Combos.values():
+		_mooks_since_combo[combo] = 0
+
 func on_collect(collected_mook : MookStats) -> void:
 	# add collected mook to respective arrays
 	_all_collected_mooks.push_back(collected_mook)
@@ -31,7 +41,8 @@ func on_collect(collected_mook : MookStats) -> void:
 	
 	# count collected mook
 	_collected_mooks_total += 1
-	_collected_mooks_since_combo += 1
+	for combo in _mooks_since_combo:
+		_mooks_since_combo[combo] += 1
 	# update score and mook counters based on rarity
 	match collected_mook.rarity:
 		Global.Rarities.COMMON:
@@ -44,8 +55,8 @@ func on_collect(collected_mook : MookStats) -> void:
 			_collected_legendaries_counter += 1
 			_no_combo_score_total += Global.LEGENDARY_SCORE
 	
-	# don't check for combos if less than 2 mooks have been collected since last combo
-	if _collected_mooks_since_combo < 2:
+	# don't check for combos if less than 2 mooks have been collected
+	if _collected_mooks_total < 2:
 		return
 	# check for combos
 	for combo in Global.Combos.values():
@@ -61,8 +72,8 @@ func _update_last_collected_mooks(collected_mook: MookStats):
 func _combo_check(combo: Global.Combos) -> void:
 	var combo_rule: ComboRule = Global.combo_rules[combo]
 	var combo_length: int = combo_rule.get_combo_length()
-	# stop check if not enough mooks have been collected to make the combo
-	if _collected_mooks_since_combo < combo_length:
+	# stop check if not enough mooks have been collected since last time this combo was scored
+	if _mooks_since_combo[combo] < combo_length:
 		return
 	# check all combo requirements and stop the check if any of them fail
 	if combo_rule.is_same_colour_req():
@@ -223,6 +234,7 @@ func reset_all() -> void:
 	_last_collected_mooks.clear()
 	_combo_score_total = 0
 	_no_combo_score_total = 0
+	_reset_mooks_since_combo()
 
 func get_all_collected_mooks() -> Array[MookStats]:
 	return _all_collected_mooks
