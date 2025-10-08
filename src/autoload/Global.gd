@@ -31,10 +31,19 @@ enum BonusTypes{
 	FLAT,
 	MULTIPLIER
 }
-
+# combos are in order of priority 
+# (if conditions overlap, whichever one comes first is the one that applies)
 enum Combos {
-	ALL_SHAPES_OF_COLOUR,
-	ALL_COLOURS_OF_SHAPES
+	FIVE_MOOKS_SAME_COLOUR,
+	ALL_SHAPES_SAME_COLOUR,
+	ALL_SHAPES_ANY_COLOUR,
+	ALL_COLOURS_IN_ORDER_SAME_SHAPE,
+	ALL_COLOURS_SAME_SHAPE,
+	ALL_COLOURS_IN_ORDER_ANY_SHAPE,
+	ALL_COLOURS_ANY_SHAPE,
+	PORTUGAL_COLOURS_SAME_SHAPE,
+	PORTUGAL_COLOURS_TTSSCC_SHAPES,
+	PORTUGAL_COLOURS_ANY_SHAPE
 }
 
 # pairs each combo to their rules -> initialized on ready()
@@ -149,19 +158,82 @@ func _ready() -> void:
 		combo_rules[c] = ComboRule.new()
 	
 	# Set rules for each combo
-	# ALL_SHAPES_OF_COLOUR
-	var current_rule  = combo_rules[Combos.ALL_SHAPES_OF_COLOUR]
-	current_rule.set_combo_length(Shapes.size())
+	# FIVE_MOOKS_SAME_COLOUR
+	var current_rule  = combo_rules[Combos.FIVE_MOOKS_SAME_COLOUR]
+	current_rule.set_combo_length(5)
 	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
+	current_rule.require_same_colour()
+	
+	# ALL_SHAPES_SAME_COLOUR
+	current_rule  = combo_rules[Combos.ALL_SHAPES_SAME_COLOUR]
+	current_rule.set_combo_length(Shapes.size())
+	current_rule.set_bonus(3, BonusTypes.MULTIPLIER)
 	current_rule.require_unique_shapes()
 	current_rule.require_same_colour()
 	
-	# ALL_COLOURS_OF_SHAPES
-	current_rule = combo_rules[Combos.ALL_COLOURS_OF_SHAPES]
+	# ALL_SHAPES_ANY_COLOUR
+	current_rule = combo_rules[Combos.ALL_SHAPES_ANY_COLOUR]
+	current_rule.set_combo_length(Shapes.size())
+	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
+	current_rule.require_unique_shapes()
+
+	# ALL_COLOURS_IN_ORDER_SAME_SHAPE
+	current_rule = combo_rules[Combos.ALL_COLOURS_IN_ORDER_SAME_SHAPE]
 	current_rule.set_combo_length(Colours.size())
-	current_rule.set_bonus(3, BonusTypes.MULTIPLIER)
+	current_rule.set_bonus(7, BonusTypes.MULTIPLIER)
+	current_rule.require_same_shape()
+	current_rule.require_colour_sequence(
+		[Colours.RED, Colours.ORANGE, Colours.YELLOW, Colours.GREEN, Colours.BLUE, Colours.PURPLE]
+		)
+	
+	# ALL_COLOURS_SAME_SHAPE
+	current_rule = combo_rules[Combos.ALL_COLOURS_SAME_SHAPE]
+	current_rule.set_combo_length(Colours.size())
+	current_rule.set_bonus(3.5, BonusTypes.MULTIPLIER)
 	current_rule.require_same_shape()
 	current_rule.require_unique_colours()
+	
+	# ALL_COLOURS_IN_ORDER_ANY_SHAPE
+	current_rule = combo_rules[Combos.ALL_COLOURS_IN_ORDER_ANY_SHAPE]
+	current_rule.set_combo_length(Colours.size())
+	current_rule.set_bonus(4, BonusTypes.MULTIPLIER)
+	current_rule.require_colour_sequence(
+		[Colours.RED, Colours.ORANGE, Colours.YELLOW, Colours.GREEN, Colours.BLUE, Colours.PURPLE]
+		)
+	
+	# ALL_COLOURS_ANY_SHAPE
+	current_rule = combo_rules[Combos.ALL_COLOURS_ANY_SHAPE]
+	current_rule.set_combo_length(Colours.size())
+	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
+	current_rule.require_unique_colours()
+	
+	# PORTUGAL_COLOURS_SAME_SHAPE
+	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_SAME_SHAPE]
+	current_rule.set_combo_length(6)
+	current_rule.set_bonus(6.5, BonusTypes.MULTIPLIER)
+	current_rule.require_same_shape()
+	current_rule.require_colour_sequence(
+		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
+		)
+	
+	# PORTUGAL_COLOURS_TTSSCC_SHAPES
+	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_TTSSCC_SHAPES]
+	current_rule.set_combo_length(6)
+	current_rule.set_bonus(5.5, BonusTypes.MULTIPLIER)
+	current_rule.require_colour_sequence(
+		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
+		)
+	current_rule.require_shape_sequence(
+		[Shapes.BLOCKY, Shapes.BLOCKY, Shapes.CHUBBY, Shapes.BLOCKY, Shapes.BLOCKY, Shapes.BLOCKY]
+		)
+	
+	# PORTUGAL_COLOURS_ANY_SHAPE
+	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_ANY_SHAPE]
+	current_rule.set_combo_length(6)
+	current_rule.set_bonus(3.5, BonusTypes.MULTIPLIER)
+	current_rule.require_colour_sequence(
+		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
+		)
 	#endregion Initialize combo rules
 
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-signal scored_a_combo(combo_score: int, combo: Global.Combos)
+signal scored_a_combo(combo_score: int, combo_length: int)
 
 # count how many mooks were collected (+by rarity)
 var _collected_mooks_total: int = 0
@@ -78,9 +78,11 @@ func _combo_check(combo: Global.Combos) -> void:
 		if !_unique_shapes_check(combo_length):
 			return
 	if combo_rule.is_colour_sequence_req():
-		pass
+		if !_colour_seq_check(combo_length, combo_rule.get_colour_sequence()):
+			return
 	if combo_rule.is_shape_sequence_req():
-		pass
+		if !_shape_seq_check(combo_length, combo_rule.get_shape_sequence()):
+			return
 	# if all the requirements are met, score the combo
 	_collected_mooks_since_combo = 0
 	_combo_counter += 1
@@ -94,8 +96,7 @@ func _combo_check(combo: Global.Combos) -> void:
 				round(mook_score * combo_rule.get_bonus_value()) - mook_score
 				)
 	_combo_score_total += combo_score
-	scored_a_combo.emit(combo_score, combo)
-	print("Scored a combo")
+	scored_a_combo.emit(combo_score, combo_length)
 
 # check if given amount of last mooks collected are of the same colour
 func _same_colour_check(mooks_to_check: int) -> bool:
@@ -141,7 +142,31 @@ func _unique_shapes_check(mooks_to_check: int) -> bool:
 			return false
 	return true
 
-# calculates the sum of the score values of each mook in the combo
+# check if given amount of last mooks collected follow a given colour sequence
+func _colour_seq_check(mooks_to_check: int, req_colour_seq: Array[Global.Colours]) -> bool:
+	var last_mook_idx: int = _last_collected_mooks.size() - 1
+	var colour_seq: Array[Global.Colours] = []
+	for i in mooks_to_check:
+		var mook: MookStats = _last_collected_mooks[last_mook_idx - i]
+		colour_seq.append(mook.colour)
+	colour_seq.reverse()
+	if colour_seq == req_colour_seq:
+		return true
+	return false
+
+# check if given amount of last mooks collected follow a given shape sequence
+func _shape_seq_check(mooks_to_check: int, req_shape_seq: Array[Global.Shapes]) -> bool:
+	var last_mook_idx: int = _last_collected_mooks.size() - 1
+	var shape_seq: Array[Global.Shapes] = []
+	for i in mooks_to_check:
+		var mook: MookStats = _last_collected_mooks[last_mook_idx - i]
+		shape_seq.append(mook.shape)
+	shape_seq.reverse()
+	if shape_seq == req_shape_seq:
+		return true
+	return false
+
+# calculates the sum of the score values of each mook in a combo
 func _calculate_mook_score(combo_size: int) -> int:
 	var mooks_in_array: int = _last_collected_mooks.size()
 	if mooks_in_array >= combo_size:

@@ -17,7 +17,7 @@ var _shape_sequence: Array[Global.Shapes] = []
 func set_combo_length(req_length: int) -> void:
 	_combo_length = req_length
 
-func set_bonus(value: int, type: Global.BonusTypes) -> void:
+func set_bonus(value: float, type: Global.BonusTypes) -> void:
 	_bonus_value = value
 	_bonus_type = type
 
@@ -64,7 +64,14 @@ func is_colour_sequence_req() -> bool:
 ## Returns whether the combo requires a specific sequence of shapes
 func is_shape_sequence_req() -> bool:
 	return !_shape_sequence.is_empty()
-	
+
+## Gets the colour sequence required to score the combo
+func get_colour_sequence() -> Array[Global.Colours]:
+	return _colour_sequence
+## Gets the shape sequence required to score the combo
+func get_shape_sequence() -> Array[Global.Shapes]:
+	return _shape_sequence
+
 ## Gets the value of the bonus to apply when the combo is scored
 func get_bonus_value() -> float:
 	return _bonus_value

@@ -234,8 +234,8 @@ grow_vertical = 2
 
 [node name="Position1" type="Control" parent="FourComboPositions"]
 anchors_preset = 0
-offset_left = 90.18
-offset_right = 130.17989
+offset_left = 90.0
+offset_right = 129.99988
 offset_bottom = 40.0
 
 [node name="Position2" type="Control" parent="FourComboPositions"]
@@ -246,14 +246,54 @@ offset_bottom = 40.0
 
 [node name="Position3" type="Control" parent="FourComboPositions"]
 anchors_preset = 0
-offset_left = 545.115
-offset_right = 585.11487
+offset_left = 550.0
+offset_right = 589.9999
 offset_bottom = 40.0
 
 [node name="Position4" type="Control" parent="FourComboPositions"]
 anchors_preset = 0
-offset_left = 787.42
-offset_right = 827.42
+offset_left = 780.0
+offset_right = 820.0
+offset_bottom = 40.0
+
+[node name="FiveComboPositions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -262.0
+offset_right = 40.000057
+offset_bottom = -222.0
+grow_vertical = 2
+
+[node name="Position1" type="Control" parent="FiveComboPositions"]
+anchors_preset = 0
+offset_left = 90.0
+offset_right = 129.99988
+offset_bottom = 40.0
+
+[node name="Position2" type="Control" parent="FiveComboPositions"]
+anchors_preset = 0
+offset_left = 290.0
+offset_right = 329.99988
+offset_bottom = 40.0
+
+[node name="Position3" type="Control" parent="FiveComboPositions"]
+anchors_preset = 0
+offset_left = 490.0
+offset_right = 530.0
+offset_bottom = 40.0
+
+[node name="Position4" type="Control" parent="FiveComboPositions"]
+anchors_preset = 0
+offset_left = 690.0
+offset_right = 730.0
+offset_bottom = 40.0
+
+[node name="Position5" type="Control" parent="FiveComboPositions"]
+anchors_preset = 0
+offset_left = 890.0
+offset_right = 930.0
 offset_bottom = 40.0
 
 [node name="SixComboPositions" type="Control" parent="."]
@@ -268,42 +308,39 @@ grow_vertical = 2
 
 [node name="Position1" type="Control" parent="SixComboPositions"]
 anchors_preset = 0
-offset_left = 90.18
-offset_right = 130.17989
+offset_left = 90.0
+offset_right = 129.99988
 offset_bottom = 40.0
 
 [node name="Position2" type="Control" parent="SixComboPositions"]
 anchors_preset = 0
-offset_left = 257.0
-offset_top = 2.0
-offset_right = 296.99988
-offset_bottom = 42.0
+offset_left = 260.0
+offset_right = 299.99988
+offset_bottom = 40.0
 
 [node name="Position3" type="Control" parent="SixComboPositions"]
 anchors_preset = 0
-offset_left = 429.0
-offset_right = 469.0
+offset_left = 430.0
+offset_right = 470.0
 offset_bottom = 40.0
 
 [node name="Position4" type="Control" parent="SixComboPositions"]
 anchors_preset = 0
-offset_left = 595.82
-offset_top = 2.0
-offset_right = 635.82
-offset_bottom = 42.0
+offset_left = 600.0
+offset_right = 640.0
+offset_bottom = 40.0
 
 [node name="Position5" type="Control" parent="SixComboPositions"]
 anchors_preset = 0
-offset_left = 787.42
-offset_right = 827.42
+offset_left = 770.0
+offset_right = 810.0
 offset_bottom = 40.0
 
 [node name="Position6" type="Control" parent="SixComboPositions"]
 anchors_preset = 0
-offset_left = 954.24
-offset_top = 2.0
-offset_right = 994.24
-offset_bottom = 42.0
+offset_left = 940.0
+offset_right = 980.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="PlayAgain" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
