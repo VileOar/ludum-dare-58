@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://ctt72jhrk3frn"]
+[gd_scene load_steps=35 format=4 uid="uid://ctt72jhrk3frn"]
 
 [ext_resource type="PackedScene" uid="uid://dik4hsetomi4v" path="res://src/entities/mook.tscn" id="1_nqyx5"]
 [ext_resource type="Script" uid="uid://n16dvwpplm2v" path="res://src/stages/level.gd" id="1_vs6yo"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://7rd8y3dlx2kn" path="res://src/game_manager.tscn" id="9_0g1bc"]
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="9_dal01"]
 [ext_resource type="Shader" uid="uid://b8nklmssypkyl" path="res://assets/shaders/night_shade.gdshader" id="10_4m3y5"]
-[ext_resource type="Script" uid="uid://be0rpj72mjvtg" path="res://src/game_manager.gd" id="10_w8kg7"]
 [ext_resource type="PackedScene" uid="uid://d3jxdog6ffevl" path="res://src/ui/pause_menu.tscn" id="15_0hdsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67lxk"]
@@ -349,7 +348,6 @@ color = Color(0.03355683, 0.062034234, 0.14412752, 0.88235295)
 visible = false
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("_hud_ref", "_pause_menu_ref", "_night_shade_ref", "_time_limit_timer") instance=ExtResource("9_0g1bc")]
-script = ExtResource("10_w8kg7")
 _hud_ref = NodePath("../CanvasLayer/Hud")
 _pause_menu_ref = NodePath("../CanvasLayer/PauseMenu")
 _night_shade_ref = NodePath("../CanvasLayer/NightShade")

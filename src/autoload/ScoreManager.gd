@@ -7,8 +7,7 @@ var _collected_mooks_total: int = 0
 var _collected_commons_counter: int = 0
 var _collected_rares_counter: int = 0
 var _collected_legendaries_counter: int = 0
-# count how many mooks were collected since last combo
-var _collected_mooks_since_combo: int = 0
+
 # count how many times a combo was made
 var _combo_counter: int = 0
 
@@ -24,15 +23,20 @@ var _combo_score_total: int = 0
 # stores the total score of mooks collected outside of combos
 var _no_combo_score_total: int = 0
 
-# stores the amount of mooks collected since each combo
-var _mooks_since_combo: Dictionary [int, int]
+# stores the amount of mooks collected since a combo of each length
+var _mooks_since_combo_of_length: Dictionary [int, int]
 
 func _ready() -> void:
-	_reset_mooks_since_combo()
+	_reset_mooks_since_combo_of_length()
 
-func _reset_mooks_since_combo() -> void:
-	for combo in Global.Combos.values():
-		_mooks_since_combo[combo] = 0
+func _reset_mooks_since_combo_of_length() -> void:
+	var combo_lengths: Array[int] = []
+	for combo_rule: ComboRule in Global.combo_rules.values():
+		var combo_length = combo_rule.get_combo_length()
+		if !combo_lengths.has(combo_length):
+			combo_lengths.append(combo_length)
+	for length in combo_lengths:
+		_mooks_since_combo_of_length[length] = 0
 
 func on_collect(collected_mook : MookStats) -> void:
 	# add collected mook to respective arrays
@@ -41,8 +45,8 @@ func on_collect(collected_mook : MookStats) -> void:
 	
 	# count collected mook
 	_collected_mooks_total += 1
-	for combo in _mooks_since_combo:
-		_mooks_since_combo[combo] += 1
+	for length in _mooks_since_combo_of_length:
+		_mooks_since_combo_of_length[length] += 1
 	# update score and mook counters based on rarity
 	match collected_mook.rarity:
 		Global.Rarities.COMMON:
@@ -72,8 +76,9 @@ func _update_last_collected_mooks(collected_mook: MookStats):
 func _combo_check(combo: Global.Combos) -> void:
 	var combo_rule: ComboRule = Global.combo_rules[combo]
 	var combo_length: int = combo_rule.get_combo_length()
-	# stop check if not enough mooks have been collected since last time this combo was scored
-	if _mooks_since_combo[combo] < combo_length:
+	# stop check if not enough mooks have been collected
+	# since last time a combo of this length was scored
+	if _mooks_since_combo_of_length[combo_length] < combo_length:
 		return
 	# check all combo requirements and stop the check if any of them fail
 	if combo_rule.is_same_colour_req():
@@ -100,8 +105,9 @@ func _combo_check(combo: Global.Combos) -> void:
 	if combo_rule.is_shapes_restricted():
 		if !_allowed_shapes_check(combo_length, combo_rule.get_allowed_shapes()):
 			return
-	# if all the requirements are met, score the combo
-	_collected_mooks_since_combo = 0
+	# reset mooks since combo of this length (putting combos of this length on "cooldown")
+	_mooks_since_combo_of_length[combo_length] = 0
+	# if all previous requirements are met, score the combo
 	_combo_counter += 1
 	var combo_score: int = 0
 	match combo_rule.get_bonus_type():
@@ -228,13 +234,12 @@ func reset_all() -> void:
 	_collected_commons_counter = 0
 	_collected_rares_counter = 0
 	_collected_legendaries_counter = 0
-	_collected_mooks_since_combo = 0
 	_combo_counter = 0
 	_all_collected_mooks = []
 	_last_collected_mooks.clear()
 	_combo_score_total = 0
 	_no_combo_score_total = 0
-	_reset_mooks_since_combo()
+	_reset_mooks_since_combo_of_length()
 
 func get_all_collected_mooks() -> Array[MookStats]:
 	return _all_collected_mooks
