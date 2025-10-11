@@ -42,7 +42,6 @@ enum Combos {
 	FIVE_MOOKS_COOL_COLOURS_SAME_SHAPE,
 	FIVE_MOOKS_WARM_COLOURS_ANY_SHAPE,
 	FIVE_MOOKS_COOL_COLOURS_ANY_SHAPE,
-	FIVE_MOOKS_SAME_COLOUR,
 	# 6 mook combos
 	ALL_COLOURS_IN_ORDER_SAME_SHAPE,
 	ALL_COLOURS_SAME_SHAPE,
@@ -207,12 +206,6 @@ func _ready() -> void:
 	current_rule.set_combo_length(5)
 	current_rule.set_bonus(2.4, BonusTypes.MULTIPLIER)
 	current_rule.restrict_colours([Colours.GREEN, Colours.BLUE, Colours.PURPLE])
-	
-	# FIVE_MOOKS_SAME_COLOUR
-	current_rule  = combo_rules[Combos.FIVE_MOOKS_SAME_COLOUR]
-	current_rule.set_combo_length(5)
-	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
-	current_rule.require_same_colour()
 	
 	# ---------- 6 mook combos ----------
 	# ALL_COLOURS_IN_ORDER_SAME_SHAPE
