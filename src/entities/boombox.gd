@@ -66,7 +66,6 @@ func change_boombox_music():
 
 
 func set_original_pitch_in_current_music() -> void:
-	print("set_original_pitch_in_current_music = ", current_music, " current pitch = ", AudioManager.instance.get_audio_node_original_pitch(current_music))
 	AudioManager.instance.set_audio_node_original_pitch(current_music, MUSIC_ORIGINAL_PITCH)
 
 
