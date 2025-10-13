@@ -23,6 +23,7 @@ func _ready():
 	add_to_sound_player_dictionary("ButtonAccept", $UI/ButtonAccept)
 	add_to_sound_player_dictionary("ButtonDecline", $UI/ButtonDecline)
 	add_to_sound_player_dictionary("ButtonHover", $UI/ButtonHover)
+	add_to_sound_player_dictionary("TimerWarning", $UI/TimerWarning)
 	
 	# Special Death Sounds
 	add_to_sound_player_dictionary("DoneThis", $SpecialDeathSFX/DoneThis)
@@ -138,10 +139,29 @@ func fade_in_music(audio_name):
 	audio_node.play() # Ensure music is playing before starting the fade in
 	tween.play()
 
+func speed_up_pitch(audio_name, speed_added : float):
+	# Get the "audio_name" node if it exists and is an AudioStreamPlayer
+	var audio_node = _sound_player_by_name.get(audio_name)
+	if audio_node != null:
+		audio_node.pitch_scale += speed_added
 
 func _on_Tween_tween_completed(audio_node, _default_volume):
 	audio_node.stop()
 	audio_node.volume_db = _default_volume # Reset for next fade in
+
+
+func get_audio_node_original_pitch(audio_name : String) -> float:
+	var audio_node = _sound_player_by_name.get(audio_name)
+	if audio_node != null:
+		return audio_node.pitch_scale
+	else:
+		print("[Error] Not possible to get ", audio_name, " pitch value")
+		return 1.0
+
+func set_audio_node_original_pitch(audio_name : String, original_pitch : float) -> void:
+	var audio_node = _sound_player_by_name.get(audio_name)
+	if audio_node != null:
+		audio_node.pitch_scale = original_pitch
 
 
 func get_number_of_children_in_festival_music() -> int:

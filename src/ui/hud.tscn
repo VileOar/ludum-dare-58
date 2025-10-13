@@ -1,9 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc07purbnab5q"]
+[gd_scene load_steps=9 format=3 uid="uid://bc07purbnab5q"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_4rn03"]
 [ext_resource type="Script" uid="uid://cy61838ieyiiu" path="res://src/ui/hud.gd" id="1_eqvli"]
 [ext_resource type="Texture2D" uid="uid://drarf6t5qb0bu" path="res://assets/ui/bag.png" id="3_i4jpw"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="3_snmo6"]
+
+[sub_resource type="Animation" id="Animation_i4jpw"]
+resource_name = "time_warning"
+length = 2.0000033
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Time:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.6, 0.79999995, 1.0034692, 1.2034692, 1.402841, 1.6028409, 1.8022127, 2.0022125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.69411767, 0, 0, 1), Color(0.69411767, 0, 0, 1), Color(0.69411767, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r2cn7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Time:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0isw4"]
+_data = {
+&"RESET": SubResource("Animation_r2cn7"),
+&"time_warning": SubResource("Animation_i4jpw")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0isw4"]
 bg_color = Color(0.37254903, 0.34117648, 0.30980393, 1)
@@ -23,6 +85,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_4rn03")
 script = ExtResource("1_eqvli")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0isw4")
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -60,6 +127,7 @@ text = "00:000"
 
 [node name="ComboPopUpSpawner" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 

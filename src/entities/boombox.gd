@@ -5,6 +5,8 @@ class_name BoomBox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var game_manager : GameManager
 
+const MUSIC_ORIGINAL_PITCH : float = 1.0
+
 var _interval = 0.0
 
 # Music Control
@@ -13,6 +15,8 @@ var current_music : String
 var _is_changing_music := false
 var _is_boombox_stopped := false
 var _festival_music_dictionary_with_bpm : Dictionary = {}
+var extra_pitch_speed : float = 0.0
+
 
 
 func _ready() -> void:
@@ -40,8 +44,30 @@ func _setup_festival_music_dictionary():
 func start_boombox():
 	current_music = get_random_festival_music_id()
 	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
+	print("set_original_pitch_in_current_music = ", current_music, " current pitch = ", AudioManager.instance.get_audio_node_original_pitch(current_music))
 	AudioManager.instance.play_audio(current_music)
 	#print("[Festival] Starting music is:", current_music)
+
+
+func change_boombox_music():
+	var new_music_id = _get_different_music()
+	if current_music != null:
+		# original pitch must be get before fade in or fade out (changes pitch)
+		AudioManager.instance.fade_out_music(current_music)
+		_is_changing_music = true
+	AudioManager.instance.fade_in_music(new_music_id)
+	current_music = new_music_id
+	set_original_pitch_in_current_music()
+	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
+	await get_tree().create_timer(AudioManager.fade_timeout).timeout
+	_is_changing_music = false
+	# TODO set up new pitch extra speed when changing song
+	#print("[Festival] New Music is:", current_music)
+
+
+func set_original_pitch_in_current_music() -> void:
+	print("set_original_pitch_in_current_music = ", current_music, " current pitch = ", AudioManager.instance.get_audio_node_original_pitch(current_music))
+	AudioManager.instance.set_audio_node_original_pitch(current_music, MUSIC_ORIGINAL_PITCH)
 
 
 #region UI control
@@ -93,18 +119,10 @@ func _stop_fade_out_ambience_sfx():
 #endregion
 
 
-func change_boombox_music():
-	var new_music_id = _get_different_music()
-	if current_music != null:
-		AudioManager.instance.fade_out_music(current_music)
-		_is_changing_music = true
-	AudioManager.instance.fade_in_music(new_music_id)
-	current_music = new_music_id
-	set_beat_freq_with_timer(_get_freq_from_music(current_music), _get_time_to_wait_from_music(current_music))
-	await get_tree().create_timer(AudioManager.fade_timeout).timeout
-	_is_changing_music = false
-	#print("[Festival] New Music is:", current_music)
-
+func speed_up_current_music() -> void:
+	# TODO set up new pitch extra speed when changing song
+	extra_pitch_speed += Global.PITCH_VALUE_TO_ADD_EACH_INTERVAL
+	AudioManager.instance.speed_up_pitch(current_music, Global.PITCH_VALUE_TO_ADD_EACH_INTERVAL)
 
 func stop_festival_audio() -> void:
 	_is_changing_music = true

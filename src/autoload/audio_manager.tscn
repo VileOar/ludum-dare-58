@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cofyigip5wrss"]
+[gd_scene load_steps=44 format=3 uid="uid://cofyigip5wrss"]
 
 [ext_resource type="Script" uid="uid://dffc853yt8t4r" path="res://src/autoload/AudioManager.gd" id="1_c5aou"]
 [ext_resource type="AudioStream" uid="uid://vxct3emkeg0t" path="res://assets/audio/festival_music/Aerosol of my Love.mp3" id="2_pbdaj"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ufbm177pjwf8" path="res://assets/audio/festival_music/Newer Wave.mp3" id="6_tguw2"]
 [ext_resource type="AudioStream" uid="uid://dqoi5a8h5slr7" path="res://assets/audio/festival_music/Raving Energy.mp3" id="7_4wg5e"]
 [ext_resource type="AudioStream" uid="uid://c5i6j07dwk4vp" path="res://assets/audio/sfx/slice/Blade Swoosh C.wav" id="7_5pwo6"]
+[ext_resource type="AudioStream" uid="uid://ed2vof814coi" path="res://assets/audio/sfx/timer/warning_sound_adapted.wav" id="8_jxucg"]
 [ext_resource type="AudioStream" uid="uid://5inmoqlot1l8" path="res://assets/audio/festival_music/Raving Energy (faster).mp3" id="8_roxop"]
 [ext_resource type="AudioStream" uid="uid://ww81jkqnvt4d" path="res://assets/audio/sfx/slice/Blade Swoosh D.wav" id="8_xeqvl"]
 [ext_resource type="AudioStream" uid="uid://debx03nra1bwu" path="res://assets/audio/sfx/slice/Blade Swoosh F.wav" id="9_mqnxj"]
@@ -82,6 +83,12 @@ stream = ExtResource("4_xy50i")
 volume_db = -10.0
 pitch_scale = 1.2
 max_polyphony = 10
+bus = &"SFX"
+
+[node name="TimerWarning" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("8_jxucg")
+volume_db = -14.0
+pitch_scale = 1.8
 bus = &"SFX"
 
 [node name="SliceSFX" type="Node" parent="."]

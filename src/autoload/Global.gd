@@ -8,6 +8,11 @@ const MAX_BAG_SLOTS : int = 50
 # time limit before the game ends (in seconds)
 const TIME_LIMIT: int = 60
 
+# time limit heads up before the game ends (in seconds)
+const WARNING_OF_TIME_LIMIT: int = 12
+const TIME_INTERVAL_TO_UPDATE_PITCH : float = 0.1
+const PITCH_VALUE_TO_ADD_EACH_INTERVAL : float = 0.0007
+
 # number of spawned entities on start
 const NUM_SPAWNED_MOOKS := 300
 

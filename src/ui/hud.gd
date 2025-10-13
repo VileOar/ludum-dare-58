@@ -1,6 +1,8 @@
 class_name Hud
 extends Control
 
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
 var _combos_to_display: int = 0
 
 var _time_between_simultaneous_combos: float = 0.3
@@ -27,6 +29,11 @@ func update_bag_slot_icons(last_collected_mooks: Array[MookStats]) -> void:
 	for i in last_collected_mooks.size():
 		bag_slot_icons[i].texture = Global.shape_icons[last_collected_mooks[i].shape]
 		bag_slot_icons[i].modulate = Global.colour_values[last_collected_mooks[i].colour]
+		
+		
+func play_animation_warning_about_time() -> void:
+	_animation_player.play("time_warning")
+
 
 func _add_combo_to_display(bonus_score: int, _combo: Global.Combos) -> void:
 	_combos_to_display += 1
