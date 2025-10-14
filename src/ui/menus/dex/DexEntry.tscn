@@ -40,11 +40,11 @@ layout_mode = 2
 
 [node name="ShapeTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_jniw0")
-stretch_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -63,11 +63,11 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_jniw0")
 
 [node name="RarityTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_jniw0")
-stretch_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -76,8 +76,8 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_jniw0")
 
 [node name="CheckboxTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 texture = ExtResource("3_iofrn")
-stretch_mode = 2

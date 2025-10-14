@@ -77,7 +77,7 @@ func sort_by_rarity(a, b):
 
 
 func sort_by_acquisition(a, b):
-	if a.data_copy.acquired == true and b.data_copy.acquired == false:
+	if a.data_copy.acquired == false and b.data_copy.acquired == true:
 		return true
 
 	if a.data_copy.acquired == b.data_copy.acquired:
