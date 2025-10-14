@@ -6,9 +6,12 @@ signal end_game
 @export var _hud_ref: Hud
 @export var _pause_menu_ref: PauseMenu
 @export var _night_shade_ref: ColorRect
+@export var _transition_overlay_ref: TransitionOverlay
 
 @export var _time_limit_timer: Timer
 @export var _boom_box: BoomBox
+
+const FADE_OUT_DURATION: float = 1.0
 
 var _bag_slots_remaining: int = Global.MAX_BAG_SLOTS
 # time remaining before the game ends (seconds)
@@ -27,6 +30,7 @@ func _ready() -> void:
 	# connect signals
 	_pause_menu_ref.connect("on_resume", _resume_game)
 	_pause_menu_ref.connect("on_quit", _quit_to_title)
+	_transition_overlay_ref.connect("fade_out_end", _go_to_score_screen)
 
 
 func _physics_process(delta: float) -> void:
@@ -97,11 +101,11 @@ func _end_game(end_message: String) -> void:
 	_reset_audio()
 	Global.set_end_message(end_message)
 	Global.set_final_score(ScoreManager.calculate_total_score())
-	var change_scene := func():
-		get_tree().change_scene_to_file(Global.SCORE_SCENE_FILEPATH)
-	change_scene.call_deferred()
+	_transition_overlay_ref.fade_out(FADE_OUT_DURATION)
 	
-	
+func _go_to_score_screen() -> void:
+	Global.deferred_change_scene(Global.SCORE_SCENE_FILEPATH)
+
 func _reset_audio() -> void:
 	_boom_box.set_original_pitch_in_current_music()
 	_is_time_warning_played = false

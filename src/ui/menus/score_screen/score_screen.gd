@@ -1,5 +1,6 @@
 extends Control
 
+@export var _transition_overlay_ref: TransitionOverlay
 
 @export var _spawn_icon_time: float = 0.15
 @export var _time_interval_between_icon_combo_animation: float = 0.1
@@ -7,10 +8,10 @@ extends Control
 @export var _duration_of_combo_display: float = 1.5
 @export var _score_scale_animation_target: Vector2 = Vector2(1.2, 1.2)
 
-var _all_collected_mooks: Array[MookStats]
-
+const FADE_IN_DURATION: float = 1.0
 const BACKGROUND_MUSIC : String = "EndGameMusic"
 
+var _all_collected_mooks: Array[MookStats]
 # variables used for the combo display
 var _has_scored_a_combo: bool = false
 var _combo_length: int
@@ -24,10 +25,11 @@ func _ready() -> void:
 	
 	_all_collected_mooks = ScoreManager.get_all_collected_mooks()
 	ScoreManager.reset_all()
+	# connect signals
 	ScoreManager.scored_a_combo.connect(_on_scored_a_combo)
-	
-	spawn_mook_icons()
-
+	_transition_overlay_ref.fade_in_end.connect(spawn_mook_icons)
+	# play fade in transition
+	_transition_overlay_ref.fade_in(FADE_IN_DURATION)
 
 func spawn_mook_icons():
 	var mook_icon_scene: PackedScene = load("uid://bo6nia8h14s4y")
