@@ -2,13 +2,12 @@ extends Node2D
 
 @export var game_manager: GameManager
 @onready var _night_shade: ColorRect = %NightShade
-
+var mat_array : Array[ShaderMaterial]
 
 func _ready():
 	game_manager.end_game.connect(set_all_mouse_materials_to_fullscreen)
-
 	
-	var mat_array := Global.get_all_materials()
+	mat_array = Global.get_all_materials()
 	mat_array.append(_night_shade.material)
 	mat_array.append_array(Global.get_all_aura_materials())
 
@@ -28,11 +27,6 @@ func _input(event):
 			
 			
 func set_all_mouse_materials_to_fullscreen() -> void:
-	print("reseting all materials")
-	var mat_array := Global.get_all_materials()
-	mat_array.append(_night_shade.material)
-	mat_array.append_array(Global.get_all_aura_materials())
-	
 	for mat in mat_array:
 		mat.set("shader_parameter/screen_resolution", get_viewport().get_visible_rect().size)
 		mat.set("shader_parameter/circle_radius", get_viewport().get_visible_rect().size[0])
