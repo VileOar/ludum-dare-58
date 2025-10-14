@@ -13,7 +13,7 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	_play_click_sfx()
 	_stop_main_menu_music()
-	get_tree().change_scene_to_file(Global.LEVEL_SCENE_FILEPATH)
+	Global.deferred_change_scene(Global.LEVEL_SCENE_FILEPATH)
 
 func _on_collection_button_pressed() -> void:
 	_play_click_sfx()

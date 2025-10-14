@@ -19,9 +19,7 @@ func _on_options_pressed() -> void:
 func _on_quit_pressed() -> void:
 	on_quit.emit()
 	_play_click_sfx()
-	var change_scene := func():
-		get_tree().change_scene_to_file(Global.TITLE_SCENE_FILEPATH)
-	change_scene.call_deferred()
+	Global.deferred_change_scene(Global.TITLE_SCENE_FILEPATH)
 
 #region audio
 func _play_click_sfx() -> void:

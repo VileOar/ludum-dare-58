@@ -120,9 +120,7 @@ func _update_score_label(new_score: int) -> void:
 func _on_play_again_pressed() -> void:
 	_play_click_sfx()
 	AudioManager.instance.fade_out_music(BACKGROUND_MUSIC)
-	var change_scene := func():
-		get_tree().change_scene_to_file(Global.LEVEL_SCENE_FILEPATH)
-	change_scene.call_deferred()
+	Global.deferred_change_scene(Global.LEVEL_SCENE_FILEPATH)
 
 
 func _on_soul_dex_pressed() -> void:
@@ -133,9 +131,7 @@ func _on_soul_dex_pressed() -> void:
 func _on_quit_pressed() -> void:
 	_play_click_sfx()
 	AudioManager.instance.fade_out_music(BACKGROUND_MUSIC)
-	var change_scene := func():
-		get_tree().change_scene_to_file(Global.TITLE_SCENE_FILEPATH)
-	change_scene.call_deferred()
+	Global.deferred_change_scene(Global.TITLE_SCENE_FILEPATH)
 
 
 #region Audio

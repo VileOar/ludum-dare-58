@@ -321,3 +321,8 @@ func set_end_message(new_msg: String) -> void:
 
 func get_end_message() -> String:
 	return _end_game_message
+
+func deferred_change_scene(filepath: String) -> void:
+	var change_scene := func():
+		get_tree().change_scene_to_file(filepath)
+	change_scene.call_deferred()
