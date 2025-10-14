@@ -289,8 +289,9 @@ max_distance = 850.0
 attenuation = 2.5
 bus = &"SFX"
 
-[node name="MouseCircleUniforms" type="Node2D" parent="."]
+[node name="MouseCircleUniforms" type="Node2D" parent="." node_paths=PackedStringArray("game_manager")]
 script = ExtResource("3_264d3")
+game_manager = NodePath("../GameManager")
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 10.0

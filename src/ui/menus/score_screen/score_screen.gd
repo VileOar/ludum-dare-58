@@ -38,6 +38,12 @@ func spawn_mook_icons():
 		var mook_icon_texture: TextureRect = mook_icon.get_node("TextureRect")
 		mook_icon_texture.texture = Global.shape_icons[mook.shape]
 		mook_icon_texture.modulate = Global.colour_values[mook.colour]
+		if mook.rarity != Global.Rarities.COMMON:
+			var mook_icon_aura: Sprite2D = mook_icon_texture.get_node("Aura")
+			if mook_icon_aura != null:
+				mook_icon_aura.material = Global._aura_materials[mook.rarity]
+				mook_icon_aura.visible = true
+				#mook_icon_aura = Global.rarity_colour_values[mook.rarity]
 		
 		$GridContainer.add_child(mook_icon)
 		_play_special_sfx()

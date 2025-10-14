@@ -1,6 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo6nia8h14s4y"]
+[gd_scene load_steps=10 format=3 uid="uid://bo6nia8h14s4y"]
 
 [ext_resource type="Texture2D" uid="uid://cbqpmwtvv6i2l" path="res://assets/gfx/name_dex/circle_icon.png" id="1_6eta0"]
+[ext_resource type="Shader" uid="uid://52oqfdc7rt6o" path="res://assets/shaders/aura.gdshader" id="2_qx4j4"]
+[ext_resource type="Texture2D" uid="uid://chtyvf3fdmgx2" path="res://assets/shaders/aura_noise.tres" id="3_tnp5f"]
+[ext_resource type="Texture2D" uid="uid://4fh3yucmvq34" path="res://assets/shaders/textures/circle_fade.jpg" id="4_cs0c1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s1ro"]
+shader = ExtResource("2_qx4j4")
+shader_parameter/n = ExtResource("3_tnp5f")
+shader_parameter/intensity = 34.0
+shader_parameter/speed = 2.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/circle_radius = 150.0
+shader_parameter/circle_smooth_width = 50.0
+shader_parameter/mouse_position = Vector2(0, 0)
+shader_parameter/screen_resolution = Vector2(0, 0)
 
 [sub_resource type="Animation" id="Animation_ibagf"]
 length = 0.001
@@ -98,6 +112,15 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("1_6eta0")
+
+[node name="Aura" type="Sprite2D" parent="TextureRect"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+material = SubResource("ShaderMaterial_2s1ro")
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cs0c1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
 root_node = NodePath("../..")
