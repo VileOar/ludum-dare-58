@@ -47,10 +47,18 @@ func spawn_mook_icons():
 				mook_icon_aura.visible = true
 				#mook_icon_aura = Global.rarity_colour_values[mook.rarity]
 		
-		$GridContainer.add_child(mook_icon)
+		$MookGrid.add_child(mook_icon)
 		_play_special_sfx()
 		
 		ScoreManager.on_collect(mook)
+		# Update the various counters and score displays
+		_update_mook_counters(
+			ScoreManager.get_collected_mooks_total(), 
+			ScoreManager.get_collected_rares_total(), 
+			ScoreManager.get_collected_legendaries_total()
+		)
+		_update_combo_info(ScoreManager.get_combo_total(), ScoreManager.get_combo_score_total())
+		_update_rarity_score(ScoreManager.calculate_rarity_score())
 		_update_score_label(ScoreManager.calculate_total_score())
 		
 		if _has_scored_a_combo:
@@ -80,7 +88,7 @@ func _display_combo() -> void:
 			target_position_container = $SixComboPositions
 	
 	for i in range(_combo_length, 0, -1):
-		var mook_icon: TextureRect = $GridContainer.get_child($GridContainer.get_child_count() - i).get_node("TextureRect")
+		var mook_icon: TextureRect = $MookGrid.get_child($MookGrid.get_child_count() - i).get_node("TextureRect")
 		
 		# add a delay between each animation except for last one
 		if (i != 1):
@@ -118,6 +126,17 @@ func _update_score_label(new_score: int) -> void:
 	tween.tween_property($Score/ScoreValue, "scale", _score_scale_animation_target, 0.075)
 	tween.tween_property($Score/ScoreValue, "scale", Vector2(1.0, 1.0), 0.075)
 
+func _update_mook_counters(mooks: int, rares: int, legendaries: int) -> void:
+	$CounterTable/Column2/MookCount.text = str(mooks) + "/" + str(Global.MAX_BAG_SLOTS)
+	$CounterTable/Column2/RareCount.text = str(rares)
+	$CounterTable/Column2/LegendaryCount.text = str(legendaries)
+
+func _update_combo_info(combo_amount: int, combo_score_total: int) -> void:
+	$CounterTable/Column4/ComboCount.text = " " + str(combo_amount)
+	$CounterTable/Column4/ComboScoreValue.text = "+" + str(combo_score_total)
+
+func _update_rarity_score(rarity_score: int) -> void:
+	$CounterTable/Column4/RarityBonusValue.text = "+" + str(rarity_score)
 
 func _on_play_again_pressed() -> void:
 	_play_click_sfx()

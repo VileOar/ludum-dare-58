@@ -4,9 +4,9 @@ extends Node
 const BLOCK := 64.0
 
 # maximum mooks that can be collected before the game ends
-const MAX_BAG_SLOTS : int = 50
+const MAX_BAG_SLOTS : int = 70
 # time limit before the game ends (in seconds)
-const TIME_LIMIT: int = 60
+const TIME_LIMIT: int = 90
 
 # time limit heads up before the game ends (in seconds)
 const WARNING_OF_TIME_LIMIT: int = 12
@@ -22,13 +22,19 @@ const LEGENDARY_MOOK_CHANCE: float = 0.01
 # base value of a collected soul
 const BASE_SCORE: int = 10
 
-const GOOD_SCORE_THRESHOLD: int = 1200
+const GOOD_SCORE_THRESHOLD: int = 1400
 
 # multipliers awarded on soul rarity
 const _RARE_MULTIPLIER: int = 2
 const _LEGENDARY_MULTIPLIER: int = 3
 const RARE_SCORE: int = BASE_SCORE * _RARE_MULTIPLIER
 const LEGENDARY_SCORE: int = BASE_SCORE * _LEGENDARY_MULTIPLIER
+
+# bonuses awarded for each x amount of mooks of y rarity collected
+const RARES_REQUIRED_FOR_BONUS: int = 10
+const LEGENDARIES_REQUIRED_FOR_BONUS: int = 5
+const RARE_BONUS: int = 200
+const LEGENDARY_BONUS: int = 300
 
 # all combos that exist and their respective scores
 #region Combos

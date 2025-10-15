@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc588cokwg882"]
+[gd_scene load_steps=10 format=3 uid="uid://cc588cokwg882"]
 
 [ext_resource type="Script" uid="uid://bg3rji7k7w5y0" path="res://src/ui/menus/score_screen/score_screen.gd" id="1_kij6a"]
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="3_3kpix"]
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="3_nnh8b"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_cekjg"]
 [ext_resource type="PackedScene" uid="uid://c0co8pu7lrci6" path="res://src/ui/transition_overlay.tscn" id="5_wl1l2"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="6_2gbsl"]
@@ -74,6 +75,7 @@ theme = ExtResource("3_3kpix")
 script = ExtResource("1_kij6a")
 _transition_overlay_ref = NodePath("TransitionOverlay")
 metadata/_edit_horizontal_guides_ = [958.0]
+metadata/_edit_vertical_guides_ = [118.0]
 
 [node name="SolidBackground" type="ColorRect" parent="."]
 layout_mode = 1
@@ -98,15 +100,159 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
 text = "Rest In Peace"
 
+[node name="CounterTable" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.58100003
+anchor_bottom = 0.58100003
+offset_left = 251.0
+offset_top = -75.48004
+offset_right = 1184.0
+offset_bottom = 76.51996
+
+[node name="Column1" type="VBoxContainer" parent="CounterTable"]
+layout_mode = 2
+
+[node name="Mook" type="Label" parent="CounterTable/Column1"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Souls reaped"
+horizontal_alignment = 2
+
+[node name="Rares" type="Label" parent="CounterTable/Column1"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Rares"
+horizontal_alignment = 2
+
+[node name="Legendaries" type="Label" parent="CounterTable/Column1"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Legendaries"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="CounterTable"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Column2" type="VBoxContainer" parent="CounterTable"]
+layout_mode = 2
+
+[node name="MookCount" type="Label" parent="CounterTable/Column2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_nnh8b")
+theme_override_font_sizes/font_size = 48
+text = "0/70"
+horizontal_alignment = 2
+
+[node name="RareCount" type="Label" parent="CounterTable/Column2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88235295, 0.33333334, 0.92941177, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_nnh8b")
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[node name="LegendaryCount" type="Label" parent="CounterTable/Column2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.9372549, 0.49019608, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_nnh8b")
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CounterTable"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Column3" type="VBoxContainer" parent="CounterTable"]
+layout_mode = 2
+
+[node name="Combos" type="Label" parent="CounterTable/Column3"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Combos"
+horizontal_alignment = 2
+
+[node name="ComboScore" type="Label" parent="CounterTable/Column3"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Combo score"
+horizontal_alignment = 2
+
+[node name="RarityBonus" type="Label" parent="CounterTable/Column3"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 48
+text = "Rarity bonus"
+horizontal_alignment = 2
+
+[node name="HSeparator3" type="HSeparator" parent="CounterTable"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Column4" type="VBoxContainer" parent="CounterTable"]
+layout_mode = 2
+
+[node name="ComboCount" type="Label" parent="CounterTable/Column4"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_nnh8b")
+theme_override_font_sizes/font_size = 48
+text = " 0"
+
+[node name="ComboScoreValue" type="Label" parent="CounterTable/Column4"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_nnh8b")
+theme_override_font_sizes/font_size = 48
+text = "+0"
+
+[node name="RarityBonusValue" type="Label" parent="CounterTable/Column4"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_nnh8b")
+theme_override_font_sizes/font_size = 48
+text = "+0"
+
 [node name="Score" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.72800004
 anchor_bottom = 0.72800004
 offset_left = 100.0
-offset_top = -72.24005
+offset_top = -54.24005
 offset_right = 451.0
-offset_bottom = 71.75995
+offset_bottom = 89.75995
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 144
@@ -115,12 +261,14 @@ text = "Score"
 [node name="ScoreValue" type="Label" parent="Score"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.72800004
-anchor_bottom = 0.72800004
-offset_left = 396.0
-offset_top = -104.83201
-offset_right = 801.0
-offset_bottom = 39.16799
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -72.0
+offset_right = 450.0
+offset_bottom = 72.0
 pivot_offset = Vector2(202.5, 113.095)
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 1
@@ -131,16 +279,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_wl1l2")
 }
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 300.0
-offset_right = 1166.0
-offset_bottom = 568.0012
-columns = 15
+[node name="MookGrid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.38000003
+anchor_bottom = 0.38000003
+offset_left = 110.0
+offset_top = -154.40002
+offset_right = 1330.0
+offset_bottom = 113.599976
+columns = 18
 
 [node name="Death" type="AnimatedSprite2D" parent="."]
-position = Vector2(1550, 540)
+position = Vector2(1600, 540)
 scale = Vector2(10, 10)
 sprite_frames = ExtResource("6_2gbsl")
 animation = &"counting"

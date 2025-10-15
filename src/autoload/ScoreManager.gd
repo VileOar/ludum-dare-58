@@ -4,7 +4,6 @@ signal scored_a_combo(combo_score: int, combo_length: int)
 
 # count how many mooks were collected (+by rarity)
 var _collected_mooks_total: int = 0
-var _collected_commons_counter: int = 0
 var _collected_rares_counter: int = 0
 var _collected_legendaries_counter: int = 0
 
@@ -22,6 +21,8 @@ var _max_last_collected_mooks: int = 6
 var _combo_score_total: int = 0
 # stores the total score of mooks collected outside of combos
 var _no_combo_score_total: int = 0
+# stores the total rarity bonus
+var _rarity_bonus_total: int = 0
 
 # stores the amount of mooks collected since a combo of each length
 var _mooks_since_combo_of_length: Dictionary [int, int]
@@ -50,7 +51,6 @@ func on_collect(collected_mook : MookStats) -> void:
 	# update score and mook counters based on rarity
 	match collected_mook.rarity:
 		Global.Rarities.COMMON:
-			_collected_commons_counter += 1
 			_no_combo_score_total += Global.BASE_SCORE
 		Global.Rarities.RARE:
 			_collected_rares_counter += 1
@@ -227,11 +227,24 @@ func _calculate_mook_score(combo_size: int) -> int:
 		return 0
 
 func calculate_total_score() -> int:
-	return _combo_score_total + _no_combo_score_total
+	return _combo_score_total + _no_combo_score_total + _rarity_bonus_total
+
+func calculate_rarity_score() -> int:
+	@warning_ignore("integer_division")
+	var rarity_score: int = (
+		_collected_rares_counter / Global.RARES_REQUIRED_FOR_BONUS 
+		* Global.RARE_BONUS
+	)
+	@warning_ignore("integer_division")
+	rarity_score += (
+		_collected_legendaries_counter / Global.LEGENDARIES_REQUIRED_FOR_BONUS
+		* Global.LEGENDARY_BONUS
+	)
+	_rarity_bonus_total = rarity_score
+	return _rarity_bonus_total
 
 func reset_all() -> void:
 	_collected_mooks_total = 0
-	_collected_commons_counter = 0
 	_collected_rares_counter = 0
 	_collected_legendaries_counter = 0
 	_combo_counter = 0
@@ -239,6 +252,7 @@ func reset_all() -> void:
 	_last_collected_mooks.clear()
 	_combo_score_total = 0
 	_no_combo_score_total = 0
+	_rarity_bonus_total = 0
 	_reset_mooks_since_combo_of_length()
 
 func get_all_collected_mooks() -> Array[MookStats]:
@@ -246,3 +260,18 @@ func get_all_collected_mooks() -> Array[MookStats]:
 
 func get_last_collected_mooks() -> Array[MookStats]:
 	return _last_collected_mooks
+
+func get_collected_mooks_total() -> int:
+	return _collected_mooks_total
+
+func get_collected_rares_total() -> int:
+	return _collected_rares_counter
+
+func get_collected_legendaries_total() -> int:
+	return _collected_legendaries_counter
+
+func get_combo_total() -> int:
+	return _combo_counter
+
+func get_combo_score_total() -> int:
+	return _combo_score_total
