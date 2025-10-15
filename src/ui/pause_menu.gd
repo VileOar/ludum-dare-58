@@ -6,7 +6,6 @@ signal on_quit
 
 func _on_resume_pressed() -> void:
 	_play_click_sfx()
-	self.hide()
 	on_resume.emit()
 
 func _on_soul_dex_pressed() -> void:

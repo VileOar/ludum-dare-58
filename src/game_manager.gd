@@ -20,6 +20,7 @@ var _time_left: float = Global.TIME_LIMIT
 
 var _is_time_warning_played: bool = false
 var _is_game_over: bool = false
+var _is_game_paused: bool = false
 var _interval_timer := 0.0
 
 enum EndConditions{
@@ -69,8 +70,8 @@ func _process(_delta: float) -> void:
 		_end_game(EndConditions.TIMEOUT)
 
 func _input(event):
-	if event.is_action_pressed("pause") and !Global.get_is_input_blocked():
-		_pause_game()
+	if event.is_action_pressed("pause") and !_is_game_over:
+		_on_pause_key_press()
 
 func remove_bag_slot() -> void:
 	if _bag_slots_remaining > 0:
@@ -86,6 +87,14 @@ func collect_mook(mook: Mook) -> void:
 	_hud_ref.update_bag_slot_icons(ScoreManager.get_last_collected_mooks())
 	remove_bag_slot()
 
+func _on_pause_key_press() -> void:
+	if !_is_game_paused:
+		_is_game_paused = true
+		_pause_game()
+	else:
+		_is_game_paused = false
+		_resume_game()
+
 func _pause_game() -> void:
 	Global.set_is_input_blocked(true)
 	_night_shade_ref.hide()
@@ -94,6 +103,7 @@ func _pause_game() -> void:
 	Engine.time_scale = 0
 
 func _resume_game() -> void:
+	_pause_menu_ref.hide()
 	Global.set_is_input_blocked(false)
 	_night_shade_ref.show()
 	_hud_ref.show()
