@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bapa7eo4e3mln"]
+[gd_scene load_steps=29 format=3 uid="uid://bapa7eo4e3mln"]
 
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_krqix"]
 [ext_resource type="Script" uid="uid://cl1gu8tqjw6jr" path="res://src/ui/menus/how_to_play/how_to_play.gd" id="1_uum3a"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dhldjf6ten6bf" path="res://assets/ui/how_to_play/three_combo.png" id="3_2g2d2"]
 [ext_resource type="Texture2D" uid="uid://d18nh43rgr6j" path="res://assets/ui/how_to_play/four_combo.png" id="4_7gxgy"]
 [ext_resource type="Texture2D" uid="uid://dco0fxdevogyl" path="res://assets/ui/how_to_play/6_combo.png" id="5_ar6ll"]
+[ext_resource type="Shader" uid="uid://h0ncu5q1xcr2" path="res://assets/shaders/mouse_view.gdshader" id="6_7gxgy"]
 [ext_resource type="Texture2D" uid="uid://bmdl0rikfovr6" path="res://assets/ui/keyboard_mouse/keyboard_arrow_down_outline.png" id="6_ceglv"]
 [ext_resource type="Texture2D" uid="uid://byyq3q2aeypwf" path="res://assets/ui/keyboard_mouse/keyboard_arrow_left_outline.png" id="7_1cpqm"]
+[ext_resource type="SpriteFrames" uid="uid://dntarescsau6g" path="res://assets/spriteframes/triangle_frames.tres" id="7_ar6ll"]
 [ext_resource type="Texture2D" uid="uid://ddi67ltr51plv" path="res://assets/ui/keyboard_mouse/keyboard_arrow_right_outline.png" id="8_ge457"]
 [ext_resource type="Texture2D" uid="uid://bmknbv3jeduny" path="res://assets/ui/keyboard_mouse/keyboard_arrow_up_outline.png" id="9_jgwbd"]
 [ext_resource type="Texture2D" uid="uid://dxs5urp4ysas5" path="res://assets/ui/keyboard_mouse/keyboard_a_outline.png" id="10_30iga"]
@@ -17,6 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://ercdv0p7e1wd" path="res://assets/ui/keyboard_mouse/keyboard_escape_outline.png" id="14_5hkv7"]
 [ext_resource type="Texture2D" uid="uid://bkjjhgwkmj130" path="res://assets/ui/keyboard_mouse/mouse_left.png" id="15_of4ip"]
 [ext_resource type="Texture2D" uid="uid://c8wcabee3wpob" path="res://assets/ui/keyboard_mouse/mouse_move.png" id="16_u2ek7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa7si"]
+shader = ExtResource("6_7gxgy")
+shader_parameter/color = Color(0.16078432, 0.6784314, 1, 1)
+shader_parameter/circle_radius = 1000.0
+shader_parameter/circle_smooth_width = 0.0
+shader_parameter/mouse_position = Vector2(468, 413)
+shader_parameter/screen_resolution = Vector2(1920, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmb4f"]
 atlas = ExtResource("2_uum3a")
@@ -86,6 +96,49 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_uum3a")
+metadata/_edit_vertical_guides_ = [1382.0, 1660.0, 529.0]
+metadata/_edit_horizontal_guides_ = [703.0, 609.0, 710.0]
+
+[node name="CombosLb" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 1113.0
+offset_top = -220.48004
+offset_right = 1851.0
+offset_bottom = 169.51996
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_krqix")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+
+4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]180 points[/color]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ThreeCombo" type="Sprite2D" parent="CombosLb"]
+position = Vector2(139, 79)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2g2d2")
+
+[node name="FourCombo" type="Sprite2D" parent="CombosLb"]
+position = Vector2(175, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7gxgy")
+
+[node name="6Combo" type="Sprite2D" parent="CombosLb"]
+position = Vector2(245, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ar6ll")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -114,49 +167,15 @@ theme_override_font_sizes/font_size = 72
 text = "Return"
 flat = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 124.0
-offset_top = 169.51996
-offset_right = 772.0
-offset_bottom = 300.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_krqix")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Move the [color=#1d2b53]Mouse[/color]     to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color]    to slash [br] Press [color=#1d2b53]Escape[/color]    to pause the game [br]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="WASDLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1113.0
-offset_top = 170.51996
-offset_right = 1761.0
-offset_bottom = 395.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_krqix")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Use [color=#1d2b53]WASD[/color] to move the camera [br] "
-fit_content = true
-autowrap_mode = 0
-
 [node name="ObjectiveLb" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_left = 119.0
-offset_top = -228.48004
-offset_right = 965.0
-offset_bottom = 266.51996
+offset_left = 536.0
+offset_top = 8.5199585
+offset_right = 1382.0
+offset_bottom = 308.51996
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
 theme_override_font_sizes/normal_font_size = 36
@@ -165,51 +184,85 @@ text = "The objective is to fill up the [color=#1d2b53]bag[/color] with [color=#
 Some are [color=purple]rare[/color] and others [color=yellow]legendary[/color].
 They will run from you! [br]
 Form [color=#1d2b53]combos[/color] to gain a better score. [br]
-Try to beat the [color=#1d2b53]max score[/color] and make [color=#1d2b53]Death[/color] happy! [br]
-[br]"
+Try to beat the [color=#1d2b53]max score[/color] and make [color=#1d2b53]Death[/color] happy!"
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 
-[node name="CombosLb" type="RichTextLabel" parent="."]
+[node name="ComboButton" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_left = 1113.0
-offset_top = -220.48004
-offset_right = 1851.0
-offset_bottom = 22.519958
+offset_left = 16.0
+offset_top = 32.51996
+offset_right = 500.0
+offset_bottom = 257.51996
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
-
-4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
-
-6 colors with the same shape = [color=#1d2b53]180 points[/color]"
+text = "
+[color=#1d2b53]Check[/color] out the
+ possible"
 fit_content = true
-autowrap_mode = 0
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="CombosBtn" type="Button" parent="ComboButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 22.875002
+anchor_bottom = 22.875002
+offset_left = 98.0
+offset_top = -5044.8755
+offset_right = 388.0
+offset_bottom = -4937.8755
+theme_override_font_sizes/font_size = 72
+text = "Combos"
+flat = true
+
+[node name="TriangleLeft" type="AnimatedSprite2D" parent="ComboButton"]
+material = SubResource("ShaderMaterial_xa7si")
+position = Vector2(89, 141)
+scale = Vector2(-2, 2)
+sprite_frames = ExtResource("7_ar6ll")
+animation = &"unique"
+autoplay = "unique"
+
+[node name="TriangleRight" type="AnimatedSprite2D" parent="ComboButton"]
+material = SubResource("ShaderMaterial_xa7si")
+position = Vector2(398, 141)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_ar6ll")
+animation = &"unique"
+autoplay = "unique"
 
 [node name="BoomBoxLb" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_left = 1238.0
-offset_top = 472.51996
-offset_right = 2048.0
-offset_bottom = 697.51996
+offset_left = 1410.0
+offset_top = 31.519958
+offset_right = 1894.0
+offset_bottom = 256.51996
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[color=#1d2b53]Click[/color] the         to change the song!"
-fit_content = true
-autowrap_mode = 0
+text = "
+[color=#1d2b53]Click[/color] the
 
-[node name="BoomBox" type="AnimatedSprite2D" parent="."]
-position = Vector2(1481, 1026)
+
+
+  to change the song!"
+fit_content = true
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="BoomBox" type="AnimatedSprite2D" parent="BoomBoxLb"]
+position = Vector2(249, 131)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_s6hfj")
 animation = &"boomin"
@@ -217,62 +270,86 @@ autoplay = "boomin"
 frame = 3
 frame_progress = 1.0
 
-[node name="ThreeCombo" type="Sprite2D" parent="."]
-position = Vector2(1252, 399)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_2g2d2")
+[node name="WASDLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 1094.0
+offset_top = -232.48004
+offset_right = 1742.0
+offset_bottom = -7.4801025
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_krqix")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Use [color=#1d2b53]WASD[/color] to move the camera [br] "
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
 
-[node name="FourCombo" type="Sprite2D" parent="."]
-position = Vector2(1288, 526)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_7gxgy")
-
-[node name="6Combo" type="Sprite2D" parent="."]
-position = Vector2(1358, 645)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_ar6ll")
-
-[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="."]
-position = Vector2(1482, 825)
+[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(456, 117)
 texture = ExtResource("6_ceglv")
 
-[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="."]
-position = Vector2(1434, 825)
+[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(408, 117)
 texture = ExtResource("7_1cpqm")
 
-[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="."]
-position = Vector2(1530, 825)
+[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(504, 117)
 texture = ExtResource("8_ge457")
 
-[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="."]
-position = Vector2(1482, 778)
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(456, 70)
 texture = ExtResource("9_jgwbd")
 
-[node name="KeyboardAOutline" type="Sprite2D" parent="."]
-position = Vector2(1185, 823)
+[node name="KeyboardAOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(159, 115)
 texture = ExtResource("10_30iga")
 
-[node name="KeyboardDOutline" type="Sprite2D" parent="."]
-position = Vector2(1281, 823)
+[node name="KeyboardDOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(255, 115)
 texture = ExtResource("11_k2chu")
 
-[node name="KeyboardSOutline" type="Sprite2D" parent="."]
-position = Vector2(1233, 823)
+[node name="KeyboardSOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(207, 115)
 texture = ExtResource("12_4lls8")
 
-[node name="KeyboardWOutline" type="Sprite2D" parent="."]
-position = Vector2(1233, 776)
+[node name="KeyboardWOutline" type="Sprite2D" parent="WASDLabel"]
+position = Vector2(207, 68)
 texture = ExtResource("13_t4yr3")
 
-[node name="KeyboardEscapeOutline" type="Sprite2D" parent="."]
-position = Vector2(377, 823)
+[node name="ControlsLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 124.0
+offset_top = -269.48004
+offset_right = 772.0
+offset_bottom = -87.36005
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_krqix")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "
+Move the [color=#1d2b53]Mouse[/color]     to reveal colours [br] Hold [color=#1d2b53]Left Mouse Button[/color]    to slash [br] Press [color=#1d2b53]Escape[/color]    to pause the game [br]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="KeyboardEscapeOutline" type="Sprite2D" parent="ControlsLabel"]
+position = Vector2(280, 150)
 texture = ExtResource("14_5hkv7")
 
-[node name="MouseLeft" type="Sprite2D" parent="."]
-position = Vector2(557, 776)
+[node name="MouseLeft" type="Sprite2D" parent="ControlsLabel"]
+position = Vector2(451, 103)
 texture = ExtResource("15_of4ip")
 
-[node name="MouseMove" type="Sprite2D" parent="."]
-position = Vector2(423, 727)
+[node name="MouseMove" type="Sprite2D" parent="ControlsLabel"]
+position = Vector2(298.99994, 54)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("16_u2ek7")
+
+[connection signal="mouse_entered" from="ComboButton/CombosBtn" to="." method="_on_button_mouse_entered"]
