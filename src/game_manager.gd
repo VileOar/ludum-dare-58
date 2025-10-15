@@ -30,7 +30,7 @@ enum EndConditions{
 
 func _ready() -> void:
 	# reset all score related stuff
-	ScoreManager.reset_all()
+	ScoreManager.reset_score()
 	# initialize hud
 	_hud_ref.update_bag_slots_display(_bag_slots_remaining)
 	_time_limit_timer.start(_time_left)

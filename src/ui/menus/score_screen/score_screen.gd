@@ -16,7 +16,9 @@ var _all_collected_mooks: Array[MookStats]
 var _has_scored_a_combo: bool = false
 var _combo_length: int
 var _combo_score: int
-
+# stores amount of mooks spawned for each rarity (received from scoremanager)
+var _rares_spawned: String
+var _legendaries_spawned: String
 
 func _ready() -> void:
 	# update title with end message
@@ -24,7 +26,9 @@ func _ready() -> void:
 	_play_end_game_audio()
 	
 	_all_collected_mooks = ScoreManager.get_all_collected_mooks()
-	ScoreManager.reset_all()
+	_rares_spawned = str(ScoreManager.get_rare_mooks_spawned())
+	_legendaries_spawned = str(ScoreManager.get_legendary_mooks_spawned())
+	ScoreManager.reset_score()
 	# connect signals
 	ScoreManager.scored_a_combo.connect(_on_scored_a_combo)
 	_transition_overlay_ref.fade_in_end.connect(spawn_mook_icons)
@@ -128,8 +132,8 @@ func _update_score_label(new_score: int) -> void:
 
 func _update_mook_counters(mooks: int, rares: int, legendaries: int) -> void:
 	$CounterTable/Column2/MookCount.text = str(mooks) + "/" + str(Global.MAX_BAG_SLOTS)
-	$CounterTable/Column2/RareCount.text = str(rares)
-	$CounterTable/Column2/LegendaryCount.text = str(legendaries)
+	$CounterTable/Column2/RareCount.text = str(rares) + "/" + _rares_spawned
+	$CounterTable/Column2/LegendaryCount.text = str(legendaries) + "/" + _legendaries_spawned
 
 func _update_combo_info(combo_amount: int, combo_score_total: int) -> void:
 	$CounterTable/Column4/ComboCount.text = " " + str(combo_amount)

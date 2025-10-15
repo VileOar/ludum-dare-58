@@ -82,9 +82,9 @@ func _physics_process(delta: float) -> void:
 			
 
 func set_stats(new_stats: MookStats):
+	_stats = new_stats
 	while !is_node_ready():
 		await ready
-	_stats = new_stats
 	_sprite.material = Global.get_material_from_colour(_stats.colour)
 	_sprite.sprite_frames = Global.get_spriteframes_from_shape(_stats.shape)
 

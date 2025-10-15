@@ -18,6 +18,7 @@ const WAVE_MAX_INTERVAL := 15.0
 var _wave_active = false
 
 func _ready() -> void:
+	ScoreManager.reset_mooks_spawned()
 	_spawn_crowd(Global.NUM_SPAWNED_MOOKS)
 
 func _physics_process(delta: float) -> void:
@@ -43,6 +44,12 @@ func _spawn_mook(pos: Vector2):
 	var mook = _MOOK_PCK.instantiate() as Mook
 	mook.position = pos
 	mook.set_stats(MookStats.build_random_stats())
+	var stats: MookStats =  mook.get_stats()
+	match stats.rarity:
+		Global.Rarities.RARE:
+			ScoreManager.add_rare_mook_spawned()
+		Global.Rarities.LEGENDARY:
+			ScoreManager.add_legendary_mook_spawned()
 	_entities.add_child(mook)
 
 

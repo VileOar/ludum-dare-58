@@ -7,6 +7,10 @@ var _collected_mooks_total: int = 0
 var _collected_rares_counter: int = 0
 var _collected_legendaries_counter: int = 0
 
+# store how many mooks exist of each rarity
+var _rare_mooks_spawned: int = 0
+var _legendary_mooks_spawned: int = 0
+
 # count how many times a combo was made
 var _combo_counter: int = 0
 
@@ -230,20 +234,15 @@ func calculate_total_score() -> int:
 	return _combo_score_total + _no_combo_score_total + _rarity_bonus_total
 
 func calculate_rarity_score() -> int:
-	@warning_ignore("integer_division")
-	var rarity_score: int = (
-		_collected_rares_counter / Global.RARES_REQUIRED_FOR_BONUS 
-		* Global.RARE_BONUS
-	)
-	@warning_ignore("integer_division")
-	rarity_score += (
-		_collected_legendaries_counter / Global.LEGENDARIES_REQUIRED_FOR_BONUS
-		* Global.LEGENDARY_BONUS
-	)
+	var rarity_score: int = 0
+	if _rare_mooks_spawned > 0 and _collected_rares_counter >= _rare_mooks_spawned:
+		rarity_score += Global.ALL_RARES_BONUS
+	if _legendary_mooks_spawned > 0 and _collected_legendaries_counter >= _legendary_mooks_spawned:
+		rarity_score += Global.ALL_LEGENDARIES_BONUS
 	_rarity_bonus_total = rarity_score
 	return _rarity_bonus_total
 
-func reset_all() -> void:
+func reset_score() -> void:
 	_collected_mooks_total = 0
 	_collected_rares_counter = 0
 	_collected_legendaries_counter = 0
@@ -254,6 +253,11 @@ func reset_all() -> void:
 	_no_combo_score_total = 0
 	_rarity_bonus_total = 0
 	_reset_mooks_since_combo_of_length()
+
+func reset_mooks_spawned() -> void:
+	_rare_mooks_spawned = 0
+	_legendary_mooks_spawned = 0
+
 
 func get_all_collected_mooks() -> Array[MookStats]:
 	return _all_collected_mooks
@@ -275,3 +279,15 @@ func get_combo_total() -> int:
 
 func get_combo_score_total() -> int:
 	return _combo_score_total
+
+func add_rare_mook_spawned() -> void:
+	_rare_mooks_spawned +=1
+
+func add_legendary_mook_spawned() -> void:
+	_legendary_mooks_spawned +=1
+
+func get_rare_mooks_spawned() -> int:
+	return _rare_mooks_spawned
+
+func get_legendary_mooks_spawned() -> int:
+	return _legendary_mooks_spawned

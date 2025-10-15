@@ -30,11 +30,9 @@ const _LEGENDARY_MULTIPLIER: int = 3
 const RARE_SCORE: int = BASE_SCORE * _RARE_MULTIPLIER
 const LEGENDARY_SCORE: int = BASE_SCORE * _LEGENDARY_MULTIPLIER
 
-# bonuses awarded for each x amount of mooks of y rarity collected
-const RARES_REQUIRED_FOR_BONUS: int = 10
-const LEGENDARIES_REQUIRED_FOR_BONUS: int = 5
-const RARE_BONUS: int = 200
-const LEGENDARY_BONUS: int = 300
+# bonuses awarded if all mooks of x rarity were collected
+const ALL_RARES_BONUS: int = 200
+const ALL_LEGENDARIES_BONUS: int = 300
 
 # all combos that exist and their respective scores
 #region Combos

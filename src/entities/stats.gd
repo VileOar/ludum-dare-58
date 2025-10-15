@@ -15,7 +15,6 @@ static func build_random_stats() -> MookStats:
 	stats.shape = Global.Shapes.values()[randi() % Global.Shapes.size()]
 	stats.colour = Global.Colours.values()[randi() % Global.Colours.size()]
 	
-	# TODO: choose rarity according to actual probabilities
 	var random_no: float = randf()
 	if random_no < (1 - (Global.RARE_MOOK_CHANCE + Global.LEGENDARY_MOOK_CHANCE)):
 		stats.rarity = Global.Rarities.COMMON
