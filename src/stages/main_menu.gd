@@ -8,6 +8,8 @@ extends Control
 
 func _ready() -> void:
 	_start_main_menu_music()
+	# Decouples How to play from main menu
+	_how_to_play_screen.how_to_play_return.connect(_on_how_to_play_return_pressed)
 
 
 func _on_play_button_pressed() -> void:
@@ -29,8 +31,6 @@ func _on_how_to_play_button_pressed() -> void:
 	_how_to_play_screen.show()
 
 func _on_how_to_play_return_pressed() -> void:
-	_play_click_sfx()
-	_how_to_play_screen.hide()
 	_title_screen.show()
 
 func _on_credits_button_pressed() -> void:
