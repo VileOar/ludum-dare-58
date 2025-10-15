@@ -22,7 +22,7 @@ func _on_mook_death(mook : Mook) -> void:
 
 
 func _process(_delta):
-	if !Global.get_is_paused():
+	if !Global.get_is_input_blocked():
 		$SlashArea.position = get_global_mouse_position()
 
 
@@ -40,7 +40,7 @@ func _input(event):
 
 
 func _play_slice_sfx() -> void:
-	if !Global.get_is_paused():
+	if !Global.get_is_input_blocked():
 		is_slice_sfx_playable = false
 		AudioManager.instance.play_random_slice_sfx()
 		await get_tree().create_timer(sfx_timeout).timeout

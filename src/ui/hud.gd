@@ -52,6 +52,11 @@ func display_combo_pop_up(bonus_score: int) -> void:
 	combo_pop_up.pop_up(bonus_score)
 	AudioManager.play_audio("ComboPower1")
 
+func display_end_message_bag() -> void:
+	_animation_player.play("end_message_bag")
+
+func display_end_message_time() -> void:
+	_animation_player.play("end_message_time")
 
 func update_timer(time) -> void:
 	var secs = round(time)

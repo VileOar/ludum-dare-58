@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD and _particles.emitting == false:
 			_particles.emitting = true
 
-		if !is_panic() and !Global.get_is_paused():
+		if !is_panic() and !Global.get_is_input_blocked():
 			if mouse_dist < MOUSE_DIST_PANIC_THRESHOLD:
 				_change_state(States.PANIC)
 				_play_mook_discovered_sfx(_stats.rarity)

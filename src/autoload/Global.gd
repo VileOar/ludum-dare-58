@@ -104,7 +104,7 @@ var _final_score: int = 0
 # stores the message to display on the score screen
 var _end_game_message: String = END_MESSAGE_FULL_BAG
 # stores whether the game is currently paused
-var _is_paused: bool = false
+var _is_input_blocked: bool = false
 
 var _sprite_frames: Dictionary[Shapes, SpriteFrames] = {
 	Shapes.POINTY: preload("uid://dntarescsau6g"),
@@ -308,12 +308,12 @@ func set_final_score(new_score) ->  void:
 func get_final_score() -> int:
 	return _final_score
 
-# getter and setter for _is_paused
-func set_is_paused(new_value: bool) -> void:
-	_is_paused = new_value
+# getter and setter for _is_input_blocked
+func set_is_input_blocked(new_value: bool) -> void:
+	_is_input_blocked = new_value
 
-func get_is_paused() -> bool:
-	return _is_paused
+func get_is_input_blocked() -> bool:
+	return _is_input_blocked
 
 # getter and setter for _end_message
 func set_end_message(new_msg: String) -> void:

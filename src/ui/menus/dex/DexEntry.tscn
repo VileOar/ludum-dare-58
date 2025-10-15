@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7w84b7bmhi4v"]
+[gd_scene load_steps=7 format=3 uid="uid://c7w84b7bmhi4v"]
 
 [ext_resource type="Texture2D" uid="uid://bikykts0p4a6x" path="res://assets/gfx/name_dex/star_icon.png" id="2_jniw0"]
 [ext_resource type="Script" uid="uid://dma88saxhjjp5" path="res://src/ui/menus/dex/dex_entry.gd" id="2_p6hcx"]
 [ext_resource type="Texture2D" uid="uid://bvam6cu1o8dp8" path="res://assets/gfx/name_dex/checkbox_ticked.png" id="3_iofrn"]
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="3_p6hcx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iofrn"]
 content_margin_left = 4.0
@@ -54,6 +55,11 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_jniw0")
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.28627452, 0.2, 0.23137255, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_p6hcx")
 text = "John Smithsonian"
 
 [node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer"]

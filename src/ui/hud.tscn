@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc07purbnab5q"]
+[gd_scene load_steps=11 format=3 uid="uid://bc07purbnab5q"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_4rn03"]
 [ext_resource type="Script" uid="uid://cy61838ieyiiu" path="res://src/ui/hud.gd" id="1_eqvli"]
@@ -30,6 +30,62 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EndGameBag:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EndGameTime:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0isw4"]
+resource_name = "display_end_message"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndGameBag:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vbpn1"]
+resource_name = "end_message_time"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndGameTime:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_i4jpw"]
@@ -64,6 +120,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0isw4"]
 _data = {
 &"RESET": SubResource("Animation_r2cn7"),
+&"end_message_bag": SubResource("Animation_0isw4"),
+&"end_message_time": SubResource("Animation_vbpn1"),
 &"time_warning": SubResource("Animation_i4jpw")
 }
 
@@ -259,3 +317,43 @@ offset_right = 26.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="EndGameBag" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.0
+offset_top = -72.0
+offset_right = 401.0
+offset_bottom = 72.0
+pivot_offset = Vector2(401, 72)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 144
+text = "Souls reaped"
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="EndGameTime" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -72.0
+offset_right = 329.0
+offset_bottom = 72.0
+pivot_offset = Vector2(329, 72)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 144
+text = "Time's up!"
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0

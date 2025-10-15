@@ -45,7 +45,7 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
-	if !Global.get_is_paused():
+	if !Global.get_is_input_blocked():
 		cam_move_direction = Vector2(
 			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 			Input.get_action_strength("move_down") - Input.get_action_strength("move_up")

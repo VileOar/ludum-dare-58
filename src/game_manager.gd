@@ -11,6 +11,7 @@ signal end_game
 @export var _time_limit_timer: Timer
 @export var _boom_box: BoomBox
 
+const END_MESSAGE_DURATION: float = 2.8
 const FADE_OUT_DURATION: float = 1.0
 
 var _bag_slots_remaining: int = Global.MAX_BAG_SLOTS
@@ -18,8 +19,13 @@ var _bag_slots_remaining: int = Global.MAX_BAG_SLOTS
 var _time_left: float = Global.TIME_LIMIT
 
 var _is_time_warning_played: bool = false
+var _is_game_over: bool = false
 var _interval_timer := 0.0
 
+enum EndConditions{
+	FULL_BAG,
+	TIMEOUT
+}
 
 func _ready() -> void:
 	# reset all score related stuff
@@ -54,12 +60,13 @@ func _process(_delta: float) -> void:
 		_hud_ref.play_animation_warning_about_time()
 		AudioManager.instance.play_audio("TimerWarning")
 		
-	if _time_left > 0:
+	if _time_left > 0 and !_is_game_over:
 		_hud_ref.update_timer(_time_left)
 		
-	else:
+	elif !_is_game_over:
+		_is_game_over = true
 		_hud_ref.update_timer(0)
-		_end_game(Global.END_MESSAGE_TIMEOUT)
+		_end_game(EndConditions.TIMEOUT)
 
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -69,8 +76,9 @@ func remove_bag_slot() -> void:
 	if _bag_slots_remaining > 0:
 		_bag_slots_remaining -= 1
 		_hud_ref.update_bag_slots_display(_bag_slots_remaining)
-		if _bag_slots_remaining == 0:
-			_end_game(Global.END_MESSAGE_FULL_BAG)
+		if _bag_slots_remaining == 0 and !_is_game_over:
+			_is_game_over = true
+			_end_game(EndConditions.FULL_BAG)
 
 func collect_mook(mook: Mook) -> void:
 	ScoreManager.on_collect(mook.get_stats())
@@ -96,14 +104,27 @@ func _quit_to_title() -> void:
 	Global.set_is_paused(false)
 	emit_signal("end_game")
 
-func _end_game(end_message: String) -> void:
-	emit_signal("end_game")
-	_reset_audio()
-	Global.set_end_message(end_message)
+func _end_game(end_condition: EndConditions) -> void:
+	Global.set_is_input_blocked(true)
+	# set the end message for the game and score screens
+	match end_condition:
+		EndConditions.FULL_BAG:
+			_hud_ref.display_end_message_bag()
+			Global.set_end_message(Global.END_MESSAGE_FULL_BAG)
+		EndConditions.TIMEOUT:
+			_hud_ref.display_end_message_time()
+			Global.set_end_message(Global.END_MESSAGE_TIMEOUT)
+	
 	Global.set_final_score(ScoreManager.calculate_total_score())
+	# wait for end message duration
+	await get_tree().create_timer(END_MESSAGE_DURATION).timeout
+	# then play fade out transition
 	_transition_overlay_ref.fade_out(FADE_OUT_DURATION)
 	
 func _go_to_score_screen() -> void:
+	Global.set_is_input_blocked(false)
+	emit_signal("end_game")
+	_reset_audio()
 	Global.deferred_change_scene(Global.SCORE_SCENE_FILEPATH)
 
 func _reset_audio() -> void:
