@@ -69,7 +69,7 @@ func _process(_delta: float) -> void:
 		_end_game(EndConditions.TIMEOUT)
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and !Global.get_is_input_blocked():
 		_pause_game()
 
 func remove_bag_slot() -> void:
@@ -87,21 +87,21 @@ func collect_mook(mook: Mook) -> void:
 	remove_bag_slot()
 
 func _pause_game() -> void:
-	Global.set_is_paused(true)
+	Global.set_is_input_blocked(true)
 	_night_shade_ref.hide()
 	_hud_ref.hide()
 	_pause_menu_ref.show()
 	Engine.time_scale = 0
 
 func _resume_game() -> void:
-	Global.set_is_paused(false)
+	Global.set_is_input_blocked(false)
 	_night_shade_ref.show()
 	_hud_ref.show()
 	Engine.time_scale = 1
 
 func _quit_to_title() -> void:
 	Engine.time_scale = 1
-	Global.set_is_paused(false)
+	Global.set_is_input_blocked(false)
 	emit_signal("end_game")
 
 func _end_game(end_condition: EndConditions) -> void:
