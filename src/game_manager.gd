@@ -89,13 +89,12 @@ func collect_mook(mook: Mook) -> void:
 
 func _on_pause_key_press() -> void:
 	if !_is_game_paused:
-		_is_game_paused = true
 		_pause_game()
-	else:
-		_is_game_paused = false
+	elif !_pause_menu_ref.is_soul_dex_open():
 		_resume_game()
 
 func _pause_game() -> void:
+	_is_game_paused = true
 	Global.set_is_input_blocked(true)
 	_night_shade_ref.hide()
 	_hud_ref.hide()
@@ -103,6 +102,7 @@ func _pause_game() -> void:
 	Engine.time_scale = 0
 
 func _resume_game() -> void:
+	_is_game_paused = false
 	_pause_menu_ref.hide()
 	Global.set_is_input_blocked(false)
 	_night_shade_ref.show()
@@ -140,4 +140,3 @@ func _go_to_score_screen() -> void:
 func _reset_audio() -> void:
 	_boom_box.set_original_pitch_in_current_music()
 	_is_time_warning_played = false
-	

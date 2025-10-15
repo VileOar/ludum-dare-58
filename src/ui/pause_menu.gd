@@ -20,6 +20,9 @@ func _on_quit_pressed() -> void:
 	_play_click_sfx()
 	Global.deferred_change_scene(Global.TITLE_SCENE_FILEPATH)
 
+func is_soul_dex_open() -> bool:
+	return $DexMenu.visible
+
 #region audio
 func _play_click_sfx() -> void:
 	AudioManager.play_click_sfx()
