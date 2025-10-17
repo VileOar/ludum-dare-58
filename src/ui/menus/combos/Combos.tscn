@@ -1,0 +1,278 @@
+[gd_scene load_steps=10 format=3 uid="uid://bt8bwq7svsmow"]
+
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_4boei"]
+[ext_resource type="Texture2D" uid="uid://bfbbgf45weahf" path="res://assets/ui/how_to_play/legendary_triangle.png" id="2_6bdwd"]
+[ext_resource type="Texture2D" uid="uid://cayk43tt3rk58" path="res://assets/ui/how_to_play/normal_triangle.png" id="3_mlodp"]
+[ext_resource type="Texture2D" uid="uid://7rire4doli0s" path="res://assets/ui/how_to_play/rare_triangle.png" id="4_4myqr"]
+[ext_resource type="Texture2D" uid="uid://dhldjf6ten6bf" path="res://assets/ui/how_to_play/three_combo.png" id="5_aaibo"]
+[ext_resource type="Texture2D" uid="uid://c3ctx5hr6t5sb" path="res://assets/ui/how_to_play/four_combo_many colours.png" id="6_6bdwd"]
+[ext_resource type="Texture2D" uid="uid://d18nh43rgr6j" path="res://assets/ui/how_to_play/four_combo.png" id="6_pfw3i"]
+[ext_resource type="Texture2D" uid="uid://dco0fxdevogyl" path="res://assets/ui/how_to_play/6_combo.png" id="7_50jr2"]
+[ext_resource type="Texture2D" uid="uid://dmgqdjki4l8vu" path="res://assets/ui/how_to_play/six_combo_random_shapes.png" id="8_mlodp"]
+
+[node name="Combos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [57.0]
+
+[node name="Rarity" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -14592.961
+offset_right = 738.0
+offset_bottom = -14202.961
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "	
+	  Normal = [color=#1d2b53]10 points[/color] [br]
+
+	  Rare = [color=#1d2b53]20 points[/color] [br]
+
+	  Legendary = [color=#1d2b53]30 points[/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NormalTriangle" type="Sprite2D" parent="Rarity"]
+position = Vector2(50, 55)
+texture = ExtResource("3_mlodp")
+
+[node name="RareTriangle" type="Sprite2D" parent="Rarity"]
+position = Vector2(53, 173)
+texture = ExtResource("4_4myqr")
+
+[node name="LegendaryTriangle" type="Sprite2D" parent="Rarity"]
+position = Vector2(59, 298)
+texture = ExtResource("2_6bdwd")
+
+[node name="4CombosAllShapes" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -14592.961
+offset_right = 738.0
+offset_bottom = -14202.961
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "4 diffrent shapes = [color=#1d2b53]80 points[/color] [br]
+
+4 different shapes, same color = [color=#1d2b53]120 points[/color] [br]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="FourCombo" type="Sprite2D" parent="4CombosAllShapes"]
+position = Vector2(160, 74)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_pfw3i")
+
+[node name="FourComboManyColours" type="Sprite2D" parent="4CombosAllShapes"]
+position = Vector2(160, 199)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_6bdwd")
+
+[node name="6CombosAllColours" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -14592.961
+offset_right = 738.0
+offset_bottom = -14202.961
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "6 different colors = [color=#1d2b53]60 + 60 points[/color] [br]
+6 colors with the same shape = [color=#1d2b53]60 + 150 points[/color]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="6Combo" type="Sprite2D" parent="6CombosAllColours"]
+position = Vector2(233, 150)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_50jr2")
+
+[node name="SixComboRandomShapes2" type="Sprite2D" parent="6CombosAllColours"]
+position = Vector2(225.00002, 62.000015)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_mlodp")
+
+[node name="5CombosHot" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -79855.93
+offset_right = 738.0
+offset_bottom = -79465.93
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+
+4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]180 points[/color]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ThreeCombo" type="Sprite2D" parent="5CombosHot"]
+position = Vector2(139, 79)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_aaibo")
+
+[node name="FourCombo" type="Sprite2D" parent="5CombosHot"]
+position = Vector2(175, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pfw3i")
+
+[node name="6Combo" type="Sprite2D" parent="5CombosHot"]
+position = Vector2(245, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_50jr2")
+
+[node name="6ComboPointy" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -154442.19
+offset_right = 738.0
+offset_bottom = -154052.19
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+
+4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]180 points[/color]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ThreeCombo" type="Sprite2D" parent="6ComboPointy"]
+position = Vector2(139, 79)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_aaibo")
+
+[node name="FourCombo" type="Sprite2D" parent="6ComboPointy"]
+position = Vector2(175, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pfw3i")
+
+[node name="6Combo" type="Sprite2D" parent="6ComboPointy"]
+position = Vector2(245, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_50jr2")
+
+[node name="Portugal" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -303614.7
+offset_right = 738.0
+offset_bottom = -303224.7
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+
+4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]180 points[/color]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ThreeCombo" type="Sprite2D" parent="Portugal"]
+position = Vector2(139, 79)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_aaibo")
+
+[node name="FourCombo" type="Sprite2D" parent="Portugal"]
+position = Vector2(175, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pfw3i")
+
+[node name="6Combo" type="Sprite2D" parent="Portugal"]
+position = Vector2(245, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_50jr2")
+
+[node name="Global" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_top = -14592.961
+offset_right = 738.0
+offset_bottom = -14202.961
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+
+4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]180 points[/color]
+
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ThreeCombo" type="Sprite2D" parent="Global"]
+position = Vector2(139, 79)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_aaibo")
+
+[node name="FourCombo" type="Sprite2D" parent="Global"]
+position = Vector2(175, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pfw3i")
+
+[node name="6Combo" type="Sprite2D" parent="Global"]
+position = Vector2(245, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_50jr2")
