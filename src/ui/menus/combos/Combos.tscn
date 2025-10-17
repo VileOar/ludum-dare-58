@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt8bwq7svsmow"]
+[gd_scene load_steps=15 format=3 uid="uid://bt8bwq7svsmow"]
 
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_4boei"]
 [ext_resource type="Texture2D" uid="uid://bfbbgf45weahf" path="res://assets/ui/how_to_play/legendary_triangle.png" id="2_6bdwd"]
@@ -8,7 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c3ctx5hr6t5sb" path="res://assets/ui/how_to_play/four_combo_many colours.png" id="6_6bdwd"]
 [ext_resource type="Texture2D" uid="uid://d18nh43rgr6j" path="res://assets/ui/how_to_play/four_combo.png" id="6_pfw3i"]
 [ext_resource type="Texture2D" uid="uid://dco0fxdevogyl" path="res://assets/ui/how_to_play/6_combo.png" id="7_50jr2"]
-[ext_resource type="Texture2D" uid="uid://dmgqdjki4l8vu" path="res://assets/ui/how_to_play/six_combo_random_shapes.png" id="8_mlodp"]
+[ext_resource type="Texture2D" path="res://assets/ui/how_to_play/six_combo_random_shapes.png" id="8_mlodp"]
+[ext_resource type="Texture2D" uid="uid://bj70ax256mlyq" path="res://assets/ui/how_to_play/5_hot_combo_shapes.png" id="9_aaibo"]
+[ext_resource type="Texture2D" uid="uid://di5dq118nd2ie" path="res://assets/ui/how_to_play/5_hot_combo_same_shape.png" id="10_pfw3i"]
+[ext_resource type="Texture2D" uid="uid://bw8ywbwvsqgwh" path="res://assets/ui/how_to_play/six_combo_pointy_shapes_same_color.png" id="11_50jr2"]
+[ext_resource type="Texture2D" uid="uid://jj4kf57ki5ow" path="res://assets/ui/how_to_play/six_combo_pointy_shapes.png" id="12_mf78e"]
+[ext_resource type="Texture2D" uid="uid://1pxhr088lhr" path="res://assets/ui/how_to_play/portugal_flag.png" id="13_mf78e"]
 
 [node name="Combos" type="Control"]
 layout_mode = 3
@@ -17,17 +22,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_vertical_guides_ = [57.0]
+metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0]
+metadata/_edit_horizontal_guides_ = [220.0]
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.375
+anchor_bottom = 4.375
+offset_left = 582.0
+offset_top = -4713.0
+offset_right = 1405.0
+offset_bottom = -4516.0
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 144
+text = "Combos"
+horizontal_alignment = 1
+
+[node name="CombosReturn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 22.875002
+anchor_bottom = 22.875002
+offset_left = 835.0
+offset_top = -23830.002
+offset_right = 1086.0
+offset_bottom = -23723.002
+theme_override_font_sizes/font_size = 72
+text = "Return"
+flat = true
 
 [node name="Rarity" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_top = -14592.961
-offset_right = 738.0
-offset_bottom = -14202.961
+offset_left = 88.0
+offset_top = -14408.961
+offset_right = 826.0
+offset_bottom = -14018.961
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
@@ -54,21 +88,21 @@ position = Vector2(59, 298)
 texture = ExtResource("2_6bdwd")
 
 [node name="4CombosAllShapes" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_top = -14592.961
-offset_right = 738.0
-offset_bottom = -14202.961
+offset_left = 102.0
+offset_top = -14008.961
+offset_right = 876.0
+offset_bottom = -13618.961
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "4 diffrent shapes = [color=#1d2b53]80 points[/color] [br]
+text = "4 shapes = [color=#1d2b53]+40 points[/color] [br]
 
-4 different shapes, same color = [color=#1d2b53]120 points[/color] [br]
+4 shapes, same color = [color=#1d2b53]+80 points[/color] [br]
 
 
 
@@ -86,22 +120,73 @@ position = Vector2(160, 199)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_6bdwd")
 
-[node name="6CombosAllColours" type="RichTextLabel" parent="."]
-visible = false
+[node name="Portugal" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_top = -14592.961
-offset_right = 738.0
-offset_bottom = -14202.961
+offset_left = 103.0
+offset_top = -13767.961
+offset_right = 841.0
+offset_bottom = -13377.961
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "6 different colors = [color=#1d2b53]60 + 60 points[/color] [br]
+text = "5 shapes secret combo = [color=#1d2b53]+160 points[/color] [br]"
+fit_content = true
+autowrap_mode = 0
 
-6 colors with the same shape = [color=#1d2b53]60 + 150 points[/color]
+[node name="PortugalFlag" type="Sprite2D" parent="Portugal"]
+position = Vector2(153, 83)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_mf78e")
+
+[node name="5CombosHot" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 959.0
+offset_top = -14370.961
+offset_right = 1841.0
+offset_bottom = -13980.961
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "5 shapes | hot/cold colors = [color=#1d2b53]+70 points[/color] [br]
+
+5 equal shapes | hot/cold colors = [color=#1d2b53]+90 points[/color] [br]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="5HotComboShapes" type="Sprite2D" parent="5CombosHot"]
+position = Vector2(551, 75.00001)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_aaibo")
+
+[node name="5HotComboSameShape" type="Sprite2D" parent="5CombosHot"]
+position = Vector2(544, 198)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("10_pfw3i")
+
+[node name="6CombosAllColours" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 958.0
+offset_top = -14125.961
+offset_right = 1786.0
+offset_bottom = -13735.961
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "6 different colors = [color=#1d2b53]+60 points[/color] [br]
+
+6 colors with the same shape = [color=#1d2b53]+150 points[/color]
 
 
 
@@ -110,66 +195,31 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="SixComboRandomShapes2" type="Sprite2D" parent="6CombosAllColours"]
-position = Vector2(225.00002, 74.99999)
+position = Vector2(566.99994, 74.99999)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_mlodp")
 
 [node name="6Combo" type="Sprite2D" parent="6CombosAllColours"]
-position = Vector2(233, 196)
+position = Vector2(572.99994, 196)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_50jr2")
 
-[node name="5CombosHot" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_top = -14592.961
-offset_right = 738.0
-offset_bottom = -14202.961
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "5 different shapes of hot colors = [color=#1d2b53]50 + 70 points[/color] [br]
-
-5 equal shapes of hot colors = [color=#1d2b53]50 + 90 points[/color] [br]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="ThreeCombo" type="Sprite2D" parent="5CombosHot"]
-position = Vector2(139, 79)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_aaibo")
-
-[node name="FourCombo" type="Sprite2D" parent="5CombosHot"]
-position = Vector2(175, 206)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_pfw3i")
-
-[node name="6Combo" type="Sprite2D" parent="5CombosHot"]
-position = Vector2(245, 325)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_50jr2")
-
 [node name="6ComboPointy" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_top = -154442.19
-offset_right = 738.0
-offset_bottom = -154052.19
+offset_left = 959.0
+offset_top = -13870.961
+offset_right = 2165.0
+offset_bottom = -13480.961
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
+text = "6 pointy shapes = [color=#1d2b53]+60 points[/color] [br]
 
-4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
-
-6 colors with the same shape = [color=#1d2b53]180 points[/color]
+6 pointy shapes | same color = [color=#1d2b53]+110 points[/color]
 
 
 
@@ -177,60 +227,15 @@ text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
 fit_content = true
 autowrap_mode = 0
 
-[node name="ThreeCombo" type="Sprite2D" parent="6ComboPointy"]
-position = Vector2(139, 79)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_aaibo")
+[node name="SixComboPointyShapesSameColor" type="Sprite2D" parent="6ComboPointy"]
+position = Vector2(565.99994, 199.25)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_50jr2")
 
-[node name="FourCombo" type="Sprite2D" parent="6ComboPointy"]
-position = Vector2(175, 206)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_pfw3i")
-
-[node name="6Combo" type="Sprite2D" parent="6ComboPointy"]
-position = Vector2(245, 325)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_50jr2")
-
-[node name="Portugal" type="RichTextLabel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_top = -303614.7
-offset_right = 738.0
-offset_bottom = -303224.7
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "3 shapes of the same color = [color=#1d2b53]40 points[/color] [br]
-
-4 shapes of the same color = [color=#1d2b53]80 points[/color] [br]
-
-6 colors with the same shape = [color=#1d2b53]180 points[/color]
-
-
-
-"
-fit_content = true
-autowrap_mode = 0
-
-[node name="ThreeCombo" type="Sprite2D" parent="Portugal"]
-position = Vector2(139, 79)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_aaibo")
-
-[node name="FourCombo" type="Sprite2D" parent="Portugal"]
-position = Vector2(175, 206)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_pfw3i")
-
-[node name="6Combo" type="Sprite2D" parent="Portugal"]
-position = Vector2(245, 325)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_50jr2")
+[node name="SixComboPointyShapes" type="Sprite2D" parent="6ComboPointy"]
+position = Vector2(565.99994, 77.25)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("12_mf78e")
 
 [node name="Global" type="RichTextLabel" parent="."]
 visible = false
