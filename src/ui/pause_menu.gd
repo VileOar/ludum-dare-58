@@ -20,8 +20,12 @@ func _on_quit_pressed() -> void:
 	_play_click_sfx()
 	Global.deferred_change_scene(Global.TITLE_SCENE_FILEPATH)
 
-func is_soul_dex_open() -> bool:
-	return $DexMenu.visible
+func can_be_closed() -> bool:
+	if $OptionsMenu.visible:
+		return false
+	if $DexMenu.visible:
+		return false
+	return true
 
 #region audio
 func _play_click_sfx() -> void:
