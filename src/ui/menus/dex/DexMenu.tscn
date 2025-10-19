@@ -3,49 +3,62 @@
 [ext_resource type="Script" uid="uid://unb67m12x8bk" path="res://src/ui/menus/dex/dex_menu.gd" id="1_k4tns"]
 [ext_resource type="Theme" uid="uid://wuavbajw8yip" path="res://assets/ui/dex_theme.tres" id="1_v60me"]
 [ext_resource type="PackedScene" uid="uid://c7w84b7bmhi4v" path="res://src/ui/menus/dex/DexEntry.tscn" id="2_lt30j"]
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="4_y5co1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v60me"]
-
-[node name="DexMenu" type="PanelContainer"]
+[node name="DexMenu" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_v60me")
+color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 script = ExtResource("1_k4tns")
 entry_scene = ExtResource("2_lt30j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("1_v60me")
+alignment = 1
 
-[node name="HeaderContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="VSeparatorLeft" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 500
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Header" type="Label" parent="VBoxContainer/HeaderContainer/HBoxContainer"]
-layout_mode = 2
-text = "Soul Dex"
-
-[node name="InfoContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/InfoContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoContainer/PanelContainer"]
+[node name="HSeparatorTop" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Header" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_y5co1")
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 90
+text = "Soul Dex"
+
+[node name="InfoContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/InfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SortLabel" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+[node name="SortLabel" type="Label" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 text = "Sort:"
 
-[node name="SortButton" type="OptionButton" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+[node name="SortButton" type="OptionButton" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 selected = 0
 item_count = 4
@@ -58,16 +71,16 @@ popup/item_2/id = 2
 popup/item_3/text = "Acquired"
 popup/item_3/id = 3
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="ShowLabel" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+[node name="ShowLabel" type="Label" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 text = "Show:"
 
-[node name="ShowButton" type="MenuButton" parent="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
+[node name="ShowButton" type="MenuButton" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -82,58 +95,70 @@ popup/item_1/text = "adf"
 popup/item_1/checkable = 1
 popup/item_1/id = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/InfoContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/InfoContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoContainer/PanelContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
 layout_mode = 2
 text = "Acquired: "
 
-[node name="AcquiredNumber" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+[node name="AcquiredNumber" type="Label" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "000"
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Label2" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
 layout_mode = 2
 text = "Roaming: "
 
-[node name="RoamingNumber" type="Label" parent="VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
+[node name="RoamingNumber" type="Label" parent="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "000"
 
-[node name="DexContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DexContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="List" type="VBoxContainer" parent="VBoxContainer/DexContainer"]
+[node name="List" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/DexContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+theme_override_constants/separation = 20
 
-[node name="Close" type="Button" parent="VBoxContainer/PanelContainer"]
+[node name="Return" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.7607843, 0.7647059, 0.78039217, 1)
-theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v60me")
-text = "Close"
+size_flags_horizontal = 4
+theme = ExtResource("4_y5co1")
+theme_override_font_sizes/font_size = 72
+text = "Return"
 flat = true
 
-[connection signal="item_selected" from="VBoxContainer/InfoContainer/PanelContainer/HBoxContainer/SortButton" to="." method="_on_sort_button_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/PanelContainer/Close" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/Close" to="." method="_on_close_pressed"]
+[node name="HSeparatorBot" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VSeparatorRight" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 500
+
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer/InfoContainer/PanelContainer/HBoxContainer/SortButton" to="." method="_on_sort_button_item_selected"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Return" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]

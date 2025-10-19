@@ -1,7 +1,12 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://wuavbajw8yip"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://wuavbajw8yip"]
 
 [ext_resource type="StyleBox" uid="uid://b0wkqsv6xh7ty" path="res://assets/ui/panel_style.tres" id="1_msiot"]
+[ext_resource type="StyleBox" uid="uid://cschwvufp02p7" path="res://assets/ui/vscrollbar_grabber.tres" id="2_ltvkq"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="2_msiot"]
+[ext_resource type="Texture2D" uid="uid://0o4eo4wa0e5n" path="res://assets/ui/UIElements/optionbutton_arrow.png" id="2_q38lu"]
+[ext_resource type="StyleBox" uid="uid://dcqy1v0rx7tms" path="res://assets/ui/popupmenu_hover.tres" id="2_v8gtq"]
+[ext_resource type="StyleBox" uid="uid://c71u5wai755tm" path="res://assets/ui/vscrollbar_bar.tres" id="3_3u4bm"]
+[ext_resource type="StyleBox" uid="uid://ceguxv8hjyus1" path="res://assets/ui/vscrollbar_grabber_hover.tres" id="3_y1nyk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oysml"]
 
@@ -9,6 +14,18 @@
 
 [resource]
 default_font = ExtResource("2_msiot")
+Button/styles/normal = ExtResource("1_msiot")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_oysml")
+OptionButton/colors/font_color = Color(1, 0.94509804, 0.9098039, 1)
+OptionButton/constants/arrow_margin = 6
+OptionButton/icons/arrow = ExtResource("2_q38lu")
+OptionButton/styles/hover = ExtResource("1_msiot")
+OptionButton/styles/pressed = ExtResource("1_msiot")
 PanelContainer/styles/panel = ExtResource("1_msiot")
+PopupMenu/styles/hover = ExtResource("2_v8gtq")
+PopupMenu/styles/panel = ExtResource("1_msiot")
+VScrollBar/styles/grabber = ExtResource("2_ltvkq")
+VScrollBar/styles/grabber_highlight = ExtResource("3_y1nyk")
+VScrollBar/styles/grabber_pressed = ExtResource("2_ltvkq")
+VScrollBar/styles/scroll = ExtResource("3_3u4bm")
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_msiot")

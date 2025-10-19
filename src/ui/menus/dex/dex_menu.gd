@@ -1,4 +1,4 @@
-extends PanelContainer
+extends ColorRect
 
 @export var entry_scene: PackedScene
 
@@ -108,7 +108,7 @@ func _on_sort_button_item_selected(index):
 		list.move_child(c, 0)
 
 
-func _on_close_pressed() -> void:
+func _on_return_pressed() -> void:
 	_play_click_sfx()
 	self.hide()
 
