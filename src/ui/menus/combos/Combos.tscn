@@ -1,16 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://bt8bwq7svsmow"]
+[gd_scene load_steps=17 format=3 uid="uid://bt8bwq7svsmow"]
 
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_4boei"]
+[ext_resource type="Script" uid="uid://3byqc0ox5orh" path="res://src/ui/menus/combos/combos.gd" id="1_31tvw"]
 [ext_resource type="Texture2D" uid="uid://bfbbgf45weahf" path="res://assets/ui/how_to_play/legendary_triangle.png" id="2_6bdwd"]
 [ext_resource type="Texture2D" uid="uid://cayk43tt3rk58" path="res://assets/ui/how_to_play/normal_triangle.png" id="3_mlodp"]
 [ext_resource type="Texture2D" uid="uid://7rire4doli0s" path="res://assets/ui/how_to_play/rare_triangle.png" id="4_4myqr"]
+[ext_resource type="Texture2D" uid="uid://d3jeeuacy8bqi" path="res://assets/ui/how_to_play/Alternative/four_combo.png" id="5_8fksu"]
 [ext_resource type="Texture2D" uid="uid://dhldjf6ten6bf" path="res://assets/ui/how_to_play/three_combo.png" id="5_aaibo"]
 [ext_resource type="Texture2D" uid="uid://c3ctx5hr6t5sb" path="res://assets/ui/how_to_play/four_combo_many colours.png" id="6_6bdwd"]
 [ext_resource type="Texture2D" uid="uid://d18nh43rgr6j" path="res://assets/ui/how_to_play/four_combo.png" id="6_pfw3i"]
 [ext_resource type="Texture2D" uid="uid://dco0fxdevogyl" path="res://assets/ui/how_to_play/6_combo.png" id="7_50jr2"]
-[ext_resource type="Texture2D" path="res://assets/ui/how_to_play/six_combo_random_shapes.png" id="8_mlodp"]
 [ext_resource type="Texture2D" uid="uid://bj70ax256mlyq" path="res://assets/ui/how_to_play/5_hot_combo_shapes.png" id="9_aaibo"]
 [ext_resource type="Texture2D" uid="uid://di5dq118nd2ie" path="res://assets/ui/how_to_play/5_hot_combo_same_shape.png" id="10_pfw3i"]
+[ext_resource type="Texture2D" uid="uid://std4q01hxep7" path="res://assets/ui/how_to_play/six_combo_random_shapes - Cópia.png" id="11_31tvw"]
 [ext_resource type="Texture2D" uid="uid://bw8ywbwvsqgwh" path="res://assets/ui/how_to_play/six_combo_pointy_shapes_same_color.png" id="11_50jr2"]
 [ext_resource type="Texture2D" uid="uid://jj4kf57ki5ow" path="res://assets/ui/how_to_play/six_combo_pointy_shapes.png" id="12_mf78e"]
 [ext_resource type="Texture2D" uid="uid://1pxhr088lhr" path="res://assets/ui/how_to_play/portugal_flag.png" id="13_mf78e"]
@@ -22,8 +24,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0]
-metadata/_edit_horizontal_guides_ = [220.0]
+script = ExtResource("1_31tvw")
+metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0, 412.0]
+metadata/_edit_horizontal_guides_ = [221.0, 904.0]
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -31,9 +34,9 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 582.0
-offset_top = -4713.0
+offset_top = -4660.0
 offset_right = 1405.0
-offset_bottom = -4516.0
+offset_bottom = -4463.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
@@ -67,24 +70,25 @@ theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "	
-	  Normal = [color=#1d2b53]10 points[/color] [br]
-
-	  Rare = [color=#1d2b53]20 points[/color] [br]
-
-	  Legendary = [color=#1d2b53]30 points[/color]"
+	  Normal ----> [color=#1d2b53]10 points[/color] [br]
+	  Rare ------> [color=#1d2b53]20 points[/color] [br]
+	  Legendary -> [color=#1d2b53]30 points[/color]"
 fit_content = true
 autowrap_mode = 0
 
 [node name="NormalTriangle" type="Sprite2D" parent="Rarity"]
 position = Vector2(50, 55)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_mlodp")
 
 [node name="RareTriangle" type="Sprite2D" parent="Rarity"]
-position = Vector2(53, 173)
+position = Vector2(53, 137)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_4myqr")
 
 [node name="LegendaryTriangle" type="Sprite2D" parent="Rarity"]
-position = Vector2(59, 298)
+position = Vector2(59, 223)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_6bdwd")
 
 [node name="4CombosAllShapes" type="RichTextLabel" parent="."]
@@ -100,7 +104,7 @@ theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "4 shapes = [color=#1d2b53]+40 points[/color] [br]
+text = "	  4 shapes = [color=#1d2b53]+40 points[/color] [br]
 
 4 shapes, same color = [color=#1d2b53]+80 points[/color] [br]
 
@@ -111,9 +115,9 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="FourCombo" type="Sprite2D" parent="4CombosAllShapes"]
-position = Vector2(160, 74)
+position = Vector2(54.000008, 24.000004)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_pfw3i")
+texture = ExtResource("5_8fksu")
 
 [node name="FourComboManyColours" type="Sprite2D" parent="4CombosAllShapes"]
 position = Vector2(160, 199)
@@ -197,7 +201,7 @@ autowrap_mode = 0
 [node name="SixComboRandomShapes2" type="Sprite2D" parent="6CombosAllColours"]
 position = Vector2(566.99994, 74.99999)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("8_mlodp")
+texture = ExtResource("11_31tvw")
 
 [node name="6Combo" type="Sprite2D" parent="6CombosAllColours"]
 position = Vector2(572.99994, 196)
@@ -276,3 +280,6 @@ texture = ExtResource("6_pfw3i")
 position = Vector2(245, 325)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_50jr2")
+
+[connection signal="mouse_entered" from="CombosReturn" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CombosReturn" to="." method="_on_combo_return_pressed"]
