@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l2xnxrfmruym"
-path="res://.godot/imported/5_hot_combo_same_shape.png-db8350f4dd8ef7cf10e7aab310eacd63.ctex"
+uid="uid://c48cb06xoajli"
+path="res://.godot/imported/all_rare.png-66e2f2ee829f895582623d85d99aee5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/how_to_play/Alternative/5_hot_combo_same_shape.png"
-dest_files=["res://.godot/imported/5_hot_combo_same_shape.png-db8350f4dd8ef7cf10e7aab310eacd63.ctex"]
+source_file="res://assets/ui/how_to_play/all_rare.png"
+dest_files=["res://.godot/imported/all_rare.png-66e2f2ee829f895582623d85d99aee5b.ctex"]
 
 [params]
 
