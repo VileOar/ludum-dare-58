@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3jxdog6ffevl"]
+[gd_scene load_steps=6 format=3 uid="uid://d3jxdog6ffevl"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_mmpqy"]
 [ext_resource type="Script" uid="uid://djbkh8x5xn8qh" path="res://src/ui/pause_menu.gd" id="1_yqfnv"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="3_6qq3a"]
-[ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="4_lbq8y"]
+[ext_resource type="PackedScene" uid="uid://bt8bwq7svsmow" path="res://src/ui/menus/combos/Combos.tscn" id="3_cttwf"]
+[ext_resource type="PackedScene" uid="uid://wg26fathbma7" path="res://src/stages/menus/options_menu.tscn" id="4_lbq8y"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -52,15 +53,29 @@ text = "Resume
 "
 flat = true
 
+[node name="Combos" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 828.0
+offset_top = -40.0
+offset_right = 1129.0
+offset_bottom = 40.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "Combos"
+flat = true
+
 [node name="SoulDex" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 810.0
-offset_top = -40.0
+offset_top = 70.0
 offset_right = 1111.0
-offset_bottom = 40.0
+offset_bottom = 150.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 72
 text = "Soul Dex"
@@ -72,9 +87,9 @@ anchors_preset = -1
 anchor_top = 0.60200006
 anchor_bottom = 0.60200006
 offset_left = 837.0
-offset_top = -40.160034
+offset_top = 69.839966
 offset_right = 1084.0
-offset_bottom = 39.839966
+offset_bottom = 149.83997
 theme_override_font_sizes/font_size = 72
 text = "Options"
 flat = true
@@ -86,14 +101,18 @@ anchors_preset = -1
 anchor_top = 0.60200006
 anchor_bottom = 0.60200006
 offset_left = 875.0
-offset_top = 69.839966
+offset_top = 179.83997
 offset_right = 1045.0
-offset_bottom = 149.83997
+offset_bottom = 259.83997
 theme_override_font_sizes/font_size = 72
 text = "Quit
 "
 flat = true
 alignment = 0
+
+[node name="CombosMenu" parent="." instance=ExtResource("3_cttwf")]
+visible = false
+layout_mode = 1
 
 [node name="DexMenu" parent="." instance=ExtResource("3_6qq3a")]
 visible = false
@@ -105,6 +124,8 @@ layout_mode = 1
 
 [connection signal="mouse_entered" from="Resume" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Combos" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Combos" to="." method="_on_combos_pressed"]
 [connection signal="mouse_entered" from="SoulDex" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="SoulDex" to="." method="_on_soul_dex_pressed"]
 [connection signal="mouse_entered" from="Options" to="." method="_on_button_mouse_entered"]

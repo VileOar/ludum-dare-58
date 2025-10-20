@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bt8bwq7svsmow"]
+[gd_scene load_steps=19 format=3 uid="uid://bt8bwq7svsmow"]
 
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_4boei"]
 [ext_resource type="Script" uid="uid://3byqc0ox5orh" path="res://src/ui/menus/combos/combos.gd" id="1_31tvw"]
+[ext_resource type="Theme" uid="uid://wuavbajw8yip" path="res://assets/ui/dex_theme.tres" id="1_yrgdc"]
 [ext_resource type="Texture2D" uid="uid://bfbbgf45weahf" path="res://assets/ui/how_to_play/legendary_triangle.png" id="2_6bdwd"]
 [ext_resource type="Texture2D" uid="uid://cayk43tt3rk58" path="res://assets/ui/how_to_play/normal_triangle.png" id="3_mlodp"]
 [ext_resource type="Texture2D" uid="uid://7rire4doli0s" path="res://assets/ui/how_to_play/rare_triangle.png" id="4_4myqr"]
@@ -17,13 +18,17 @@
 [ext_resource type="Texture2D" uid="uid://c48cb06xoajli" path="res://assets/ui/how_to_play/all_rare.png" id="15_31tvw"]
 [ext_resource type="Texture2D" uid="uid://ckymlqop5kq2f" path="res://assets/ui/how_to_play/all_legendary.png" id="16_yrgdc"]
 
-[node name="Combos" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h6yo"]
+bg_color = Color(0.5137255, 0.4627451, 0.6117647, 1)
+
+[node name="Combos" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_yrgdc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6h6yo")
 script = ExtResource("1_31tvw")
 metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0, 412.0, 178.0, 196.0, 1686.0]
 metadata/_edit_horizontal_guides_ = [221.0, 904.0, 532.0]

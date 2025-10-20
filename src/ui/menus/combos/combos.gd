@@ -9,6 +9,7 @@ func _ready() -> void:
 func _on_combo_return_pressed() -> void:
 	AudioManager.play_click_sfx()
 	emit_signal("combos_returned")
+	hide()
 
 
 func _on_button_mouse_entered():
