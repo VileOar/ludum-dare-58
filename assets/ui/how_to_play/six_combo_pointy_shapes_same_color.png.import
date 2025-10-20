@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3jeeuacy8bqi"
-path="res://.godot/imported/four_combo.png-22eda7ba2ea33f28b595a67217fc9e7f.ctex"
+uid="uid://dx0io42hrpiip"
+path="res://.godot/imported/six_combo_pointy_shapes_same_color.png-37bc6443cc5b61440adf391d9369cb9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/how_to_play/four_combo.png"
-dest_files=["res://.godot/imported/four_combo.png-22eda7ba2ea33f28b595a67217fc9e7f.ctex"]
+source_file="res://assets/ui/how_to_play/six_combo_pointy_shapes_same_color.png"
+dest_files=["res://.godot/imported/six_combo_pointy_shapes_same_color.png-37bc6443cc5b61440adf391d9369cb9d.ctex"]
 
 [params]
 

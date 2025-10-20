@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3jeeuacy8bqi"
-path="res://.godot/imported/four_combo.png-22eda7ba2ea33f28b595a67217fc9e7f.ctex"
+uid="uid://bmhvbsg21jq7q"
+path="res://.godot/imported/four_combo_many colours.png-8a5e264d2e1675ad55ce44801eaf5c73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/how_to_play/four_combo.png"
-dest_files=["res://.godot/imported/four_combo.png-22eda7ba2ea33f28b595a67217fc9e7f.ctex"]
+source_file="res://assets/ui/how_to_play/four_combo_many colours.png"
+dest_files=["res://.godot/imported/four_combo_many colours.png-8a5e264d2e1675ad55ce44801eaf5c73.ctex"]
 
 [params]
 

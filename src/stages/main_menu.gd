@@ -29,6 +29,7 @@ func _on_how_to_play_button_pressed() -> void:
 	_play_click_sfx()
 	_title_screen.hide()
 	_how_to_play_screen.show()
+	_how_to_play_screen.display_how_to_play(true)
 
 func _on_how_to_play_return_pressed() -> void:
 	_title_screen.show()

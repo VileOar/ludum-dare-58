@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://iorpodfv3lm7"]
+[gd_scene load_steps=8 format=3 uid="uid://iorpodfv3lm7"]
 
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_s8g4t"]
 [ext_resource type="Script" uid="uid://d3py1qv2n7v7c" path="res://src/stages/main_menu.gd" id="2_806vh"]
 [ext_resource type="PackedScene" uid="uid://bapa7eo4e3mln" path="res://src/ui/menus/how_to_play/how_to_play.tscn" id="4_rh86a"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="4_uc5nx"]
 [ext_resource type="SpriteFrames" uid="uid://bp1p7w5a6c2eh" path="res://assets/spriteframes/death.tres" id="5_ic5we"]
-[ext_resource type="Script" uid="uid://cl1gu8tqjw6jr" path="res://src/ui/menus/how_to_play/how_to_play.gd" id="5_rh86a"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="6_jscuh"]
-[ext_resource type="PackedScene" uid="uid://wg26fathbma7" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
+[ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="6_uc5nx"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -144,7 +143,6 @@ flip_h = true
 
 [node name="HowToPlay" parent="." instance=ExtResource("4_rh86a")]
 layout_mode = 0
-script = ExtResource("5_rh86a")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
