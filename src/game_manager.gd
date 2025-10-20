@@ -90,7 +90,7 @@ func collect_mook(mook: Mook) -> void:
 func _on_pause_key_press() -> void:
 	if !_is_game_paused:
 		_pause_game()
-	elif !_pause_menu_ref.is_soul_dex_open():
+	elif _pause_menu_ref.can_be_closed():
 		_resume_game()
 
 func _pause_game() -> void:
