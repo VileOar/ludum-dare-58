@@ -30,7 +30,7 @@ grow_vertical = 2
 theme = ExtResource("1_yrgdc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_6h6yo")
 script = ExtResource("1_31tvw")
-metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0, 412.0, 178.0, 196.0, 1686.0]
+metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0, 412.0, 178.0, 196.0, 1686.0, 1580.0, 292.0, 364.0, 581.0]
 metadata/_edit_horizontal_guides_ = [221.0, 904.0, 532.0]
 
 [node name="Title" type="Label" parent="."]
@@ -64,9 +64,9 @@ flat = true
 [node name="LeftTable" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 166.0
-offset_top = 40.0
+offset_top = 16.0
 offset_right = 206.0
-offset_bottom = 80.0
+offset_bottom = 56.0
 
 [node name="Rarity" type="Control" parent="LeftTable"]
 anchors_preset = 0
@@ -219,12 +219,39 @@ position = Vector2(130, 754)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("13_mf78e")
 
+[node name="GlobalLEft" type="Control" parent="LeftTable"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rares" type="RichTextLabel" parent="LeftTable/GlobalLEft"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 13.512001
+anchor_bottom = 13.512001
+offset_left = 201.0
+offset_top = 266.51996
+offset_right = 901.0
+offset_bottom = 326.51996
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("1_4boei")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "All Rares -> [color=#1d2b53]200 points[/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="AllRare" type="Sprite2D" parent="LeftTable/GlobalLEft"]
+position = Vector2(127.5, 844.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_31tvw")
+
 [node name="RightTable" type="Control" parent="."]
 anchors_preset = 0
 offset_left = -101.0
-offset_top = 10.0
+offset_top = -14.0
 offset_right = -61.0
-offset_bottom = 50.0
+offset_bottom = 26.0
 
 [node name="5Combos" type="Control" parent="RightTable"]
 anchors_preset = 0
@@ -385,53 +412,31 @@ Same color
 fit_content = true
 autowrap_mode = 0
 
-[node name="Global" type="Control" parent="."]
+[node name="GlobalRight" type="Control" parent="RightTable"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Rares" type="RichTextLabel" parent="Global"]
+[node name="Legendary" type="RichTextLabel" parent="RightTable/GlobalRight"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 13.512001
 anchor_bottom = 13.512001
-offset_left = 60.0
-offset_top = 466.51996
-offset_right = 760.0
-offset_bottom = 526.51996
+offset_left = 1363.0
+offset_top = 334.51996
+offset_right = 2063.0
+offset_bottom = 474.51996
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_4boei")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "Catch all Rares = [color=#1d2b53]200 points[/color]"
+text = "All Legendaries -> [color=#1d2b53]300 points[/color]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="AllRare" type="Sprite2D" parent="Global"]
-position = Vector2(150, 975)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("15_31tvw")
-
-[node name="Legendary" type="RichTextLabel" parent="Global"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1244.0
-offset_top = 466.51996
-offset_right = 1944.0
-offset_bottom = 606.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Catch all Legendaries = [color=#1d2b53]300 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="AllLegendary" type="Sprite2D" parent="Global"]
-position = Vector2(1333, 975)
-scale = Vector2(0.5, 0.5)
+[node name="AllLegendary" type="Sprite2D" parent="RightTable/GlobalRight"]
+position = Vector2(1285.0001, 904.00006)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("16_yrgdc")
 
 [connection signal="mouse_entered" from="CombosReturn" to="." method="_on_button_mouse_entered"]
