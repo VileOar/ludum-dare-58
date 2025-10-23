@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7w84b7bmhi4v"]
+[gd_scene load_steps=8 format=3 uid="uid://c7w84b7bmhi4v"]
 
+[ext_resource type="Texture2D" uid="uid://bvdjwvlprjemr" path="res://assets/gfx/name_dex/triangle_icon.png" id="2_2g0yj"]
 [ext_resource type="Texture2D" uid="uid://bikykts0p4a6x" path="res://assets/gfx/name_dex/star_icon.png" id="2_jniw0"]
 [ext_resource type="Script" uid="uid://dma88saxhjjp5" path="res://src/ui/menus/dex/dex_entry.gd" id="2_p6hcx"]
 [ext_resource type="Texture2D" uid="uid://bvam6cu1o8dp8" path="res://assets/gfx/name_dex/checkbox_ticked.png" id="3_iofrn"]
@@ -45,9 +46,22 @@ custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_jniw0")
+texture = ExtResource("2_2g0yj")
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jniw0")
+
+[node name="RarityTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_jniw0")
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxEmpty_jniw0")
@@ -61,19 +75,6 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 5
 theme_override_fonts/font = ExtResource("3_p6hcx")
 text = "John Smithsonian"
-
-[node name="VSeparator3" type="VSeparator" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 1
-theme_override_styles/separator = SubResource("StyleBoxEmpty_jniw0")
-
-[node name="RarityTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_jniw0")
 
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
