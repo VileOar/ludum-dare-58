@@ -142,13 +142,17 @@ frame_progress = 0.38982445
 flip_h = true
 
 [node name="HowToPlay" parent="." instance=ExtResource("4_rh86a")]
+visible = false
 layout_mode = 0
 
 [node name="Credits" type="Control" parent="."]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Title" type="Label" parent="Credits"]
 layout_mode = 1
@@ -156,72 +160,74 @@ anchors_preset = -1
 anchor_top = 4.375
 anchor_bottom = 4.375
 offset_left = 740.0
-offset_top = -75.0
+offset_top = -4625.0
 offset_right = 1181.0
-offset_bottom = 69.0
+offset_bottom = -4481.0
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
 text = "Credits"
 
-[node name="CreditsVBox" type="VBoxContainer" parent="Credits"]
+[node name="CreditsHBox" type="HBoxContainer" parent="Credits"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.500001
-anchor_bottom = 13.500001
-offset_left = 797.0
-offset_top = -258.00006
-offset_right = 1124.0
-offset_bottom = 257.99994
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -742.0
+offset_top = -147.0
+offset_right = 742.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Artist" type="Label" parent="Credits/CreditsVBox"]
+[node name="ArtVBox" type="VBoxContainer" parent="Credits/CreditsHBox"]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
-theme_override_constants/shadow_offset_x = 3
+alignment = 1
+
+[node name="Art" type="Label" parent="Credits/CreditsHBox/ArtVBox"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 0
-theme_override_font_sizes/font_size = 48
-text = "Artist"
+theme_override_font_sizes/font_size = 72
+text = "Art"
+horizontal_alignment = 1
 
-[node name="HSeparator5" type="HSeparator" parent="Credits/CreditsVBox"]
-custom_minimum_size = Vector2(0, 5)
+[node name="HSeparator5" type="HSeparator" parent="Credits/CreditsHBox/ArtVBox"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
-[node name="ArtHbox" type="HBoxContainer" parent="Credits/CreditsVBox"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="Credits/CreditsVBox/ArtHbox"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="ArtistName" type="Label" parent="Credits/CreditsVBox/ArtHbox"]
+[node name="ArtistName" type="Label" parent="Credits/CreditsHBox/ArtVBox"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("6_jscuh")
 theme_override_font_sizes/font_size = 36
 text = "Pedro Valerio"
+horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Credits/CreditsVBox"]
-custom_minimum_size = Vector2(0, 20)
+[node name="VSeparator" type="VSeparator" parent="Credits/CreditsHBox"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="DevVbox" type="VBoxContainer" parent="Credits/CreditsHBox"]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 
-[node name="Developers" type="Label" parent="Credits/CreditsVBox"]
+[node name="Programming" type="Label" parent="Credits/CreditsHBox/DevVbox"]
 layout_mode = 2
-theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 0
-theme_override_font_sizes/font_size = 48
-text = "Developers"
+theme_override_font_sizes/font_size = 72
+text = "Programming"
+horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="Credits/CreditsVBox"]
-custom_minimum_size = Vector2(0, 5)
+[node name="HSeparator3" type="HSeparator" parent="Credits/CreditsHBox/DevVbox"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
-[node name="DevHBox" type="HBoxContainer" parent="Credits/CreditsVBox"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="Credits/CreditsVBox/DevHBox"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="DeveloperNames" type="Label" parent="Credits/CreditsVBox/DevHBox"]
+[node name="DeveloperNames" type="Label" parent="Credits/CreditsHBox/DevVbox"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/line_spacing = 6
@@ -232,35 +238,60 @@ Francisco Pinto
 Luis Chaves
 Miguel Monteiro
 Pedro Valerio"
+horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Credits/CreditsVBox"]
-custom_minimum_size = Vector2(0, 20)
+[node name="VSeparator2" type="VSeparator" parent="Credits/CreditsHBox"]
 layout_mode = 2
+theme_override_constants/separation = 100
 
-[node name="SoundDesigner" type="Label" parent="Credits/CreditsVBox"]
+[node name="DesignVBox" type="VBoxContainer" parent="Credits/CreditsHBox"]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
-theme_override_constants/shadow_offset_x = 3
+alignment = 1
+
+[node name="SoundDesign" type="Label" parent="Credits/CreditsHBox/DesignVBox"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 0
-theme_override_font_sizes/font_size = 48
-text = "Sound Designer"
+theme_override_font_sizes/font_size = 72
+text = "Sound Design"
+horizontal_alignment = 1
 
-[node name="HSeparator4" type="HSeparator" parent="Credits/CreditsVBox"]
-custom_minimum_size = Vector2(0, 5)
+[node name="HSeparator4" type="HSeparator" parent="Credits/CreditsHBox/DesignVBox"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
-[node name="SoundHBox" type="HBoxContainer" parent="Credits/CreditsVBox"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="Credits/CreditsVBox/SoundHBox"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="SoundDesignName" type="Label" parent="Credits/CreditsVBox/SoundHBox"]
+[node name="SoundDesignName" type="Label" parent="Credits/CreditsHBox/DesignVBox"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("6_jscuh")
 theme_override_font_sizes/font_size = 36
 text = "Francisco Pinto"
+horizontal_alignment = 1
+
+[node name="HSeparator6" type="HSeparator" parent="Credits/CreditsHBox/DesignVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="UIDesign" type="Label" parent="Credits/CreditsHBox/DesignVBox"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 72
+text = "UI Design"
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="Credits/CreditsHBox/DesignVBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="UIDesignName" type="Label" parent="Credits/CreditsHBox/DesignVBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("6_jscuh")
+theme_override_font_sizes/font_size = 36
+text = "Miguel Monteiro"
+horizontal_alignment = 1
 
 [node name="CreditsReturn" type="Button" parent="Credits"]
 layout_mode = 1
@@ -268,9 +299,9 @@ anchors_preset = -1
 anchor_top = 22.875002
 anchor_bottom = 22.875002
 offset_left = 835.0
-offset_top = -40.00006
+offset_top = -23830.002
 offset_right = 1086.0
-offset_bottom = 39.99994
+offset_bottom = -23750.002
 theme_override_font_sizes/font_size = 72
 text = "Return"
 flat = true
