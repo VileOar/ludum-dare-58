@@ -1,4 +1,4 @@
-extends Control
+extends ColorRect
 
 signal how_to_play_return
 
@@ -10,7 +10,7 @@ func _ready():
 	$HowToPlayInfo/HowToPlayReturn.pressed.connect(_on_how_to_play_return_pressed)
 	$HowToPlayInfo/HowToPlayReturn.mouse_entered.connect(_on_button_mouse_entered)
 	combos.combos_returned.connect(_on_combos_returned_pressed)
-	visible = false
+	#visible = false
 	
 	
 func _on_how_to_play_return_pressed() -> void:

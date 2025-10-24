@@ -74,7 +74,7 @@ grow_vertical = 2
 theme = ExtResource("3_3kpix")
 script = ExtResource("1_kij6a")
 _transition_overlay_ref = NodePath("TransitionOverlay")
-metadata/_edit_horizontal_guides_ = [958.0]
+metadata/_edit_horizontal_guides_ = [981.0]
 metadata/_edit_vertical_guides_ = [118.0]
 
 [node name="SolidBackground" type="ColorRect" parent="."]

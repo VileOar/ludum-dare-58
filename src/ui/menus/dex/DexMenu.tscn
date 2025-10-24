@@ -14,6 +14,7 @@ grow_vertical = 2
 color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 script = ExtResource("1_k4tns")
 entry_scene = ExtResource("2_lt30j")
+metadata/_edit_horizontal_guides_ = [982.0]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -153,7 +154,7 @@ flat = true
 
 [node name="HSeparatorBot" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 68
 
 [node name="VSeparatorRight" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
