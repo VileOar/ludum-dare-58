@@ -1,25 +1,40 @@
-[gd_scene load_steps=19 format=3 uid="uid://bt8bwq7svsmow"]
+[gd_scene load_steps=14 format=3 uid="uid://bt8bwq7svsmow"]
 
-[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_4boei"]
 [ext_resource type="Script" uid="uid://3byqc0ox5orh" path="res://src/ui/menus/combos/combos.gd" id="1_31tvw"]
-[ext_resource type="Theme" uid="uid://wuavbajw8yip" path="res://assets/ui/dex_theme.tres" id="1_yrgdc"]
-[ext_resource type="Texture2D" uid="uid://bfbbgf45weahf" path="res://assets/ui/how_to_play/legendary_triangle.png" id="2_6bdwd"]
-[ext_resource type="Texture2D" uid="uid://cayk43tt3rk58" path="res://assets/ui/how_to_play/normal_triangle.png" id="3_mlodp"]
-[ext_resource type="Texture2D" uid="uid://7rire4doli0s" path="res://assets/ui/how_to_play/rare_triangle.png" id="4_4myqr"]
-[ext_resource type="Texture2D" uid="uid://d3jeeuacy8bqi" path="res://assets/ui/how_to_play/four_combo.png" id="5_8fksu"]
-[ext_resource type="Texture2D" uid="uid://bmhvbsg21jq7q" path="res://assets/ui/how_to_play/four_combo_many colours.png" id="7_31tvw"]
-[ext_resource type="Texture2D" uid="uid://bhyrb5sq61vkp" path="res://assets/ui/how_to_play/5_hot_combo_shapes.png" id="9_31tvw"]
-[ext_resource type="Texture2D" uid="uid://l2xnxrfmruym" path="res://assets/ui/how_to_play/5_hot_combo_same_shape.png" id="10_yrgdc"]
-[ext_resource type="Texture2D" uid="uid://coicfc53l21v3" path="res://assets/ui/how_to_play/six_combo_random_shapes - Cópia.png" id="11_yrgdc"]
-[ext_resource type="Texture2D" uid="uid://cogo1r28mfirh" path="res://assets/ui/how_to_play/6_combo.png" id="12_6h6yo"]
-[ext_resource type="Texture2D" uid="uid://1pxhr088lhr" path="res://assets/ui/how_to_play/portugal_flag.png" id="13_mf78e"]
-[ext_resource type="Texture2D" uid="uid://dx0io42hrpiip" path="res://assets/ui/how_to_play/six_combo_pointy_shapes_same_color.png" id="13_yrgdc"]
-[ext_resource type="Texture2D" uid="uid://ddkmtm18d4ts4" path="res://assets/ui/how_to_play/six_combo_pointy_shapes.png" id="14_6h6yo"]
-[ext_resource type="Texture2D" uid="uid://c48cb06xoajli" path="res://assets/ui/how_to_play/all_rare.png" id="15_31tvw"]
-[ext_resource type="Texture2D" uid="uid://ckymlqop5kq2f" path="res://assets/ui/how_to_play/all_legendary.png" id="16_yrgdc"]
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_yrgdc"]
+[ext_resource type="Texture2D" uid="uid://bvdjwvlprjemr" path="res://assets/gfx/name_dex/triangle_icon.png" id="18_8qkmy"]
+[ext_resource type="Shader" uid="uid://52oqfdc7rt6o" path="res://assets/shaders/aura.gdshader" id="18_r00lf"]
+[ext_resource type="Texture2D" uid="uid://chtyvf3fdmgx2" path="res://assets/shaders/aura_noise.tres" id="19_axrav"]
+[ext_resource type="Texture2D" uid="uid://4fh3yucmvq34" path="res://assets/shaders/textures/circle_fade.jpg" id="20_r00lf"]
+[ext_resource type="Texture2D" uid="uid://2nxfpkfatuoc" path="res://assets/gfx/name_dex/square_icon.png" id="22_8qkmy"]
+[ext_resource type="Texture2D" uid="uid://cbqpmwtvv6i2l" path="res://assets/gfx/name_dex/circle_icon.png" id="22_xoo8d"]
+[ext_resource type="Texture2D" uid="uid://btmruwtfctd0n" path="res://assets/gfx/name_dex/lozenge_icon.png" id="24_gixos"]
+[ext_resource type="Texture2D" uid="uid://d2nso2upgadlq" path="res://assets/ui/how_to_play/pt_flag.png" id="25_0n574"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h6yo"]
 bg_color = Color(0.5137255, 0.4627451, 0.6117647, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axrav"]
+shader = ExtResource("18_r00lf")
+shader_parameter/n = ExtResource("19_axrav")
+shader_parameter/intensity = 7.0
+shader_parameter/speed = 2.0
+shader_parameter/color = Color(0.88235295, 0.33333334, 0.92941177, 1)
+shader_parameter/circle_radius = 150.0
+shader_parameter/circle_smooth_width = 50.0
+shader_parameter/mouse_position = Vector2(0, 0)
+shader_parameter/screen_resolution = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bdwd"]
+shader = ExtResource("18_r00lf")
+shader_parameter/n = ExtResource("19_axrav")
+shader_parameter/intensity = 7.0
+shader_parameter/speed = 2.0
+shader_parameter/color = Color(0.9529412, 0.9372549, 0.49019608, 1)
+shader_parameter/circle_radius = 150.0
+shader_parameter/circle_smooth_width = 50.0
+shader_parameter/mouse_position = Vector2(0, 0)
+shader_parameter/screen_resolution = Vector2(0, 0)
 
 [node name="Combos" type="Panel"]
 anchors_preset = 15
@@ -30,414 +45,638 @@ grow_vertical = 2
 theme = ExtResource("1_yrgdc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_6h6yo")
 script = ExtResource("1_31tvw")
-metadata/_edit_vertical_guides_ = [57.0, 960.0, 1350.0, 412.0, 178.0, 196.0, 1686.0, 1580.0, 292.0, 364.0, 581.0]
-metadata/_edit_horizontal_guides_ = [221.0, 904.0, 532.0]
+metadata/_edit_vertical_guides_ = [101.0, 1820.0]
+metadata/_edit_horizontal_guides_ = [264.0, 875.0]
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 4.375
-anchor_bottom = 4.375
-offset_left = 582.0
-offset_top = -4660.0
-offset_right = 1405.0
-offset_bottom = -4463.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.5
+offset_top = 100.0
+offset_right = 220.5
+offset_bottom = 244.0
+grow_horizontal = 2
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
 text = "Combos"
 horizontal_alignment = 1
 
+[node name="Content" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 264.0
+offset_right = -100.0
+offset_bottom = -206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Normal" type="TextureRect" parent="Content"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 0
+offset_left = 641.0
+offset_top = 10.0
+offset_right = 673.0
+offset_bottom = 42.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_8qkmy")
+
+[node name="Rare" type="TextureRect" parent="Content"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 0
+offset_left = 641.0
+offset_top = 86.0
+offset_right = 673.0
+offset_bottom = 118.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_8qkmy")
+
+[node name="AuraRare" type="TextureRect" parent="Content/Rare"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_axrav")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -32.0
+offset_right = 222.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("20_r00lf")
+
+[node name="Legendary" type="TextureRect" parent="Content"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 0
+offset_left = 635.0
+offset_top = 159.0
+offset_right = 667.0
+offset_bottom = 191.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_8qkmy")
+
+[node name="AuraLegendary" type="TextureRect" parent="Content/Legendary"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_6bdwd")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -32.0
+offset_right = 222.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("20_r00lf")
+
+[node name="AllShapes" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 239.0
+offset_right = 903.0
+offset_bottom = 303.0
+
+[node name="4Shapes" type="TextureRect" parent="Content/AllShapes"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="4Shapes2" type="TextureRect" parent="Content/AllShapes"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("22_8qkmy")
+expand_mode = 2
+
+[node name="4Shapes3" type="TextureRect" parent="Content/AllShapes"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+texture = ExtResource("22_xoo8d")
+expand_mode = 2
+
+[node name="4Shapes4" type="TextureRect" parent="Content/AllShapes"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("24_gixos")
+expand_mode = 3
+
+[node name="AllShapesSC" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 303.0
+offset_right = 903.0
+offset_bottom = 367.0
+
+[node name="4Shapes" type="TextureRect" parent="Content/AllShapesSC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="4Shapes2" type="TextureRect" parent="Content/AllShapesSC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+texture = ExtResource("22_8qkmy")
+expand_mode = 2
+
+[node name="4Shapes3" type="TextureRect" parent="Content/AllShapesSC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+texture = ExtResource("22_xoo8d")
+expand_mode = 2
+
+[node name="4Shapes4" type="TextureRect" parent="Content/AllShapesSC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("24_gixos")
+expand_mode = 3
+
+[node name="5HotColoursSS" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 476.0
+offset_right = 1038.0
+offset_bottom = 540.0
+
+[node name="5Colours" type="TextureRect" parent="Content/5HotColoursSS"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="5Colours2" type="TextureRect" parent="Content/5HotColoursSS"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="5Colours3" type="TextureRect" parent="Content/5HotColoursSS"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="5Colours4" type="TextureRect" parent="Content/5HotColoursSS"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="5Colours5" type="TextureRect" parent="Content/5HotColoursSS"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="5ColdColoursSS" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 531.0
+offset_right = 1036.0
+offset_bottom = 595.0
+
+[node name="5Colours" type="TextureRect" parent="Content/5ColdColoursSS"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="5Colours2" type="TextureRect" parent="Content/5ColdColoursSS"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="5Colours3" type="TextureRect" parent="Content/5ColdColoursSS"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="5Colours4" type="TextureRect" parent="Content/5ColdColoursSS"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="5Colours5" type="TextureRect" parent="Content/5ColdColoursSS"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="5HotColours" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 363.0
+offset_right = 1040.0
+offset_bottom = 427.0
+
+[node name="5Colours" type="TextureRect" parent="Content/5HotColours"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="5Colours2" type="TextureRect" parent="Content/5HotColours"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+texture = ExtResource("22_8qkmy")
+expand_mode = 2
+
+[node name="5Colours3" type="TextureRect" parent="Content/5HotColours"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+texture = ExtResource("22_xoo8d")
+expand_mode = 2
+
+[node name="5Colours4" type="TextureRect" parent="Content/5HotColours"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("22_xoo8d")
+expand_mode = 3
+
+[node name="5Colours5" type="TextureRect" parent="Content/5HotColours"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="5ColdColours" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 418.0
+offset_right = 1038.0
+offset_bottom = 482.0
+
+[node name="5Colours" type="TextureRect" parent="Content/5ColdColours"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="5Colours2" type="TextureRect" parent="Content/5ColdColours"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("22_8qkmy")
+expand_mode = 2
+
+[node name="5Colours3" type="TextureRect" parent="Content/5ColdColours"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("22_xoo8d")
+expand_mode = 2
+
+[node name="5Colours4" type="TextureRect" parent="Content/5ColdColours"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("22_xoo8d")
+expand_mode = 3
+
+[node name="5Colours5" type="TextureRect" parent="Content/5ColdColours"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="AllColours" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 1137.0
+offset_top = 22.0
+offset_right = 1541.0
+offset_bottom = 86.0
+
+[node name="6Colours" type="TextureRect" parent="Content/AllColours"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Colours2" type="TextureRect" parent="Content/AllColours"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+texture = ExtResource("22_8qkmy")
+expand_mode = 2
+
+[node name="6Colours3" type="TextureRect" parent="Content/AllColours"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours4" type="TextureRect" parent="Content/AllColours"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("22_xoo8d")
+expand_mode = 3
+
+[node name="6Colours5" type="TextureRect" parent="Content/AllColours"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="6Colours6" type="TextureRect" parent="Content/AllColours"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="AllColoursIO" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 80.0
+offset_right = 1540.0
+offset_bottom = 144.0
+
+[node name="6Colours" type="TextureRect" parent="Content/AllColoursIO"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Colours2" type="TextureRect" parent="Content/AllColoursIO"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+texture = ExtResource("22_8qkmy")
+expand_mode = 2
+
+[node name="6Colours3" type="TextureRect" parent="Content/AllColoursIO"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours4" type="TextureRect" parent="Content/AllColoursIO"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("22_xoo8d")
+expand_mode = 3
+
+[node name="6Colours5" type="TextureRect" parent="Content/AllColoursIO"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="6Colours6" type="TextureRect" parent="Content/AllColoursIO"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="AllColoursSS" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 138.0
+offset_right = 1540.0
+offset_bottom = 202.0
+
+[node name="6Colours" type="TextureRect" parent="Content/AllColoursSS"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Colours2" type="TextureRect" parent="Content/AllColoursSS"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours3" type="TextureRect" parent="Content/AllColoursSS"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours4" type="TextureRect" parent="Content/AllColoursSS"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Colours5" type="TextureRect" parent="Content/AllColoursSS"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours6" type="TextureRect" parent="Content/AllColoursSS"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="AllColoursSSIO" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 1134.0
+offset_top = 193.0
+offset_right = 1538.0
+offset_bottom = 257.0
+
+[node name="6Colours" type="TextureRect" parent="Content/AllColoursSSIO"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Colours2" type="TextureRect" parent="Content/AllColoursSSIO"]
+modulate = Color(1, 0.6392157, 0, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours3" type="TextureRect" parent="Content/AllColoursSSIO"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours4" type="TextureRect" parent="Content/AllColoursSSIO"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Colours5" type="TextureRect" parent="Content/AllColoursSSIO"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Colours6" type="TextureRect" parent="Content/AllColoursSSIO"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Pointy" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 251.0
+offset_right = 1540.0
+offset_bottom = 315.0
+
+[node name="6Pointy" type="TextureRect" parent="Content/6Pointy"]
+modulate = Color(1, 0.9254902, 0.15294118, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Pointy2" type="TextureRect" parent="Content/6Pointy"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="6Pointy3" type="TextureRect" parent="Content/6Pointy"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Pointy4" type="TextureRect" parent="Content/6Pointy"]
+modulate = Color(1, 0.46666667, 0.65882355, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("24_gixos")
+expand_mode = 3
+
+[node name="6Pointy5" type="TextureRect" parent="Content/6Pointy"]
+modulate = Color(1, 0, 0.3019608, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="6Pointy6" type="TextureRect" parent="Content/6Pointy"]
+modulate = Color(0.16078432, 0.6784314, 1, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6PointySC" type="HBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 1134.0
+offset_top = 306.0
+offset_right = 1538.0
+offset_bottom = 370.0
+
+[node name="6Pointy" type="TextureRect" parent="Content/6PointySC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("18_8qkmy")
+expand_mode = 3
+
+[node name="6Pointy2" type="TextureRect" parent="Content/6PointySC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="6Pointy3" type="TextureRect" parent="Content/6PointySC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="6Pointy4" type="TextureRect" parent="Content/6PointySC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("24_gixos")
+expand_mode = 3
+
+[node name="6Pointy5" type="TextureRect" parent="Content/6PointySC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+texture = ExtResource("24_gixos")
+expand_mode = 2
+
+[node name="6Pointy6" type="TextureRect" parent="Content/6PointySC"]
+modulate = Color(0, 0.89411765, 0.21176471, 1)
+layout_mode = 2
+texture = ExtResource("18_8qkmy")
+expand_mode = 2
+
+[node name="SecretCombo" type="TextureRect" parent="Content"]
+layout_mode = 0
+offset_left = 1142.0
+offset_top = 375.0
+offset_right = 1174.0
+offset_bottom = 407.0
+scale = Vector2(2, 2)
+texture = ExtResource("25_0n574")
+
+[node name="SecretCombo2" type="TextureRect" parent="Content"]
+layout_mode = 0
+offset_left = 1141.0
+offset_top = 433.0
+offset_right = 1173.0
+offset_bottom = 465.0
+scale = Vector2(2, 2)
+texture = ExtResource("25_0n574")
+
+[node name="SecretCombo3" type="TextureRect" parent="Content"]
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 489.0
+offset_right = 1172.0
+offset_bottom = 521.0
+scale = Vector2(2, 2)
+texture = ExtResource("25_0n574")
+
 [node name="CombosReturn" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 22.875002
-anchor_bottom = 22.875002
-offset_left = 835.0
-offset_top = -23830.002
-offset_right = 1086.0
-offset_bottom = -23723.002
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -861.0
+offset_top = -583.0
+offset_right = -610.0
+offset_bottom = -476.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 72
 text = "Return"
 flat = true
-
-[node name="LeftTable" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 166.0
-offset_top = 16.0
-offset_right = 206.0
-offset_bottom = 56.0
-
-[node name="Rarity" type="Control" parent="LeftTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Normal" type="RichTextLabel" parent="LeftTable/Rarity"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 200.0
-offset_top = -320.48004
-offset_right = 938.0
-offset_bottom = -160.48004
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Normal ----> [color=#1d2b53]10 points[/color]
-"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Rare" type="RichTextLabel" parent="LeftTable/Rarity"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 200.0
-offset_top = -220.48004
-offset_right = 938.0
-offset_bottom = 21.519958
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Rare ------> [color=#1d2b53]20 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Legendary" type="RichTextLabel" parent="LeftTable/Rarity"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 200.0
-offset_top = -120.48004
-offset_right = 938.0
-offset_bottom = 121.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Legendary -> [color=#1d2b53]30 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="NormalTriangle" type="Sprite2D" parent="LeftTable/Rarity"]
-position = Vector2(130, 240)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_mlodp")
-
-[node name="RareTriangle" type="Sprite2D" parent="LeftTable/Rarity"]
-position = Vector2(130, 340)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_4myqr")
-
-[node name="LegendaryTriangle" type="Sprite2D" parent="LeftTable/Rarity"]
-position = Vector2(130, 440)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_6bdwd")
-
-[node name="4Combos" type="Control" parent="LeftTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="4CombosAllShapes" type="RichTextLabel" parent="LeftTable/4Combos"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 200.0
-offset_top = -20.480042
-offset_right = 900.0
-offset_bottom = 139.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "4 shapes --> [color=#1d2b53]+40 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="4ComboSameColor" type="RichTextLabel" parent="LeftTable/4Combos"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 200.0
-offset_top = 79.51996
-offset_right = 900.0
-offset_bottom = 311.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "4 shapes  -> [color=#1d2b53]+80 points[/color] 
-Same color"
-fit_content = true
-autowrap_mode = 0
-
-[node name="FourCombo" type="Sprite2D" parent="LeftTable/4Combos"]
-position = Vector2(130, 540)
-scale = Vector2(0.45, 0.459)
-texture = ExtResource("5_8fksu")
-
-[node name="FourComboManyColours" type="Sprite2D" parent="LeftTable/4Combos"]
-position = Vector2(130, 653)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("7_31tvw")
-
-[node name="Portugal" type="Control" parent="LeftTable"]
-anchors_preset = 0
-offset_top = -5.0
-offset_right = 40.0
-offset_bottom = 35.0
-
-[node name="Portugal" type="RichTextLabel" parent="LeftTable/Portugal"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 200.0
-offset_top = 179.51996
-offset_right = 900.0
-offset_bottom = 339.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "5 shapes -->[color=#1d2b53] +160 points[/color]
-Secret combo  "
-fit_content = true
-autowrap_mode = 0
-
-[node name="PortugalFlag" type="Sprite2D" parent="LeftTable/Portugal"]
-position = Vector2(130, 754)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("13_mf78e")
-
-[node name="GlobalLEft" type="Control" parent="LeftTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Rares" type="RichTextLabel" parent="LeftTable/GlobalLEft"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 201.0
-offset_top = 266.51996
-offset_right = 901.0
-offset_bottom = 326.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "All Rares -> [color=#1d2b53]200 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="AllRare" type="Sprite2D" parent="LeftTable/GlobalLEft"]
-position = Vector2(127.5, 844.75)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("15_31tvw")
-
-[node name="RightTable" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -101.0
-offset_top = -14.0
-offset_right = -61.0
-offset_bottom = 26.0
-
-[node name="5Combos" type="Control" parent="RightTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="5HotComboShapes" type="Sprite2D" parent="RightTable/5Combos"]
-position = Vector2(1285, 260)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("9_31tvw")
-
-[node name="5HotComboSameShape" type="Sprite2D" parent="RightTable/5Combos"]
-position = Vector2(1285, 370)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("10_yrgdc")
-
-[node name="5CombosHot" type="RichTextLabel" parent="RightTable/5Combos"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1360.0
-offset_top = -320.48004
-offset_right = 2060.0
-offset_bottom = -160.48004
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "5 shapes --------> [color=#1d2b53]+70 points[/color]
-Hot/cold colors"
-fit_content = true
-autowrap_mode = 0
-
-[node name="5CombosSameShapes" type="RichTextLabel" parent="RightTable/5Combos"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1360.0
-offset_top = -210.48004
-offset_right = 2060.0
-offset_bottom = -50.48004
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "5 equal shapes -->[color=#1d2b53] +90 points[/color]
-Hot/cold colors"
-fit_content = true
-autowrap_mode = 0
-
-[node name="6ComboColors" type="Control" parent="RightTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SixComboRandomShapes2" type="Sprite2D" parent="RightTable/6ComboColors"]
-position = Vector2(1285, 480)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("11_yrgdc")
-
-[node name="6ComboSameShape" type="Sprite2D" parent="RightTable/6ComboColors"]
-position = Vector2(1285, 590)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("12_6h6yo")
-
-[node name="6CombosAllColours" type="RichTextLabel" parent="RightTable/6ComboColors"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1360.0
-offset_top = -100.48004
-offset_right = 2060.0
-offset_bottom = 59.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "6 colors --------> [color=#1d2b53]+60 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="6CombosSameShape" type="RichTextLabel" parent="RightTable/6ComboColors"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1360.0
-offset_top = 9.5199585
-offset_right = 2060.0
-offset_bottom = 194.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "6 colors --------> [color=#1d2b53]+150 points[/color]
-Same shape
-
-
-
-"
-fit_content = true
-autowrap_mode = 0
-
-[node name="6ComboPointy" type="Control" parent="RightTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SixComboPointyShapes" type="Sprite2D" parent="RightTable/6ComboPointy"]
-position = Vector2(1285, 700)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("14_6h6yo")
-
-[node name="SixComboPointyShapesSameColor" type="Sprite2D" parent="RightTable/6ComboPointy"]
-position = Vector2(1285, 810)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("13_yrgdc")
-
-[node name="6ComboPointy" type="RichTextLabel" parent="RightTable/6ComboPointy"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1359.0
-offset_top = 119.51996
-offset_right = 2059.0
-offset_bottom = 279.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "6 pointy shapes -> [color=#1d2b53]+60 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="6ComboPointy2" type="RichTextLabel" parent="RightTable/6ComboPointy"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1359.0
-offset_top = 229.51996
-offset_right = 2059.0
-offset_bottom = 414.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "6 pointy shapes -> [color=#1d2b53]+110 points[/color]
-Same color 
-
-
-
-"
-fit_content = true
-autowrap_mode = 0
-
-[node name="GlobalRight" type="Control" parent="RightTable"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Legendary" type="RichTextLabel" parent="RightTable/GlobalRight"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 13.512001
-anchor_bottom = 13.512001
-offset_left = 1363.0
-offset_top = 334.51996
-offset_right = 2063.0
-offset_bottom = 474.51996
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("1_4boei")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "All Legendaries -> [color=#1d2b53]300 points[/color]"
-fit_content = true
-autowrap_mode = 0
-
-[node name="AllLegendary" type="Sprite2D" parent="RightTable/GlobalRight"]
-position = Vector2(1285.0001, 904.00006)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("16_yrgdc")
 
 [connection signal="mouse_entered" from="CombosReturn" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CombosReturn" to="." method="_on_combo_return_pressed"]
