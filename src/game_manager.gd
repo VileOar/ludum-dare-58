@@ -74,18 +74,18 @@ func _input(event):
 		_on_pause_key_press()
 
 func remove_bag_slot() -> void:
-	if _bag_slots_remaining > 0:
-		_bag_slots_remaining -= 1
-		_hud_ref.update_bag_slots_display(_bag_slots_remaining)
-		if _bag_slots_remaining == 0 and !_is_game_over:
-			_is_game_over = true
-			_end_game(EndConditions.FULL_BAG)
+	_bag_slots_remaining -= 1
+	_hud_ref.update_bag_slots_display(_bag_slots_remaining)
+	if _bag_slots_remaining == 0 and !_is_game_over:
+		_is_game_over = true
+		_end_game(EndConditions.FULL_BAG)
 
 func collect_mook(mook: Mook) -> void:
-	ScoreManager.on_collect(mook.get_stats())
-	DexManager.on_collect_mook(mook.get_stats())
-	_hud_ref.update_bag_slot_icons(ScoreManager.get_last_collected_mooks())
-	remove_bag_slot()
+	if _bag_slots_remaining > 0:
+		ScoreManager.on_collect(mook.get_stats())
+		DexManager.on_collect_mook(mook.get_stats())
+		_hud_ref.update_bag_slot_icons(ScoreManager.get_last_collected_mooks())
+		remove_bag_slot()
 
 func _on_pause_key_press() -> void:
 	if !_is_game_paused:
