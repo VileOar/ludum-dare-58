@@ -23,6 +23,7 @@ const LEGENDARY_MOOK_CHANCE: float = 0.01
 const BASE_SCORE: int = 10
 
 const GOOD_SCORE_THRESHOLD: int = 1400
+const EXCELLENT_SCORE_THRESHOLD: int = 2500
 
 # multipliers awarded on soul rarity
 const _RARE_MULTIPLIER: int = 2
@@ -78,7 +79,8 @@ const SCORE_SCENE_FILEPATH: String = "res://src/stages/score_screen.tscn"
 
 # end game messages
 const END_MESSAGE_FULL_BAG: String = "Rest In Peace"
-const END_MESSAGE_TIMEOUT: String = "Your Time Has Come"
+const END_MESSAGE_TIMEOUT: String = "Your time has come"
+const END_MESSAGE_EXCELLENT_SCORE: String = "I am become Death, the destroyer of worlds"
 
 enum Shapes {
 	POINTY,

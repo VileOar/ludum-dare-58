@@ -231,7 +231,7 @@ func _calculate_mook_score(combo_size: int) -> int:
 		return 0
 
 func calculate_total_score() -> int:
-	return _combo_score_total + _no_combo_score_total + _rarity_bonus_total
+	return _combo_score_total + _no_combo_score_total + calculate_rarity_score()
 
 func calculate_rarity_score() -> int:
 	var rarity_score: int = 0

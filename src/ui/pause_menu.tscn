@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djbkh8x5xn8qh" path="res://src/ui/pause_menu.gd" id="1_yqfnv"]
 [ext_resource type="PackedScene" uid="uid://ct0dj0herf2a6" path="res://src/ui/menus/dex/DexMenu.tscn" id="3_6qq3a"]
 [ext_resource type="PackedScene" uid="uid://2fbjapo3ufqi" path="res://src/stages/menus/options_menu.tscn" id="4_lbq8y"]
-[ext_resource type="StyleBox" uid="uid://b0wkqsv6xh7ty" path="res://assets/ui/panel_style.tres" id="6_kcxqm"]
+[ext_resource type="StyleBox" uid="uid://dy3sdhyuwora2" path="res://assets/ui/pause_menu_panel_style.tres" id="6_kcxqm"]
 [ext_resource type="PackedScene" uid="uid://d3mfhp6ihfcwc" path="res://src/ui/menus/combos/combo_list.tscn" id="6_ww1cn"]
 
 [node name="PauseMenu" type="Control"]

@@ -124,8 +124,13 @@ func _end_game(end_condition: EndConditions) -> void:
 		EndConditions.TIMEOUT:
 			_hud_ref.display_end_message_time()
 			Global.set_end_message(Global.END_MESSAGE_TIMEOUT)
+	# store the final score
+	var final_score: int = ScoreManager.calculate_total_score()
+	Global.set_final_score(final_score)
+	# if the score is at or above the excellent treshold, change the score screen message
+	if final_score >= Global.EXCELLENT_SCORE_THRESHOLD:
+		Global.set_end_message(Global.END_MESSAGE_EXCELLENT_SCORE)
 	
-	Global.set_final_score(ScoreManager.calculate_total_score())
 	# wait for end message duration
 	await get_tree().create_timer(END_MESSAGE_DURATION).timeout
 	# then play fade out transition
