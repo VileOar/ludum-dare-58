@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_2g2d2"]
 [ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="1_krqix"]
 [ext_resource type="Script" uid="uid://cl1gu8tqjw6jr" path="res://src/ui/menus/how_to_play/how_to_play.gd" id="1_uum3a"]
-[ext_resource type="PackedScene" uid="uid://bt8bwq7svsmow" path="res://src/ui/menus/combos/Combos.tscn" id="2_ar6ll"]
+[ext_resource type="PackedScene" uid="uid://bt8bwq7svsmow" path="res://src/ui/menus/combos/combos.tscn" id="2_ar6ll"]
 [ext_resource type="Texture2D" uid="uid://cyb6f61mrfr78" path="res://assets/gfx/entities/boombox.png" id="2_uum3a"]
 [ext_resource type="Texture2D" uid="uid://bmdl0rikfovr6" path="res://assets/ui/keyboard_mouse/keyboard_arrow_down_outline.png" id="6_ceglv"]
 [ext_resource type="Texture2D" uid="uid://byyq3q2aeypwf" path="res://assets/ui/keyboard_mouse/keyboard_arrow_left_outline.png" id="7_1cpqm"]
@@ -92,7 +92,15 @@ script = ExtResource("1_uum3a")
 metadata/_edit_vertical_guides_ = [1820.0, 99.0]
 metadata/_edit_horizontal_guides_ = [981.0, 874.0]
 
-[node name="Title" type="Label" parent="."]
+[node name="HowToPlayContent" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HowToPlayContent"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 4.375
@@ -106,15 +114,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 144
 text = "How to Play"
 
-[node name="HowToPlayInfo" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HowToPlayContainer" type="HBoxContainer" parent="HowToPlayInfo"]
+[node name="HowToPlayInfo" type="HBoxContainer" parent="HowToPlayContent"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,22 +129,22 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Controls" type="VBoxContainer" parent="HowToPlayInfo/HowToPlayContainer"]
+[node name="Controls" type="VBoxContainer" parent="HowToPlayContent/HowToPlayInfo"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 
-[node name="Subtitle" type="Label" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="Subtitle" type="Label" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 72
 text = "Controls"
 
-[node name="HSeparator" type="HSeparator" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="HSeparator" type="HSeparator" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="ControlsLabel" type="RichTextLabel" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="ControlsLabel" type="RichTextLabel" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
@@ -156,11 +156,11 @@ text = "Move the [color=#1d2b53]Mouse[/color]    to reveal colours.
 fit_content = true
 autowrap_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="HSeparator2" type="HSeparator" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/separation = 180
 
-[node name="ControlsLabel2" type="RichTextLabel" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="ControlsLabel2" type="RichTextLabel" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
@@ -170,11 +170,11 @@ text = "[color=#1d2b53]Click[/color] the         to change the song!"
 fit_content = true
 autowrap_mode = 2
 
-[node name="HSeparator3" type="HSeparator" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="HSeparator3" type="HSeparator" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/separation = 49
 
-[node name="ControlsLabel3" type="RichTextLabel" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="ControlsLabel3" type="RichTextLabel" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 layout_mode = 2
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
@@ -184,48 +184,48 @@ text = "Press [color=#1d2b53]Escape[/color]    to pause the game."
 fit_content = true
 autowrap_mode = 2
 
-[node name="MouseLeft" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="MouseLeft" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 position = Vector2(432, 188.5)
 texture = ExtResource("15_of4ip")
 
-[node name="MouseMove" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="MouseMove" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 position = Vector2(288, 105)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("16_u2ek7")
 
-[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 position = Vector2(428, 328.5)
 texture = ExtResource("9_jgwbd")
 
-[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls/KeyboardArrowUpOutline"]
+[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls/KeyboardArrowUpOutline"]
 position = Vector2(0, 47)
 texture = ExtResource("6_ceglv")
 
-[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls/KeyboardArrowUpOutline"]
+[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls/KeyboardArrowUpOutline"]
 position = Vector2(-48, 47)
 texture = ExtResource("7_1cpqm")
 
-[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls/KeyboardArrowUpOutline"]
+[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls/KeyboardArrowUpOutline"]
 position = Vector2(48, 47)
 texture = ExtResource("8_ge457")
 
-[node name="KeyboardWOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="KeyboardWOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 position = Vector2(171, 328.5)
 texture = ExtResource("13_t4yr3")
 
-[node name="KeyboardAOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls/KeyboardWOutline"]
+[node name="KeyboardAOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls/KeyboardWOutline"]
 position = Vector2(-48, 47)
 texture = ExtResource("10_30iga")
 
-[node name="KeyboardDOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls/KeyboardWOutline"]
+[node name="KeyboardDOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls/KeyboardWOutline"]
 position = Vector2(48, 47)
 texture = ExtResource("11_k2chu")
 
-[node name="KeyboardSOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls/KeyboardWOutline"]
+[node name="KeyboardSOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls/KeyboardWOutline"]
 position = Vector2(0, 47)
 texture = ExtResource("12_4lls8")
 
-[node name="BoomBox" type="AnimatedSprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="BoomBox" type="AnimatedSprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 position = Vector2(245, 496.5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_s6hfj")
@@ -234,30 +234,30 @@ autoplay = "boomin"
 frame = 3
 frame_progress = 1.0
 
-[node name="KeyboardEscapeOutline" type="Sprite2D" parent="HowToPlayInfo/HowToPlayContainer/Controls"]
+[node name="KeyboardEscapeOutline" type="Sprite2D" parent="HowToPlayContent/HowToPlayInfo/Controls"]
 position = Vector2(254, 590.5)
 texture = ExtResource("14_5hkv7")
 
-[node name="VSeparator" type="VSeparator" parent="HowToPlayInfo/HowToPlayContainer"]
+[node name="VSeparator" type="VSeparator" parent="HowToPlayContent/HowToPlayInfo"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlayInfo/HowToPlayContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlayContent/HowToPlayInfo"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 
-[node name="Subtitle" type="Label" parent="HowToPlayInfo/HowToPlayContainer/VBoxContainer"]
+[node name="Subtitle" type="Label" parent="HowToPlayContent/HowToPlayInfo/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 0
 theme_override_font_sizes/font_size = 72
 text = "Objectives"
 
-[node name="HSeparator" type="HSeparator" parent="HowToPlayInfo/HowToPlayContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HowToPlayContent/HowToPlayInfo/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Objective" type="RichTextLabel" parent="HowToPlayInfo/HowToPlayContainer/VBoxContainer"]
+[node name="Objective" type="RichTextLabel" parent="HowToPlayContent/HowToPlayInfo/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
@@ -270,16 +270,16 @@ Try to beat the [color=#1d2b53]target score[/color] and make [color=#1d2b53]Deat
 fit_content = true
 autowrap_mode = 2
 
-[node name="VSeparator2" type="VSeparator" parent="HowToPlayInfo/HowToPlayContainer"]
+[node name="VSeparator2" type="VSeparator" parent="HowToPlayContent/HowToPlayInfo"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="CheckOutCombos" type="VBoxContainer" parent="HowToPlayInfo/HowToPlayContainer"]
+[node name="CheckOutCombos" type="VBoxContainer" parent="HowToPlayContent/HowToPlayInfo"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="ComboButton" type="RichTextLabel" parent="HowToPlayInfo/HowToPlayContainer/CheckOutCombos"]
+[node name="ComboButton" type="RichTextLabel" parent="HowToPlayContent/HowToPlayInfo/CheckOutCombos"]
 layout_mode = 2
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("1_krqix")
@@ -290,7 +290,7 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="TriangleLeft" type="AnimatedSprite2D" parent="HowToPlayInfo/HowToPlayContainer/CheckOutCombos"]
+[node name="TriangleLeft" type="AnimatedSprite2D" parent="HowToPlayContent/HowToPlayInfo/CheckOutCombos"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 position = Vector2(-22, 312)
 rotation = 3.1415927
@@ -299,7 +299,7 @@ sprite_frames = ExtResource("7_ar6ll")
 animation = &"unique_loop"
 autoplay = "unique_loop"
 
-[node name="TriangleRight" type="AnimatedSprite2D" parent="HowToPlayInfo/HowToPlayContainer/CheckOutCombos"]
+[node name="TriangleRight" type="AnimatedSprite2D" parent="HowToPlayContent/HowToPlayInfo/CheckOutCombos"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 position = Vector2(258, 312)
 scale = Vector2(2, 2)
@@ -307,11 +307,15 @@ sprite_frames = ExtResource("7_ar6ll")
 animation = &"unique_loop"
 autoplay = "unique_loop"
 
-[node name="CombosBtn" type="Button" parent="HowToPlayInfo/HowToPlayContainer/CheckOutCombos"]
+[node name="CombosBtn" type="Button" parent="HowToPlayContent/HowToPlayInfo/CheckOutCombos"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 72
 text = "Combos"
 flat = true
+
+[node name="Combos" parent="." instance=ExtResource("2_ar6ll")]
+visible = false
+layout_mode = 1
 
 [node name="HowToPlayReturn" type="Button" parent="."]
 layout_mode = 1
@@ -326,9 +330,5 @@ theme_override_font_sizes/font_size = 72
 text = "Return"
 flat = true
 
-[node name="Combos" parent="." instance=ExtResource("2_ar6ll")]
-visible = false
-layout_mode = 1
-
-[connection signal="mouse_entered" from="HowToPlayInfo/HowToPlayContainer/CheckOutCombos/CombosBtn" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="HowToPlayInfo/HowToPlayContainer/CheckOutCombos/CombosBtn" to="." method="_on_combos_btn_pressed"]
+[connection signal="mouse_entered" from="HowToPlayContent/HowToPlayInfo/CheckOutCombos/CombosBtn" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="HowToPlayContent/HowToPlayInfo/CheckOutCombos/CombosBtn" to="." method="_on_combos_btn_pressed"]

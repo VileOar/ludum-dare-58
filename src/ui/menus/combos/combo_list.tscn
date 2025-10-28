@@ -1,24 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt8bwq7svsmow"]
+[gd_scene load_steps=15 format=3 uid="uid://d3mfhp6ihfcwc"]
 
-[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_7r1av"]
-[ext_resource type="Script" uid="uid://3byqc0ox5orh" path="res://src/ui/menus/combos/combos.gd" id="2_qrfkv"]
-[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="3_101c3"]
-[ext_resource type="SpriteFrames" uid="uid://dntarescsau6g" path="res://assets/spriteframes/triangle_frames.tres" id="4_sgd0q"]
-[ext_resource type="Texture2D" uid="uid://bvdjwvlprjemr" path="res://assets/gfx/name_dex/triangle_icon.png" id="5_g46se"]
-[ext_resource type="Shader" uid="uid://52oqfdc7rt6o" path="res://assets/shaders/aura.gdshader" id="6_fr3ve"]
-[ext_resource type="Texture2D" uid="uid://chtyvf3fdmgx2" path="res://assets/shaders/aura_noise.tres" id="7_vtvqo"]
-[ext_resource type="Texture2D" uid="uid://4fh3yucmvq34" path="res://assets/shaders/textures/circle_fade.jpg" id="8_b54e7"]
-[ext_resource type="Texture2D" uid="uid://2nxfpkfatuoc" path="res://assets/gfx/name_dex/square_icon.png" id="9_b3nc6"]
-[ext_resource type="Texture2D" uid="uid://cbqpmwtvv6i2l" path="res://assets/gfx/name_dex/circle_icon.png" id="10_dqti5"]
-[ext_resource type="Texture2D" uid="uid://btmruwtfctd0n" path="res://assets/gfx/name_dex/lozenge_icon.png" id="11_rc1sj"]
-[ext_resource type="Texture2D" uid="uid://d2nso2upgadlq" path="res://assets/ui/how_to_play/pt_flag.png" id="12_lnnio"]
+[ext_resource type="Theme" uid="uid://c6d1evfkgvd7w" path="res://assets/ui/base_theme.tres" id="1_q6438"]
+[ext_resource type="Script" uid="uid://dgyw1il6qa2p4" path="res://src/ui/menus/combos/combo_list.gd" id="2_ppv2w"]
+[ext_resource type="FontFile" uid="uid://5fjm8mmidiqd" path="res://assets/ui/fonts/november.ttf" id="3_k1gjd"]
+[ext_resource type="Texture2D" uid="uid://bvdjwvlprjemr" path="res://assets/gfx/name_dex/triangle_icon.png" id="5_68u48"]
+[ext_resource type="Shader" uid="uid://52oqfdc7rt6o" path="res://assets/shaders/aura.gdshader" id="6_vhayo"]
+[ext_resource type="Texture2D" uid="uid://chtyvf3fdmgx2" path="res://assets/shaders/aura_noise.tres" id="7_7a8q3"]
+[ext_resource type="Texture2D" uid="uid://4fh3yucmvq34" path="res://assets/shaders/textures/circle_fade.jpg" id="8_ucx2c"]
+[ext_resource type="Texture2D" uid="uid://2nxfpkfatuoc" path="res://assets/gfx/name_dex/square_icon.png" id="9_voakk"]
+[ext_resource type="Texture2D" uid="uid://cbqpmwtvv6i2l" path="res://assets/gfx/name_dex/circle_icon.png" id="10_mtwoi"]
+[ext_resource type="Texture2D" uid="uid://btmruwtfctd0n" path="res://assets/gfx/name_dex/lozenge_icon.png" id="11_dp60x"]
+[ext_resource type="Texture2D" uid="uid://d2nso2upgadlq" path="res://assets/ui/how_to_play/pt_flag.png" id="12_3vbrq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h6yo"]
 bg_color = Color(0.5137255, 0.4627451, 0.6117647, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axrav"]
-shader = ExtResource("6_fr3ve")
-shader_parameter/n = ExtResource("7_vtvqo")
+shader = ExtResource("6_vhayo")
+shader_parameter/n = ExtResource("7_7a8q3")
 shader_parameter/intensity = 7.0
 shader_parameter/speed = 2.0
 shader_parameter/color = Color(0.88235295, 0.33333334, 0.92941177, 1)
@@ -28,8 +27,8 @@ shader_parameter/mouse_position = Vector2(0, 0)
 shader_parameter/screen_resolution = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6bdwd"]
-shader = ExtResource("6_fr3ve")
-shader_parameter/n = ExtResource("7_vtvqo")
+shader = ExtResource("6_vhayo")
+shader_parameter/n = ExtResource("7_7a8q3")
 shader_parameter/intensity = 7.0
 shader_parameter/speed = 2.0
 shader_parameter/color = Color(0.9529412, 0.9372549, 0.49019608, 1)
@@ -38,15 +37,15 @@ shader_parameter/circle_smooth_width = 50.0
 shader_parameter/mouse_position = Vector2(0, 0)
 shader_parameter/screen_resolution = Vector2(0, 0)
 
-[node name="Combos" type="Panel"]
+[node name="ComboList" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7r1av")
+theme = ExtResource("1_q6438")
 theme_override_styles/panel = SubResource("StyleBoxFlat_6h6yo")
-script = ExtResource("2_qrfkv")
+script = ExtResource("2_ppv2w")
 metadata/_edit_vertical_guides_ = [101.0, 1820.0]
 metadata/_edit_horizontal_guides_ = [264.0, 875.0]
 
@@ -77,46 +76,7 @@ offset_right = -88.0
 offset_bottom = -206.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="CheckOutHowToPlay" type="VBoxContainer" parent="Content"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
 alignment = 1
-
-[node name="HowToPlayLbl" type="RichTextLabel" parent="Content/CheckOutHowToPlay"]
-layout_mode = 2
-theme_override_constants/line_separation = 10
-theme_override_fonts/normal_font = ExtResource("3_101c3")
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
-text = "Back to"
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="TriangleLeft" type="AnimatedSprite2D" parent="Content/CheckOutHowToPlay"]
-modulate = Color(0.16078432, 0.6784314, 1, 1)
-position = Vector2(-22, 312)
-rotation = 3.1415927
-scale = Vector2(2, -2)
-sprite_frames = ExtResource("4_sgd0q")
-animation = &"unique_loop"
-autoplay = "unique_loop"
-
-[node name="TriangleRight" type="AnimatedSprite2D" parent="Content/CheckOutHowToPlay"]
-modulate = Color(0.16078432, 0.6784314, 1, 1)
-position = Vector2(258, 312)
-scale = Vector2(2, 2)
-sprite_frames = ExtResource("4_sgd0q")
-animation = &"unique_loop"
-autoplay = "unique_loop"
-
-[node name="HowToPlayBtn" type="Button" parent="Content/CheckOutHowToPlay"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "How to
-Play"
-flat = true
 
 [node name="VSeparator" type="VSeparator" parent="Content"]
 layout_mode = 2
@@ -132,7 +92,7 @@ theme_override_constants/separation = 15
 
 [node name="CombosInfo1" type="RichTextLabel" parent="Content/CombosInfo1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "Normal"
 fit_content = true
@@ -145,7 +105,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo2" type="RichTextLabel" parent="Content/CombosInfo1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "[color=purple]Rare[/color]"
 fit_content = true
@@ -158,7 +118,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo3" type="RichTextLabel" parent="Content/CombosInfo1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "[color=f3ef7d]Legendary[/color]"
 fit_content = true
@@ -171,7 +131,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo4" type="RichTextLabel" parent="Content/CombosInfo1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "All 4 shapes"
 fit_content = true
@@ -198,7 +158,7 @@ offset_left = -176.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "All 4 shapes [color=#49333b]same colour[/color]"
 fit_content = true
@@ -225,7 +185,7 @@ offset_left = -176.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "5 mooks of [color=ffa300]warm[/color] colours"
 fit_content = true
@@ -252,7 +212,7 @@ offset_left = -247.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "5 mooks of [color=ffa300]warm[/color] colours [color=#49333b]same shape[/color]"
 fit_content = true
@@ -279,7 +239,7 @@ offset_left = -175.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "5 mooks of [color=29adff]cool[/color] colours"
 fit_content = true
@@ -306,7 +266,7 @@ offset_left = -247.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "5 mooks of [color=29adff]cool[/color] colours [color=#49333b]same shape[/color]"
 fit_content = true
@@ -323,7 +283,7 @@ theme_override_constants/separation = 15
 
 [node name="CombosInfo5" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "+10"
 fit_content = true
@@ -336,7 +296,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo6" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "+20"
 fit_content = true
@@ -349,7 +309,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo7" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "+30"
 fit_content = true
@@ -362,7 +322,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo8" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2"
 fit_content = true
@@ -375,7 +335,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo9" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x3"
 fit_content = true
@@ -388,7 +348,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo10" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2.4"
 fit_content = true
@@ -401,7 +361,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo11" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2.8"
 fit_content = true
@@ -414,7 +374,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo12" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2.4"
 fit_content = true
@@ -427,7 +387,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo13" type="RichTextLabel" parent="Content/ComboPoints1"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2.8"
 fit_content = true
@@ -444,14 +404,14 @@ size_flags_vertical = 0
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="Rare" type="TextureRect" parent="Content/ComboExamples1"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="AuraRare" type="TextureRect" parent="Content/ComboExamples1/Rare"]
@@ -463,14 +423,14 @@ offset_top = -32.0
 offset_right = 224.0
 offset_bottom = 224.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_b54e7")
+texture = ExtResource("8_ucx2c")
 stretch_mode = 4
 
 [node name="Legendary" type="TextureRect" parent="Content/ComboExamples1"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="AuraLegendary" type="TextureRect" parent="Content/ComboExamples1/Legendary"]
@@ -482,7 +442,7 @@ offset_top = -32.0
 offset_right = 224.0
 offset_bottom = 224.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_b54e7")
+texture = ExtResource("8_ucx2c")
 stretch_mode = 4
 
 [node name="AllShapes" type="HBoxContainer" parent="Content/ComboExamples1"]
@@ -493,21 +453,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="4Shapes2" type="TextureRect" parent="Content/ComboExamples1/AllShapes"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("9_b3nc6")
+texture = ExtResource("9_voakk")
 stretch_mode = 4
 
 [node name="4Shapes3" type="TextureRect" parent="Content/ComboExamples1/AllShapes"]
 modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="4Shapes4" type="TextureRect" parent="Content/ComboExamples1/AllShapes"]
@@ -515,7 +475,7 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="AllShapesSC" type="HBoxContainer" parent="Content/ComboExamples1"]
@@ -526,21 +486,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="4Shapes2" type="TextureRect" parent="Content/ComboExamples1/AllShapesSC"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("9_b3nc6")
+texture = ExtResource("9_voakk")
 stretch_mode = 4
 
 [node name="4Shapes3" type="TextureRect" parent="Content/ComboExamples1/AllShapesSC"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="4Shapes4" type="TextureRect" parent="Content/ComboExamples1/AllShapesSC"]
@@ -548,7 +508,7 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="5HotColours" type="HBoxContainer" parent="Content/ComboExamples1"]
@@ -559,21 +519,21 @@ modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours2" type="TextureRect" parent="Content/ComboExamples1/5HotColours"]
 modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("9_b3nc6")
+texture = ExtResource("9_voakk")
 stretch_mode = 4
 
 [node name="5Colours3" type="TextureRect" parent="Content/ComboExamples1/5HotColours"]
 modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="5Colours4" type="TextureRect" parent="Content/ComboExamples1/5HotColours"]
@@ -581,14 +541,14 @@ modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="5Colours5" type="TextureRect" parent="Content/ComboExamples1/5HotColours"]
 modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="5HotColoursSS" type="HBoxContainer" parent="Content/ComboExamples1"]
@@ -599,21 +559,21 @@ modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours2" type="TextureRect" parent="Content/ComboExamples1/5HotColoursSS"]
 modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours3" type="TextureRect" parent="Content/ComboExamples1/5HotColoursSS"]
 modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours4" type="TextureRect" parent="Content/ComboExamples1/5HotColoursSS"]
@@ -621,14 +581,14 @@ modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours5" type="TextureRect" parent="Content/ComboExamples1/5HotColoursSS"]
 modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5ColdColours" type="HBoxContainer" parent="Content/ComboExamples1"]
@@ -639,21 +599,21 @@ modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours2" type="TextureRect" parent="Content/ComboExamples1/5ColdColours"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("9_b3nc6")
+texture = ExtResource("9_voakk")
 stretch_mode = 4
 
 [node name="5Colours3" type="TextureRect" parent="Content/ComboExamples1/5ColdColours"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="5Colours4" type="TextureRect" parent="Content/ComboExamples1/5ColdColours"]
@@ -661,14 +621,14 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="5Colours5" type="TextureRect" parent="Content/ComboExamples1/5ColdColours"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="5ColdColoursSS" type="HBoxContainer" parent="Content/ComboExamples1"]
@@ -679,21 +639,21 @@ modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours2" type="TextureRect" parent="Content/ComboExamples1/5ColdColoursSS"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours3" type="TextureRect" parent="Content/ComboExamples1/5ColdColoursSS"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours4" type="TextureRect" parent="Content/ComboExamples1/5ColdColoursSS"]
@@ -701,14 +661,14 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="5Colours5" type="TextureRect" parent="Content/ComboExamples1/5ColdColoursSS"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="VSeparator2" type="VSeparator" parent="Content"]
@@ -739,7 +699,7 @@ offset_left = -188.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "6 mooks of [color=#1d2b53]pointy[/color] shapes"
 fit_content = true
@@ -766,7 +726,7 @@ offset_left = -246.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "6 mooks of [color=#1d2b53]pointy[/color] shapes [color=#49333b]same colour[/color]"
 fit_content = true
@@ -779,7 +739,7 @@ theme_override_constants/separation = 23
 
 [node name="CombosInfo4" type="RichTextLabel" parent="Content/CombosInfo2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "All 6 colours"
 fit_content = true
@@ -806,7 +766,7 @@ offset_left = -188.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "All 6 colours [color=#1d2b53]ordered[/color]"
 fit_content = true
@@ -833,7 +793,7 @@ offset_left = -187.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "All 6 colours [color=#49333b]same shape[/color]"
 fit_content = true
@@ -860,7 +820,7 @@ offset_left = -247.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "All 6 colours [color=#1d2b53]ordered[/color] [color=#49333b]same shape[/color]"
 fit_content = true
@@ -887,7 +847,7 @@ offset_left = -188.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "Secret colour sequence"
 fit_content = true
@@ -914,7 +874,7 @@ offset_left = -261.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "Secret colour sequence [color=#49333b]same shape[/color]"
 fit_content = true
@@ -941,7 +901,7 @@ offset_left = -236.0
 offset_top = -25.0
 offset_right = -2.0
 offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "Secret colour [color=#1d2b53]AND[/color] shape sequence"
 fit_content = true
@@ -958,7 +918,7 @@ theme_override_constants/separation = 15
 
 [node name="CombosInfo5" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2"
 fit_content = true
@@ -971,7 +931,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo6" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2.5"
 fit_content = true
@@ -984,7 +944,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo7" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x2"
 fit_content = true
@@ -997,7 +957,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo8" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x4"
 fit_content = true
@@ -1010,7 +970,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo9" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x3.5"
 fit_content = true
@@ -1023,7 +983,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo10" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x7"
 fit_content = true
@@ -1036,7 +996,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo11" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x4"
 fit_content = true
@@ -1049,7 +1009,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo12" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x7"
 fit_content = true
@@ -1062,7 +1022,7 @@ theme_override_constants/separation = 36
 
 [node name="CombosInfo13" type="RichTextLabel" parent="Content/ComboPoints2"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_101c3")
+theme_override_fonts/normal_font = ExtResource("3_k1gjd")
 bbcode_enabled = true
 text = "x9"
 fit_content = true
@@ -1081,21 +1041,21 @@ modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Pointy2" type="TextureRect" parent="Content/ComboExamples2/6Pointy"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Pointy3" type="TextureRect" parent="Content/ComboExamples2/6Pointy"]
 modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Pointy4" type="TextureRect" parent="Content/ComboExamples2/6Pointy"]
@@ -1103,21 +1063,21 @@ modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Pointy5" type="TextureRect" parent="Content/ComboExamples2/6Pointy"]
 modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Pointy6" type="TextureRect" parent="Content/ComboExamples2/6Pointy"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6PointySC" type="HBoxContainer" parent="Content/ComboExamples2"]
@@ -1128,21 +1088,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Pointy2" type="TextureRect" parent="Content/ComboExamples2/6PointySC"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Pointy3" type="TextureRect" parent="Content/ComboExamples2/6PointySC"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Pointy4" type="TextureRect" parent="Content/ComboExamples2/6PointySC"]
@@ -1150,21 +1110,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Pointy5" type="TextureRect" parent="Content/ComboExamples2/6PointySC"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Pointy6" type="TextureRect" parent="Content/ComboExamples2/6PointySC"]
 modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="AllColours" type="HBoxContainer" parent="Content/ComboExamples2"]
@@ -1175,21 +1135,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours2" type="TextureRect" parent="Content/ComboExamples2/AllColours"]
 modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("9_b3nc6")
+texture = ExtResource("9_voakk")
 stretch_mode = 4
 
 [node name="6Colours3" type="TextureRect" parent="Content/ComboExamples2/AllColours"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours4" type="TextureRect" parent="Content/ComboExamples2/AllColours"]
@@ -1197,21 +1157,21 @@ modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="6Colours5" type="TextureRect" parent="Content/ComboExamples2/AllColours"]
 modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Colours6" type="TextureRect" parent="Content/ComboExamples2/AllColours"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="AllColoursIO" type="HBoxContainer" parent="Content/ComboExamples2"]
@@ -1222,21 +1182,21 @@ modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours2" type="TextureRect" parent="Content/ComboExamples2/AllColoursIO"]
 modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("9_b3nc6")
+texture = ExtResource("9_voakk")
 stretch_mode = 4
 
 [node name="6Colours3" type="TextureRect" parent="Content/ComboExamples2/AllColoursIO"]
 modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours4" type="TextureRect" parent="Content/ComboExamples2/AllColoursIO"]
@@ -1244,21 +1204,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("10_dqti5")
+texture = ExtResource("10_mtwoi")
 stretch_mode = 4
 
 [node name="6Colours5" type="TextureRect" parent="Content/ComboExamples2/AllColoursIO"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("11_rc1sj")
+texture = ExtResource("11_dp60x")
 stretch_mode = 4
 
 [node name="6Colours6" type="TextureRect" parent="Content/ComboExamples2/AllColoursIO"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="AllColoursSS" type="HBoxContainer" parent="Content/ComboExamples2"]
@@ -1269,21 +1229,21 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours2" type="TextureRect" parent="Content/ComboExamples2/AllColoursSS"]
 modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours3" type="TextureRect" parent="Content/ComboExamples2/AllColoursSS"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours4" type="TextureRect" parent="Content/ComboExamples2/AllColoursSS"]
@@ -1291,21 +1251,21 @@ modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours5" type="TextureRect" parent="Content/ComboExamples2/AllColoursSS"]
 modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours6" type="TextureRect" parent="Content/ComboExamples2/AllColoursSS"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="AllColoursSSIO" type="HBoxContainer" parent="Content/ComboExamples2"]
@@ -1316,21 +1276,21 @@ modulate = Color(1, 0, 0.3019608, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours2" type="TextureRect" parent="Content/ComboExamples2/AllColoursSSIO"]
 modulate = Color(1, 0.6392157, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours3" type="TextureRect" parent="Content/ComboExamples2/AllColoursSSIO"]
 modulate = Color(1, 0.9254902, 0.15294118, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours4" type="TextureRect" parent="Content/ComboExamples2/AllColoursSSIO"]
@@ -1338,40 +1298,53 @@ modulate = Color(0, 0.89411765, 0.21176471, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours5" type="TextureRect" parent="Content/ComboExamples2/AllColoursSSIO"]
 modulate = Color(0.16078432, 0.6784314, 1, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="6Colours6" type="TextureRect" parent="Content/ComboExamples2/AllColoursSSIO"]
 modulate = Color(1, 0.46666667, 0.65882355, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("5_g46se")
+texture = ExtResource("5_68u48")
 stretch_mode = 4
 
 [node name="SecretCombo" type="TextureRect" parent="Content/ComboExamples2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("12_lnnio")
+texture = ExtResource("12_3vbrq")
 stretch_mode = 4
 
 [node name="SecretCombo2" type="TextureRect" parent="Content/ComboExamples2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("12_lnnio")
+texture = ExtResource("12_3vbrq")
 stretch_mode = 4
 
 [node name="SecretCombo3" type="TextureRect" parent="Content/ComboExamples2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("12_lnnio")
+texture = ExtResource("12_3vbrq")
 stretch_mode = 4
 
-[connection signal="mouse_entered" from="Content/CheckOutHowToPlay/HowToPlayBtn" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Content/CheckOutHowToPlay/HowToPlayBtn" to="." method="_on_how_to_play_btn_pressed"]
+[node name="ComboListReturn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 22.875002
+anchor_bottom = 22.875002
+offset_left = 835.0
+offset_top = -23795.002
+offset_right = 1086.0
+offset_bottom = -23688.002
+theme_override_font_sizes/font_size = 72
+text = "Return"
+flat = true
+
+[connection signal="mouse_entered" from="ComboListReturn" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="ComboListReturn" to="." method="_on_return_pressed"]

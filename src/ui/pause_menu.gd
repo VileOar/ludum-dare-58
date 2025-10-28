@@ -1,14 +1,8 @@
 class_name PauseMenu
 extends Control
 
-@onready var combos_menu: Control = $CombosMenu
-
 signal on_resume
 signal on_quit
-
-func _ready() -> void:
-	#combos_menu.combos_returned.connect()
-	pass
 
 func _on_resume_pressed() -> void:
 	_play_click_sfx()
@@ -16,7 +10,7 @@ func _on_resume_pressed() -> void:
 
 func _on_combos_pressed() -> void:
 	_play_click_sfx()
-	combos_menu.show()
+	$ComboList.show()
 
 func _on_soul_dex_pressed() -> void:
 	_play_click_sfx()
@@ -31,9 +25,11 @@ func _on_quit_pressed() -> void:
 	Global.deferred_change_scene(Global.TITLE_SCENE_FILEPATH)
 
 func can_be_closed() -> bool:
-	if $OptionsMenu.visible:
+	if $ComboList.visible:
 		return false
 	if $DexMenu.visible:
+		return false
+	if $OptionsMenu.visible:
 		return false
 	return true
 
