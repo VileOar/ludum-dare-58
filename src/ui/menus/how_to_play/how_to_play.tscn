@@ -291,7 +291,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="TriangleLeft" type="AnimatedSprite2D" parent="HowToPlayInfo/HowToPlayContainer/CheckOutCombos"]
-modulate = Color(0.16078432, 0.6784314, 1, 1)
+modulate = Color(0, 0.89411765, 0.21176471, 1)
 position = Vector2(-22, 312)
 rotation = 3.1415927
 scale = Vector2(2, -2)
@@ -300,7 +300,7 @@ animation = &"unique_loop"
 autoplay = "unique_loop"
 
 [node name="TriangleRight" type="AnimatedSprite2D" parent="HowToPlayInfo/HowToPlayContainer/CheckOutCombos"]
-modulate = Color(0.16078432, 0.6784314, 1, 1)
+modulate = Color(0, 0.89411765, 0.21176471, 1)
 position = Vector2(258, 312)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("7_ar6ll")

@@ -58,8 +58,8 @@ enum Combos {
 	SIX_MOOKS_TRI_LOZ_SHAPES_SAME_COLOUR,
 	SIX_MOOKS_TRI_LOZ_SHAPES_ANY_COLOUR,
 	ALL_COLOURS_ANY_SHAPE,
-	PORTUGAL_COLOURS_SAME_SHAPE,
 	PORTUGAL_COLOURS_SSCSSS_SHAPES,
+	PORTUGAL_COLOURS_SAME_SHAPE,
 	PORTUGAL_COLOURS_ANY_SHAPE
 }
 
@@ -260,19 +260,10 @@ func _ready() -> void:
 	current_rule.set_bonus(2, BonusTypes.MULTIPLIER)
 	current_rule.require_unique_colours()
 	
-	# PORTUGAL_COLOURS_SAME_SHAPE
-	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_SAME_SHAPE]
-	current_rule.set_combo_length(6)
-	current_rule.set_bonus(6.5, BonusTypes.MULTIPLIER)
-	current_rule.require_same_shape()
-	current_rule.require_colour_sequence(
-		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
-		)
-	
 	# PORTUGAL_COLOURS_SSCSSS_SHAPES
 	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_SSCSSS_SHAPES]
 	current_rule.set_combo_length(6)
-	current_rule.set_bonus(5.5, BonusTypes.MULTIPLIER)
+	current_rule.set_bonus(9, BonusTypes.MULTIPLIER)
 	current_rule.require_colour_sequence(
 		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
 		)
@@ -280,10 +271,19 @@ func _ready() -> void:
 		[Shapes.BLOCKY, Shapes.BLOCKY, Shapes.CHUBBY, Shapes.BLOCKY, Shapes.BLOCKY, Shapes.BLOCKY]
 		)
 	
+	# PORTUGAL_COLOURS_SAME_SHAPE
+	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_SAME_SHAPE]
+	current_rule.set_combo_length(6)
+	current_rule.set_bonus(7, BonusTypes.MULTIPLIER)
+	current_rule.require_same_shape()
+	current_rule.require_colour_sequence(
+		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
+		)
+	
 	# PORTUGAL_COLOURS_ANY_SHAPE
 	current_rule = combo_rules[Combos.PORTUGAL_COLOURS_ANY_SHAPE]
 	current_rule.set_combo_length(6)
-	current_rule.set_bonus(3.5, BonusTypes.MULTIPLIER)
+	current_rule.set_bonus(4, BonusTypes.MULTIPLIER)
 	current_rule.require_colour_sequence(
 		[Colours.GREEN, Colours.GREEN, Colours.YELLOW, Colours.RED, Colours.RED, Colours.RED]
 		)
